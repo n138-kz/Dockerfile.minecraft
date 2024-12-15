@@ -1,0 +1,58 @@
+services:
+  minecraft-rcon:
+    container_name: minecraft-rcon
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: Asia/Tokyo
+      LANG: "C"
+      LANGUAGE: "C"
+      LC_ALL: "C"
+    
+    restart: on-failure
+    build: 
+      context: build_container_rcon/
+    tty: true
+    tmpfs:
+      - /run
+      - /tmp
+    logging: 
+      driver: json-file
+      options:
+        max-size: "1024k"
+        max-file: "10"
+  minecraft-core:
+    container_name: minecraft-core
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: Asia/Tokyo
+      LANG: "C"
+      LANGUAGE: "C"
+      LC_ALL: "C"
+      
+    build: 
+      context: build_container_core/
+      args:
+        - minecraft_server_jar_url=${minecraft_server_jar_url}
+        - minecraft_server_version=${minecraft_server_version}
+    restart: on-failure
+    ports:
+      - 25565:25565
+      - 25575:25575
+    tty: true
+    tmpfs:
+      - /run
+      - /tmp
+    volumes:
+      - type: volume
+        source: minecraft-core
+        target: /var/minecraft
+    logging: 
+      driver: json-file
+      options:
+        max-size: "1024k"
+        max-file: "10"
+volumes:
+  minecraft-logs:
+  minecraft-core:
