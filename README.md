@@ -2,7 +2,7 @@
 
 ## 概要
 
-![version:1.21.1](https://img.shields.io/badge/version-1.21.1-brightgreen)
+![version:1.21.3](https://img.shields.io/badge/version-1.21.3-brightgreen)
 
 コンテナ型仮想環境で、Java版マインクラフトサーバーを構築します。  
 使用するコンテナイメージは Docker 社が運営する公開レジストリの Docker Hub から取得します。  
@@ -45,8 +45,8 @@ cd Dockerfile/n138-kz/minecraft1.21.1/
 2. 環境変数ファイル（ファイル名： `.env` ） を作成・編集する。（詳細は公式ドキュメントを参照）
 
 ```c:.env
-minecraft_server_jar_url="https://piston-data.mojang.com/v1/objects/59353fb40c36d304f2035d51e7d6e6baa98dc05c/server.jar"
-minecraft_server_version="1.21.1"
+minecraft_server_jar_url="https://piston-data.mojang.com/v1/objects/45810d238246d90e811d896f87b14695b7fb6839/server.jar"
+minecraft_server_version="1.21.3"
 ```
 
 3. 必要に応じて、個別設定を [Dockerfile ファイル](./build_container_core/Dockerfile) に記載する。
