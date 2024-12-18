@@ -1,8 +1,9 @@
 FROM almalinux:8
 USER root:root
 
-ARG minecraft_server_config_rcon_password
+ARG minecraft_server_config_rcon_host
 ARG minecraft_server_config_rcon_port
+ARG minecraft_server_config_rcon_password
 
 RUN set -x && \
     dnf update -y --security
@@ -40,7 +41,7 @@ RUN set -x && \
 
 WORKDIR /var/minecraft/
 
-ENV MCRCON_HOST minecraft-core
+ENV MCRCON_HOST ${minecraft_server_config_rcon_host}
 ENV MCRCON_PORT ${minecraft_server_config_rcon_port}
 ENV MCRCON_PASS ${minecraft_server_config_rcon_password}
 
