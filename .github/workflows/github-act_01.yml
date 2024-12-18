@@ -17,16 +17,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Pull the image: phpmyadmin
+      - name: "Pull the image: phpmyadmin/phpmyadmin"
         run: docker pull phpmyadmin/phpmyadmin
 
-      - name: Pull the image: mysql
+      - name: "Pull the image: mysql"
         run: docker pull mysql
 
-      - name: Pull the image: almalinux:8
+      - name: "Pull the image: almalinux:8"
         run: docker pull almalinux:8
 
-      - name: Pull the image: alpine
+      - name: "Pull the image: alpine"
         run: docker pull alpine
 
       - name: Build the Docker container
