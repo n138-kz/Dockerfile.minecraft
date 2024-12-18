@@ -3,6 +3,7 @@ USER root:root
 
 ARG minecraft_server_jar_url
 ARG minecraft_server_version
+ARG minecraft_server_config_servericon
 ARG minecraft_server_config_difficulty
 ARG minecraft_server_config_enable_command_block
 ARG minecraft_server_config_enable_jmx_monitoring
@@ -78,6 +79,9 @@ RUN set -x && \
 
 RUN set -x && \
     cp minecraft_server.${minecraft_server_version}.jar server.jar
+
+RUN set -x && \
+    wget ${minecraft_server_config_servericon} -O server-icon.png
 
 RUN echo '# '$(date) > eula.txt
 RUN echo 'eula=true' >> eula.txt
