@@ -33,6 +33,7 @@ ARG minecraft_server_config_max-world-size
 ARG minecraft_server_config_network-compression-threshold
 ARG minecraft_server_config_online-mode
 ARG minecraft_server_config_op-permission-level
+ARG minecraft_server_config_pause-when-empty-seconds
 ARG minecraft_server_config_rcon-password
 
 RUN set -x && \
@@ -89,6 +90,7 @@ RUN echo "max-world-size=${minecraft_server_config_max-world-size}" >> server.pr
 RUN echo "network-compression-threshold=${minecraft_server_config_network-compression-threshold}" >> server.properties
 RUN echo "online-mode=${minecraft_server_config_online-mode}" >> server.properties
 RUN echo "op-permission-level=${minecraft_server_config_op-permission-level}" >> server.properties
+RUN echo "pause-when-empty-seconds=${minecraft_server_config_pause-when-empty-seconds}" >> server.properties
 RUN echo "rcon.password=${minecraft_server_config_rcon-password}" >> server.properties
 #RUN echo 'gamemode=creative' >> server.properties
 #RUN echo 'level-type=FLAT' >> server.properties
