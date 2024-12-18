@@ -3,6 +3,7 @@ USER root:root
 
 ARG minecraft_server_jar_url
 ARG minecraft_server_version
+ARG minecraft_server_config_difficulty
 
 RUN set -x && \
     dnf update -y --security
@@ -28,7 +29,7 @@ RUN echo '# '$(date) > eula.txt
 RUN echo 'eula=true' >> eula.txt
 
 RUN echo '#Minecraft server properties' > server.properties
-RUN echo 'difficulty=normal' >> server.properties
+RUN echo "difficulty=${minecraft_server_config_difficulty}" >> server.properties
 RUN echo 'max-players=10' >> server.properties
 RUN echo 'motd=Private server' >> server.properties
 RUN echo 'enable-rcon=true' >> server.properties
