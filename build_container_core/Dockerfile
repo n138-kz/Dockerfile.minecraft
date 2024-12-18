@@ -5,6 +5,7 @@ ARG minecraft_server_jar_url
 ARG minecraft_server_version
 ARG minecraft_server_config_difficulty
 ARG minecraft_server_config_enable-command-block
+ARG minecraft_server_config_enable-jmx-monitoring
 
 RUN set -x && \
     dnf update -y --security
@@ -32,6 +33,7 @@ RUN echo 'eula=true' >> eula.txt
 RUN echo '#Minecraft server properties' > server.properties
 RUN echo "difficulty=${minecraft_server_config_difficulty}" >> server.properties
 RUN echo "enable-command-block=${minecraft_server_config_enable-command-block}" >> server.properties
+RUN echo "enable-jmx-monitoring=${minecraft_server_config_enable-jmx-monitoring}" >> server.properties
 RUN echo 'max-players=10' >> server.properties
 RUN echo 'motd=Private server' >> server.properties
 RUN echo 'enable-rcon=true' >> server.properties
