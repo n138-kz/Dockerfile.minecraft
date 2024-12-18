@@ -1,8 +1,8 @@
 FROM almalinux:8
 USER root:root
 
-ARG minecraft_server_jar_url
-ARG minecraft_server_version
+ARG minecraft_server_config_rcon_password
+ARG minecraft_server_config_rcon_port
 
 RUN set -x && \
     dnf update -y --security

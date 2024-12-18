@@ -11,6 +11,9 @@ services:
     restart: on-failure
     build:
       context: build_container_rcon/
+      args:
+        - minecraft_server_config_rcon_password=${minecraft_server_config_rcon_password:-25575password@1}
+        - minecraft_server_config_rcon_port=${minecraft_server_config_rcon_port:-25575}
     tty: true
     tmpfs:
       - /run
