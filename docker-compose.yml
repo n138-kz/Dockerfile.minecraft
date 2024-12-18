@@ -71,8 +71,8 @@ services:
         - minecraft_server_config_pvp=${minecraft_server_config_pvp:-true}
         - minecraft_server_config_query-port=${minecraft_server_config_query-port:-25565}
         - minecraft_server_config_rate-limit=${minecraft_server_config_rate-limit:-0}
+        - minecraft_server_config_rcon.port=${minecraft_server_config_rcon.port:-25575}
         - minecraft_server_config_rcon-password=${minecraft_server_config_rcon.password:-25575password@1}
-        - minecraft_server_config_rcon-port=${minecraft_server_config_rcon.port:-25575}
         - minecraft_server_config_region-file-compression=${minecraft_server_config_region-file-compression:-deflate}
         - minecraft_server_config_require-resource-pack=${minecraft_server_config_require-resource-pack:-false}
         - minecraft_server_config_resource-pack-id=${minecraft_server_config_resource-pack-id:-}
