@@ -69,7 +69,7 @@ services:
         - minecraft_server_config_player-idle-timeout=${minecraft_server_config_player-idle-timeout:-0}
         - minecraft_server_config_prevent-proxy-connections=${minecraft_server_config_prevent-proxy-connections:-false}
         - minecraft_server_config_pvp=${minecraft_server_config_pvp:-true}
-        - minecraft_server_config_query.port=${minecraft_server_config_query.port:-25565}
+        - minecraft_server_config_query-port=${minecraft_server_config_query-port:-25565}
         - minecraft_server_config_rate-limit=${minecraft_server_config_rate-limit:-0}
         - minecraft_server_config_rcon.password=${minecraft_server_config_rcon.password:-25575password@1}
         - minecraft_server_config_rcon.port=${minecraft_server_config_rcon.port:-25575}
