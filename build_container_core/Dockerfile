@@ -48,6 +48,7 @@ ARG minecraft_server_config_resource-pack-prompt
 ARG minecraft_server_config_resource-pack-sha1
 ARG minecraft_server_config_resource-pack
 ARG minecraft_server_config_server-ip
+ARG minecraft_server_config_server-port
 
 RUN set -x && \
     dnf update -y --security
@@ -118,6 +119,7 @@ RUN echo "resource-pack-prompt=${minecraft_server_config_resource-pack-prompt}" 
 RUN echo "resource-pack-sha1=${minecraft_server_config_resource-pack-sha1}" >> server.properties
 RUN echo "resource-pack=${minecraft_server_config_resource-pack}" >> server.properties
 RUN echo "server-ip=${minecraft_server_config_server-ip}" >> server.properties
+RUN echo "server-port=${minecraft_server_config_server-port}" >> server.properties
 #RUN echo 'gamemode=creative' >> server.properties
 #RUN echo 'level-type=FLAT' >> server.properties
 #RUN echo 'minecraft:bedrock,3*minecraft:stone,52*minecraft:sandstone;' > level.dat
