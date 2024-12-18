@@ -19,6 +19,7 @@ ARG minecraft_server_config_function-permission-level
 ARG minecraft_server_config_gamemode
 ARG minecraft_server_config_generate-structures
 ARG minecraft_server_config_generator-settings
+ARG minecraft_server_config_hardcore
 ARG minecraft_server_config_rcon-password
 
 RUN set -x && \
@@ -61,6 +62,7 @@ RUN echo "function-permission-level=${minecraft_server_config_function-permissio
 RUN echo "gamemode=${minecraft_server_config_gamemode}" >> server.properties
 RUN echo "generate-structures=${minecraft_server_config_generate-structures}" >> server.properties
 RUN echo "generator-settings=${minecraft_server_config_generator-settings}" >> server.properties
+RUN echo "hardcore=${minecraft_server_config_hardcore}" >> server.properties
 RUN echo "rcon.password=${minecraft_server_config_rcon-password}" >> server.properties
 #RUN echo 'gamemode=creative' >> server.properties
 #RUN echo 'level-type=FLAT' >> server.properties
