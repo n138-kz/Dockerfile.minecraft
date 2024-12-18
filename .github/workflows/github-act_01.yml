@@ -35,5 +35,8 @@ jobs:
       - name: Up check the Docker container
         run: docker compose up -d
 
+      - name: Waiting for 10s
+        run: sleep 10
+
       - name: Up check the Docker container
         run: docker compose logs
