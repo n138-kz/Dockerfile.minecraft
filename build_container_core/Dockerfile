@@ -10,6 +10,7 @@ ARG minecraft_server_config_enable-query
 ARG minecraft_server_config_enable-rcon
 ARG minecraft_server_config_max-players
 ARG minecraft_server_config_motd
+ARG minecraft_server_config_enable-status
 
 RUN set -x && \
     dnf update -y --security
@@ -42,6 +43,7 @@ RUN echo "enable-query=${minecraft_server_config_enable-query}" >> server.proper
 RUN echo "enable-rcon=${minecraft_server_config_enable-rcon}" >> server.properties
 RUN echo "max-players=${minecraft_server_config_max-players}" >> server.properties
 RUN echo "motd=${minecraft_server_config_motd}" >> server.properties
+RUN echo "enable-status=${minecraft_server_config_enable-status}" >> server.properties
 RUN echo 'rcon.password=25575password@1' >> server.properties
 #RUN echo 'gamemode=creative' >> server.properties
 #RUN echo 'level-type=FLAT' >> server.properties
