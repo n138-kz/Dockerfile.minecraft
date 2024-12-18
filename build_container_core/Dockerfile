@@ -11,6 +11,7 @@ ARG minecraft_server_config_enable-rcon
 ARG minecraft_server_config_max-players
 ARG minecraft_server_config_motd
 ARG minecraft_server_config_enable-status
+ARG minecraft_server_config_enforce-secure-profile
 
 RUN set -x && \
     dnf update -y --security
@@ -44,6 +45,7 @@ RUN echo "enable-rcon=${minecraft_server_config_enable-rcon}" >> server.properti
 RUN echo "max-players=${minecraft_server_config_max-players}" >> server.properties
 RUN echo "motd=${minecraft_server_config_motd}" >> server.properties
 RUN echo "enable-status=${minecraft_server_config_enable-status}" >> server.properties
+RUN echo "enforce-secure-profile=${minecraft_server_config_enforce-secure-profile}" >> server.properties
 RUN echo 'rcon.password=25575password@1' >> server.properties
 #RUN echo 'gamemode=creative' >> server.properties
 #RUN echo 'level-type=FLAT' >> server.properties
