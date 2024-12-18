@@ -36,7 +36,7 @@ services:
         - minecraft_server_jar_url=${minecraft_server_jar_url:-https://piston-data.mojang.com/v1/objects/45810d238246d90e811d896f87b14695b7fb6839/server.jar}
         - minecraft_server_version=${minecraft_server_version:-1.21.3}
         - minecraft_server_config_difficulty=${minecraft_server_config_difficulty:-normal}
-        - minecraft_server_config_enable_command_block=${minecraft_server_config_enable_command_block:-true}
+        - minecraft_server_config_enable_command_block=${minecraft_server_config_enable_command_block:-false}
         - minecraft_server_config_enable_jmx_monitoring=${minecraft_server_config_enable_jmx_monitoring:-false}
         - minecraft_server_config_enable_query=${minecraft_server_config_enable_query:-false}
         - minecraft_server_config_enable_rcon=${minecraft_server_config_enable_rcon:-true}
