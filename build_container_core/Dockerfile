@@ -142,4 +142,7 @@ RUN echo "white-list=${minecraft_server_config_white-list}" >> server.properties
 #RUN echo 'level-type=FLAT' >> server.properties
 #RUN echo 'minecraft:bedrock,3*minecraft:stone,52*minecraft:sandstone;' > level.dat
 
+RUN set -x && \
+    cat server.properties | nl -ba
+
 ENTRYPOINT [ "java","-Xms512m","-Xmx2048m","-jar","server.jar","nogui" ]
