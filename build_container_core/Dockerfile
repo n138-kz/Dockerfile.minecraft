@@ -52,6 +52,7 @@ ARG minecraft_server_config_server-port
 ARG minecraft_server_config_simulation-distance
 ARG minecraft_server_config_spawn-monsters
 ARG minecraft_server_config_spawn-protection
+ARG minecraft_server_config_sync-chunk-writes
 
 RUN set -x && \
     dnf update -y --security
@@ -126,6 +127,7 @@ RUN echo "server-port=${minecraft_server_config_server-port}" >> server.properti
 RUN echo "simulation-distance=${minecraft_server_config_simulation-distance}" >> server.properties
 RUN echo "spawn-monsters=${minecraft_server_config_spawn-monsters}" >> server.properties
 RUN echo "spawn-protection=${minecraft_server_config_spawn-protection}" >> server.properties
+RUN echo "sync-chunk-writes=${minecraft_server_config_sync-chunk-writes}" >> server.properties
 #RUN echo 'gamemode=creative' >> server.properties
 #RUN echo 'level-type=FLAT' >> server.properties
 #RUN echo 'minecraft:bedrock,3*minecraft:stone,52*minecraft:sandstone;' > level.dat
