@@ -30,4 +30,10 @@ jobs:
         run: docker pull alpine
 
       - name: Build the Docker container
-        run: docker compose up -d --build
+        run: docker compose build
+
+      - name: Up check the Docker container
+        run: docker compose up -d
+
+      - name: Up check the Docker container
+        run: docker compose logs -f
