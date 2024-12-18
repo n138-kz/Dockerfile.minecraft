@@ -15,6 +15,7 @@ ARG minecraft_server_config_enforce-secure-profile
 ARG minecraft_server_config_enforce-whitelist
 ARG minecraft_server_config_entity-broadcast-range-percentage
 ARG minecraft_server_config_force-gamemode
+ARG minecraft_server_config_function-permission-level
 ARG minecraft_server_config_rcon-password
 
 RUN set -x && \
@@ -53,6 +54,7 @@ RUN echo "enforce-secure-profile=${minecraft_server_config_enforce-secure-profil
 RUN echo "enforce-whitelist=${minecraft_server_config_enforce-whitelist}" >> server.properties
 RUN echo "entity-broadcast-range-percentage=${minecraft_server_config_entity-broadcast-range-percentage}" >> server.properties
 RUN echo "force-gamemode=${minecraft_server_config_force-gamemode}" >> server.properties
+RUN echo "function-permission-level=${minecraft_server_config_function-permission-level}" >> server.properties
 RUN echo "rcon.password=${minecraft_server_config_rcon-password}" >> server.properties
 #RUN echo 'gamemode=creative' >> server.properties
 #RUN echo 'level-type=FLAT' >> server.properties
