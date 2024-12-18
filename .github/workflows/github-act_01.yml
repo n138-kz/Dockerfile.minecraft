@@ -38,6 +38,9 @@ jobs:
       - name: Waiting for 30s
         run: sleep 30
 
+      - name: "ls show the Docker containers"
+        run: docker compose ls
+
       - name: "Log show the Docker container: minecraft-core"
         run: docker compose logs minecraft-core
 

@@ -38,8 +38,8 @@
 1. Compose ファイル を編集する。（詳細は[公式ドキュメント](https://docker-minecraft-server.readthedocs.io/en/latest/variables/)を参照）
 
 ```bash
-git clone https://github.com/n138-kz/Dockerfile.git
-cd Dockerfile/n138-kz/minecraft1.21.1/
+git clone https://github.com/n138-kz/minecraft-server
+cd minecraft-server/
 ```
 
 2. 環境変数ファイル（ファイル名： `.env` ） を作成・編集する。（詳細は公式ドキュメントを参照）
