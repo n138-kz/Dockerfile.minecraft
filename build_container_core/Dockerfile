@@ -38,6 +38,7 @@ ARG minecraft_server_config_player-idle-timeout
 ARG minecraft_server_config_prevent-proxy-connections
 ARG minecraft_server_config_pvp
 ARG minecraft_server_config_query-port
+ARG minecraft_server_config_rate-limit
 ARG minecraft_server_config_rcon-password
 
 RUN set -x && \
@@ -99,6 +100,7 @@ RUN echo "player-idle-timeout=${minecraft_server_config_player-idle-timeout}" >>
 RUN echo "prevent-proxy-connections=${minecraft_server_config_prevent-proxy-connections}" >> server.properties
 RUN echo "pvp=${minecraft_server_config_pvp}" >> server.properties
 RUN echo "query.port=${minecraft_server_config_query-port}" >> server.properties
+RUN echo "rate-limit=${minecraft_server_config_rate-limit}" >> server.properties
 RUN echo "rcon.password=${minecraft_server_config_rcon-password}" >> server.properties
 #RUN echo 'gamemode=creative' >> server.properties
 #RUN echo 'level-type=FLAT' >> server.properties
