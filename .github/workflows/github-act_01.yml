@@ -12,6 +12,14 @@ permissions:
   contents: read
 
 jobs:
+  env:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: "API access: https://github.com/n138-kz/isJP"
+        run: curl https://api.n138.jp/isJP/ | jq
+
   build:
     runs-on: ubuntu-latest
     steps:
