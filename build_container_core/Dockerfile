@@ -17,6 +17,7 @@ ARG minecraft_server_config_entity-broadcast-range-percentage
 ARG minecraft_server_config_force-gamemode
 ARG minecraft_server_config_function-permission-level
 ARG minecraft_server_config_gamemode
+ARG minecraft_server_config_generate-structures
 ARG minecraft_server_config_rcon-password
 
 RUN set -x && \
@@ -57,6 +58,7 @@ RUN echo "entity-broadcast-range-percentage=${minecraft_server_config_entity-bro
 RUN echo "force-gamemode=${minecraft_server_config_force-gamemode}" >> server.properties
 RUN echo "function-permission-level=${minecraft_server_config_function-permission-level}" >> server.properties
 RUN echo "gamemode=${minecraft_server_config_gamemode}" >> server.properties
+RUN echo "generate-structures=${minecraft_server_config_generate-structures}" >> server.properties
 RUN echo "rcon.password=${minecraft_server_config_rcon-password}" >> server.properties
 #RUN echo 'gamemode=creative' >> server.properties
 #RUN echo 'level-type=FLAT' >> server.properties
