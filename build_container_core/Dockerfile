@@ -30,6 +30,7 @@ ARG minecraft_server_config_log-ips
 ARG minecraft_server_config_max-chained-neighbor-updates
 ARG minecraft_server_config_max-tick-time
 ARG minecraft_server_config_max-world-size
+ARG minecraft_server_config_network-compression-threshold
 ARG minecraft_server_config_rcon-password
 
 RUN set -x && \
@@ -83,6 +84,7 @@ RUN echo "log-ips=${minecraft_server_config_log-ips}" >> server.properties
 RUN echo "max-chained-neighbor-updates=${minecraft_server_config_max-chained-neighbor-updates}" >> server.properties
 RUN echo "max-tick-time=${minecraft_server_config_max-tick-time}" >> server.properties
 RUN echo "max-world-size=${minecraft_server_config_max-world-size}" >> server.properties
+RUN echo "network-compression-threshold=${minecraft_server_config_network-compression-threshold}" >> server.properties
 RUN echo "rcon.password=${minecraft_server_config_rcon-password}" >> server.properties
 #RUN echo 'gamemode=creative' >> server.properties
 #RUN echo 'level-type=FLAT' >> server.properties
