@@ -17,7 +17,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Pull the image: phpmyadmin\/phpmyadmin
+      - name: Pull the image: phpmyadmin
         run: docker pull phpmyadmin/phpmyadmin
 
       - name: Pull the image: mysql
