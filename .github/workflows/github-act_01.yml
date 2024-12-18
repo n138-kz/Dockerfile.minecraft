@@ -1,0 +1,30 @@
+name: Docker Container for minecraft-server
+
+on:
+  push:
+    paths:
+      - "**"
+  pull_request:
+    paths:
+      - "**"
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Pull the image
+        run: docker pull phpmyadmin/phpmyadmin
+
+      - name: Pull the image
+        run: docker pull mysql
+
+      - name: Pull the image
+        run: docker pull almalinux:8
+        
+      - name: Build the Docker container
+        run: docker compose up -d --build
