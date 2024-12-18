@@ -54,6 +54,60 @@ services:
       options:
         max-size: "1024k"
         max-file: "10"
+
+  minecraft-database-admin:
+    container_name: minecraft-database-admin
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: Asia/Tokyo
+      LANG: "C"
+      LANGUAGE: "C"
+      LC_ALL: "C"
+      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
+      PMA_HOST: "minecraft-database"
+      PMA_ARBITRARY: 0
+    restart: on-failure
+    tty: true
+    tmpfs:
+      - /run
+      - /tmp
+    ports:
+      - "30000-65530:80"
+    logging: 
+      driver: json-file
+      options:
+        max-size: "1024k"
+        max-file: "10"
+
+  minecraft-database:
+    container_name: fivem-database
+    image: mysql
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: Asia/Tokyo
+      LANG: "C"
+      LANGUAGE: "C"
+      LC_ALL: "C"
+      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
+    restart: on-failure
+    tty: true
+    tmpfs:
+      - /run
+      - /tmp
+    volumes:
+      - type: volume
+        source: minecraft-database
+        target: /var/lib/mysql
+    logging: 
+      driver: json-file
+      options:
+        max-size: "1024k"
+        max-file: "10"
+
 volumes:
   minecraft-logs:
   minecraft-core:
+  minecraft-database:
