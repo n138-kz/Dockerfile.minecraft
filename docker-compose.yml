@@ -53,7 +53,7 @@ services:
         - minecraft_server_config_generator-settings=${minecraft_server_config_generator-settings:-{}}
         - minecraft_server_config_hardcore=${minecraft_server_config_hardcore:-false}
         - minecraft_server_config_hide-online-players=${minecraft_server_config_hide-online-players:-false}
-        - minecraft_server_config_initial-disabled-packs=${minecraft_server_config_initial-disabled-packs=}
+        - minecraft_server_config_initial-disabled-packs=${minecraft_server_config_initial-disabled-packs:-}
         - minecraft_server_config_initial-enabled-packs=${minecraft_server_config_initial-enabled-packs:-vanilla}
         - minecraft_server_config_level-name=${minecraft_server_config_level-name:-world}
         - minecraft_server_config_level-seed=${minecraft_server_config_level-seed:-}
