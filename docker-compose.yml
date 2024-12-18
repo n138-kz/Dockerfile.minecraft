@@ -21,6 +21,7 @@ services:
       options:
         max-size: "1024k"
         max-file: "10"
+
   minecraft-core:
     container_name: minecraft-core
     environment:
