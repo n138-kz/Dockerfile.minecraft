@@ -35,8 +35,8 @@ services:
     build: 
       context: build_container_core/
       args:
-        - minecraft_server_jar_url=${minecraft_server_jar_url:=https://piston-data.mojang.com/v1/objects/45810d238246d90e811d896f87b14695b7fb6839/server.jar}
-        - minecraft_server_version=${minecraft_server_version:=1.21.3}
+        - minecraft_server_jar_url=${minecraft_server_jar_url:-https://piston-data.mojang.com/v1/objects/45810d238246d90e811d896f87b14695b7fb6839/server.jar}
+        - minecraft_server_version=${minecraft_server_version:-1.21.3}
     restart: on-failure
     ports:
       - 25565:25565
@@ -65,7 +65,7 @@ services:
       LANG: "C"
       LANGUAGE: "C"
       LC_ALL: "C"
-      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD:=MYSQL_ROOT_PASSWORD_123}"
+      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD:-MYSQL_ROOT_PASSWORD_123}"
       PMA_HOST: "minecraft-database"
       PMA_ARBITRARY: 0
     restart: on-failure
@@ -91,7 +91,7 @@ services:
       LANG: "C"
       LANGUAGE: "C"
       LC_ALL: "C"
-      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD:=MYSQL_ROOT_PASSWORD_123}"
+      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD:-MYSQL_ROOT_PASSWORD_123}"
     restart: on-failure
     tty: true
     tmpfs:
