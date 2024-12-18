@@ -82,7 +82,7 @@ services:
         max-file: "10"
 
   minecraft-database:
-    container_name: fivem-database
+    container_name: minecraft-database
     image: mysql
     environment:
       PUID: 1000
