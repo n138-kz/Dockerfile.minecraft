@@ -38,5 +38,14 @@ jobs:
       - name: Waiting for 30s
         run: sleep 30
 
-      - name: Up check the Docker container
-        run: docker compose logs
+      - name: "Log show the Docker container: minecraft-database"
+        run: docker compose logs minecraft-core
+
+      - name: "Log show the Docker container: minecraft-database"
+        run: docker compose logs minecraft-rcon
+
+      - name: "Log show the Docker container: minecraft-database"
+        run: docker compose logs minecraft-database
+
+      - name: "Log show the Docker container: minecraft-database"
+        run: docker compose logs minecraft-database-admin
