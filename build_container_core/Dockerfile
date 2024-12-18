@@ -22,6 +22,7 @@ ARG minecraft_server_config_generator-settings
 ARG minecraft_server_config_hardcore
 ARG minecraft_server_config_hide-online-players
 ARG minecraft_server_config_initial-disabled-packs
+ARG minecraft_server_config_initial-enabled-packs
 ARG minecraft_server_config_rcon-password
 
 RUN set -x && \
@@ -67,6 +68,7 @@ RUN echo "generator-settings=${minecraft_server_config_generator-settings}" >> s
 RUN echo "hardcore=${minecraft_server_config_hardcore}" >> server.properties
 RUN echo "hide-online-players=${minecraft_server_config_hide-online-players}" >> server.properties
 RUN echo "initial-disabled-packs=${minecraft_server_config_initial-disabled-packs}" >> server.properties
+RUN echo "initial-enabled-packs=${minecraft_server_config_initial-enabled-packs}" >> server.properties
 RUN echo "rcon.password=${minecraft_server_config_rcon-password}" >> server.properties
 #RUN echo 'gamemode=creative' >> server.properties
 #RUN echo 'level-type=FLAT' >> server.properties
