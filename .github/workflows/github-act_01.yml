@@ -52,8 +52,8 @@ jobs:
       - name: "mcrcon -t list"
         run: docker compose exec -it minecraft-rcon mcrcon list
 
-      - name: Waiting for 30s
-        run: sleep 30
+      - name: Waiting for 10s
+        run: sleep 10
 
       - name: "ls show the Docker containers"
         run: docker compose ls
