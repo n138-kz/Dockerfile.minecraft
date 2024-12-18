@@ -40,8 +40,6 @@ services:
         - minecraft_server_config_enable_jmx_monitoring=${minecraft_server_config_enable_jmx_monitoring:-false}
         - minecraft_server_config_enable_query=${minecraft_server_config_enable_query:-false}
         - minecraft_server_config_enable_rcon=${minecraft_server_config_enable_rcon:-true}
-        - minecraft_server_config_max_players=${minecraft_server_config_max_players:-10}
-        - minecraft_server_config_motd=${minecraft_server_config_motd:-Private server}
         - minecraft_server_config_enable_status=${minecraft_server_config_enable_status:-true}
         - minecraft_server_config_enforce_secure_profile=${minecraft_server_config_enforce_secure_profile:-true}
         - minecraft_server_config_enforce_whitelist=${minecraft_server_config_enforce_whitelist:-false}
@@ -60,8 +58,10 @@ services:
         - minecraft_server_config_level_type=${minecraft_server_config_level_type:-minecraft\:normal}
         - minecraft_server_config_log_ips=${minecraft_server_config_log_ips:-true}
         - minecraft_server_config_max_chained_neighbor_updates=${minecraft_server_config_max_chained_neighbor_updates:-1000000}
+        - minecraft_server_config_max_players=${minecraft_server_config_max_players:-10}
         - minecraft_server_config_max_tick_time=${minecraft_server_config_max_tick_time:-60000}
         - minecraft_server_config_max_world_size=${minecraft_server_config_max_world_size:-29999984}
+        - minecraft_server_config_motd=${minecraft_server_config_motd:-Private server}
         - minecraft_server_config_network_compression_threshold=${minecraft_server_config_network_compression_threshold:-256}
         - minecraft_server_config_online_mode=${minecraft_server_config_online_mode:-true}
         - minecraft_server_config_op_permission_level=${minecraft_server_config_op_permission_level:-4}
@@ -75,10 +75,10 @@ services:
         - minecraft_server_config_rcon_port=${minecraft_server_config_rcon_port:-25575}
         - minecraft_server_config_region_file_compression=${minecraft_server_config_region_file_compression:-deflate}
         - minecraft_server_config_require_resource_pack=${minecraft_server_config_require_resource_pack:-false}
+        - minecraft_server_config_resource_pack=${minecraft_server_config_resource_pack:-}
         - minecraft_server_config_resource_pack_id=${minecraft_server_config_resource_pack_id:-}
         - minecraft_server_config_resource_pack_prompt=${minecraft_server_config_resource_pack_prompt:-}
         - minecraft_server_config_resource_pack_sha1=${minecraft_server_config_resource_pack_sha1:-}
-        - minecraft_server_config_resource_pack=${minecraft_server_config_resource_pack:-}
         - minecraft_server_config_server_ip=${minecraft_server_config_server_ip:-}
         - minecraft_server_config_server_port=${minecraft_server_config_server_port:-25565}
         - minecraft_server_config_simulation_distance=${minecraft_server_config_simulation_distance:-10}

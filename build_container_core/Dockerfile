@@ -8,8 +8,6 @@ ARG minecraft_server_config_enable_command_block
 ARG minecraft_server_config_enable_jmx_monitoring
 ARG minecraft_server_config_enable_query
 ARG minecraft_server_config_enable_rcon
-ARG minecraft_server_config_max_players
-ARG minecraft_server_config_motd
 ARG minecraft_server_config_enable_status
 ARG minecraft_server_config_enforce_secure_profile
 ARG minecraft_server_config_enforce_whitelist
@@ -28,8 +26,10 @@ ARG minecraft_server_config_level_seed
 ARG minecraft_server_config_level_type
 ARG minecraft_server_config_log_ips
 ARG minecraft_server_config_max_chained_neighbor_updates
+ARG minecraft_server_config_max_players
 ARG minecraft_server_config_max_tick_time
 ARG minecraft_server_config_max_world_size
+ARG minecraft_server_config_motd
 ARG minecraft_server_config_network_compression_threshold
 ARG minecraft_server_config_online_mode
 ARG minecraft_server_config_op_permission_level
@@ -43,10 +43,10 @@ ARG minecraft_server_config_rcon_password
 ARG minecraft_server_config_rcon_port
 ARG minecraft_server_config_region_file_compression
 ARG minecraft_server_config_require_resource_pack
+ARG minecraft_server_config_resource_pack
 ARG minecraft_server_config_resource_pack_id
 ARG minecraft_server_config_resource_pack_prompt
 ARG minecraft_server_config_resource_pack_sha1
-ARG minecraft_server_config_resource_pack
 ARG minecraft_server_config_server_ip
 ARG minecraft_server_config_server_port
 ARG minecraft_server_config_simulation_distance
@@ -88,8 +88,6 @@ RUN echo "enable-command-block=${minecraft_server_config_enable_command_block}" 
 RUN echo "enable-jmx-monitoring=${minecraft_server_config_enable_jmx_monitoring}" >> server.properties
 RUN echo "enable-query=${minecraft_server_config_enable_query}" >> server.properties
 RUN echo "enable-rcon=${minecraft_server_config_enable_rcon}" >> server.properties
-RUN echo "max-players=${minecraft_server_config_max_players}" >> server.properties
-RUN echo "motd=${minecraft_server_config_motd}" >> server.properties
 RUN echo "enable-status=${minecraft_server_config_enable_status}" >> server.properties
 RUN echo "enforce-secure-profile=${minecraft_server_config_enforce_secure_profile}" >> server.properties
 RUN echo "enforce-whitelist=${minecraft_server_config_enforce_whitelist}" >> server.properties
@@ -108,8 +106,10 @@ RUN echo "level-seed=${minecraft_server_config_level_seed}" >> server.properties
 RUN echo "level-type=${minecraft_server_config_level_type}" >> server.properties
 RUN echo "log-ips=${minecraft_server_config_log_ips}" >> server.properties
 RUN echo "max-chained-neighbor-updates=${minecraft_server_config_max_chained_neighbor_updates}" >> server.properties
+RUN echo "max-players=${minecraft_server_config_max_players}" >> server.properties
 RUN echo "max-tick-time=${minecraft_server_config_max_tick_time}" >> server.properties
 RUN echo "max-world-size=${minecraft_server_config_max_world_size}" >> server.properties
+RUN echo "motd=${minecraft_server_config_motd}" >> server.properties
 RUN echo "network-compression-threshold=${minecraft_server_config_network_compression_threshold}" >> server.properties
 RUN echo "online-mode=${minecraft_server_config_online_mode}" >> server.properties
 RUN echo "op-permission-level=${minecraft_server_config_op_permission_level}" >> server.properties
