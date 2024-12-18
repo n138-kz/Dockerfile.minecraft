@@ -24,6 +24,7 @@ ARG minecraft_server_config_hide-online-players
 ARG minecraft_server_config_initial-disabled-packs
 ARG minecraft_server_config_initial-enabled-packs
 ARG minecraft_server_config_level-name
+ARG minecraft_server_config_level-seed
 ARG minecraft_server_config_rcon-password
 
 RUN set -x && \
@@ -71,6 +72,7 @@ RUN echo "hide-online-players=${minecraft_server_config_hide-online-players}" >>
 RUN echo "initial-disabled-packs=${minecraft_server_config_initial-disabled-packs}" >> server.properties
 RUN echo "initial-enabled-packs=${minecraft_server_config_initial-enabled-packs}" >> server.properties
 RUN echo "level-name=${minecraft_server_config_level-name}" >> server.properties
+RUN echo "level-seed=${minecraft_server_config_level-seed}" >> server.properties
 RUN echo "rcon.password=${minecraft_server_config_rcon-password}" >> server.properties
 #RUN echo 'gamemode=creative' >> server.properties
 #RUN echo 'level-type=FLAT' >> server.properties
