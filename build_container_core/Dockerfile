@@ -13,6 +13,7 @@ ARG minecraft_server_config_motd
 ARG minecraft_server_config_enable-status
 ARG minecraft_server_config_enforce-secure-profile
 ARG minecraft_server_config_enforce-whitelist
+ARG minecraft_server_config_entity-broadcast-range-percentage
 
 RUN set -x && \
     dnf update -y --security
@@ -48,6 +49,7 @@ RUN echo "motd=${minecraft_server_config_motd}" >> server.properties
 RUN echo "enable-status=${minecraft_server_config_enable-status}" >> server.properties
 RUN echo "enforce-secure-profile=${minecraft_server_config_enforce-secure-profile}" >> server.properties
 RUN echo "enforce-whitelist=${minecraft_server_config_enforce-whitelist}" >> server.properties
+RUN echo "entity-broadcast-range-percentage=${minecraft_server_config_entity-broadcast-range-percentage}" >> server.properties
 RUN echo 'rcon.password=25575password@1' >> server.properties
 #RUN echo 'gamemode=creative' >> server.properties
 #RUN echo 'level-type=FLAT' >> server.properties
