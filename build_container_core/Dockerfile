@@ -42,6 +42,7 @@ ARG minecraft_server_config_rate-limit
 ARG minecraft_server_config_rcon-password
 ARG minecraft_server_config_rcon-port
 ARG minecraft_server_config_region-file-compression
+ARG minecraft_server_config_require-resource-pack
 
 RUN set -x && \
     dnf update -y --security
@@ -106,6 +107,7 @@ RUN echo "rate-limit=${minecraft_server_config_rate-limit}" >> server.properties
 RUN echo "rcon.password=${minecraft_server_config_rcon-password}" >> server.properties
 RUN echo "rcon.port=${minecraft_server_config_rcon-port}" >> server.properties
 RUN echo "region-file-compression=${minecraft_server_config_region-file-compression}" >> server.properties
+RUN echo "require-resource-pack=${minecraft_server_config_require-resource-pack}" >> server.properties
 #RUN echo 'gamemode=creative' >> server.properties
 #RUN echo 'level-type=FLAT' >> server.properties
 #RUN echo 'minecraft:bedrock,3*minecraft:stone,52*minecraft:sandstone;' > level.dat
