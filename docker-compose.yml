@@ -48,7 +48,7 @@ services:
         - minecraft_server_config_entity_broadcast_range_percentage=${minecraft_server_config_entity_broadcast_range_percentage:-100}
         - minecraft_server_config_force_gamemode=${minecraft_server_config_force_gamemode:-false}
         - minecraft_server_config_function_permission_level=${minecraft_server_config_function_permission_level:-2}
-        - minecraft_server_config_gamemode=${minecraft_server_config_gamemode:-creative}
+        - minecraft_server_config_gamemode=${minecraft_server_config_gamemode:-survival}
         - minecraft_server_config_generate_structures=${minecraft_server_config_generate_structures:-true}
         - minecraft_server_config_generator_settings=${minecraft_server_config_generator_settings:-{}}
         - minecraft_server_config_hardcore=${minecraft_server_config_hardcore:-false}
