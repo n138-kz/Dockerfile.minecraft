@@ -27,6 +27,7 @@ ARG minecraft_server_config_level-name
 ARG minecraft_server_config_level-seed
 ARG minecraft_server_config_level-type
 ARG minecraft_server_config_log-ips
+ARG minecraft_server_config_max-chained-neighbor-updates
 ARG minecraft_server_config_rcon-password
 
 RUN set -x && \
@@ -77,6 +78,7 @@ RUN echo "level-name=${minecraft_server_config_level-name}" >> server.properties
 RUN echo "level-seed=${minecraft_server_config_level-seed}" >> server.properties
 RUN echo "level-type=${minecraft_server_config_level-type}" >> server.properties
 RUN echo "log-ips=${minecraft_server_config_log-ips}" >> server.properties
+RUN echo "max-chained-neighbor-updates=${minecraft_server_config_max-chained-neighbor-updates}" >> server.properties
 RUN echo "rcon.password=${minecraft_server_config_rcon-password}" >> server.properties
 #RUN echo 'gamemode=creative' >> server.properties
 #RUN echo 'level-type=FLAT' >> server.properties
