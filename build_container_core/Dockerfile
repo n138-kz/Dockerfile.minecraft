@@ -7,6 +7,7 @@ ARG minecraft_server_config_difficulty
 ARG minecraft_server_config_enable-command-block
 ARG minecraft_server_config_enable-jmx-monitoring
 ARG minecraft_server_config_enable-query
+ARG minecraft_server_config_enable-rcon
 
 RUN set -x && \
     dnf update -y --security
@@ -37,8 +38,8 @@ RUN echo "enable-command-block=${minecraft_server_config_enable-command-block}" 
 RUN echo "enable-jmx-monitoring=${minecraft_server_config_enable-jmx-monitoring}" >> server.properties
 RUN echo 'max-players=10' >> server.properties
 RUN echo 'motd=Private server' >> server.properties
-RUN echo 'enable-rcon=true' >> server.properties
 RUN echo "enable-query=${minecraft_server_config_enable-query}" >> server.properties
+RUN echo "enable-rcon=${minecraft_server_config_enable-rcon}" >> server.properties
 RUN echo 'rcon.password=25575password@1' >> server.properties
 #RUN echo 'gamemode=creative' >> server.properties
 #RUN echo 'level-type=FLAT' >> server.properties
