@@ -53,6 +53,7 @@ ARG minecraft_server_config_simulation-distance
 ARG minecraft_server_config_spawn-monsters
 ARG minecraft_server_config_spawn-protection
 ARG minecraft_server_config_sync-chunk-writes
+ARG minecraft_server_config_text-filtering-config
 
 RUN set -x && \
     dnf update -y --security
@@ -128,6 +129,7 @@ RUN echo "simulation-distance=${minecraft_server_config_simulation-distance}" >>
 RUN echo "spawn-monsters=${minecraft_server_config_spawn-monsters}" >> server.properties
 RUN echo "spawn-protection=${minecraft_server_config_spawn-protection}" >> server.properties
 RUN echo "sync-chunk-writes=${minecraft_server_config_sync-chunk-writes}" >> server.properties
+RUN echo "text-filtering-config=${minecraft_server_config_text-filtering-config}" >> server.properties
 #RUN echo 'gamemode=creative' >> server.properties
 #RUN echo 'level-type=FLAT' >> server.properties
 #RUN echo 'minecraft:bedrock,3*minecraft:stone,52*minecraft:sandstone;' > level.dat
