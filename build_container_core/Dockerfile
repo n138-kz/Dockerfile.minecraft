@@ -56,6 +56,7 @@ ARG minecraft_server_config_sync-chunk-writes
 ARG minecraft_server_config_text-filtering-config
 ARG minecraft_server_config_text-filtering-version
 ARG minecraft_server_config_use-native-transport
+ARG minecraft_server_config_view-distance
 
 RUN set -x && \
     dnf update -y --security
@@ -134,6 +135,7 @@ RUN echo "sync-chunk-writes=${minecraft_server_config_sync-chunk-writes}" >> ser
 RUN echo "text-filtering-config=${minecraft_server_config_text-filtering-config}" >> server.properties
 RUN echo "text-filtering-version=${minecraft_server_config_text-filtering-version}" >> server.properties
 RUN echo "use-native-transport=${minecraft_server_config_use-native-transport}" >> server.properties
+RUN echo "view-distance=${minecraft_server_config_view-distance}" >> server.properties
 #RUN echo 'gamemode=creative' >> server.properties
 #RUN echo 'level-type=FLAT' >> server.properties
 #RUN echo 'minecraft:bedrock,3*minecraft:stone,52*minecraft:sandstone;' > level.dat
