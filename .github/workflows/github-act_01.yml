@@ -43,8 +43,14 @@ jobs:
       - name: Up check the Docker container
         run: docker compose up -d
 
+      - name: Waiting for 30s
+        run: sleep 30
+
       - name: "server.properties"
         run: docker compose exec -it minecraft-core cat server.properties
+
+      - name: "mcrcon -t list"
+        run: docker compose exec -it minecraft-rcon mcrcon -t list
 
       - name: Waiting for 30s
         run: sleep 30
