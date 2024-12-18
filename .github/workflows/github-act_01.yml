@@ -41,6 +41,9 @@ jobs:
       - name: "ls show the Docker containers"
         run: docker compose ls
 
+      - name: "ps show the Docker containers"
+        run: docker compose ps
+
       - name: "Log show the Docker container: minecraft-core"
         run: docker compose logs minecraft-core
 
