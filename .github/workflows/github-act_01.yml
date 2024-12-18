@@ -26,5 +26,8 @@ jobs:
       - name: Pull the image
         run: docker pull almalinux:8
 
+      - name: Pull the image
+        run: docker pull alpine
+
       - name: Build the Docker container
         run: docker compose up -d --build
