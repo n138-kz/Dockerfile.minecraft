@@ -8,15 +8,14 @@ services:
       LANG: "C"
       LANGUAGE: "C"
       LC_ALL: "C"
-    
     restart: on-failure
-    build: 
+    build:
       context: build_container_rcon/
     tty: true
     tmpfs:
       - /run
       - /tmp
-    logging: 
+    logging:
       driver: json-file
       options:
         max-size: "1024k"
@@ -31,8 +30,7 @@ services:
       LANG: "C"
       LANGUAGE: "C"
       LC_ALL: "C"
-      
-    build: 
+    build:
       context: build_container_core/
       args:
         - minecraft_server_jar_url=${minecraft_server_jar_url:-https://piston-data.mojang.com/v1/objects/45810d238246d90e811d896f87b14695b7fb6839/server.jar}
@@ -49,7 +47,7 @@ services:
       - type: volume
         source: minecraft-core
         target: /var/minecraft
-    logging: 
+    logging:
       driver: json-file
       options:
         max-size: "1024k"
@@ -75,7 +73,7 @@ services:
       - /tmp
     ports:
       - "30000-65530:80"
-    logging: 
+    logging:
       driver: json-file
       options:
         max-size: "1024k"
@@ -101,7 +99,7 @@ services:
       - type: volume
         source: minecraft-database
         target: /var/lib/mysql
-    logging: 
+    logging:
       driver: json-file
       options:
         max-size: "1024k"
