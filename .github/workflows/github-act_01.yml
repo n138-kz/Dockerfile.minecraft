@@ -36,4 +36,4 @@ jobs:
         run: docker compose up -d
 
       - name: Up check the Docker container
-        run: docker compose logs -f
+        run: docker compose logs
