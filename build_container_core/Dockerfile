@@ -44,6 +44,7 @@ ARG minecraft_server_config_rcon-port
 ARG minecraft_server_config_region-file-compression
 ARG minecraft_server_config_require-resource-pack
 ARG minecraft_server_config_resource-pack-id
+ARG minecraft_server_config_resource-pack-prompt
 
 RUN set -x && \
     dnf update -y --security
@@ -110,6 +111,7 @@ RUN echo "rcon.port=${minecraft_server_config_rcon-port}" >> server.properties
 RUN echo "region-file-compression=${minecraft_server_config_region-file-compression}" >> server.properties
 RUN echo "require-resource-pack=${minecraft_server_config_require-resource-pack}" >> server.properties
 RUN echo "resource-pack-id=${minecraft_server_config_resource-pack-id}" >> server.properties
+RUN echo "resource-pack-prompt=${minecraft_server_config_resource-pack-prompt}" >> server.properties
 #RUN echo 'gamemode=creative' >> server.properties
 #RUN echo 'level-type=FLAT' >> server.properties
 #RUN echo 'minecraft:bedrock,3*minecraft:stone,52*minecraft:sandstone;' > level.dat
