@@ -38,14 +38,14 @@ jobs:
       - name: Waiting for 30s
         run: sleep 30
 
-      - name: "Log show the Docker container: minecraft-database"
+      - name: "Log show the Docker container: minecraft-core"
         run: docker compose logs minecraft-core
 
-      - name: "Log show the Docker container: minecraft-database"
+      - name: "Log show the Docker container: minecraft-rcon"
         run: docker compose logs minecraft-rcon
 
       - name: "Log show the Docker container: minecraft-database"
         run: docker compose logs minecraft-database
 
-      - name: "Log show the Docker container: minecraft-database"
+      - name: "Log show the Docker container: minecraft-database-admin"
         run: docker compose logs minecraft-database-admin
