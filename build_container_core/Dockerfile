@@ -86,67 +86,69 @@ RUN set -x && \
 RUN echo '# '$(date) > eula.txt
 RUN echo 'eula=true' >> eula.txt
 
-RUN echo '#Minecraft server properties' > server.properties
-RUN echo "difficulty=${minecraft_server_config_difficulty}" >> server.properties
-RUN echo "enable-command-block=${minecraft_server_config_enable_command_block}" >> server.properties
-RUN echo "enable-jmx-monitoring=${minecraft_server_config_enable_jmx_monitoring}" >> server.properties
-RUN echo "enable-query=${minecraft_server_config_enable_query}" >> server.properties
-RUN echo "enable-rcon=${minecraft_server_config_enable_rcon}" >> server.properties
-RUN echo "enable-status=${minecraft_server_config_enable_status}" >> server.properties
-RUN echo "enforce-secure-profile=${minecraft_server_config_enforce_secure_profile}" >> server.properties
-RUN echo "enforce-whitelist=${minecraft_server_config_enforce_whitelist}" >> server.properties
-RUN echo "entity-broadcast-range-percentage=${minecraft_server_config_entity_broadcast_range_percentage}" >> server.properties
-RUN echo "force-gamemode=${minecraft_server_config_force_gamemode}" >> server.properties
-RUN echo "function-permission-level=${minecraft_server_config_function_permission_level}" >> server.properties
-RUN echo "gamemode=${minecraft_server_config_gamemode}" >> server.properties
-RUN echo "generate-structures=${minecraft_server_config_generate_structures}" >> server.properties
-RUN echo "generator-settings=${minecraft_server_config_generator_settings}" >> server.properties
-RUN echo "hardcore=${minecraft_server_config_hardcore}" >> server.properties
-RUN echo "hide-online-players=${minecraft_server_config_hide_online_players}" >> server.properties
-RUN echo "initial-disabled-packs=${minecraft_server_config_initial_disabled_packs}" >> server.properties
-RUN echo "initial-enabled-packs=${minecraft_server_config_initial_enabled_packs}" >> server.properties
-RUN echo "level-name=${minecraft_server_config_level_name}" >> server.properties
-RUN echo "level-seed=${minecraft_server_config_level_seed}" >> server.properties
-RUN echo "level-type=${minecraft_server_config_level_type}" >> server.properties
-RUN echo "log-ips=${minecraft_server_config_log_ips}" >> server.properties
-RUN echo "max-chained-neighbor-updates=${minecraft_server_config_max_chained_neighbor_updates}" >> server.properties
-RUN echo "max-players=${minecraft_server_config_max_players}" >> server.properties
-RUN echo "max-tick-time=${minecraft_server_config_max_tick_time}" >> server.properties
-RUN echo "max-world-size=${minecraft_server_config_max_world_size}" >> server.properties
-RUN echo "motd=${minecraft_server_config_motd}" >> server.properties
-RUN echo "network-compression-threshold=${minecraft_server_config_network_compression_threshold}" >> server.properties
-RUN echo "online-mode=${minecraft_server_config_online_mode}" >> server.properties
-RUN echo "op-permission-level=${minecraft_server_config_op_permission_level}" >> server.properties
-RUN echo "pause-when-empty-seconds=${minecraft_server_config_pause_when_empty_seconds}" >> server.properties
-RUN echo "player-idle-timeout=${minecraft_server_config_player_idle_timeout}" >> server.properties
-RUN echo "prevent-proxy-connections=${minecraft_server_config_prevent_proxy_connections}" >> server.properties
-RUN echo "pvp=${minecraft_server_config_pvp}" >> server.properties
-RUN echo "query.port=${minecraft_server_config_query_port}" >> server.properties
-RUN echo "rate-limit=${minecraft_server_config_rate_limit}" >> server.properties
-RUN echo "rcon.password=${minecraft_server_config_rcon_password}" >> server.properties
-RUN echo "rcon.port=${minecraft_server_config_rcon_port}" >> server.properties
-RUN echo "region-file-compression=${minecraft_server_config_region_file_compression}" >> server.properties
-RUN echo "require-resource-pack=${minecraft_server_config_require_resource_pack}" >> server.properties
-RUN echo "resource-pack-id=${minecraft_server_config_resource_pack_id}" >> server.properties
-RUN echo "resource-pack-prompt=${minecraft_server_config_resource_pack_prompt}" >> server.properties
-RUN echo "resource-pack-sha1=${minecraft_server_config_resource_pack_sha1}" >> server.properties
-RUN echo "resource-pack=${minecraft_server_config_resource_pack}" >> server.properties
-RUN echo "server-ip=${minecraft_server_config_server_ip}" >> server.properties
-RUN echo "server-port=${minecraft_server_config_server_port}" >> server.properties
-RUN echo "simulation-distance=${minecraft_server_config_simulation_distance}" >> server.properties
-RUN echo "spawn-monsters=${minecraft_server_config_spawn_monsters}" >> server.properties
-RUN echo "spawn-protection=${minecraft_server_config_spawn_protection}" >> server.properties
-RUN echo "sync-chunk-writes=${minecraft_server_config_sync_chunk_writes}" >> server.properties
-RUN echo "text-filtering-config=${minecraft_server_config_text_filtering_config}" >> server.properties
-RUN echo "text-filtering-version=${minecraft_server_config_text_filtering_version}" >> server.properties
-RUN echo "use-native-transport=${minecraft_server_config_use_native_transport}" >> server.properties
-RUN echo "view-distance=${minecraft_server_config_view_distance}" >> server.properties
-RUN echo "white-list=${minecraft_server_config_white_list}" >> server.properties
-#RUN echo 'gamemode=creative' >> server.properties
-#RUN echo 'level-type=FLAT' >> server.properties
+RUN echo '#Minecraft server properties' > server.properties.conf
+RUN echo "difficulty=${minecraft_server_config_difficulty}" >> server.properties.conf
+RUN echo "enable-command-block=${minecraft_server_config_enable_command_block}" >> server.properties.conf
+RUN echo "enable-jmx-monitoring=${minecraft_server_config_enable_jmx_monitoring}" >> server.properties.conf
+RUN echo "enable-query=${minecraft_server_config_enable_query}" >> server.properties.conf
+RUN echo "enable-rcon=${minecraft_server_config_enable_rcon}" >> server.properties.conf
+RUN echo "enable-status=${minecraft_server_config_enable_status}" >> server.properties.conf
+RUN echo "enforce-secure-profile=${minecraft_server_config_enforce_secure_profile}" >> server.properties.conf
+RUN echo "enforce-whitelist=${minecraft_server_config_enforce_whitelist}" >> server.properties.conf
+RUN echo "entity-broadcast-range-percentage=${minecraft_server_config_entity_broadcast_range_percentage}" >> server.properties.conf
+RUN echo "force-gamemode=${minecraft_server_config_force_gamemode}" >> server.properties.conf
+RUN echo "function-permission-level=${minecraft_server_config_function_permission_level}" >> server.properties.conf
+RUN echo "gamemode=${minecraft_server_config_gamemode}" >> server.properties.conf
+RUN echo "generate-structures=${minecraft_server_config_generate_structures}" >> server.properties.conf
+RUN echo "generator-settings=${minecraft_server_config_generator_settings}" >> server.properties.conf
+RUN echo "hardcore=${minecraft_server_config_hardcore}" >> server.properties.conf
+RUN echo "hide-online-players=${minecraft_server_config_hide_online_players}" >> server.properties.conf
+RUN echo "initial-disabled-packs=${minecraft_server_config_initial_disabled_packs}" >> server.properties.conf
+RUN echo "initial-enabled-packs=${minecraft_server_config_initial_enabled_packs}" >> server.properties.conf
+RUN echo "level-name=${minecraft_server_config_level_name}" >> server.properties.conf
+RUN echo "level-seed=${minecraft_server_config_level_seed}" >> server.properties.conf
+RUN echo "level-type=${minecraft_server_config_level_type}" >> server.properties.conf
+RUN echo "log-ips=${minecraft_server_config_log_ips}" >> server.properties.conf
+RUN echo "max-chained-neighbor-updates=${minecraft_server_config_max_chained_neighbor_updates}" >> server.properties.conf
+RUN echo "max-players=${minecraft_server_config_max_players}" >> server.properties.conf
+RUN echo "max-tick-time=${minecraft_server_config_max_tick_time}" >> server.properties.conf
+RUN echo "max-world-size=${minecraft_server_config_max_world_size}" >> server.properties.conf
+RUN echo "motd=${minecraft_server_config_motd}" >> server.properties.conf
+RUN echo "network-compression-threshold=${minecraft_server_config_network_compression_threshold}" >> server.properties.conf
+RUN echo "online-mode=${minecraft_server_config_online_mode}" >> server.properties.conf
+RUN echo "op-permission-level=${minecraft_server_config_op_permission_level}" >> server.properties.conf
+RUN echo "pause-when-empty-seconds=${minecraft_server_config_pause_when_empty_seconds}" >> server.properties.conf
+RUN echo "player-idle-timeout=${minecraft_server_config_player_idle_timeout}" >> server.properties.conf
+RUN echo "prevent-proxy-connections=${minecraft_server_config_prevent_proxy_connections}" >> server.properties.conf
+RUN echo "pvp=${minecraft_server_config_pvp}" >> server.properties.conf
+RUN echo "query.port=${minecraft_server_config_query_port}" >> server.properties.conf
+RUN echo "rate-limit=${minecraft_server_config_rate_limit}" >> server.properties.conf
+RUN echo "rcon.password=${minecraft_server_config_rcon_password}" >> server.properties.conf
+RUN echo "rcon.port=${minecraft_server_config_rcon_port}" >> server.properties.conf
+RUN echo "region-file-compression=${minecraft_server_config_region_file_compression}" >> server.properties.conf
+RUN echo "require-resource-pack=${minecraft_server_config_require_resource_pack}" >> server.properties.conf
+RUN echo "resource-pack-id=${minecraft_server_config_resource_pack_id}" >> server.properties.conf
+RUN echo "resource-pack-prompt=${minecraft_server_config_resource_pack_prompt}" >> server.properties.conf
+RUN echo "resource-pack-sha1=${minecraft_server_config_resource_pack_sha1}" >> server.properties.conf
+RUN echo "resource-pack=${minecraft_server_config_resource_pack}" >> server.properties.conf
+RUN echo "server-ip=${minecraft_server_config_server_ip}" >> server.properties.conf
+RUN echo "server-port=${minecraft_server_config_server_port}" >> server.properties.conf
+RUN echo "simulation-distance=${minecraft_server_config_simulation_distance}" >> server.properties.conf
+RUN echo "spawn-monsters=${minecraft_server_config_spawn_monsters}" >> server.properties.conf
+RUN echo "spawn-protection=${minecraft_server_config_spawn_protection}" >> server.properties.conf
+RUN echo "sync-chunk-writes=${minecraft_server_config_sync_chunk_writes}" >> server.properties.conf
+RUN echo "text-filtering-config=${minecraft_server_config_text_filtering_config}" >> server.properties.conf
+RUN echo "text-filtering-version=${minecraft_server_config_text_filtering_version}" >> server.properties.conf
+RUN echo "use-native-transport=${minecraft_server_config_use_native_transport}" >> server.properties.conf
+RUN echo "view-distance=${minecraft_server_config_view_distance}" >> server.properties.conf
+RUN echo "white-list=${minecraft_server_config_white_list}" >> server.properties.conf
+#RUN echo 'gamemode=creative' >> server.properties.conf
+#RUN echo 'level-type=FLAT' >> server.properties.conf
 #RUN echo 'minecraft:bedrock,3*minecraft:stone,52*minecraft:sandstone;' > level.dat
 
-RUN set -x && \
-    cat server.properties
+RUN set -x && if [ ! -s server.properties ] ; then cp server.properties.conf server.properties; fi
+RUN set -x && rm server.properties.conf
+
+RUN set -x && cat server.properties
 
 ENTRYPOINT [ "java","-Xms512m","-Xmx2048m","-jar","server.jar","nogui" ]
