@@ -35,6 +35,61 @@ services:
       args:
         - minecraft_server_jar_url=${minecraft_server_jar_url:-https://piston-data.mojang.com/v1/objects/45810d238246d90e811d896f87b14695b7fb6839/server.jar}
         - minecraft_server_version=${minecraft_server_version:-1.21.3}
+        - minecraft_server_config_difficulty=${minecraft_server_config_difficulty:-normal}
+        - minecraft_server_config_enable-command-block=${minecraft_server_config_enable-command-block:-true}
+        - minecraft_server_config_enable-jmx-monitoring=${minecraft_server_config_enable-jmx-monitoring:-false}
+        - minecraft_server_config_enable-query=${minecraft_server_config_enable-query:-false}
+        - minecraft_server_config_enable-rcon=${minecraft_server_config_enable-rcon:-true}
+        - minecraft_server_config_max-players=${minecraft_server_config_max-players:-10}
+        - minecraft_server_config_motd=${minecraft_server_config_motd:-Private server}
+        - minecraft_server_config_enable-status=${minecraft_server_config_enable-status:-true}
+        - minecraft_server_config_enforce-secure-profile=${minecraft_server_config_enforce-secure-profile:-true}
+        - minecraft_server_config_enforce-whitelist=${minecraft_server_config_enforce-whitelist:-false}
+        - minecraft_server_config_entity-broadcast-range-percentage=${minecraft_server_config_entity-broadcast-range-percentage:-100}
+        - minecraft_server_config_force-gamemode=${minecraft_server_config_force-gamemode:-false}
+        - minecraft_server_config_function-permission-level=${minecraft_server_config_function-permission-level:-2}
+        - minecraft_server_config_gamemode=${minecraft_server_config_gamemode:-creative}
+        - minecraft_server_config_generate-structures=${minecraft_server_config_generate-structures:-true}
+        - minecraft_server_config_generator-settings=${minecraft_server_config_generator-settings:-{}}
+        - minecraft_server_config_hardcore=${minecraft_server_config_hardcore:-false}
+        - minecraft_server_config_hide-online-players=${minecraft_server_config_hide-online-players:-false}
+        - minecraft_server_config_initial-disabled-packs=${minecraft_server_config_initial-disabled-packs=}
+        - minecraft_server_config_initial-enabled-packs=${minecraft_server_config_initial-enabled-packs:-vanilla}
+        - minecraft_server_config_level-name=${minecraft_server_config_level-name:-world}
+        - minecraft_server_config_level-seed=${minecraft_server_config_level-seed:-}
+        - minecraft_server_config_level-type=${minecraft_server_config_level-type:-minecraft\:normal}
+        - minecraft_server_config_log-ips=${minecraft_server_config_log-ips:-true}
+        - minecraft_server_config_max-chained-neighbor-updates=${minecraft_server_config_max-chained-neighbor-updates:-1000000}
+        - minecraft_server_config_max-tick-time=${minecraft_server_config_max-tick-time:-60000}
+        - minecraft_server_config_max-world-size=${minecraft_server_config_max-world-size:-29999984}
+        - minecraft_server_config_network-compression-threshold=${minecraft_server_config_network-compression-threshold:-256}
+        - minecraft_server_config_online-mode=${minecraft_server_config_online-mode:-true}
+        - minecraft_server_config_op-permission-level=${minecraft_server_config_op-permission-level:-4}
+        - minecraft_server_config_pause-when-empty-seconds=${minecraft_server_config_pause-when-empty-seconds:-60}
+        - minecraft_server_config_player-idle-timeout=${minecraft_server_config_player-idle-timeout:-0}
+        - minecraft_server_config_prevent-proxy-connections=${minecraft_server_config_prevent-proxy-connections:-false}
+        - minecraft_server_config_pvp=${minecraft_server_config_pvp:-true}
+        - minecraft_server_config_query.port=${minecraft_server_config_query.port:-25565}
+        - minecraft_server_config_rate-limit=${minecraft_server_config_rate-limit:-0}
+        - minecraft_server_config_rcon.password=${minecraft_server_config_rcon.password:-25575password@1}
+        - minecraft_server_config_rcon.port=${minecraft_server_config_rcon.port:-25575}
+        - minecraft_server_config_region-file-compression=${minecraft_server_config_region-file-compression:-deflate}
+        - minecraft_server_config_require-resource-pack=${minecraft_server_config_require-resource-pack:-false}
+        - minecraft_server_config_resource-pack-id=${minecraft_server_config_resource-pack-id:-}
+        - minecraft_server_config_resource-pack-prompt=${minecraft_server_config_resource-pack-prompt:-}
+        - minecraft_server_config_resource-pack-sha1=${minecraft_server_config_resource-pack-sha1:-}
+        - minecraft_server_config_resource-pack=${minecraft_server_config_resource-pack:-}
+        - minecraft_server_config_server-ip=${minecraft_server_config_server-ip:-}
+        - minecraft_server_config_server-port=${minecraft_server_config_server-port:-25565}
+        - minecraft_server_config_simulation-distance=${minecraft_server_config_simulation-distance:-10}
+        - minecraft_server_config_spawn-monsters=${minecraft_server_config_spawn-monsters:-true}
+        - minecraft_server_config_spawn-protection=${minecraft_server_config_spawn-protection:-16}
+        - minecraft_server_config_sync-chunk-writes=${minecraft_server_config_sync-chunk-writes:-true}
+        - minecraft_server_config_text-filtering-config=${minecraft_server_config_text-filtering-config:-}
+        - minecraft_server_config_text-filtering-version=${minecraft_server_config_text-filtering-version:-0}
+        - minecraft_server_config_use-native-transport=${minecraft_server_config_use-native-transport:-true}
+        - minecraft_server_config_view-distance=${minecraft_server_config_view-distance:-10}
+        - minecraft_server_config_white-list=${minecraft_server_config_white-list:-false}
     restart: on-failure
     ports:
       - 25565:25565
