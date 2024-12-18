@@ -54,6 +54,7 @@ ARG minecraft_server_config_spawn-monsters
 ARG minecraft_server_config_spawn-protection
 ARG minecraft_server_config_sync-chunk-writes
 ARG minecraft_server_config_text-filtering-config
+ARG minecraft_server_config_text-filtering-version
 
 RUN set -x && \
     dnf update -y --security
@@ -130,6 +131,7 @@ RUN echo "spawn-monsters=${minecraft_server_config_spawn-monsters}" >> server.pr
 RUN echo "spawn-protection=${minecraft_server_config_spawn-protection}" >> server.properties
 RUN echo "sync-chunk-writes=${minecraft_server_config_sync-chunk-writes}" >> server.properties
 RUN echo "text-filtering-config=${minecraft_server_config_text-filtering-config}" >> server.properties
+RUN echo "text-filtering-version=${minecraft_server_config_text-filtering-version}" >> server.properties
 #RUN echo 'gamemode=creative' >> server.properties
 #RUN echo 'level-type=FLAT' >> server.properties
 #RUN echo 'minecraft:bedrock,3*minecraft:stone,52*minecraft:sandstone;' > level.dat
