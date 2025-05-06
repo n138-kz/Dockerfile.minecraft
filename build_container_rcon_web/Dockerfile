@@ -16,9 +16,9 @@ RUN set -x && \
 WORKDIR /var/minecraft/
 
 RUN set -x && \
-    git clone https://github.com/Rauks/Minecraft-RCON.git
+    git clone https://github.com/ursinn/Minecraft-RCON-Web-Admin
 
-WORKDIR /var/minecraft/Minecraft-RCON/
+WORKDIR /var/minecraft/Minecraft-RCON-Web-Admin/
 
 ENV MCRCON_HOST=${minecraft_server_config_rcon_host}
 ENV MCRCON_PORT=${minecraft_server_config_rcon_port}
