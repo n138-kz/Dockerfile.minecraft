@@ -7,27 +7,6 @@ ARG minecraft_server_config_rcon_password
 RUN set -x && \
     apt-get update && apt-get -y upgrade
 
-RUN set -x && \
-    apt-get install -y curl
-
-RUN set -x && \
-    apt-get install -y wget
-
-RUN set -x && \
-    apt-get install -y git
-
-RUN set -x && \
-    apt-get install -y gcc
-
-RUN set -x && \
-    apt-get install -y make
-
-RUN set -x && \
-    apt-get install -y libonig-dev
-
-RUN set -x && \
-    docker-php-ext-install pdo_mysql mysqli
-
 WORKDIR /var/minecraft/
 
 RUN set -x && \
