@@ -8,7 +8,7 @@ RUN set -x && \
     apt-get update && apt-get -y upgrade
 
 RUN set -x && \
-    apt-get install nodejs npm
+    apt-get install -y nodejs npm
 
 RUN set -x && \
     npm update npm -g
