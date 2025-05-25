@@ -97,8 +97,8 @@ services:
         - minecraft_server_config_white_list=${minecraft_server_config_white_list:-false}
     restart: on-failure
     ports:
-      - 25565:25565
-      - 25575:25575
+      - 25561:25565
+      - 25562:8123
     tty: true
     tmpfs:
       - /run
