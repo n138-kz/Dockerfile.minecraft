@@ -107,6 +107,9 @@ services:
       - type: volume
         source: minecraft-core
         target: /var/minecraft
+      - type: bind
+        source: ./
+        target: /mnt/host
     logging:
       driver: json-file
       options:
