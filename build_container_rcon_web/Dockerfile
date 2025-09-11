@@ -1,4 +1,4 @@
-FROM php:7.4.8-apache
+FROM php:apache
 
 ARG minecraft_server_config_rcon_host
 ARG minecraft_server_config_rcon_port
