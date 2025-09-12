@@ -22,8 +22,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: "API access: https://github.com/n138-kz/isJP"
-        run: curl -s https://api.n138.jp/isJP/ | jq
+      - name: "API access: https://ipinfo.io/json"
+        run: curl -s https://ipinfo.io/json | jq
 
   build:
     runs-on: ubuntu-latest
