@@ -123,8 +123,8 @@ services:
         - minecraft_server_config_white_list=${minecraft_server_config_white_list:-false}
     restart: on-failure
     ports:
-      - 25561:25565
-      - 25562:8123
+      - 25560-65530:25565
+      - 25560-65530:8123
     tty: true
     tmpfs:
       - /run
