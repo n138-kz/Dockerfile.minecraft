@@ -68,64 +68,64 @@
 | :- | :- | :- |
 | minecraft_server_port | 25560-65530 | :25565 |
 | minecraft_mod_dynmap_port | 25560-65530 | :8123 |
-| minecraft_server_jar_url | https://piston-data.mojang.com/v1/objects/6bce4ef400e4efaa63a13d5e6f6b500be969ef81/server.jar | |
-| minecraft_server_version | 1.21.8 | |
-| minecraft_server_config_servericon | https://n138-kz.github.io/Dockerfile.minecraft/assets/sample-server-icon.png | |
-| minecraft_server_config_difficulty | normal | |
-| minecraft_server_config_enable_command_block | false | |
-| minecraft_server_config_enable_jmx_monitoring | false | |
-| minecraft_server_config_enable_query | false | |
-| minecraft_server_config_enable_rcon | true | |
-| minecraft_server_config_enable_status | true | |
-| minecraft_server_config_enforce_secure_profile | true | |
-| minecraft_server_config_enforce_whitelist | false | |
-| minecraft_server_config_entity_broadcast_range_percentage | 100 | |
-| minecraft_server_config_force_gamemode | false | |
-| minecraft_server_config_function_permission_level | 2 | |
-| minecraft_server_config_gamemode | survival | |
-| minecraft_server_config_generate_structures | true | |
-| minecraft_server_config_generator_settings | { | | | |
-| minecraft_server_config_hardcore | false | |
-| minecraft_server_config_hide_online_players | false | |
-| minecraft_server_config_initial_disabled_packs |  | |
-| minecraft_server_config_initial_enabled_packs | vanilla | |
-| minecraft_server_config_level_name | world | |
-| minecraft_server_config_level_seed |  | |
-| minecraft_server_config_level_type | minecraft\:normal | |
-| minecraft_server_config_log_ips | true | |
-| minecraft_server_config_max_chained_neighbor_updates | 1000000 | |
-| minecraft_server_config_max_players | 10 | |
-| minecraft_server_config_max_tick_time | 60000 | |
-| minecraft_server_config_max_world_size | 29999984 | |
-| minecraft_server_config_motd | Private server | |
-| minecraft_server_config_network_compression_threshold | 256 | |
-| minecraft_server_config_online_mode | true | |
-| minecraft_server_config_op_permission_level | 4 | |
-| minecraft_server_config_pause_when_empty_seconds | 60 | |
-| minecraft_server_config_player_idle_timeout | 0 | |
-| minecraft_server_config_prevent_proxy_connections | false | |
-| minecraft_server_config_pvp | true | |
-| minecraft_server_config_query_port | 25565 | |
-| minecraft_server_config_rate_limit | 0 | |
-| minecraft_server_config_rcon_password | 25575password@1 | |
-| minecraft_server_config_rcon_port | 25575 | |
-| minecraft_server_config_region_file_compression | deflate | |
-| minecraft_server_config_require_resource_pack | false | |
-| minecraft_server_config_resource_pack |  | |
-| minecraft_server_config_resource_pack_id |  | |
-| minecraft_server_config_resource_pack_prompt |  | |
-| minecraft_server_config_resource_pack_sha1 |  | |
-| minecraft_server_config_server_ip |  | |
-| minecraft_server_config_server_port | 25565 | |
-| minecraft_server_config_simulation_distance | 10 | |
-| minecraft_server_config_spawn_monsters | true | |
-| minecraft_server_config_spawn_protection | 16 | |
-| minecraft_server_config_sync_chunk_writes | true | |
-| minecraft_server_config_text_filtering_config |  | |
-| minecraft_server_config_text_filtering_version | 0 | |
-| minecraft_server_config_use_native_transport | true | |
-| minecraft_server_config_view_distance | 10 | |
-| minecraft_server_config_white_list | false | |
+| minecraft_server_jar_url | https://piston-data.mojang.com/v1/objects/6bce4ef400e4efaa63a13d5e6f6b500be969ef81/server.jar | **初回起動時のみ** |
+| minecraft_server_version | 1.21.8 | **初回起動時のみ** |
+| minecraft_server_config_servericon | https://n138-kz.github.io/Dockerfile.minecraft/assets/sample-server-icon.png | **初回起動時のみ** |
+| minecraft_server_config_difficulty | normal | **初回起動時のみ** |
+| minecraft_server_config_enable_command_block | false | **初回起動時のみ** |
+| minecraft_server_config_enable_jmx_monitoring | false | **初回起動時のみ** |
+| minecraft_server_config_enable_query | false | **初回起動時のみ** |
+| minecraft_server_config_enable_rcon | true | **初回起動時のみ** |
+| minecraft_server_config_enable_status | true | **初回起動時のみ** |
+| minecraft_server_config_enforce_secure_profile | true | **初回起動時のみ** |
+| minecraft_server_config_enforce_whitelist | false | **初回起動時のみ** |
+| minecraft_server_config_entity_broadcast_range_percentage | 100 | **初回起動時のみ** |
+| minecraft_server_config_force_gamemode | false | **初回起動時のみ** |
+| minecraft_server_config_function_permission_level | 2 | **初回起動時のみ** |
+| minecraft_server_config_gamemode | survival | **初回起動時のみ** |
+| minecraft_server_config_generate_structures | true | **初回起動時のみ** |
+| minecraft_server_config_generator_settings | { | | | **初回起動時のみ** |
+| minecraft_server_config_hardcore | false | **初回起動時のみ** |
+| minecraft_server_config_hide_online_players | false | **初回起動時のみ** |
+| minecraft_server_config_initial_disabled_packs |  | **初回起動時のみ** |
+| minecraft_server_config_initial_enabled_packs | vanilla | **初回起動時のみ** |
+| minecraft_server_config_level_name | world | **初回起動時のみ** |
+| minecraft_server_config_level_seed |  | **初回起動時のみ** |
+| minecraft_server_config_level_type | minecraft\:normal | **初回起動時のみ** |
+| minecraft_server_config_log_ips | true | **初回起動時のみ** |
+| minecraft_server_config_max_chained_neighbor_updates | 1000000 | **初回起動時のみ** |
+| minecraft_server_config_max_players | 10 | **初回起動時のみ** |
+| minecraft_server_config_max_tick_time | 60000 | **初回起動時のみ** |
+| minecraft_server_config_max_world_size | 29999984 | **初回起動時のみ** |
+| minecraft_server_config_motd | Private server | **初回起動時のみ** |
+| minecraft_server_config_network_compression_threshold | 256 | **初回起動時のみ** |
+| minecraft_server_config_online_mode | true | **初回起動時のみ** |
+| minecraft_server_config_op_permission_level | 4 | **初回起動時のみ** |
+| minecraft_server_config_pause_when_empty_seconds | 60 | **初回起動時のみ** |
+| minecraft_server_config_player_idle_timeout | 0 | **初回起動時のみ** |
+| minecraft_server_config_prevent_proxy_connections | false | **初回起動時のみ** |
+| minecraft_server_config_pvp | true | **初回起動時のみ** |
+| minecraft_server_config_query_port | 25565 | **初回起動時のみ** |
+| minecraft_server_config_rate_limit | 0 | **初回起動時のみ** |
+| minecraft_server_config_rcon_password | 25575password@1 | **初回起動時のみ** |
+| minecraft_server_config_rcon_port | 25575 | **初回起動時のみ** |
+| minecraft_server_config_region_file_compression | deflate | **初回起動時のみ** |
+| minecraft_server_config_require_resource_pack | false | **初回起動時のみ** |
+| minecraft_server_config_resource_pack |  | **初回起動時のみ** |
+| minecraft_server_config_resource_pack_id |  | **初回起動時のみ** |
+| minecraft_server_config_resource_pack_prompt |  | **初回起動時のみ** |
+| minecraft_server_config_resource_pack_sha1 |  | **初回起動時のみ** |
+| minecraft_server_config_server_ip |  | **初回起動時のみ** |
+| minecraft_server_config_server_port | 25565 | **初回起動時のみ** |
+| minecraft_server_config_simulation_distance | 10 | **初回起動時のみ** |
+| minecraft_server_config_spawn_monsters | true |  **初回起動時のみ** |
+| minecraft_server_config_spawn_protection | 16 |  **初回起動時のみ** |
+| minecraft_server_config_sync_chunk_writes | true |  **初回起動時のみ** |
+| minecraft_server_config_text_filtering_config |  | **初回起動時のみ** |
+| minecraft_server_config_text_filtering_version | `0` | **初回起動時のみ** |
+| minecraft_server_config_use_native_transport | `true` | **初回起動時のみ** |
+| minecraft_server_config_view_distance | `10` | **初回起動時のみ** |
+| minecraft_server_config_white_list | `false` | **初回起動時のみ** |
 
 ## 概要
 
