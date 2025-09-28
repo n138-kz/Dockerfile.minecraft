@@ -196,43 +196,44 @@ docker compose exec -it minecraft-rcon mcrcon "op mojang"
 <details>
   <summary>Server</summary>
 
-- [Download Minecraft Server Launcher](https://fabricmc.net/use/server/)
+  - [Download Minecraft Server Launcher](https://fabricmc.net/use/server/)
 
-> [!TIP]
-> [curl -O, --remote-name オプション](https://github.com/wada811/blog/issues/29)  
-> ファイルとして出力する。  
-> URL のファイル名が出力するファイル名となる。  
+  > [!TIP]
+  > [curl -O, --remote-name オプション](https://github.com/wada811/blog/issues/29)  
+  > ファイルとして出力する。  
+  > URL のファイル名が出力するファイル名となる。  
 
-> [!TIP]
-> [curl -J, --remote-header-name オプション](https://github.com/wada811/blog/issues/29)  
-> ファイルとして出力する。  
-> ヘッダーの Content-Disposition のファイル名が出力するファイル名となる。  
+  > [!TIP]
+  > [curl -J, --remote-header-name オプション](https://github.com/wada811/blog/issues/29)  
+  > ファイルとして出力する。  
+  > ヘッダーの Content-Disposition のファイル名が出力するファイル名となる。  
 
-```bash
-# List files (before)
-docker compose exec -it minecraft-core bash -c "ls -l"
+  ```bash
+  # List files (before)
+  docker compose exec -it minecraft-core bash -c "ls -l"
 
-# Downloads file
-docker compose exec -it minecraft-core bash -c "curl -o server.jar https://meta.fabricmc.net/v2/versions/loader/1.21.8/0.17.2/1.1.0/server/jar"
+  # Downloads file
+  docker compose exec -it minecraft-core bash -c "curl -o server.jar https://meta.fabricmc.net/v2/versions/loader/1.21.8/0.17.2/1.1.0/server/jar"
 
-# Downloads file (option)
-docker compose exec -it minecraft-core bash -c "curl -OJ https://meta.fabricmc.net/v2/versions/loader/1.21.8/0.17.2/1.1.0/server/jar"
+  # Downloads file (option)
+  docker compose exec -it minecraft-core bash -c "curl -OJ https://meta.fabricmc.net/v2/versions/loader/1.21.8/0.17.2/1.1.0/server/jar"
 
-# List files (after)
-docker compose exec -it minecraft-core bash -c "ls -l"
+  # List files (after)
+  docker compose exec -it minecraft-core bash -c "ls -l"
 
-# Restart server
-docker compose exec -it minecraft-rcon mcrcon list "say Restarting server" "say サーバー再起動中" save-all stop
-docker compose down
-docker compose up -d
-docker compose logs
-```
+  # Restart server
+  docker compose exec -it minecraft-rcon mcrcon list "say Restarting server" "say サーバー再起動中" save-all stop
+  docker compose down
+  docker compose up -d
+  docker compose logs
+  ```
+
 </details>
 
 <details>
   <summary>Client</summary>
 
-- [Download Minecraft Client Launcher](https://fabricmc.net/use/installer/)
+  - [Download Minecraft Client Launcher](https://fabricmc.net/use/installer/)
 </details>
 
 
