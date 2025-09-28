@@ -44,6 +44,9 @@
 - [《滅びの呪文》Docker Composeで作ったコンテナ、イメージ、ボリューム、ネットワークを一括完全消去する便利コマンド](https://qiita.com/suin/items/19d65e191b96a0079417)
 - [GitHubでQiitaの:::noteみたいな強調をする](https://qiita.com/lobmto/items/d02532134782f34c0e2fs)
 - [![](https://www.google.com/s2/favicons?size=64&domain=https://minecraft.net/)Java 版 Minecraft サーバー](https://www.minecraft.net/ja-jp/download/server)
+- [Fabric Minecraft Server](https://fabricmc.net/use/server/)
+- [mcrcon](https://github.com/Tiiffi/mcrcon.git)
+- [MinecraftのサーバにRCONで接続する | Qiita](https://qiita.com/h_tyokinuhata/items/85d855f88d5d33c21949)
 
 <details>		
 <summary>minecraft server each versions</summary>
@@ -52,8 +55,5 @@
 - [![](https://www.google.com/s2/favicons?size=64&domain=https://minecraft.net/)minecraft_server.1.21.3.jar](https://piston-data.mojang.com/v1/objects/45810d238246d90e811d896f87b14695b7fb6839/server.jar)
 </details>
 
-- [Fabric Minecraft Server](https://fabricmc.net/use/server/)
-- [mcrcon](https://github.com/Tiiffi/mcrcon.git)
-- [MinecraftのサーバにRCONで接続する | Qiita](https://qiita.com/h_tyokinuhata/items/85d855f88d5d33c21949)
 
 
