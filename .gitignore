@@ -9,3 +9,5 @@
 
 # Secret files
 *.env
+*.db
+*.sqlite
