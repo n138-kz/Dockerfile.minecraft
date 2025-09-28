@@ -200,6 +200,11 @@ docker compose exec -it minecraft-rcon mcrcon "op mojang"
 > ファイルとして出力する。
 > URL のファイル名が出力するファイル名となる。
 
+> [!TIP]
+> curl -J, --remote-header-name オプション
+> ファイルとして出力する。
+> ヘッダーの Content-Disposition のファイル名が出力するファイル名となる。
+
 ```bash
 docker compose exec -it minecraft-core bash
 cd mods/
