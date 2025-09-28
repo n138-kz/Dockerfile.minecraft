@@ -7,3 +7,6 @@
 | Mods | [Server Country Flags](https://www.curseforge.com/minecraft/mc-mods/server-country-flags) | 1.10.4 | <img src="./docs/assets/pc.svg" style="height: 3em;" /> | サーバーリストに、各サーバーが所在する国の国旗を表示するMOD |
 | Mods | [journeymap](https://www.curseforge.com/minecraft/mc-mods/journeymap) | 6.0.0-beta.52 | <img src="./docs/assets/sv.svg" style="height: 3em;" /> <img src="./docs/assets/pc.svg" style="height: 3em;" /> | 地図Mod |
 | Mods | [journeymap-webmap](https://www.curseforge.com/minecraft/mc-mods/journeymap-web-map) | 1.0.9 | <img src="./docs/assets/pc.svg" style="height: 3em;" /> | 地図Mod（ブラウザ版） |
+| Mods | [LeavesBeGone](https://www.curseforge.com/minecraft/mc-mods/leaves-be-gone) | 21.8.0 | <img src="./docs/assets/sv.svg" style="height: 3em;" /> <img src="./docs/assets/pc.svg" style="height: 3em;" /> | 木材（原木）を伐採した後、残った葉が非常に速く消えるようにする（腐敗する）Mod |
+| Mods | [PuzzlesLib](https://www.curseforge.com/minecraft/mc-mods/puzzles-lib) | 21.8.6 | <img src="./docs/assets/sv.svg" style="height: 3em;" /> <img src="./docs/assets/pc.svg" style="height: 3em;" /> | `LeavesBeGone` を動かす為の前提MOD |
+| Mods | [ForgeConfigAPIPort](https://www.curseforge.com/minecraft/mc-mods/forge-config-api-port-fabric) | 21.8.1 | <img src="./docs/assets/sv.svg" style="height: 3em;" /> <img src="./docs/assets/pc.svg" style="height: 3em;" /> | `PuzzlesLib` を動かす為の前提MOD |
