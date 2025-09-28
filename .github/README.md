@@ -130,6 +130,14 @@
 コンテナ型仮想環境で、Java版マインクラフトサーバーを構築します。  
 使用するコンテナイメージは Docker 社が運営する公開レジストリの Docker Hub から取得します。  
 
+| Service | Image |
+|:-|:-|
+| minecraft-core | almalinux:8 |
+| minecraft-rcon | almalinux:8 |
+| minecraft-rcon-web | php:apache |
+| minecraft-database-admin | phpmyadmin/phpmyadmin |
+| minecraft-database | mysql |
+
 ## コンテナ作成
 1. 環境変数ファイル（ファイル名： `.env` ） を作成・編集する。（詳細は公式ドキュメントを参照）
 
