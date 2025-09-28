@@ -162,6 +162,9 @@ docker compose down --rmi all --volumes --remove-orphans
 
 ## アップグレード
 
+1. 新しいバージョンの `server.jar` をコンテナ内にダウンロード(別名で保存して、コピーを `server.jar` に置換してください。)
+2. コンテナ再起動
+
 ```bash
 cd $(dirname $(docker compose ls | grep minecraft | awk '{print $3}'))
 docker compose exec -it minecraft-core bash
