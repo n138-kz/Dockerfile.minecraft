@@ -180,6 +180,28 @@ docker compose down
 docker compose up -d
 ```
 
+## ワールド生成～op権限付与
+
+```bash
+# Compose Build
+docker compose build --no-cache
+
+# Compose up, Server up, World Generate
+docker compose up -d
+
+# Server up check
+docker compose logs
+```
+
+```bash
+# Check login user name
+docker compose exec -it minecraft-rcon mcrcon list
+
+# Give OP privilage
+#  |  mojang <-- username
+docker compose exec -it minecraft-rcon mcrcon "op mojang"
+```
+
 ## アップグレード
 
 1. 新しいバージョンの `server.jar` をコンテナ内にダウンロード(別名で保存して、コピーを `server.jar` に置換してください。)
