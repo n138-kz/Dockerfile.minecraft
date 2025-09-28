@@ -25,6 +25,21 @@ jobs:
       - name: "API access: https://ipinfo.io/json"
         run: curl -s https://ipinfo.io/json | jq
 
+  iso8601:
+    runs-on: ubuntu-latest
+    outputs:
+      iso_date: ${{ steps.set_date.outputs.iso_date }}
+    steps:
+      - name: Set ISO 8601 date as an environment variable
+        id: set_date
+        run: |
+          echo "ISO_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ')" >> $GITHUB_OUTPUT
+          
+      - name: Use the ISO 8601 date variable
+        run: |
+          echo "::notice title=ISO 8601 Date::The current ISO 8601 date is: ${{ steps.set_date.outputs.iso_date }}"
+          echo "The current ISO 8601 date is: ${{ steps.set_date.outputs.iso_date }}"
+
   build:
     runs-on: ubuntu-latest
     steps:
