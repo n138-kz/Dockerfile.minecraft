@@ -171,4 +171,3 @@ mv minecraft_server.1.21.3.jar server.jar
 exit # or [ctrl^D]
 docker compose down; docker compose up -d
 ```
-
