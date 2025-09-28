@@ -198,16 +198,6 @@ docker compose exec -it minecraft-rcon mcrcon "op mojang"
 
 - [Download Minecraft Server Launcher](https://fabricmc.net/use/server/)
 
-</details>
-
-<details>
-  <summary>Client</summary>
-
-- [Download Minecraft Client Launcher](https://fabricmc.net/use/installer/)
-</details>
-
-
-
 > [!TIP]
 > [curl -O, --remote-name オプション](https://github.com/wada811/blog/issues/29)  
 > ファイルとして出力する。  
@@ -237,6 +227,16 @@ docker compose down
 docker compose up -d
 docker compose logs
 ```
+</details>
+
+<details>
+  <summary>Client</summary>
+
+- [Download Minecraft Client Launcher](https://fabricmc.net/use/installer/)
+</details>
+
+
+
 
 ## アップグレード
 
