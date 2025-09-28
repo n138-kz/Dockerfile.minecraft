@@ -58,6 +58,47 @@
 
 </details>
 
+## 概要
+
+コンテナ型仮想環境で、Java版マインクラフトサーバーを構築します。  
+使用するコンテナイメージは Docker 社が運営する公開レジストリの Docker Hub から取得します。  
+
+| Service | Image |
+|:-|:-|
+| minecraft-core | [almalinux](https://hub.docker.com/_/almalinux)[:8](https://hub.docker.com/_/almalinux/tags?name=8) |
+| minecraft-rcon | [almalinux](https://hub.docker.com/_/almalinux)[:8](https://hub.docker.com/_/almalinux/tags?name=8) |
+| minecraft-rcon-web | [php](https://hub.docker.com/_/php)[:apache](https://hub.docker.com/_/php/tags?name=apache) |
+| minecraft-database-admin | [phpmyadmin/phpmyadmin](https://hub.docker.com/_/phpmyadmin) |
+| minecraft-database | [mysql](https://hub.docker.com/_/mysql) |
+
+## コンテナ作成
+1. 環境変数ファイル（ファイル名： `.env` ） を作成・編集する。（詳細は公式ドキュメントを参照）
+
+```c:.env
+minecraft_server_port=25565
+```
+
+## コンテナの生成と起動
+
+```bash
+docker compose up -d --build
+```
+
+> [!TIP]
+> `docker compose logs` を実行して、`Done (*.***s)! For help, type "help"` が表示されれば起動完了。
+
+## コンテナ停止
+
+```bash
+docker compose down
+```
+
+## コンテナ削除（ワールド初期化）
+
+```bash
+docker compose down --rmi all --volumes --remove-orphans
+```
+
 ## Env
 
 ![version:1.21.8](https://img.shields.io/badge/version-1.21.8-brightgreen)
@@ -124,47 +165,6 @@
 | minecraft_server_config_use_native_transport | `true` | **初回起動時のみ** |
 | minecraft_server_config_view_distance | `10` | **初回起動時のみ** |
 | minecraft_server_config_white_list | `false` | **初回起動時のみ** |
-
-## 概要
-
-コンテナ型仮想環境で、Java版マインクラフトサーバーを構築します。  
-使用するコンテナイメージは Docker 社が運営する公開レジストリの Docker Hub から取得します。  
-
-| Service | Image |
-|:-|:-|
-| minecraft-core | [almalinux](https://hub.docker.com/_/almalinux)[:8](https://hub.docker.com/_/almalinux/tags?name=8) |
-| minecraft-rcon | [almalinux](https://hub.docker.com/_/almalinux)[:8](https://hub.docker.com/_/almalinux/tags?name=8) |
-| minecraft-rcon-web | [php](https://hub.docker.com/_/php)[:apache](https://hub.docker.com/_/php/tags?name=apache) |
-| minecraft-database-admin | [phpmyadmin/phpmyadmin](https://hub.docker.com/_/phpmyadmin) |
-| minecraft-database | [mysql](https://hub.docker.com/_/mysql) |
-
-## コンテナ作成
-1. 環境変数ファイル（ファイル名： `.env` ） を作成・編集する。（詳細は公式ドキュメントを参照）
-
-```c:.env
-minecraft_server_port=25565
-```
-
-## コンテナの生成と起動
-
-```bash
-docker compose up -d --build
-```
-
-> [!TIP]
-> `docker compose logs` を実行して、`Done (*.***s)! For help, type "help"` が表示されれば起動完了。
-
-## コンテナ停止
-
-```bash
-docker compose down
-```
-
-## コンテナ削除（ワールド初期化）
-
-```bash
-docker compose down --rmi all --volumes --remove-orphans
-```
 
 ## fablic MOD server
 
