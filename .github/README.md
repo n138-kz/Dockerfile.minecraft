@@ -221,6 +221,12 @@ docker compose exec -it minecraft-core bash -c "curl -OJ https://meta.fabricmc.n
 # List files (after)
 docker compose exec -it minecraft-core bash -c "ls -l"
 
+# Mods directory
+docker compose exec -it minecraft-core bash -c "ls -l mods"
+docker compose exec -it minecraft-core bash -c "rmdir /var/minecraft/mods"
+mkdir mods && docker compose exec -it minecraft-core bash -c "ln -s /mnt/host/mods /var/minecraft"
+docker compose exec -it minecraft-core bash -c "ls -l mods mods/"
+
 # Restart server
 docker compose exec -it minecraft-rcon mcrcon list "say Restarting server" "say サーバー再起動中" save-all stop
 docker compose down
