@@ -4,9 +4,13 @@ on:
   push:
     paths:
       - "**"
+    paths-ignore: 
+      - "**.md"
   pull_request:
     paths:
       - "**"
+    paths-ignore: 
+      - "**.md"
 
 permissions:
   contents: read
