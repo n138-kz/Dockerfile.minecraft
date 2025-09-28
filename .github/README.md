@@ -136,8 +136,7 @@
 1. 環境変数ファイル（ファイル名： `.env` ） を作成・編集する。（詳細は公式ドキュメントを参照）
 
 ```c:.env
-minecraft_server_jar_url="https://piston-data.mojang.com/v1/objects/45810d238246d90e811d896f87b14695b7fb6839/server.jar"
-minecraft_server_version="1.21.3"
+minecraft_server_port=25565
 ```
 
 ## コンテナの生成と起動
