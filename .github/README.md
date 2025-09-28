@@ -48,7 +48,7 @@
 - [mcrcon](https://github.com/Tiiffi/mcrcon.git)
 - [MinecraftのサーバにRCONで接続する | Qiita](https://qiita.com/h_tyokinuhata/items/85d855f88d5d33c21949)
 
-<details>		
+<details>
 <summary>![](https://www.google.com/s2/favicons?size=64&domain=https://minecraft.net/)minecraft server each versions</summary>
 
 - [![](https://www.google.com/s2/favicons?size=64&domain=https://minecraft.net/)minecraft_server.1.21.1.jar](https://piston-data.mojang.com/v1/objects/59353fb40c36d304f2035d51e7d6e6baa98dc05c/server.jar)
