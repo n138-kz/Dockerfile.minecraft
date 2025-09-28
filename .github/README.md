@@ -194,7 +194,7 @@ docker compose exec -it minecraft-rcon mcrcon "op mojang"
 ## fablic MOD server
 
 <details>
-  <summary>Server</summary>
+<summary>Server</summary>
 
 - [Download Minecraft Server Launcher](https://fabricmc.net/use/server/)
 
@@ -230,7 +230,7 @@ docker compose logs
 </details>
 
 <details>
-  <summary>Client</summary>
+<summary>Client</summary>
 
 - [Download Minecraft Client Launcher](https://fabricmc.net/use/installer/)
 </details>
