@@ -23,11 +23,6 @@
     
 	[インストール方法](https://docs.docker.jp/engine/installation/linux/index.html)  
 
-	<details>
-		<summary>Tips for collapsed sections</summary>
-
-	</details>
-
 3. データ格納用ディレクトリの用意
 
 > [!IMPORTANT]
