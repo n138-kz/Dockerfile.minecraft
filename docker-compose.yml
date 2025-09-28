@@ -123,8 +123,9 @@ services:
         - minecraft_server_config_white_list=${minecraft_server_config_white_list:-false}
     restart: on-failure
     ports:
-      - 25560-65530:25565
       - 25560-65530:8123
+      # 25565/TCP: Minecraft
+      - ${minecraft_server_port:-25560-65530}:25565
     tty: true
     tmpfs:
       - /run
