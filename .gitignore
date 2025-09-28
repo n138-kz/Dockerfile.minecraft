@@ -1,5 +1,6 @@
 # Temporary files
 *.tmp
+*.lock
 
 # Backup files
 *.bak*
@@ -9,6 +10,10 @@
 
 # Secret files
 *.env
+*.venv
+env/
+venv/
 *.db
 *.sqlite
 *.sqlite3
+world*
