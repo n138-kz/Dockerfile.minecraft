@@ -1,12 +1,15 @@
 name: Docker Container for minecraft-server
 
 on:
+  workflow_dispatch:
   push:
-    paths:
-      - "**"
+    paths-ignore: 
+      - "**.md"
+      - "**.yml"
   pull_request:
-    paths:
-      - "**"
+    paths-ignore: 
+      - "**.md"
+      - "**.yml"
 
 permissions:
   contents: read
@@ -25,8 +28,61 @@ jobs:
       - name: "API access: https://ipinfo.io/json"
         run: curl -s https://ipinfo.io/json | jq
 
+  iso8601:
+    runs-on: ubuntu-latest
+    outputs:
+      iso_date: ${{ steps.set_date.outputs.iso_date }}
+    steps:
+      - name: Set ISO 8601 date as an environment variable
+        id: set_date
+        run: |
+          echo "ISO_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ')" >> $GITHUB_OUTPUT
+          
+      - name: Use the ISO 8601 date variable
+        run: |
+          echo "::notice title=ISO 8601 Date::The current ISO 8601 date is: ${{ steps.set_date.outputs.iso_date }}"
+          echo "The current ISO 8601 date is: ${{ steps.set_date.outputs.iso_date }}"
+
+  Pull_the_image_phpmyadmin-phpmyadmin:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker pull phpmyadmin/phpmyadmin
+
+  Pull_the_image_mysql:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker pull mysql
+
+  Pull_the_image_almalinux-8:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker pull almalinux:8
+
+  Pull_the_image_alpine:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker pull alpine
+
+  Git_clone_Tiiffi-mcrcon:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: git clone https://github.com/Tiiffi/mcrcon.git
+
   build:
     runs-on: ubuntu-latest
+    needs: 
+      - Pull_the_image_phpmyadmin-phpmyadmin
+      - Pull_the_image_mysql
+      - Pull_the_image_almalinux-8
+      - Pull_the_image_alpine
+      - Git_clone_Tiiffi-mcrcon
+      - iso8601
+      
     steps:
       - uses: actions/checkout@v4
 
@@ -41,6 +97,9 @@ jobs:
 
       - name: "Pull the image: alpine"
         run: docker pull alpine
+
+      - name: Print the Compose config
+        run: docker compose config
 
       - name: Build the Docker container
         run: docker compose build --no-cache
@@ -74,6 +133,3 @@ jobs:
 
       - name: "Log show the Docker container: minecraft-database-admin"
         run: docker compose logs minecraft-database-admin
-
-      - name: Waiting for 10s
-        run: sleep 10

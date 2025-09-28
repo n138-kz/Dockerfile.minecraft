@@ -41,9 +41,9 @@ RUN set -x && \
 
 WORKDIR /var/minecraft/
 
-ENV MCRCON_HOST ${minecraft_server_config_rcon_host}
-ENV MCRCON_PORT ${minecraft_server_config_rcon_port}
-ENV MCRCON_PASS ${minecraft_server_config_rcon_password}
+ENV MCRCON_HOST=${minecraft_server_config_rcon_host}
+ENV MCRCON_PORT=${minecraft_server_config_rcon_port}
+ENV MCRCON_PASS=${minecraft_server_config_rcon_password}
 
 RUN echo 'alias ll="ls -l"' >> /etc/bashrc
 RUN echo '' >> /etc/bashrc
