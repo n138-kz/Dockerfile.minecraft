@@ -127,5 +127,26 @@
 | minecraft_server_config_view_distance | 10 | |
 | minecraft_server_config_white_list | false | |
 
+## 概要
+
+コンテナ型仮想環境で、Java版マインクラフトサーバーを構築します。  
+使用するコンテナイメージは Docker 社が運営する公開レジストリの Docker Hub から取得します。  
+
+## コンテナ作成
+1. 環境変数ファイル（ファイル名： `.env` ） を作成・編集する。（詳細は公式ドキュメントを参照）
+
+```c:.env
+minecraft_server_jar_url="https://piston-data.mojang.com/v1/objects/45810d238246d90e811d896f87b14695b7fb6839/server.jar"
+minecraft_server_version="1.21.3"
+```
+
+## コンテナの生成と起動
+
+```bash
+docker compose up -d --build
+```
+
+> [!TIP]
+> `docker compose logs -f` を実行して、`Done (*.***s)! For help, type "help"` が表示されれば起動完了。
 
 
