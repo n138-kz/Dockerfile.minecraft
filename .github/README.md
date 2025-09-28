@@ -161,4 +161,14 @@ docker compose down
 docker compose down --rmi all --volumes --remove-orphans
 ```
 
+## アップグレード
+
+```bash
+cd $(dirname $(docker compose ls | grep minecraft | awk '{print $3}'))
+docker compose exec -it minecraft-core bash
+wget -O minecraft_server.1.21.3.jar https://piston-data.mojang.com/v1/objects/45810d238246d90e811d896f87b14695b7fb6839/server.jar
+mv minecraft_server.1.21.3.jar server.jar
+exit # or [ctrl^D]
+docker compose down; docker compose up -d
+```
 
