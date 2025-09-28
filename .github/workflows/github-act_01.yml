@@ -123,6 +123,3 @@ jobs:
 
       - name: "Log show the Docker container: minecraft-database-admin"
         run: docker compose logs minecraft-database-admin
-
-      - name: Waiting for 10s
-        run: sleep 10
