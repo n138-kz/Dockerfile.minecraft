@@ -194,6 +194,7 @@ docker compose exec -it minecraft-rcon mcrcon "op mojang"
 ## fablic MOD server
 
 - [Download Minecraft Server Launcher](https://fabricmc.net/use/server/)
+- [Download Minecraft Client Launcher](https://fabricmc.net/use/installer/)
 
 > [!TIP]
 > [curl -O, --remote-name オプション](https://github.com/wada811/blog/issues/29)  
