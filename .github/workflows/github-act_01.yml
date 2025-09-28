@@ -43,8 +43,17 @@ jobs:
           echo "::notice title=ISO 8601 Date::The current ISO 8601 date is: ${{ steps.set_date.outputs.iso_date }}"
           echo "The current ISO 8601 date is: ${{ steps.set_date.outputs.iso_date }}"
 
+  Pull_the_image_phpmyadmin-phpmyadmin:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker pull phpmyadmin/phpmyadmin
+
   build:
     runs-on: ubuntu-latest
+    needs: 
+      - Pull_the_image_phpmyadmin-phpmyadmin
+      
     steps:
       - uses: actions/checkout@v4
 
