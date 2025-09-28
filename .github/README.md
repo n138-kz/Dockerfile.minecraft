@@ -195,6 +195,11 @@ docker compose exec -it minecraft-rcon mcrcon "op mojang"
 
 - [Download Minecraft Server Launcher](https://fabricmc.net/use/server/)
 
+> [!TIP]
+> curl -O, --remote-name オプション
+> ファイルとして出力する。
+> URL のファイル名が出力するファイル名となる。
+
 ```bash
 docker compose exec -it minecraft-core bash
 cd mods/
