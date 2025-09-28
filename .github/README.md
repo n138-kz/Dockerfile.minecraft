@@ -169,17 +169,6 @@ docker compose down --rmi all --volumes --remove-orphans
 - `コンテナ起動ごと`: コンテナ停止→起動の度に設定されている内容を使用
 - `初回起動時のみ`: コンテナビルド時のみ使用（運用中に変更する場合は`server.properties`を手動で変更）
 
-## fablic MOD server
-
-```bash
-docker compose exec -it minecraft-core bash
-cd mods/
-curl -o 'fabric-api.jar' https://www.curseforge.com/api/v1/mods/306612/files/5750140/download
-exit
-docker compose down
-docker compose up -d
-```
-
 ## ワールド生成～op権限付与
 
 ```bash
@@ -200,6 +189,19 @@ docker compose exec -it minecraft-rcon mcrcon list
 # Give OP privilage
 #  |  mojang <-- username
 docker compose exec -it minecraft-rcon mcrcon "op mojang"
+```
+
+## fablic MOD server
+
+- [Download Minecraft Server Launcher](https://fabricmc.net/use/server/)
+
+```bash
+docker compose exec -it minecraft-core bash
+cd mods/
+curl -o 'fabric-api.jar' https://www.curseforge.com/api/v1/mods/306612/files/5750140/download
+exit
+docker compose down
+docker compose up -d
 ```
 
 ## アップグレード
