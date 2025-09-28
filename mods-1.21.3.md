@@ -1,6 +1,6 @@
 # mods
 
-| Type | Name | Version | Version | Descr |
+| Type | Name | Mod Version | Minecraft Version | Descr |
 | --- | --- | --- | --- | --- |
 | Plugin | [DiscordSRV](https://github.com/DiscordSRV/DiscordSRV) | 1.29.0 | n/a | |
 | Plugin | [Discord4Fabric](https://modrinth.com/mod/discord4fabric) |  | n/a | |
