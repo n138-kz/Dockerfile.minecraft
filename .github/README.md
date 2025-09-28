@@ -87,7 +87,7 @@
 | minecraft_server_config_generator_settings | __not set__ | **初回起動時のみ** |
 | minecraft_server_config_hardcore | `false` | **初回起動時のみ** |
 | minecraft_server_config_hide_online_players | `false` | **初回起動時のみ** |
-| minecraft_server_config_initial_disabled_packs |  | **初回起動時のみ** |
+| minecraft_server_config_initial_disabled_packs | __not set__ | **初回起動時のみ** |
 | minecraft_server_config_initial_enabled_packs | `vanilla` | **初回起動時のみ** |
 | minecraft_server_config_level_name | `world` | **初回起動時のみ** |
 | minecraft_server_config_level_seed | __not set__ | **初回起動時のみ** |
@@ -121,7 +121,7 @@
 | minecraft_server_config_spawn_monsters | `true` |  **初回起動時のみ** |
 | minecraft_server_config_spawn_protection | `16` |  **初回起動時のみ** |
 | minecraft_server_config_sync_chunk_writes | `true` |  **初回起動時のみ** |
-| minecraft_server_config_text_filtering_config |  | **初回起動時のみ** |
+| minecraft_server_config_text_filtering_config | __not set__ | **初回起動時のみ** |
 | minecraft_server_config_text_filtering_version | `0` | **初回起動時のみ** |
 | minecraft_server_config_use_native_transport | `true` | **初回起動時のみ** |
 | minecraft_server_config_view_distance | `10` | **初回起動時のみ** |
