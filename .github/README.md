@@ -149,4 +149,16 @@ docker compose up -d --build
 > [!TIP]
 > `docker compose logs -f` を実行して、`Done (*.***s)! For help, type "help"` が表示されれば起動完了。
 
+## コンテナ停止
+
+```bash
+docker compose down
+```
+
+## コンテナ削除（ワールド初期化）
+
+```bash
+docker compose down --rmi all --volumes --remove-orphans
+```
+
 
