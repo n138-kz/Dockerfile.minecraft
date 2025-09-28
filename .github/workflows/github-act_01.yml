@@ -2,13 +2,9 @@ name: Docker Container for minecraft-server
 
 on:
   push:
-    paths:
-      - "**"
     paths-ignore: 
       - "**.md"
   pull_request:
-    paths:
-      - "**"
     paths-ignore: 
       - "**.md"
 
