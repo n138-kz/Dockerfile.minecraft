@@ -206,6 +206,26 @@ docker compose exec -it minecraft-rcon mcrcon "op mojang"
 > ファイルとして出力する。  
 > ヘッダーの Content-Disposition のファイル名が出力するファイル名となる。  
 
+```bash
+# List files (before)
+docker compose exec -it minecraft-core bash -c "ls -l"
+
+# Downloads file
+docker compose exec -it minecraft-core bash -c "curl -o server.jar https://meta.fabricmc.net/v2/versions/loader/1.21.8/0.17.2/1.1.0/server/jar"
+
+# Downloads file (option)
+docker compose exec -it minecraft-core bash -c "curl -OJ https://meta.fabricmc.net/v2/versions/loader/1.21.8/0.17.2/1.1.0/server/jar"
+
+# List files (after)
+docker compose exec -it minecraft-core bash -c "ls -l"
+
+# Restart server
+docker compose exec -it minecraft-rcon mcrcon list "say Restarting server" "say サーバー再起動中" save-all stop
+docker compose down
+docker compose up -d
+docker compose logs
+```
+
 ## アップグレード
 
 1. 新しいバージョンの `server.jar` をコンテナ内にダウンロード(別名で保存して、コピーを `server.jar` に置換してください。)
