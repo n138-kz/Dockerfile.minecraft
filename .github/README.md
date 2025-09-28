@@ -65,6 +65,7 @@
 ![version:1.21.8](https://img.shields.io/badge/version-1.21.8-brightgreen)
 
 | name | default | remark |
+| :- | :- | :- |
 | minecraft_server_port | 25560-65530 | :25565 |
 | minecraft_mod_dynmap_port | 25560-65530 | :8123 |
 | minecraft_server_jar_url=${minecraft_server_jar_url | https://piston-data.mojang.com/v1/objects/6bce4ef400e4efaa63a13d5e6f6b500be969ef81/server.jar | |
