@@ -144,7 +144,7 @@ docker compose up -d --build
 ```
 
 > [!TIP]
-> `docker compose logs -f` を実行して、`Done (*.***s)! For help, type "help"` が表示されれば起動完了。
+> `docker compose logs` を実行して、`Done (*.***s)! For help, type "help"` が表示されれば起動完了。
 
 ## コンテナ停止
 
