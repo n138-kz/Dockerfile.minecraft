@@ -206,15 +206,6 @@ docker compose exec -it minecraft-rcon mcrcon "op mojang"
 > ファイルとして出力する。  
 > ヘッダーの Content-Disposition のファイル名が出力するファイル名となる。  
 
-```bash
-docker compose exec -it minecraft-core bash
-cd mods/
-curl -o 'fabric-api.jar' https://www.curseforge.com/api/v1/mods/306612/files/5750140/download
-exit
-docker compose down
-docker compose up -d
-```
-
 ## アップグレード
 
 1. 新しいバージョンの `server.jar` をコンテナ内にダウンロード(別名で保存して、コピーを `server.jar` に置換してください。)
