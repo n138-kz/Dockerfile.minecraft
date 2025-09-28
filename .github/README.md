@@ -84,13 +84,13 @@
 | minecraft_server_config_function_permission_level | `2` | **初回起動時のみ** |
 | minecraft_server_config_gamemode | `survival` | **初回起動時のみ** |
 | minecraft_server_config_generate_structures | `true` | **初回起動時のみ** |
-| minecraft_server_config_generator_settings | | **初回起動時のみ** |
+| minecraft_server_config_generator_settings | __not set__ | **初回起動時のみ** |
 | minecraft_server_config_hardcore | `false` | **初回起動時のみ** |
 | minecraft_server_config_hide_online_players | `false` | **初回起動時のみ** |
 | minecraft_server_config_initial_disabled_packs |  | **初回起動時のみ** |
 | minecraft_server_config_initial_enabled_packs | `vanilla` | **初回起動時のみ** |
 | minecraft_server_config_level_name | `world` | **初回起動時のみ** |
-| minecraft_server_config_level_seed |  | **初回起動時のみ** |
+| minecraft_server_config_level_seed | __not set__ | **初回起動時のみ** |
 | minecraft_server_config_level_type | `minecraft\:normal` | **初回起動時のみ** |
 | minecraft_server_config_log_ips | `true` | **初回起動時のみ** |
 | minecraft_server_config_max_chained_neighbor_updates | `1000000` | **初回起動時のみ** |
@@ -111,11 +111,11 @@
 | minecraft_server_config_rcon_port | `25575` | **初回起動時のみ** |
 | minecraft_server_config_region_file_compression | `deflate` | **初回起動時のみ** |
 | minecraft_server_config_require_resource_pack | `false` | **初回起動時のみ** |
-| minecraft_server_config_resource_pack |  | **初回起動時のみ** |
-| minecraft_server_config_resource_pack_id |  | **初回起動時のみ** |
-| minecraft_server_config_resource_pack_prompt |  | **初回起動時のみ** |
-| minecraft_server_config_resource_pack_sha1 |  | **初回起動時のみ** |
-| minecraft_server_config_server_ip |  | **初回起動時のみ** |
+| minecraft_server_config_resource_pack | __not set__ | **初回起動時のみ** |
+| minecraft_server_config_resource_pack_id | __not set__ | **初回起動時のみ** |
+| minecraft_server_config_resource_pack_prompt | __not set__ | **初回起動時のみ** |
+| minecraft_server_config_resource_pack_sha1 | __not set__ | **初回起動時のみ** |
+| minecraft_server_config_server_ip | __not set__ | **初回起動時のみ** |
 | minecraft_server_config_server_port | `25565` | **初回起動時のみ** |
 | minecraft_server_config_simulation_distance | `10` | **初回起動時のみ** |
 | minecraft_server_config_spawn_monsters | `true` |  **初回起動時のみ** |
