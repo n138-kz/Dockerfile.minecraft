@@ -1,6 +1,8 @@
 services:
   minecraft-rcon-web:
     container_name: minecraft-rcon-web
+    profiles:
+      - deprecated
     environment:
       PUID: 1000
       PGID: 1000
@@ -146,6 +148,8 @@ services:
 
   minecraft-database-admin:
     container_name: minecraft-database-admin
+    profiles:
+      - deprecated
     image: phpmyadmin/phpmyadmin
     environment:
       PUID: 1000
@@ -172,6 +176,8 @@ services:
 
   minecraft-database:
     container_name: minecraft-database
+    profiles:
+      - deprecated
     image: mysql
     environment:
       PUID: 1000
