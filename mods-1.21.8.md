@@ -1,7 +1,7 @@
 # mods
 
 | Type | Name | Mod Version | S/C | Descr |
-| --- | --- | --- | --- | --- |
+| :---: | --- | :---: | :---: | --- |
 | Mods | [fabric-api](https://www.curseforge.com/minecraft/mc-mods/fabric-api) | 0.133.4 | <img src="./docs/assets/sv.svg" style="height: 3em;" /> <img src="./docs/assets/pc.svg" style="height: 3em;" /> | Fabric Core API Library<br>MODを動かす為の前提MOD |
 | Mods | [ForgeConfigAPIPort](https://www.curseforge.com/minecraft/mc-mods/forge-config-api-port-fabric) | 21.8.1 | <img src="./docs/assets/sv.svg" style="height: 3em;" /> <img src="./docs/assets/pc.svg" style="height: 3em;" /> | `PuzzlesLib` を動かす為の前提MOD |
 | Mods | [PuzzlesLib](https://www.curseforge.com/minecraft/mc-mods/puzzles-lib) | 21.8.6 | <img src="./docs/assets/sv.svg" style="height: 3em;" /> <img src="./docs/assets/pc.svg" style="height: 3em;" /> | `LeavesBeGone` を動かす為の前提MOD |
