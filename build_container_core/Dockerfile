@@ -72,6 +72,11 @@ RUN set -x && \
 RUN set -x && \
     dnf install -y java-21-openjdk-headless
 
+RUN set -x && \
+    echo '#!/bin/bash' > /usr/local/bin/ll && \
+    echo 'ls -l' >> /usr/local/bin/ll && \
+    chmod a+x /usr/local/bin/ll
+
 WORKDIR /var/minecraft/
 
 RUN set -x && \
