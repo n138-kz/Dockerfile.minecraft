@@ -197,8 +197,7 @@ docker compose exec -it minecraft-rcon mcrcon "op mojang"
 
 ## fablic MOD server
 
-<details>
-<summary>Server</summary>
+### Server
 
 - [Download Minecraft Server Launcher](https://fabricmc.net/use/server/)
 
@@ -211,6 +210,8 @@ docker compose exec -it minecraft-rcon mcrcon "op mojang"
 > [curl -J, --remote-header-name オプション](https://github.com/wada811/blog/issues/29)  
 > ファイルとして出力する。  
 > ヘッダーの Content-Disposition のファイル名が出力するファイル名となる。  
+
+<details>
 
 ```bash
 # List files (before)
@@ -237,13 +238,12 @@ docker compose down
 docker compose up -d
 docker compose logs
 ```
+
 </details>
 
-<details>
-<summary>Client</summary>
+### Client
 
 - [Download Minecraft Client Launcher](https://fabricmc.net/use/installer/)
-</details>
 
 
 
