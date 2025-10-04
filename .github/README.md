@@ -45,7 +45,7 @@
 - [GitHubでQiitaの:::noteみたいな強調をする](https://qiita.com/lobmto/items/d02532134782f34c0e2fs)
 - [![](https://www.google.com/s2/favicons?size=64&domain=https://minecraft.net/)Java 版 Minecraft サーバー](https://www.minecraft.net/ja-jp/download/server)
 - [Fabric Minecraft Server](https://fabricmc.net/use/server/)
-- [mcrcon](https://github.com/Tiiffi/mcrcon.git)
+- [![](https://www.google.com/s2/favicons?size=64&domain=https://github.com)Tiiffi/mcrcon](https://github.com/Tiiffi/mcrcon.git)
 - [MinecraftのサーバにRCONで接続する | Qiita](https://qiita.com/h_tyokinuhata/items/85d855f88d5d33c21949)
 
 <details>
