@@ -3,8 +3,6 @@ USER root:root
 
 ARG minecraft_server_jar_url
 ARG minecraft_server_version
-ARG minecraft_server_java_xmx
-ARG minecraft_server_java_xms
 ARG minecraft_server_config_servericon
 ARG minecraft_server_config_difficulty
 ARG minecraft_server_config_enable_command_block
@@ -160,4 +158,5 @@ RUN set -x && cat server.properties
 
 RUN echo -e "\nXms: ${minecraft_server_java_xms}\nXmx: ${minecraft_server_java_xmx}\n"
 
-ENTRYPOINT java -Xms${minecraft_server_java_xms} -Xmx${minecraft_server_java_xmx} -jar server.jar nogui
+ENTRYPOINT [ "java", "-Xms${minecraft_server_java_xms}", "-Xmx${minecraft_server_java_xmx}", "-jar", "server.jar", "nogui" ]
+
