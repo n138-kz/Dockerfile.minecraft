@@ -62,6 +62,8 @@ services:
       LANG: "C"
       LANGUAGE: "C"
       LC_ALL: "C"
+      minecraft_server_java_xmx: ${minecraft_server_java_xmx:-2048m}
+      minecraft_server_java_xms: ${minecraft_server_java_xms:-512m}
     build:
       context: build_container_core/
       args:
