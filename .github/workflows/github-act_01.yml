@@ -7,11 +7,6 @@ on:
       - "**.md"
       - "**.yml"
       - "**.html"
-  pull_request:
-    paths-ignore: 
-      - "**.md"
-      - "**.yml"
-      - "**.html"
 
 permissions:
   contents: read
