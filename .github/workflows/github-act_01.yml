@@ -7,11 +7,6 @@ on:
       - "**.md"
       - "**.yml"
       - "**.html"
-  pull_request:
-    paths-ignore: 
-      - "**.md"
-      - "**.yml"
-      - "**.html"
 
 permissions:
   contents: read
@@ -111,6 +106,9 @@ jobs:
 
       - name: Waiting for 30s
         run: sleep 30
+
+      - name: "Log show the Docker container"
+        run: docker compose logs
 
       - name: "server.properties"
         run: docker compose exec -it minecraft-core cat server.properties
