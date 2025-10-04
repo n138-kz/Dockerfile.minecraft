@@ -103,6 +103,8 @@ docker compose down --rmi all --volumes --remove-orphans
 
 ![version:1.21.8](https://img.shields.io/badge/version-1.21.8-brightgreen)
 
+<details>
+
 | name | default | remark |
 | :- | :- | :- |
 | minecraft_server_port | `25560-65530` | Default: `25565`<br>**コンテナ起動ごと** |
@@ -169,6 +171,8 @@ docker compose down --rmi all --volumes --remove-orphans
 - `コンテナ起動ごと`: コンテナ停止→起動の度に設定されている内容を使用
 - `初回起動時のみ`: コンテナビルド時のみ使用（運用中に変更する場合は`server.properties`を手動で変更）
 
+</details>
+
 ## ワールド生成～op権限付与
 
 ```bash
@@ -193,8 +197,7 @@ docker compose exec -it minecraft-rcon mcrcon "op mojang"
 
 ## fablic MOD server
 
-<details>
-<summary>Server</summary>
+### Server
 
 - [Download Minecraft Server Launcher](https://fabricmc.net/use/server/)
 
@@ -207,6 +210,8 @@ docker compose exec -it minecraft-rcon mcrcon "op mojang"
 > [curl -J, --remote-header-name オプション](https://github.com/wada811/blog/issues/29)  
 > ファイルとして出力する。  
 > ヘッダーの Content-Disposition のファイル名が出力するファイル名となる。  
+
+<details>
 
 ```bash
 # List files (before)
@@ -233,13 +238,12 @@ docker compose down
 docker compose up -d
 docker compose logs
 ```
+
 </details>
 
-<details>
-<summary>Client</summary>
+### Client
 
 - [Download Minecraft Client Launcher](https://fabricmc.net/use/installer/)
-</details>
 
 
 
