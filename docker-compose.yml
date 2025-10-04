@@ -67,8 +67,6 @@ services:
       args:
         - minecraft_server_jar_url=${minecraft_server_jar_url:-https://piston-data.mojang.com/v1/objects/6bce4ef400e4efaa63a13d5e6f6b500be969ef81/server.jar}
         - minecraft_server_version=${minecraft_server_version:-1.21.8}
-        - minecraft_server_java_xmx=${minecraft_server_java_xmx:-2048m}
-        - minecraft_server_java_xms=${minecraft_server_java_xms:-512m}
         - minecraft_server_config_servericon=${minecraft_server_config_servericon:-https://n138-kz.github.io/Dockerfile.minecraft/assets/sample-server-icon.png}
         - minecraft_server_config_difficulty=${minecraft_server_config_difficulty:-normal}
         - minecraft_server_config_enable_command_block=${minecraft_server_config_enable_command_block:-false}
