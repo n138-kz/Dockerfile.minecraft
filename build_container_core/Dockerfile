@@ -158,4 +158,6 @@ RUN set -x && rm server.properties.conf
 
 RUN set -x && cat server.properties
 
+RUN echo -e "\nXms: ${minecraft_server_java_xms}\nXmx: ${minecraft_server_java_xmx}\n"
+
 ENTRYPOINT [ "java","-Xms${minecraft_server_java_xms}","-Xmx${minecraft_server_java_xmx}","-jar","server.jar","nogui" ]
