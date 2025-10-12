@@ -150,6 +150,36 @@ services:
         max-size: "1024k"
         max-file: "10"
 
+  minecraft-autobackup:
+    container_name: minecraft-autobackup
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: Asia/Tokyo
+      LANG: "C"
+      LANGUAGE: "C"
+      LC_ALL: "C"
+    build:
+      context: build_container_autobackup/
+    entrypoint: ["cron", "-f"]
+    restart: on-failure
+    tty: true
+    tmpfs:
+      - /run
+      - /tmp
+    volumes:
+      - type: volume
+        source: minecraft-core
+        target: /var/minecraft
+      - type: bind
+        source: ./
+        target: /mnt/host
+    logging:
+      driver: json-file
+      options:
+        max-size: "1024k"
+        max-file: "10"
+
   minecraft-database-admin:
     container_name: minecraft-database-admin
     profiles:
