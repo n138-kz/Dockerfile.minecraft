@@ -70,9 +70,6 @@ RUN set -x && \
     dnf install -y wget
 
 RUN set -x && \
-    dnf install -y cronie crontabs
-
-RUN set -x && \
     dnf install -y java-21-openjdk-headless
 
 RUN set -x && \
