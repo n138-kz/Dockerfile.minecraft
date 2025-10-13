@@ -127,8 +127,8 @@ docker compose down --rmi all --volumes --remove-orphans
 | minecraft_server_config_gamemode | `survival` | **初回起動時のみ** |
 | minecraft_server_config_generate_structures | `true` | **初回起動時のみ**<br>Syntax: `true` \| `false` |
 | minecraft_server_config_generator_settings | __not set__ | **初回起動時のみ** |
-| minecraft_server_config_hardcore | `false` | **初回起動時のみ** |
 | minecraft_server_config_hide_online_players | `false` | **初回起動時のみ** |
+| minecraft_server_config_hardcore | `false` | **初回起動時のみ**<br>Syntax: `true` \| `false` |
 | minecraft_server_config_initial_disabled_packs | __not set__ | **初回起動時のみ** |
 | minecraft_server_config_initial_enabled_packs | `vanilla` | **初回起動時のみ** |
 | minecraft_server_config_level_name | `world` | **初回起動時のみ** |
