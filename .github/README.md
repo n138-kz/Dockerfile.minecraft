@@ -113,7 +113,7 @@ docker compose down --rmi all --volumes --remove-orphans
 | minecraft_server_jar_url | `https://piston-data.mojang.com/v1/objects/6bce4ef400e4efaa63a13d5e6f6b500be969ef81/server.jar` | **初回起動時のみ** |
 | minecraft_server_version | `1.21.8` | **初回起動時のみ** |
 | minecraft_server_config_servericon | `https://n138-kz.github.io/Dockerfile.minecraft/assets/sample-server-icon.png` | **初回起動時のみ** |
-| minecraft_server_config_difficulty | `normal` | **初回起動時のみ**<br>Syntax: `peaceful` \| `easy` \| `normal` \| `hard` |
+| minecraft_server_config_difficulty | `normal` | **初回起動時のみ**<br>Syntax: `peaceful` \| `easy` \| `normal` \| `hard`<br>[Commands/difficulty](https://minecraft.fandom.com/wiki/Commands/difficulty) |
 | minecraft_server_config_enable_command_block | `false` | **初回起動時のみ**<br>Syntax: `true` \| `false` |
 | minecraft_server_config_enable_jmx_monitoring | `false` | **初回起動時のみ**<br>Syntax: `true` \| `false` |
 | minecraft_server_config_enable_query | `false` | **初回起動時のみ**<br>Syntax: `true` \| `false` |
