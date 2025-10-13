@@ -28,7 +28,6 @@ services:
         max-file: "10"
 
   minecraft-rcon:
-    container_name: minecraft-rcon
     environment:
       PUID: 1000
       PGID: 1000
@@ -37,6 +36,17 @@ services:
       LANGUAGE: "C"
       LC_ALL: "C"
     restart: on-failure
+    depends_on:
+      minecraft-core:
+        condition: service_started
+        restart: true
+        required: true
+    healthcheck:
+      test: ["CMD", "mcrcon", "list"]
+      interval: 1m
+      timeout: 10s
+      retries: 3
+      start_period: 30s
     build:
       context: build_container_rcon/
       args:
@@ -54,7 +64,6 @@ services:
         max-file: "10"
 
   minecraft-core:
-    container_name: minecraft-core
     environment:
       PUID: 1000
       PGID: 1000
