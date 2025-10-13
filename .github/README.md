@@ -108,13 +108,13 @@ docker compose down --rmi all --volumes --remove-orphans
 
 | name | default | remark |
 | :- | :- | :- |
-| minecraft_server_port | `25560-65530` | **コンテナ起動ごと**<br>Default: `25565` |
-| minecraft_mod_dynmap_port | `25560-65530` | **コンテナ起動ごと**<br>Default: `8123` |
+| minecraft_server_port | `25560-65530` | **コンテナ起動ごと**<br>Vender Preset: `25565` |
+| minecraft_mod_dynmap_port | `25560-65530` | **コンテナ起動ごと**<br>Vender Preset: `8123` |
 | minecraft_server_jar_url | `https://piston-data.mojang.com/v1/objects/6bce4ef400e4efaa63a13d5e6f6b500be969ef81/server.jar` | **初回起動時のみ** |
 | minecraft_server_version | `1.21.8` | **初回起動時のみ** |
 | minecraft_server_config_servericon | `https://n138-kz.github.io/Dockerfile.minecraft/assets/sample-server-icon.png` | **初回起動時のみ** |
 | minecraft_server_config_difficulty | `normal` | **初回起動時のみ**<br>Syntax: `peaceful` `easy` `normal` `hard` |
-| minecraft_server_config_enable_command_block | `false` | **初回起動時のみ** |
+| minecraft_server_config_enable_command_block | `false` | **初回起動時のみ**<br>Syntax: `true` `false` |
 | minecraft_server_config_enable_jmx_monitoring | `false` | **初回起動時のみ** |
 | minecraft_server_config_enable_query | `false` | **初回起動時のみ** |
 | minecraft_server_config_enable_rcon | `true` | **初回起動時のみ** |
