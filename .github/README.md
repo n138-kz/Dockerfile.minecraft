@@ -167,7 +167,7 @@ docker compose down --rmi all --volumes --remove-orphans
 | minecraft_server_config_text_filtering_version | `0` | **初回起動時のみ** |
 | minecraft_server_config_use_native_transport | `true` | **初回起動時のみ**<br>Syntax: `true` \| `false` |
 | minecraft_server_config_view_distance | `10` | **初回起動時のみ** |
-| minecraft_server_config_white_list | `false` | **初回起動時のみ** |
+| minecraft_server_config_white_list | `false` | **初回起動時のみ**<br>Syntax: `true` \| `false` |
 
 - `コンテナ起動ごと`: コンテナ停止→起動の度に設定されている内容を使用
 - `初回起動時のみ`: コンテナビルド時のみ使用（運用中に変更する場合は`server.properties`を手動で変更）
