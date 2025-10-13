@@ -72,6 +72,11 @@
 | minecraft-database-admin | [phpmyadmin/phpmyadmin](https://hub.docker.com/_/phpmyadmin) |
 | minecraft-database | [mysql](https://hub.docker.com/_/mysql) |
 
+| OS | Date |
+|----|------|
+| AlmaLinux 8 | アクティブサポート終了日:2024年5月31日﻿<br>メンテナンスサポート終了日:2029年5月31日﻿ |
+| AlmaLinux 9 | アクティブサポート終了日:2027年5月31日﻿<br>メンテナンスサポート終了日:2032年5月31日﻿ |
+
 ## コンテナ作成
 1. 環境変数ファイル（ファイル名： `.env` ） を作成・編集する。（詳細は公式ドキュメントを参照）
 
