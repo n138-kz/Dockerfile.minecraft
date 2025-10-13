@@ -106,6 +106,8 @@ docker compose down --rmi all --volumes --remove-orphans
 
 <details>
 
+- [Server.properties](https://minecraft.fandom.com/ja/wiki/Server.properties)
+
 | name | default | remark |
 | :- | :- | :- |
 | minecraft_server_port | `25560-65530` | **コンテナ起動ごと**<br>Vender Preset: `25565` |
