@@ -28,7 +28,6 @@ services:
         max-file: "10"
 
   minecraft-rcon:
-    container_name: minecraft-rcon
     environment:
       PUID: 1000
       PGID: 1000
@@ -59,7 +58,6 @@ services:
         max-file: "10"
 
   minecraft-core:
-    container_name: minecraft-core
     environment:
       PUID: 1000
       PGID: 1000
