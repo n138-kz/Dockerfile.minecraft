@@ -165,7 +165,7 @@ docker compose down --rmi all --volumes --remove-orphans
 | minecraft_server_config_sync_chunk_writes | `true` |  **初回起動時のみ**<br>Syntax: `true` \| `false` |
 | minecraft_server_config_text_filtering_config | __not set__ | **初回起動時のみ** |
 | minecraft_server_config_text_filtering_version | `0` | **初回起動時のみ** |
-| minecraft_server_config_use_native_transport | `true` | **初回起動時のみ** |
+| minecraft_server_config_use_native_transport | `true` | **初回起動時のみ**<br>Syntax: `true` \| `false` |
 | minecraft_server_config_view_distance | `10` | **初回起動時のみ** |
 | minecraft_server_config_white_list | `false` | **初回起動時のみ** |
 
