@@ -145,8 +145,8 @@ docker compose down --rmi all --volumes --remove-orphans
 | minecraft_server_config_op_permission_level | `4` | **初回起動時のみ** |
 | minecraft_server_config_pause_when_empty_seconds | `60` | **初回起動時のみ** |
 | minecraft_server_config_player_idle_timeout | `0` | **初回起動時のみ** |
-| minecraft_server_config_prevent_proxy_connections | `false` | **初回起動時のみ** |
 | minecraft_server_config_pvp | `true` | **初回起動時のみ** |
+| minecraft_server_config_prevent_proxy_connections | `false` | **初回起動時のみ**<br>Syntax: `true` \| `false` |
 | minecraft_server_config_query_port | `25565` | **初回起動時のみ** |
 | minecraft_server_config_rate_limit | `0` | **初回起動時のみ** |
 | minecraft_server_config_rcon_password | `25575password@1` | **初回起動時のみ** |
