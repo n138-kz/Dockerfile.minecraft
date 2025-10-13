@@ -41,6 +41,7 @@ services:
       minecraft-core:
         condition: service_started
         restart: true
+        required: true
     build:
       context: build_container_rcon/
       args:
