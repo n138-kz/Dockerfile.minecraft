@@ -115,12 +115,12 @@ docker compose down --rmi all --volumes --remove-orphans
 | minecraft_server_config_servericon | `https://n138-kz.github.io/Dockerfile.minecraft/assets/sample-server-icon.png` | **初回起動時のみ** |
 | minecraft_server_config_difficulty | `normal` | **初回起動時のみ**<br>Syntax: `peaceful` \| `easy` \| `normal` \| `hard` |
 | minecraft_server_config_enable_command_block | `false` | **初回起動時のみ**<br>Syntax: `true` \| `false` |
-| minecraft_server_config_enable_jmx_monitoring | `false` | **初回起動時のみ** |
 | minecraft_server_config_enable_query | `false` | **初回起動時のみ** |
 | minecraft_server_config_enable_rcon | `true` | **初回起動時のみ** |
 | minecraft_server_config_enable_status | `true` | **初回起動時のみ** |
 | minecraft_server_config_enforce_secure_profile | `true` | **初回起動時のみ** |
 | minecraft_server_config_enforce_whitelist | `false` | **初回起動時のみ** |
+| minecraft_server_config_enable_jmx_monitoring | `false` | **初回起動時のみ**<br>Syntax: `true` \| `false` |
 | minecraft_server_config_entity_broadcast_range_percentage | `100` | **初回起動時のみ** |
 | minecraft_server_config_force_gamemode | `false` | **初回起動時のみ** |
 | minecraft_server_config_function_permission_level | `2` | **初回起動時のみ** |
