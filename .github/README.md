@@ -141,7 +141,7 @@ docker compose down --rmi all --volumes --remove-orphans
 | minecraft_server_config_max_players | `10` | **初回起動時のみ** |
 | minecraft_server_config_max_tick_time | `60000` | **初回起動時のみ** |
 | minecraft_server_config_max_world_size | 29999984 | **初回起動時のみ** |
-| minecraft_server_config_motd | `Private server` | **初回起動時のみ** |
+| minecraft_server_config_motd | `A Minecraft Server` | **初回起動時のみ** |
 | minecraft_server_config_network_compression_threshold | `256` | **初回起動時のみ** |
 | minecraft_server_config_online_mode | `true` | **初回起動時のみ**<br>Syntax: `true` \| `false` |
 | minecraft_server_config_op_permission_level | `4` | **初回起動時のみ** |
