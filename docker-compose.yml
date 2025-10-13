@@ -37,6 +37,9 @@ services:
       LANGUAGE: "C"
       LC_ALL: "C"
     restart: on-failure
+    depends_on:
+      minecraft-core:
+        condition: service_started
     build:
       context: build_container_rcon/
       args:
