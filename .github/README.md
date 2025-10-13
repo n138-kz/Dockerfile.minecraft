@@ -160,7 +160,7 @@ docker compose down --rmi all --volumes --remove-orphans
 | minecraft_server_config_server_ip | __not set__ | **初回起動時のみ** |
 | minecraft_server_config_server_port | `25565` | **初回起動時のみ** |
 | minecraft_server_config_simulation_distance | `10` | **初回起動時のみ** |
-| minecraft_server_config_spawn_monsters | `true` |  **初回起動時のみ** |
+| minecraft_server_config_spawn_monsters | `true` |  **初回起動時のみ**<br>Syntax: `true` \| `false` |
 | minecraft_server_config_spawn_protection | `16` |  **初回起動時のみ** |
 | minecraft_server_config_sync_chunk_writes | `true` |  **初回起動時のみ** |
 | minecraft_server_config_text_filtering_config | __not set__ | **初回起動時のみ** |
