@@ -152,7 +152,7 @@ docker compose down --rmi all --volumes --remove-orphans
 | minecraft_server_config_rcon_password | `25575password@1` | **初回起動時のみ** |
 | minecraft_server_config_rcon_port | `25575` | **初回起動時のみ** |
 | minecraft_server_config_region_file_compression | `deflate` | **初回起動時のみ** |
-| minecraft_server_config_require_resource_pack | `false` | **初回起動時のみ** |
+| minecraft_server_config_require_resource_pack | `false` | **初回起動時のみ**<br>Syntax: `true` \| `false` |
 | minecraft_server_config_resource_pack | __not set__ | **初回起動時のみ** |
 | minecraft_server_config_resource_pack_id | __not set__ | **初回起動時のみ** |
 | minecraft_server_config_resource_pack_prompt | __not set__ | **初回起動時のみ** |
