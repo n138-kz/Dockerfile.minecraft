@@ -134,7 +134,7 @@ docker compose down --rmi all --volumes --remove-orphans
 | minecraft_server_config_level_name | `world` | **初回起動時のみ** |
 | minecraft_server_config_level_seed | __not set__ | **初回起動時のみ** |
 | minecraft_server_config_level_type | `minecraft\:normal` | **初回起動時のみ** |
-| minecraft_server_config_log_ips | `true` | **初回起動時のみ** |
+| minecraft_server_config_log_ips | `true` | **初回起動時のみ**<br>Syntax: `true` \| `false` |
 | minecraft_server_config_max_chained_neighbor_updates | `1000000` | **初回起動時のみ** |
 | minecraft_server_config_max_players | `10` | **初回起動時のみ** |
 | minecraft_server_config_max_tick_time | `60000` | **初回起動時のみ** |
