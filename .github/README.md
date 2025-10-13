@@ -122,7 +122,7 @@ docker compose down --rmi all --volumes --remove-orphans
 | minecraft_server_config_enforce_secure_profile | `true` | **初回起動時のみ**<br>Syntax: `true` \| `false` |
 | minecraft_server_config_enforce_whitelist | `false` | **初回起動時のみ**<br>Syntax: `true` \| `false` |
 | minecraft_server_config_entity_broadcast_range_percentage | `100` | **初回起動時のみ** |
-| minecraft_server_config_force_gamemode | `false` | **初回起動時のみ** |
+| minecraft_server_config_force_gamemode | `false` | **初回起動時のみ**<br>Syntax: `true` \| `false` |
 | minecraft_server_config_function_permission_level | `2` | **初回起動時のみ** |
 | minecraft_server_config_gamemode | `survival` | **初回起動時のみ** |
 | minecraft_server_config_generate_structures | `true` | **初回起動時のみ** |
