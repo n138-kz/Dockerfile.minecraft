@@ -226,10 +226,10 @@ docker compose exec -it minecraft-rcon mcrcon "op mojang"
 docker compose exec -it minecraft-core bash -c "ls -l"
 
 # Downloads file
-docker compose exec -it minecraft-core bash -c "curl -o server.jar https://meta.fabricmc.net/v2/versions/loader/1.21.8/0.17.2/1.1.0/server/jar"
+docker compose exec -it minecraft-core bash -c "curl -o server.jar https://meta.fabricmc.net/v2/versions/loader/1.21.10/0.17.3/1.1.0/server/jar"
 
 # Downloads file (option)
-docker compose exec -it minecraft-core bash -c "curl -OJ https://meta.fabricmc.net/v2/versions/loader/1.21.8/0.17.2/1.1.0/server/jar"
+docker compose exec -it minecraft-core bash -c "curl -OJ https://meta.fabricmc.net/v2/versions/loader/1.21.10/0.17.3/1.1.0/server/jar"
 
 # List files (after)
 docker compose exec -it minecraft-core bash -c "ls -l"
