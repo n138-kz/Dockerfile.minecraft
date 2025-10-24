@@ -57,7 +57,7 @@ services:
     tmpfs:
       - /run
       - /tmp
-    volumes
+    volumes:
       - type: volume
         source: minecraft-core
         target: /var/minecraft
