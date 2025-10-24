@@ -57,6 +57,10 @@ services:
     tmpfs:
       - /run
       - /tmp
+    volumes
+      - type: volume
+        source: minecraft-core
+        target: /var/minecraft
     logging:
       driver: json-file
       options:
