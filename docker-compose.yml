@@ -43,6 +43,12 @@ services:
       - type: bind
         source: ./build_container_backup/scripts
         target: /usr/local/bin
+    healthcheck:
+      test: ["CMD", "script.sh"]
+      interval: 1m
+      timeout: 10s
+      retries: 3
+      start_period: 30s
 
   minecraft-rcon:
     environment:
