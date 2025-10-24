@@ -28,37 +28,40 @@ services:
         max-file: "10"
 
   minecraft-backup:
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: Asia/Tokyo
+      LANG: "C"
+      LANGUAGE: "C"
+      LC_ALL: "C"
+    restart: on-failure
     depends_on:
       minecraft-core:
         condition: service_started
         restart: true
         required: true
-    build:
-      context: build_container_backup/
-      args:
-        - minecraft_server_config_rcon_host=${minecraft_server_config_rcon_host:-minecraft-core}
-        - minecraft_server_config_rcon_port=${minecraft_server_config_rcon_port:-25575}
-        - minecraft_server_config_rcon_password=${minecraft_server_config_rcon_password:-25575password@1}
-    restart: on-failure
-    volumes:
-      - type: volume
-        source: minecraft-core
-        target: /var/minecraft
-      - type: bind
-        source: ./
-        target: /mnt/host
-      - type: bind
-        source: ./build_container_backup/crontab
-        target: /etc/cron.d/minecraft-job
-      - type: bind
-        source: ./build_container_backup/scripts
-        target: /usr/local/bin
     healthcheck:
-      test: ["CMD", "script.sh"]
+      test: ["CMD", "mcrcon", "list"]
       interval: 1m
       timeout: 10s
       retries: 3
       start_period: 30s
+    build:
+      context: build_container_rcon/
+      args:
+        - minecraft_server_config_rcon_host=${minecraft_server_config_rcon_host:-minecraft-core}
+        - minecraft_server_config_rcon_port=${minecraft_server_config_rcon_port:-25575}
+        - minecraft_server_config_rcon_password=${minecraft_server_config_rcon_password:-25575password@1}
+    tty: true
+    tmpfs:
+      - /run
+      - /tmp
+    logging:
+      driver: json-file
+      options:
+        max-size: "1024k"
+        max-file: "10"
 
   minecraft-rcon:
     environment:
