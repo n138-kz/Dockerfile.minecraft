@@ -1,27 +1,14 @@
-FROM almalinux:8
-USER root:root
+FROM ubuntu:latest
 
 ARG minecraft_server_config_rcon_host
 ARG minecraft_server_config_rcon_port
 ARG minecraft_server_config_rcon_password
 
 RUN set -x && \
-    dnf update -y --security
+    apt-get update && apt-get upgrade -y
 
 RUN set -x && \
-    dnf install -y curl
-
-RUN set -x && \
-    dnf install -y wget
-
-RUN set -x && \
-    dnf install -y git
-
-RUN set -x && \
-    dnf install -y gcc
-
-RUN set -x && \
-    dnf install -y make
+    apt-get install -y wget git make gcc
 
 WORKDIR /var/minecraft/
 
