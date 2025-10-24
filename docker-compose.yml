@@ -27,6 +27,24 @@ services:
         max-size: "1024k"
         max-file: "10"
 
+  minecraft-backup:
+    image: ubuntu:latest
+    restart: on-failure
+    volumes:
+      - type: volume
+        source: minecraft-core
+        target: /var/minecraft
+      - type: bind
+        source: ./
+        target: /mnt/host
+      - type: bind
+        source: ./build_container_backup/crontab
+        target: /etc/cron.d/minecraft-job
+      - type: bind
+        source: ./build_container_backup/scripts
+        target: /usr/local/bin
+    command: ["cron", "-f"]
+
   minecraft-rcon:
     environment:
       PUID: 1000
