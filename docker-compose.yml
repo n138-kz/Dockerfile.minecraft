@@ -28,6 +28,11 @@ services:
         max-file: "10"
 
   minecraft-backup:
+    depends_on:
+      minecraft-core:
+        condition: service_started
+        restart: true
+        required: true
     build:
       context: build_container_backup/
       args:
