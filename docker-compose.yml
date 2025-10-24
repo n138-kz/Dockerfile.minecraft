@@ -43,7 +43,6 @@ services:
       - type: bind
         source: ./build_container_backup/scripts
         target: /usr/local/bin
-    command: ["cron", "-f"]
 
   minecraft-rcon:
     environment:
