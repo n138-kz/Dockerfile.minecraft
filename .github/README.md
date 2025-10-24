@@ -67,7 +67,7 @@
 | Service | Image |
 |:-|:-|
 | minecraft-core | [almalinux](https://hub.docker.com/_/almalinux)[:8](https://hub.docker.com/_/almalinux/tags?name=8) |
-| minecraft-rcon | [almalinux](https://hub.docker.com/_/almalinux)[:8](https://hub.docker.com/_/almalinux/tags?name=8) |
+| minecraft-rcon | [ubuntu](https://hub.docker.com/_/ubuntu) |
 | minecraft-rcon-web | [php](https://hub.docker.com/_/php)[:apache](https://hub.docker.com/_/php/tags?name=apache) |
 | minecraft-database-admin | [phpmyadmin/phpmyadmin](https://hub.docker.com/_/phpmyadmin) |
 | minecraft-database | [mysql](https://hub.docker.com/_/mysql) |
