@@ -42,11 +42,11 @@ services:
         restart: true
         required: true
     healthcheck:
-      test: ["CMD", "mcrcon", "list"]
-      interval: 1m
-      timeout: 10s
+      test: ["CMD", "tar", "-C", "/var/minecraft", "caf", "mods/game_$(date +%s).txz", "./"]
+      interval: 5m
+      timeout: 3m
       retries: 3
-      start_period: 30s
+      start_period: 3s
     build:
       context: build_container_rcon/
       args:
