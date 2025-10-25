@@ -1,32 +1,4 @@
 services:
-  minecraft-rcon-web:
-    container_name: minecraft-rcon-web
-    profiles:
-      - deprecated
-    environment:
-      PUID: 1000
-      PGID: 1000
-      TZ: Asia/Tokyo
-      LANG: "C"
-      LANGUAGE: "C"
-      LC_ALL: "C"
-    restart: on-failure
-    build:
-      context: build_container_rcon_web/
-      args:
-        - minecraft_server_config_rcon_host=${minecraft_server_config_rcon_host:-minecraft-core}
-        - minecraft_server_config_rcon_port=${minecraft_server_config_rcon_port:-25575}
-        - minecraft_server_config_rcon_password=${minecraft_server_config_rcon_password:-25575password@1}
-    tty: true
-    tmpfs:
-      - /run
-      - /tmp
-    logging:
-      driver: json-file
-      options:
-        max-size: "1024k"
-        max-file: "10"
-
   minecraft-rcon:
     environment:
       PUID: 1000
