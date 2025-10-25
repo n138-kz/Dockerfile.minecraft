@@ -1,32 +1,4 @@
 services:
-  minecraft-rcon-web:
-    container_name: minecraft-rcon-web
-    profiles:
-      - deprecated
-    environment:
-      PUID: 1000
-      PGID: 1000
-      TZ: Asia/Tokyo
-      LANG: "C"
-      LANGUAGE: "C"
-      LC_ALL: "C"
-    restart: on-failure
-    build:
-      context: build_container_rcon_web/
-      args:
-        - minecraft_server_config_rcon_host=${minecraft_server_config_rcon_host:-minecraft-core}
-        - minecraft_server_config_rcon_port=${minecraft_server_config_rcon_port:-25575}
-        - minecraft_server_config_rcon_password=${minecraft_server_config_rcon_password:-25575password@1}
-    tty: true
-    tmpfs:
-      - /run
-      - /tmp
-    logging:
-      driver: json-file
-      options:
-        max-size: "1024k"
-        max-file: "10"
-
   minecraft-rcon:
     environment:
       PUID: 1000
@@ -159,63 +131,5 @@ services:
         max-size: "1024k"
         max-file: "10"
 
-  minecraft-database-admin:
-    container_name: minecraft-database-admin
-    profiles:
-      - deprecated
-    image: phpmyadmin/phpmyadmin
-    environment:
-      PUID: 1000
-      PGID: 1000
-      TZ: Asia/Tokyo
-      LANG: "C"
-      LANGUAGE: "C"
-      LC_ALL: "C"
-      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD:-MYSQL_ROOT_PASSWORD_123}"
-      PMA_HOST: "minecraft-database"
-      PMA_ARBITRARY: 0
-    restart: on-failure
-    tty: true
-    tmpfs:
-      - /run
-      - /tmp
-    ports:
-      - "30000-65530:80"
-    logging:
-      driver: json-file
-      options:
-        max-size: "1024k"
-        max-file: "10"
-
-  minecraft-database:
-    container_name: minecraft-database
-    profiles:
-      - deprecated
-    image: mysql
-    environment:
-      PUID: 1000
-      PGID: 1000
-      TZ: Asia/Tokyo
-      LANG: "C"
-      LANGUAGE: "C"
-      LC_ALL: "C"
-      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD:-MYSQL_ROOT_PASSWORD_123}"
-    restart: on-failure
-    tty: true
-    tmpfs:
-      - /run
-      - /tmp
-    volumes:
-      - type: volume
-        source: minecraft-database
-        target: /var/lib/mysql
-    logging:
-      driver: json-file
-      options:
-        max-size: "1024k"
-        max-file: "10"
-
 volumes:
-  minecraft-logs:
   minecraft-core:
-  minecraft-database:
