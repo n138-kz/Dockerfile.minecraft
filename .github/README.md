@@ -77,6 +77,14 @@
 | AlmaLinux 8 | 2021年3月30日 | 2024年5月31日﻿ | 2029年5月31日﻿ | 9.5<br>2024年11月18日 |
 | AlmaLinux 9 | 2022年5月26日 | 2027年5月31日 | 2032年5月31日﻿ | 8.10<br>2024年5月28日 |
 
+| Version | Released | End of Standard<br>Support | End of Ubuntu<br>Pro Support | End of Legacy<br>Support |
+|--------|:------:|:------:|:------:|:------:|
+| Ubuntu 25.10 (Questing) | Oct 2025 | Jul 2026 | | |
+| Ubuntu 25.04 (Plucky Puffin) | Apr 2025 | Jan 2026 | | |
+| Ubuntu 24.10 (Oracular Oriole) | Oct 2024 | 10th Jul 2025<br>[***EOL***](https://fridge.ubuntu.com/2025/07/10/ubuntu-24-10-oracular-oriole-reached-end-of-life-on-10th-july-2025/) | | |
+| Ubuntu 24.04 LTS (Noble Numbat) | Apr 2024 | Apr 2029 | Apr 2034 | Apr 2036 |
+| Ubuntu 22.04 LTS (Jammy Jellyfish) | Apr 2022 | Apr 2027 | Apr 2032 | Apr 2034 | 
+
 ## コンテナ作成
 1. 環境変数ファイル（ファイル名： `.env` ） を作成・編集する。（詳細は公式ドキュメントを参照）
 
