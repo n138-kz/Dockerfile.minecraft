@@ -72,7 +72,7 @@ jobs:
       - Pull_the_image_alpine
       - Git_clone_Tiiffi-mcrcon
       - iso8601
-      
+
     steps:
       - uses: actions/checkout@v4
 
