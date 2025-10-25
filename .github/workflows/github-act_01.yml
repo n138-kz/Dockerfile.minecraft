@@ -40,18 +40,6 @@ jobs:
           echo "::notice title=ISO 8601 Date::The current ISO 8601 date is: ${{ steps.set_date.outputs.iso_date }}"
           echo "The current ISO 8601 date is: ${{ steps.set_date.outputs.iso_date }}"
 
-  Pull_the_image_phpmyadmin-phpmyadmin:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - run: docker pull phpmyadmin/phpmyadmin
-
-  Pull_the_image_mysql:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - run: docker pull mysql
-
   Pull_the_image_almalinux-8:
     runs-on: ubuntu-latest
     steps:
@@ -73,8 +61,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     needs: 
-      - Pull_the_image_phpmyadmin-phpmyadmin
-      - Pull_the_image_mysql
       - Pull_the_image_almalinux-8
       - Pull_the_image_alpine
       - Git_clone_Tiiffi-mcrcon
@@ -127,9 +113,3 @@ jobs:
 
       - name: "Log show the Docker container: minecraft-rcon"
         run: docker compose logs minecraft-rcon
-
-      - name: "Log show the Docker container: minecraft-database"
-        run: docker compose logs minecraft-database
-
-      - name: "Log show the Docker container: minecraft-database-admin"
-        run: docker compose logs minecraft-database-admin
