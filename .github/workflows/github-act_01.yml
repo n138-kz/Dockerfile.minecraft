@@ -46,6 +46,12 @@ jobs:
       - uses: actions/checkout@v4
       - run: docker pull almalinux:8
 
+  Pull_the_image_ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker pull ubuntu:latest
+
   Pull_the_image_alpine:
     runs-on: ubuntu-latest
     steps:
@@ -62,6 +68,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: 
       - Pull_the_image_almalinux-8
+      - Pull_the_image_ubuntu
       - Pull_the_image_alpine
       - Git_clone_Tiiffi-mcrcon
       - iso8601
