@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - "**.py"
+      - "./build_container_bot/**"
       - ".github/workflows/python-app.yml"
 
 permissions:
