@@ -3,6 +3,7 @@
 from mcrcon import MCRcon
 import os
 import time
+import traceback
 
 # アドレス、パスワード、ポートの定義
 ADDRESS = os.getenv('minecraft_server_config_rcon_host', 'localhost')
@@ -16,9 +17,12 @@ def loop(interval=0.1):
     time.sleep(interval)
 def rcon(address, password, port):
   with MCRcon(address, password, port) as rcon:
-    # コマンドを送信する
-    result = rcon.command("list")
-    print(result)
+    try:
+        # コマンドを送信する
+        result = rcon.command("list")
+        print(result)
+    except (ConnectionRefusedError) as e:
+        traceback.format_exc()
 
 def test_main():
   # pytest
