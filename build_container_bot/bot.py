@@ -2,6 +2,7 @@
 # https://pypi.org/project/mcrcon/
 from mcrcon import MCRcon
 import os
+import sys
 import time
 import traceback
 
@@ -23,6 +24,7 @@ def rcon(address, password, port):
         print(result)
     except (ConnectionRefusedError) as e:
         traceback.format_exc()
+        sys.exit(1)
 
 def test_main():
   # pytest
