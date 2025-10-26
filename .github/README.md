@@ -81,6 +81,7 @@
 |--------|:------:|:------:|:------:|:------:|
 | Ubuntu 25.10 (Questing) | Oct 2025 | Jul 2026 | | |
 | Ubuntu 25.04 (Plucky Puffin) | Apr 2025 | Jan 2026 | | |
+| Ubuntu 24.10 (Oracular Oriole) | Oct 2024 | 10th Jul 2025<br>[***EOL***](https://fridge.ubuntu.com/2025/07/10/ubuntu-24-10-oracular-oriole-reached-end-of-life-on-10th-july-2025/) | | |
 | Ubuntu 24.04 LTS (Noble Numbat) | Apr 2024 | Apr 2029 | Apr 2034 | Apr 2036 |
 | Ubuntu 22.04 LTS (Jammy Jellyfish) | Apr 2022 | Apr 2027 | Apr 2032 | Apr 2034 | 
 
