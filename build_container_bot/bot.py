@@ -11,7 +11,9 @@ PORT = os.getenv('minecraft_server_config_rcon_port', 25575)
 
 def loop(interval=0.1):
   # @args interval: [float] unit: second
-  rcon(ADDRESS, PASSWORD, PORT)
+  while True:
+    rcon(ADDRESS, PASSWORD, PORT)
+    time.sleep(interval)
 def rcon(address, password, port):
   with MCRcon(address, password, port) as rcon:
     # コマンドを送信する
