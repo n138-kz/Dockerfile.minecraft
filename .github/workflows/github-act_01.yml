@@ -97,6 +97,15 @@ jobs:
         run: docker compose config
 
       - name: Build the Docker container
+        run: docker compose build --no-cache minecraft-core
+
+      - name: Build the Docker container
+        run: docker compose build --no-cache minecraft-rcon
+
+      - name: Build the Docker container
+        run: docker compose build --no-cache minecraft-bot
+
+      - name: Build the Docker container
         run: docker compose build --no-cache
 
       - name: Up check the Docker container
