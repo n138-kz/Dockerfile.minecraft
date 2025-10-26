@@ -3,10 +3,10 @@ name: Docker Container for minecraft-server
 on:
   workflow_dispatch:
   push:
-    paths-ignore: 
-      - "**.md"
-      - "**.yml"
-      - "**.html"
+#    paths-ignore:
+#      - "**.md"
+#      - "**.yml"
+#      - "**.html"
 
 permissions:
   contents: read
