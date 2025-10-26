@@ -81,6 +81,7 @@ jobs:
         run: docker pull phpmyadmin/phpmyadmin
 
       - name: "Pull the image: mysql"
+        if: false
         run: docker pull mysql
 
       - name: "Pull the image: almalinux:8"
