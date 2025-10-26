@@ -84,6 +84,9 @@ jobs:
         if: false
         run: docker pull mysql
 
+      - name: "Pull the image: ubuntu:latest"
+        run: docker pull ubuntu:latest
+
       - name: "Pull the image: almalinux:8"
         run: docker pull almalinux:8
 
