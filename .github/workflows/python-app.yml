@@ -57,17 +57,17 @@ jobs:
       run: |
         pytest *.py
 
-    - if: failure()
+    - if: always()
       working-directory: ./build_container_bot/
       run: |
         ls -lhA
 
-    - if: failure()
+    - if: always()
       working-directory: ./build_container_bot/
       run: |
         tree
-    - if: failure()
 
+    - if: always()
       working-directory: ./build_container_bot/
       run: |
         env | grep ^GITHUB
