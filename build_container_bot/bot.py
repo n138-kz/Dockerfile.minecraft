@@ -13,10 +13,10 @@ PASSWORD = os.getenv('minecraft_server_config_rcon_password', '')
 PORT = os.getenv('minecraft_server_config_rcon_port', 25575)
 
 def loop(interval=0.1):
-  # @args interval: [float] unit: second
-  while True:
-    rcon(ADDRESS, PASSWORD, PORT)
-    time.sleep(interval)
+    # @args interval: [float] unit: second
+    while True:
+        rcon(ADDRESS, PASSWORD, PORT)
+        time.sleep(interval)
 def rcon(address, password, port):
     resolver = dns.resolver.Resolver()
     answers = resolver.resolve('www.google.com', 'a')
