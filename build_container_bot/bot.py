@@ -33,8 +33,8 @@ def rcon(address, password, port):
             sys.exit(1)
 
 def test_main():
-  # pytest
-  assert True
+    # pytest
+    assert True
 
 if __name__ == '__main__':
-  loop(10)
+    loop(10)
