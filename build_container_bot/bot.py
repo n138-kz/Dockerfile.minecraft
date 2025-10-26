@@ -13,5 +13,9 @@ def main(address, password, port):
     # コマンドを送信する
     rcon.command("list")
 
+def test_main():
+  # pytest
+  main(ADDRESS, PASSWORD, PORT)
+
 if __name__ == '__main__':
   main(ADDRESS, PASSWORD, PORT)
