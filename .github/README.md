@@ -46,7 +46,7 @@
 - [![](https://www.google.com/s2/favicons?size=64&domain=https://minecraft.net/)Java 版 Minecraft サーバー](https://www.minecraft.net/ja-jp/download/server)
 - [![](https://www.google.com/s2/favicons?size=64&domain=https://fabricmc.net/)Fabric Minecraft Server](https://fabricmc.net/use/server/)
 - [![](https://www.google.com/s2/favicons?size=64&domain=https://github.com)Tiiffi/mcrcon](https://github.com/Tiiffi/mcrcon.git)
-- [MinecraftのサーバにRCONで接続する | Qiita](https://qiita.com/h_tyokinuhata/items/85d855f88d5d33c21949)
+- [![](https://www.google.com/s2/favicons?size=64&domain=https://qiita.com/)MinecraftのサーバにRCONで接続する | Qiita](https://qiita.com/h_tyokinuhata/items/85d855f88d5d33c21949)
 
 <details>
 
