@@ -8,6 +8,8 @@ COPY bot.py /var/minecraft/
 
 WORKDIR /var/minecraft/
 
+RUN echo {"rcon": {"host": "$minecraft_server_config_rcon_host", "port": "$minecraft_server_config_rcon_port", "key": "$minecraft_server_config_rcon_password"}} | jq
+
 RUN set -x && \
     pip install -r requirements.txt
 
