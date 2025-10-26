@@ -21,7 +21,7 @@ def loop(interval=0.1):
 
 
 def rcon(address, password, port):
-    addrs = socket.getaddrinfo(ADDRESS, 'a')
+    addrs = socket.getaddrinfo(ADDRESS, 80)
     for addr in addrs:
         print(addr)
 
