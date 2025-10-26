@@ -68,9 +68,6 @@
 |:-|:-|
 | minecraft-core | [almalinux](https://hub.docker.com/_/almalinux)[:8](https://hub.docker.com/_/almalinux/tags?name=8) |
 | minecraft-rcon | [ubuntu](https://hub.docker.com/_/ubuntu)[:latest](https://hub.docker.com/_/ubuntu/tags?name=latest) |
-| minecraft-rcon-web | [php](https://hub.docker.com/_/php)[:apache](https://hub.docker.com/_/php/tags?name=apache) |
-| minecraft-database-admin | [phpmyadmin/phpmyadmin](https://hub.docker.com/_/phpmyadmin) |
-| minecraft-database | [mysql](https://hub.docker.com/_/mysql) |
 
 | OS Version | Date at Released | アクティブサポート終了日 | メンテナンスサポート終了日 | 最新バージョン |
 | --- | --- | --- | --- | --- |
