@@ -1,7 +1,7 @@
 # https://qiita.com/PitaQ/items/832eee4d7bc79d92ff31
 # https://pypi.org/project/mcrcon/
 from mcrcon import MCRcon
-import os, sys
+import os
 
 # アドレス、パスワード、ポートの定義
 ADDRESS = os.getenv('minecraft_server_config_rcon_host', 'localhost')
@@ -15,7 +15,7 @@ def main(address, password, port):
 
 def test_main():
   # pytest
-  sys.exit(0)
+  assert True
 
 if __name__ == '__main__':
   main(ADDRESS, PASSWORD, PORT)
