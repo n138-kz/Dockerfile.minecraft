@@ -54,15 +54,15 @@
 
   - [![](https://www.google.com/s2/favicons?size=64&domain=https://minecraft.net/)minecraft_server.jar](https://www.minecraft.net/ja-jp/download/server)
   - [![](https://www.google.com/s2/favicons?size=64&domain=https://minecraft.net/)minecraft_server.1.21.1.jar](https://piston-data.mojang.com/v1/objects/59353fb40c36d304f2035d51e7d6e6baa98dc05c/server.jar)
-  - [![](https://www.google.com/s2/favicons?size=64&domain=https://minecraft.net/)minecraft_server.1.21.1_fabric.jar](https://meta.fabricmc.net/v2/versions/loader/1.21.1/0.17.3/1.1.0/server/jar)
+  - [![](https://www.google.com/s2/favicons?size=64&domain=https://fabricmc.net/)minecraft_server.1.21.1_fabric.jar](https://meta.fabricmc.net/v2/versions/loader/1.21.1/0.17.3/1.1.0/server/jar)
   - [![](https://www.google.com/s2/favicons?size=64&domain=https://minecraft.net/)minecraft_server.1.21.3.jar](https://piston-data.mojang.com/v1/objects/45810d238246d90e811d896f87b14695b7fb6839/server.jar)
-  - [![](https://www.google.com/s2/favicons?size=64&domain=https://minecraft.net/)minecraft_server.1.21.3_fabric.jar](https://meta.fabricmc.net/v2/versions/loader/1.21.3/0.17.3/1.1.0/server/jar)
+  - [![](https://www.google.com/s2/favicons?size=64&domain=https://fabricmc.net/)minecraft_server.1.21.3_fabric.jar](https://meta.fabricmc.net/v2/versions/loader/1.21.3/0.17.3/1.1.0/server/jar)
   - [![](https://www.google.com/s2/favicons?size=64&domain=https://minecraft.net/)minecraft_server.1.21.8.jar](https://piston-data.mojang.com/v1/objects/6bce4ef400e4efaa63a13d5e6f6b500be969ef81/server.jar)
-  - [![](https://www.google.com/s2/favicons?size=64&domain=https://minecraft.net/)minecraft_server.1.21.8_fabric.jar](https://meta.fabricmc.net/v2/versions/loader/1.21.8/0.17.3/1.1.0/server/jar)
+  - [![](https://www.google.com/s2/favicons?size=64&domain=https://fabricmc.net/)minecraft_server.1.21.8_fabric.jar](https://meta.fabricmc.net/v2/versions/loader/1.21.8/0.17.3/1.1.0/server/jar)
   - [![](https://www.google.com/s2/favicons?size=64&domain=https://minecraft.net/)minecraft_server.1.21.9.jar](https://piston-data.mojang.com/v1/objects/11e54c2081420a4d49db3007e66c80a22579ff2a/server.jar)
-  - [![](https://www.google.com/s2/favicons?size=64&domain=https://minecraft.net/)minecraft_server.1.21.9_fabric.jar](https://meta.fabricmc.net/v2/versions/loader/1.21.9/0.17.3/1.1.0/server/jar)
+  - [![](https://www.google.com/s2/favicons?size=64&domain=https://fabricmc.net/)minecraft_server.1.21.9_fabric.jar](https://meta.fabricmc.net/v2/versions/loader/1.21.9/0.17.3/1.1.0/server/jar)
   - [![](https://www.google.com/s2/favicons?size=64&domain=https://minecraft.net/)minecraft_server.1.21.10.jar](https://piston-data.mojang.com/v1/objects/95495a7f485eedd84ce928cef5e223b757d2f764/server.jar)
-  - [![](https://www.google.com/s2/favicons?size=64&domain=https://minecraft.net/)minecraft_server.1.21.10_fabric.jar](https://meta.fabricmc.net/v2/versions/loader/1.21.10/0.17.3/1.1.0/server/jar)
+  - [![](https://www.google.com/s2/favicons?size=64&domain=https://fabricmc.net/)minecraft_server.1.21.10_fabric.jar](https://meta.fabricmc.net/v2/versions/loader/1.21.10/0.17.3/1.1.0/server/jar)
 
 </details>
 
