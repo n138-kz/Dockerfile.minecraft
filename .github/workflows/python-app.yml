@@ -6,9 +6,9 @@ name: Python application
 on:
   workflow_dispatch:
   push:
-    paths:
-      - "./build_container_bot/**"
-      - ".github/workflows/python-app.yml"
+#    paths:
+#      - "./build_container_bot/**"
+#      - ".github/workflows/python-app.yml"
 
 permissions:
   contents: read
