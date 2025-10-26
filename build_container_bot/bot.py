@@ -19,7 +19,7 @@ def loop(interval=0.1):
         time.sleep(interval)
 def rcon(address, password, port):
     resolver = dns.resolver.Resolver()
-    answers = resolver.resolve('www.google.com', 'a')
+    answers = resolver.resolve(ADDRESS, 'a')
     for rdata in answers:
         print(rdata.address)
 
