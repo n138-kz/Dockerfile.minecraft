@@ -30,7 +30,7 @@ def rcon(address, password, port):
             # コマンドを送信する
             result = rcon.command("list")
             print(result)
-        except (ConnectionRefusedError) as e:
+        except (ConnectionRefusedError):
             traceback.format_exc()
             sys.exit(1)
 
