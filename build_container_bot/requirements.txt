@@ -1,3 +1,2 @@
 mcrcon
 discord
-dns.resolver

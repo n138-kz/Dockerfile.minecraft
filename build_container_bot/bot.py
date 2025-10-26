@@ -5,7 +5,7 @@ import os
 import sys
 import time
 import traceback
-import dns.resolver
+import socket
 
 # アドレス、パスワード、ポートの定義
 ADDRESS = os.getenv('minecraft_server_config_rcon_host', 'localhost')
@@ -18,10 +18,9 @@ def loop(interval=0.1):
         rcon(ADDRESS, PASSWORD, PORT)
         time.sleep(interval)
 def rcon(address, password, port):
-    resolver = dns.resolver.Resolver()
-    answers = resolver.resolve(ADDRESS, 'a')
-    for rdata in answers:
-        print(rdata.address)
+    addrs = socket.getaddrinfo(ADDRESS, 'a')
+    for addr in addrs:
+        print(addr)
 
     with MCRcon(address, password, port) as rcon:
         try:
