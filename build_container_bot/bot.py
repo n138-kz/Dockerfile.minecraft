@@ -6,6 +6,7 @@ import sys
 import time
 import traceback
 import socket
+import json
 
 # アドレス、パスワード、ポートの定義
 ADDRESS = os.getenv('minecraft_server_config_rcon_host', 'localhost')
@@ -16,6 +17,11 @@ PORT = os.getenv('minecraft_server_config_rcon_port', 25575)
 def loop(interval=0.1):
     # @args interval: [float] unit: second
     while True:
+        print(json.dumps({
+            "minecraft_server_config_rcon_host": ADDRESS,
+            "minecraft_server_config_rcon_password": PASSWORD,
+            "minecraft_server_config_rcon_port": PORT,
+        }))
         rcon(ADDRESS, PASSWORD, PORT)
         time.sleep(interval)
 
