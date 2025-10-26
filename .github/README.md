@@ -53,6 +53,7 @@
   <summary>Minecraft Server Each Versions</summary>
 
   - [![](https://www.google.com/s2/favicons?size=64&domain=https://minecraft.net/)minecraft_server.jar](https://www.minecraft.net/ja-jp/download/server)
+  - [![](https://www.google.com/s2/favicons?size=64&domain=https://fabricmc.net/)minecraft_server_fabric.jar](https://fabricmc.net/use/server/)
   - [![](https://www.google.com/s2/favicons?size=64&domain=https://minecraft.net/)minecraft_server.1.21.1.jar](https://piston-data.mojang.com/v1/objects/59353fb40c36d304f2035d51e7d6e6baa98dc05c/server.jar)
   - [![](https://www.google.com/s2/favicons?size=64&domain=https://fabricmc.net/)minecraft_server.1.21.1_fabric.jar](https://meta.fabricmc.net/v2/versions/loader/1.21.1/0.17.3/1.1.0/server/jar)
   - [![](https://www.google.com/s2/favicons?size=64&domain=https://minecraft.net/)minecraft_server.1.21.3.jar](https://piston-data.mojang.com/v1/objects/45810d238246d90e811d896f87b14695b7fb6839/server.jar)
