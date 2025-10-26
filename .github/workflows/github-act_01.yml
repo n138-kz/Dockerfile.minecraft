@@ -102,9 +102,6 @@ jobs:
       - name: "Build the Docker container: minecraft-rcon"
         run: docker compose build --no-cache minecraft-rcon
 
-      - name: "Build the Docker container: minecraft-bot"
-        run: docker compose build --no-cache minecraft-bot
-
       - name: Build the Docker container
         run: docker compose build --no-cache
 
