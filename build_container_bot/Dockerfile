@@ -4,6 +4,7 @@ ARG minecraft_server_config_rcon_host
 ARG minecraft_server_config_rcon_port
 ARG minecraft_server_config_rcon_password
 COPY requirements.txt /var/minecraft/
+COPY bot.py /var/minecraft/
 
 WORKDIR /var/minecraft/
 
