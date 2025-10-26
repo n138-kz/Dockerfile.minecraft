@@ -131,6 +131,3 @@ jobs:
 
       - name: "Log show the Docker container: minecraft-rcon"
         run: docker compose logs minecraft-rcon
-
-      - name: "Log show the Docker container: minecraft-bot"
-        run: docker compose logs minecraft-bot
