@@ -23,14 +23,14 @@ def rcon(address, password, port):
     for rdata in answers:
         print(rdata.address)
 
-  with MCRcon(address, password, port) as rcon:
-    try:
-        # コマンドを送信する
-        result = rcon.command("list")
-        print(result)
-    except (ConnectionRefusedError) as e:
-        traceback.format_exc()
-        sys.exit(1)
+    with MCRcon(address, password, port) as rcon:
+        try:
+            # コマンドを送信する
+            result = rcon.command("list")
+            print(result)
+        except (ConnectionRefusedError) as e:
+            traceback.format_exc()
+            sys.exit(1)
 
 def test_main():
   # pytest
