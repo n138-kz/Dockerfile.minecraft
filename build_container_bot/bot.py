@@ -5,6 +5,7 @@ import os
 import sys
 import time
 import traceback
+import dns.resolver
 
 # アドレス、パスワード、ポートの定義
 ADDRESS = os.getenv('minecraft_server_config_rcon_host', 'localhost')
@@ -17,6 +18,11 @@ def loop(interval=0.1):
     rcon(ADDRESS, PASSWORD, PORT)
     time.sleep(interval)
 def rcon(address, password, port):
+    resolver = dns.resolver.Resolver()
+    answers = resolver.resolve('www.google.com', 'a')
+    for rdata in answers:
+        print(rdata.address)
+
   with MCRcon(address, password, port) as rcon:
     try:
         # コマンドを送信する
