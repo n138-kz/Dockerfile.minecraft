@@ -56,9 +56,6 @@ jobs:
       # Exit code 5: No tests were collected
       run: |
         pytest *.py
-        if [ $? -eq 5 ]; then
-          exit 0
-        fi
 
     - if: failure()
       working-directory: ./build_container_bot/
