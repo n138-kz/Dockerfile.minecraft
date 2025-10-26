@@ -22,15 +22,15 @@ def loop(interval=0.1):
             "minecraft_server_config_rcon_password": PASSWORD,
             "minecraft_server_config_rcon_port": PORT,
         }))
+        addrs = socket.getaddrinfo(ADDRESS, PORT)
+        for addr in addrs:
+            print(addr)
+
         rcon(ADDRESS, PASSWORD, PORT)
         time.sleep(interval)
 
 
 def rcon(address, password, port):
-    addrs = socket.getaddrinfo(address, port)
-    for addr in addrs:
-        print(addr)
-
     with MCRcon(address, password, port) as rcon:
         try:
             # コマンドを送信する
