@@ -93,6 +93,9 @@ async def on_ready():
     await tree.sync()
     logger.info('Synced slash commands.')
 
+    # レイテンシ測定
+    logger.info(f'Latency: {round(client.latency*1000)}ms')
+
     # 起動完了
     logger.info('Ready')
 
