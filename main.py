@@ -93,10 +93,10 @@ async def on_ready():
     # アクティビティステータスを設定
     await client.change_presence(
         status=discord.Status.online,
-        activity=discord.CustomActivity(name='/mcrcon help')
+        activity=discord.CustomActivity(name='/mcrcon:help')
     )
     logger.info('Change presence status to {}'.format(discord.Status.online))
-    logger.info('Change presence activity to {}'.format(discord.CustomActivity(name='/mcrcon help')))
+    logger.info('Change presence activity to {}'.format(discord.CustomActivity(name='/mcrcon:help')))
 
     # スラッシュコマンドを同期
     try:
@@ -216,46 +216,6 @@ async def on_message(message):
     if message.channel.type != discord.ChannelType.text:
         logger.warning('Channel type is not text channel')
         return
-    if message.startwith('/mcrcon'):
-        logger.info('Call /mcrcon')
-
-        title='Comming soon | mcrcon'
-        descr=''
-        url='https://github.com/n138-kz/mcrcon_discord_n138'
-
-        embed = discord.embed(
-            title=title, description=descr, color=color, url=url,
-            timestamp=timeu, 
-        )
-        embed.add_field(
-            inline=False,
-            name='help♪',
-            value='[github/@n138-kz/mcrcon_discord_n138](https://github.com/n138-kz/mcrcon_discord_n138)\n',
-        )
-        logger.debug(
-            await message.reply(embed=embed)
-        )
-
-        return
-
-@tree.command(name="mcrcon",description="コマンドヘルプを表示")
-async def mcrcon(interaction: discord.Interaction):
-    try:
-        await mcrcon_help(interaction)
-    except Exception as e:
-        title = 'Error'
-        description = ''.join(traceback.format_exc())
-        color = template['color']['failure']
-        embed = discord.Embed(
-            title=title,
-            description=description,
-            timestamp=datetime.datetime.now(datetime.timezone.utc),
-            color=color
-        )
-        await interaction.response.send_message(
-            embed=embed,
-            ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
-        )
 
 @tree.command(name="help",description="コマンドヘルプを表示")
 async def mcrcon_help(ctx: discord.Interaction):
