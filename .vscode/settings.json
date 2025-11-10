@@ -1,5 +1,8 @@
 {
     "github.copilot.enable": {
         "*": false
+    },
+    "emmet.variables": {
+        "lang": "ja"
     }
 }
