@@ -253,7 +253,7 @@ async def mcrcon(interaction: discord.Interaction):
         )
 
 @tree.command(name="help",description="コマンドヘルプを表示")
-async def mcrcon_help(interaction: discord.Interaction):
+async def mcrcon_help(ctx: discord.Interaction):
     try:
         title = 'Usage'
         description = ''
@@ -264,7 +264,7 @@ async def mcrcon_help(interaction: discord.Interaction):
             timestamp=datetime.datetime.now(datetime.timezone.utc),
             color=color,
         )
-        await interaction.response.send_message(
+        await ctx.response.send_message(
             embed=embed,
             ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
         )
@@ -278,7 +278,7 @@ async def mcrcon_help(interaction: discord.Interaction):
             timestamp=datetime.datetime.now(datetime.timezone.utc),
             color=color
         )
-        await interaction.response.send_message(
+        await ctx.response.send_message(
             embed=embed,
             ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
         )
@@ -309,7 +309,7 @@ async def ping(ctx: discord.Interaction):
             timestamp=datetime.datetime.now(datetime.timezone.utc),
             color=color
         )
-        await interaction.response.send_message(
+        await ctx.response.send_message(
             embed=embed,
             ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
         )
@@ -344,7 +344,7 @@ async def mcrcon_list(ctx: discord.Interaction):
             timestamp=datetime.datetime.now(datetime.timezone.utc),
             color=color
         )
-        await interaction.response.send_message(
+        await ctx.response.send_message(
             embed=embed,
             ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
         )
