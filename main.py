@@ -254,55 +254,100 @@ async def mcrcon(interaction: discord.Interaction):
 
 @tree.command(name="help",description="コマンドヘルプを表示")
 async def mcrcon_help(interaction: discord.Interaction):
-    title = 'Usage'
-    description = ''
-    color = 0x000000
-    embed = discord.Embed(
-        title=title,
-        description=description,
-        timestamp=datetime.datetime.now(datetime.timezone.utc),
-        color=color,
-    )
-    await interaction.response.send_message(
-        embed=embed,
-        ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
-    )
+    try:
+        title = 'Usage'
+        description = ''
+        color = 0x000000
+        embed = discord.Embed(
+            title=title,
+            description=description,
+            timestamp=datetime.datetime.now(datetime.timezone.utc),
+            color=color,
+        )
+        await interaction.response.send_message(
+            embed=embed,
+            ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
+        )
+    except Exception as e:
+        title = 'Error'
+        description = ''.join(traceback.format_exc())
+        color = 0xff0000
+        embed = discord.Embed(
+            title=title,
+            description=description,
+            timestamp=datetime.datetime.now(datetime.timezone.utc),
+            color=color
+        )
+        await interaction.response.send_message(
+            embed=embed,
+            ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
+        )
 
 @tree.command(name="ping", description="レイテンシを計測します")
 async def ping(ctx: discord.Interaction):
-    title = 'Latency'
-    description = f'Pong! {round(client.latency*1000)}ms'
-    color = 0xffff00
-    embed = discord.Embed(
-        title=title,
-        description=description,
-        timestamp=datetime.datetime.now(datetime.timezone.utc),
-        color=color,
-    )
-    await ctx.response.send_message(
-        embed=embed,
-        ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
-    )
+    try:
+        title = 'Latency'
+        description = f'Pong! {round(client.latency*1000)}ms'
+        color = 0xffff00
+        embed = discord.Embed(
+            title=title,
+            description=description,
+            timestamp=datetime.datetime.now(datetime.timezone.utc),
+            color=color,
+        )
+        await ctx.response.send_message(
+            embed=embed,
+            ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
+        )
+    except Exception as e:
+        title = 'Error'
+        description = ''.join(traceback.format_exc())
+        color = 0xff0000
+        embed = discord.Embed(
+            title=title,
+            description=description,
+            timestamp=datetime.datetime.now(datetime.timezone.utc),
+            color=color
+        )
+        await interaction.response.send_message(
+            embed=embed,
+            ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
+        )
 
 @tree.command(name="list", description="/mcrcon list")
 async def mcrcon_list(ctx: discord.Interaction):
-    title = '[mcrcon] Result: /list'
-    description = ''
-    description += '```\n'
-    description += '/list'
-    description += '\n'
-    description += '```\n'
-    color = 0x00ff00
-    embed = discord.Embed(
-        title=title,
-        description=description,
-        timestamp=datetime.datetime.now(datetime.timezone.utc),
-        color=color,
-    )
-    await ctx.response.send_message(
-        embed=embed,
-        ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
-    )
+    try:
+        title = '[mcrcon] Result: /list'
+        description = ''
+        description += '```\n'
+        description += '/list'
+        description += '\n'
+        description += '```\n'
+        color = 0x00ff00
+        embed = discord.Embed(
+            title=title,
+            description=description,
+            timestamp=datetime.datetime.now(datetime.timezone.utc),
+            color=color,
+        )
+        await ctx.response.send_message(
+            embed=embed,
+            ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
+        )
+    except Exception as e:
+        title = 'Error'
+        description = ''.join(traceback.format_exc())
+        color = 0xff0000
+        embed = discord.Embed(
+            title=title,
+            description=description,
+            timestamp=datetime.datetime.now(datetime.timezone.utc),
+            color=color
+        )
+        await interaction.response.send_message(
+            embed=embed,
+            ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
+        )
 
 # botを起動
 def main():
