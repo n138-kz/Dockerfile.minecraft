@@ -90,7 +90,23 @@ async def on_ready():
     logger.info('Change presence activity to {}'.format(discord.CustomActivity(name='/mcrcon help')))
 
     # スラッシュコマンドを同期
-    await tree.sync()
+    try:
+        await tree.sync()
+    except discord.HTTPException as e:
+        logger.warning(e)
+        logger.warning(traceback.print_exc())
+    except discord.app_commands.CommandSyncFailure as e:
+        logger.warning(e)
+        logger.warning(traceback.print_exc())
+    except discord.Forbidden as e:
+        logger.warning(e)
+        logger.warning(traceback.print_exc())
+    except discord.MissingApplicationID as e:
+        logger.warning(e)
+        logger.warning(traceback.print_exc())
+    except discord.app_commands.TranslationError as e:
+        logger.warning(e)
+        logger.warning(traceback.print_exc())
     logger.info('Synced slash commands.')
 
     # レイテンシ測定
