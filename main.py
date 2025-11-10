@@ -78,6 +78,10 @@ async def on_ready():
         status=discord.Status.online,
         activity=discord.CustomActivity(name=client.user.name)
     )
+    await client.change_presence(
+        status=discord.Status.online,
+        activity=discord.CustomActivity('/mcrcon help')
+    )
     logger.info('Change presence to {}'.format(discord.Status.online))
 
     # スラッシュコマンドを同期
