@@ -240,11 +240,12 @@ async def mcrcon(interaction: discord.Interaction):
     except Exception as e:
         title = 'Error'
         description = ''.join(traceback.format_exc())
+        color = 0xff0000
         embed = discord.Embed(
             title=title,
             description=description,
             timestamp=datetime.datetime.now(datetime.timezone.utc),
-            color=0xff0000
+            color=color
         )
         await interaction.response.send_message(
             embed=embed,
@@ -254,8 +255,14 @@ async def mcrcon(interaction: discord.Interaction):
 @tree.command(name="help",description="コマンドヘルプを表示")
 async def mcrcon_help(interaction: discord.Interaction):
     title = 'Usage'
-    description = '/mcrcon [OPTION]'
-    embed = discord.Embed(title=title, description=description, timestamp=datetime.datetime.now(datetime.timezone.utc), )
+    description = ''
+    color = 0x000000
+    embed = discord.Embed(
+        title=title,
+        description=description,
+        timestamp=datetime.datetime.now(datetime.timezone.utc),
+        color=color,
+    )
     await interaction.response.send_message(
         embed=embed,
         ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
@@ -265,7 +272,13 @@ async def mcrcon_help(interaction: discord.Interaction):
 async def ping(ctx: discord.Interaction):
     title = 'Latency'
     description = f'Pong! {round(client.latency*1000)}ms'
-    embed = discord.Embed(title=title, description=description, timestamp=datetime.datetime.now(datetime.timezone.utc), )
+    color = 0xffff00
+    embed = discord.Embed(
+        title=title,
+        description=description,
+        timestamp=datetime.datetime.now(datetime.timezone.utc),
+        color=color,
+    )
     await ctx.response.send_message(
         embed=embed,
         ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
@@ -279,7 +292,13 @@ async def mcrcon_list(ctx: discord.Interaction):
     description += '/list'
     description += '\n'
     description += '```\n'
-    embed = discord.Embed(title=title, description=description, timestamp=datetime.datetime.now(datetime.timezone.utc), )
+    color = 0x00ff00
+    embed = discord.Embed(
+        title=title,
+        description=description,
+        timestamp=datetime.datetime.now(datetime.timezone.utc),
+        color=color,
+    )
     await ctx.response.send_message(
         embed=embed,
         ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
