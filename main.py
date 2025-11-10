@@ -282,6 +282,7 @@ async def ping(ctx: discord.Interaction):
 @tree.command(name="list", description="現在サーバーに接続しているプレイヤーのリストを表示")
 async def mcrcon_list(ctx: discord.Interaction):
     try:
+        logger.notice('/list')
         result = 'There are 0 of a max of 10 players online:'
         result = result.replace(':', ':\n')
         title = '[mcrcon] Result: /list'
