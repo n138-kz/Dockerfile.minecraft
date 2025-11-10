@@ -279,7 +279,7 @@ async def ping(ctx: discord.Interaction):
             ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
         )
 
-@tree.command(name="list", description="[現在サーバーに接続しているプレイヤーのリストを表示](https://minecraft.fandom.com/ja/wiki/%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89/list)")
+@tree.command(name="list", description="現在サーバーに接続しているプレイヤーのリストを表示")
 async def mcrcon_list(ctx: discord.Interaction):
     try:
         title = '[mcrcon] Result: /list'
