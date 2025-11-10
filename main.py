@@ -235,13 +235,7 @@ async def on_message(message):
 
 @tree.command(name="mcrcon",description="コマンドヘルプを表示")
 async def mcrcon(interaction: discord.Interaction):
-    title = 'Usage'
-    description = '/mcrcon [OPTION]'
-    embed = discord.Embed(title=title, description=description, timestamp=datetime.datetime.now(datetime.timezone.utc), )
-    await interaction.response.send_message(
-        embed=embed,
-        ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
-    )
+    help(interaction)
 
 @tree.command(name="help",description="コマンドヘルプを表示")
 async def help(interaction: discord.Interaction):
