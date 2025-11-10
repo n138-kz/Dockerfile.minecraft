@@ -223,30 +223,20 @@ async def mcrcon_help(ctx: discord.Interaction):
         title = 'Usage'
         description = ''
         color = template['color']['none']
-        embed = discord.Embed(
-            title=title,
-            description=description,
-            timestamp=datetime.datetime.now(datetime.timezone.utc),
-            color=color,
-        )
-        await ctx.response.send_message(
-            embed=embed,
-            ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
-        )
     except Exception as e:
         title = 'Error'
         description = ''.join(traceback.format_exc())
         color = template['color']['failure']
-        embed = discord.Embed(
-            title=title,
-            description=description,
-            timestamp=datetime.datetime.now(datetime.timezone.utc),
-            color=color
-        )
-        await ctx.response.send_message(
-            embed=embed,
-            ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
-        )
+    embed = discord.Embed(
+        title=title,
+        description=description,
+        timestamp=datetime.datetime.now(datetime.timezone.utc),
+        color=color
+    )
+    await ctx.response.send_message(
+        embed=embed,
+        ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
+    )
 
 @tree.command(name="ping", description="レイテンシを計測します")
 async def ping(ctx: discord.Interaction):
@@ -254,30 +244,20 @@ async def ping(ctx: discord.Interaction):
         title = 'Latency'
         description = f'Pong! {round(client.latency*1000)}ms'
         color = template['color']['caution']
-        embed = discord.Embed(
-            title=title,
-            description=description,
-            timestamp=datetime.datetime.now(datetime.timezone.utc),
-            color=color,
-        )
-        await ctx.response.send_message(
-            embed=embed,
-            ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
-        )
     except Exception as e:
         title = 'Error'
         description = ''.join(traceback.format_exc())
         color = template['color']['failure']
-        embed = discord.Embed(
-            title=title,
-            description=description,
-            timestamp=datetime.datetime.now(datetime.timezone.utc),
-            color=color
-        )
-        await ctx.response.send_message(
-            embed=embed,
-            ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
-        )
+    embed = discord.Embed(
+        title=title,
+        description=description,
+        timestamp=datetime.datetime.now(datetime.timezone.utc),
+        color=color
+    )
+    await ctx.response.send_message(
+        embed=embed,
+        ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
+    )
 
 @tree.command(name="list", description="現在サーバーに接続しているプレイヤーのリストを表示")
 async def mcrcon_list(ctx: discord.Interaction):
@@ -297,30 +277,20 @@ async def mcrcon_list(ctx: discord.Interaction):
         description += '\n'
         description += '```\n'
         color = template['color']['success']
-        embed = discord.Embed(
-            title=title,
-            description=description,
-            timestamp=datetime.datetime.now(datetime.timezone.utc),
-            color=color,
-        )
-        await ctx.response.send_message(
-            embed=embed,
-            ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
-        )
     except Exception as e:
         title = 'Error'
         description = ''.join(traceback.format_exc())
         color = template['color']['failure']
-        embed = discord.Embed(
-            title=title,
-            description=description,
-            timestamp=datetime.datetime.now(datetime.timezone.utc),
-            color=color
-        )
-        await ctx.response.send_message(
-            embed=embed,
-            ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
-        )
+    embed = discord.Embed(
+        title=title,
+        description=description,
+        timestamp=datetime.datetime.now(datetime.timezone.utc),
+        color=color
+    )
+    await ctx.response.send_message(
+        embed=embed,
+        ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
+    )
 
 # botを起動
 def main():
