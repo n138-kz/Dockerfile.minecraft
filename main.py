@@ -72,6 +72,7 @@ async def on_ready():
     logger.info('Connect OK id:{0}'.format(client.user.id))
     logger.info('Invite link: https://discord.com/oauth2/authorize?client_id={}'.format(client.user.id))
 
+    # アクティビティステータスを設定
     await client.change_presence(
         status=discord.Status.online,
         activity=discord.CustomActivity(name=client.user.name)
