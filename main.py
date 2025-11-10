@@ -66,6 +66,7 @@ intents.message_content = True
 intents.reactions = True
 intents.typing = True
 client = discord.Client(intents=intents)
+tree = discord.app_commands.CommandTree(client)
 
 @client.event
 async def on_ready():
@@ -78,6 +79,9 @@ async def on_ready():
         activity=discord.CustomActivity(name=client.user.name)
     )
     logger.info('Change presence to {}'.format(discord.Status.online))
+
+    # スラッシュコマンドを同期
+    await tree.sync()
 
     # 起動完了
     logger.info('Ready')
@@ -199,6 +203,13 @@ async def on_message(message):
         )
 
         return
+
+@tree.command(name="help",description="コマンドヘルプを表示")
+async def help(interaction: discord.Interaction):
+    await interaction.response.send_message(
+        '/mcrcon [OPTION]',
+        ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
+    )
 
 # botを起動
 def main():
