@@ -265,7 +265,7 @@ async def mcrcon_list(ctx: discord.Interaction):
         logger.info('Call from id:{} name:{} command:{}'.format(
             ctx.user.id,
             ctx.user.name,
-            ctx.message,
+            ctx.command.name,
         ))
 
         result = 'There are 0 of a max of 10 players online:'
