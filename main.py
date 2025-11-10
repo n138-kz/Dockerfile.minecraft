@@ -236,7 +236,7 @@ async def on_message(message):
 @tree.command(name="mcrcon",description="コマンドヘルプを表示")
 async def mcrcon(interaction: discord.Interaction):
     try:
-        await help(interaction)
+        await mcrcon_help(interaction)
     except Exception as e:
         title = 'Error'
         description = traceback.print_exc()
@@ -247,7 +247,7 @@ async def mcrcon(interaction: discord.Interaction):
         )
 
 @tree.command(name="help",description="コマンドヘルプを表示")
-async def help(interaction: discord.Interaction):
+async def mcrcon_help(interaction: discord.Interaction):
     title = 'Usage'
     description = '/mcrcon [OPTION]'
     embed = discord.Embed(title=title, description=description, timestamp=datetime.datetime.now(datetime.timezone.utc), )
