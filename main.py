@@ -80,6 +80,8 @@ async def on_ready():
     )
     logger.info('Change presence status to {}'.format(discord.Status.online))
     logger.info('Change presence activity to {}'.format(discord.CustomActivity(name=client.user.name)))
+
+    # アクティビティステータスを設定
     await client.change_presence(
         status=discord.Status.online,
         activity=discord.CustomActivity(name='/mcrcon help')
