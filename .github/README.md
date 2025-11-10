@@ -1,31 +1,31 @@
-# [Discord-Bot-Template](https://github.com/n138-kz/Discord-Bot-Template)
+# [mcrcon_discord_n138](https://github.com/n138-kz/mcrcon_discord_n138)
 
-[![GitHub Extra Pins](https://github-readme-stats.vercel.app/api/pin/?locale=ja&show_owner=true&theme=graywhite&username=n138-kz&repo=Discord-Bot-Template)](https://github.com/n138-kz/Discord-Bot-Template)
+[![GitHub Extra Pins](https://github-readme-stats.vercel.app/api/pin/?locale=ja&show_owner=true&theme=graywhite&username=n138-kz&repo=mcrcon_discord_n138)](https://github.com/n138-kz/mcrcon_discord_n138)
 
 ## Repos Info
 
 <div align="center">
 
-  [![GitHub repo license](https://img.shields.io/github/license/n138-kz/Discord-Bot-Template)](/LICENSE)
-  [![GitHub top language](https://img.shields.io/github/languages/top/n138-kz/Discord-Bot-Template)](/../../)
-  [![GitHub repo size](https://img.shields.io/github/repo-size/n138-kz/Discord-Bot-Template)](/../../)
-  [![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/n138-kz/Discord-Bot-Template)](/../../)
+  [![GitHub repo license](https://img.shields.io/github/license/n138-kz/mcrcon_discord_n138)](/LICENSE)
+  [![GitHub top language](https://img.shields.io/github/languages/top/n138-kz/mcrcon_discord_n138)](/../../)
+  [![GitHub repo size](https://img.shields.io/github/repo-size/n138-kz/mcrcon_discord_n138)](/../../)
+  [![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/n138-kz/mcrcon_discord_n138)](/../../)
 
 </div>
 <div align="center">
 
-  [![GitHub last commit](https://img.shields.io/github/last-commit/n138-kz/Discord-Bot-Template)](/../../commits)
-  [![GitHub commit activity](https://img.shields.io/github/commit-activity/w/n138-kz/Discord-Bot-Template)](/../../commits)
-  [![GitHub commit activity](https://img.shields.io/github/commit-activity/t/n138-kz/Discord-Bot-Template)](/../../commits)
-  [![GitHub language count](https://img.shields.io/github/languages/count/n138-kz/Discord-Bot-Template)](/../../)
+  [![GitHub last commit](https://img.shields.io/github/last-commit/n138-kz/mcrcon_discord_n138)](/../../commits)
+  [![GitHub commit activity](https://img.shields.io/github/commit-activity/w/n138-kz/mcrcon_discord_n138)](/../../commits)
+  [![GitHub commit activity](https://img.shields.io/github/commit-activity/t/n138-kz/mcrcon_discord_n138)](/../../commits)
+  [![GitHub language count](https://img.shields.io/github/languages/count/n138-kz/mcrcon_discord_n138)](/../../)
 
 </div>
 <div align="center">
 
-  [![GitHub issues](https://img.shields.io/github/issues/n138-kz/Discord-Bot-Template)](/../../issues)
-  [![GitHub issues closed](https://img.shields.io/github/issues-closed/n138-kz/Discord-Bot-Template)](/../../issues)
-  [![GitHub pull requests](https://img.shields.io/github/issues-pr/n138-kz/Discord-Bot-Template)](/../../pulls)
-  [![GitHub pull requests closed](https://img.shields.io/github/issues-pr-closed/n138-kz/Discord-Bot-Template)](/../../pulls)
+  [![GitHub issues](https://img.shields.io/github/issues/n138-kz/mcrcon_discord_n138)](/../../issues)
+  [![GitHub issues closed](https://img.shields.io/github/issues-closed/n138-kz/mcrcon_discord_n138)](/../../issues)
+  [![GitHub pull requests](https://img.shields.io/github/issues-pr/n138-kz/mcrcon_discord_n138)](/../../pulls)
+  [![GitHub pull requests closed](https://img.shields.io/github/issues-pr-closed/n138-kz/mcrcon_discord_n138)](/../../pulls)
 
 </div>
 <div align="center">
@@ -44,17 +44,17 @@
 - [![](https://www.google.com/s2/favicons?size=64&domain=https://discord.com)Developer Console](https://discord.com/developers/applications)
 - [![](https://www.google.com/s2/favicons?size=64&domain=https://discord.com)Discord公式リファレンス](https://discord.com/developers/docs/topics/oauth2)
 - [![](https://www.google.com/s2/favicons?size=64&domain=https://discord.com)discord.py APIリファレンス](https://discordpy.readthedocs.io/ja/latest/api.html)
-- [![](https://www.google.com/s2/favicons?size=64&domain=https://github.com)Discord-Bot-Template](https://github.com/n138-kz/Discord-Bot-Template/)
+- [![](https://www.google.com/s2/favicons?size=64&domain=https://github.com)mcrcon_discord_n138](https://github.com/n138-kz/mcrcon_discord_n138/)
 
 ## GitHub Repository Initial Setup
 
-1. [Actions secrets and variables/Repository variables](https://github.com/n138-kz/Discord-Bot-Template/settings/variables/actions) にて以下を設定
+1. [Actions secrets and variables/Repository variables](https://github.com/n138-kz/mcrcon_discord_n138/settings/variables/actions) にて以下を設定
 
     | Name | Value |
     |:-|:-|
     | `DOCKER_CREDENTIAL_USERNAME` | Docker Hubのユーザー名 |
 
-1. [Actions secrets and variables/Repository secrets](https://github.com/n138-kz/Discord-Bot-Template/settings/secrets/actions) にて以下を設定
+1. [Actions secrets and variables/Repository secrets](https://github.com/n138-kz/mcrcon_discord_n138/settings/secrets/actions) にて以下を設定
 
     | Name | Value |
     |:-|:-|
