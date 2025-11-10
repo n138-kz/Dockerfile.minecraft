@@ -89,6 +89,7 @@ async def on_ready():
 
     # スラッシュコマンドを同期
     await tree.sync()
+    logger.info('Synced slash commands.')
 
     # 起動完了
     logger.info('Ready')
