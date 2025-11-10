@@ -45,6 +45,7 @@
 - [![](https://www.google.com/s2/favicons?size=64&domain=https://discord.com)Discord公式リファレンス](https://discord.com/developers/docs/topics/oauth2)
 - [![](https://www.google.com/s2/favicons?size=64&domain=https://discord.com)discord.py APIリファレンス](https://discordpy.readthedocs.io/ja/latest/api.html)
 - [![](https://www.google.com/s2/favicons?size=64&domain=https://github.com)mcrcon_discord_n138](https://github.com/n138-kz/mcrcon_discord_n138/)
+- [![](https://www.google.com/s2/favicons?size=64&domain=https://qiita.com)【discord.py】アプリケーションコマンドを実装する](https://qiita.com/t3tra/items/05b7b7389d6f1b9de11a)
 
 ## GitHub Repository Initial Setup
 
