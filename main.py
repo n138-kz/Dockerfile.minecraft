@@ -262,6 +262,8 @@ async def mcrcon_list(ctx: discord.Interaction):
     title = '[mcrcon] Result: /list'
     description = ''
     description += '```\n'
+    description += '/list'
+    description += '\n'
     description += '```\n'
     embed = discord.Embed(title=title, description=description, timestamp=datetime.datetime.now(datetime.timezone.utc), )
     await ctx.response.send_message(
