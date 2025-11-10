@@ -223,9 +223,12 @@ async def help(interaction: discord.Interaction):
 
 @tree.command(name="ping", description="レイテンシを計測します")
 async def ping(ctx: discord.Interaction):
-    text = f'Pong! {round(self.bot.latency*1000)}ms'
+    text = f'Pong! {round(client.latency*1000)}ms'
     embed = discord.Embed(title='Latency', description=text)
-    await ctx.response.send_message(embed=embed)
+    await ctx.response.send_message(
+        embed=embed,
+        ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
+    )
 
 # botを起動
 def main():
