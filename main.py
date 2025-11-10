@@ -271,7 +271,7 @@ async def mcrcon_list(ctx: discord.Interaction):
             ctx.channel.name,
             ctx.channel.id,
         ))
-        logger.info('Call from name:{} command:{}'.format(
+        logger.info('Call from name:{} command:{} on guild:{} channel:{}'.format(
             ctx.user.name,
             ctx.command.name,
             ctx.guild.name,
