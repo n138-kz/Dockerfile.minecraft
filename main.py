@@ -79,7 +79,7 @@ template = {
 
 @client.event
 async def on_ready():
-    logger.info('Connect OK ID:{0}'.format(client.user.id))
+    logger.info('Connect OK ID:{} NAME:{}'.format(client.user.id, client.user.name))
     logger.info('Invite link: https://discord.com/oauth2/authorize?client_id={}'.format(client.user.id))
 
     # アクティビティステータスを設定
