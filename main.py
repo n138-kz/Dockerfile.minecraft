@@ -233,10 +233,21 @@ async def on_message(message):
 
         return
 
+@tree.command(name="mcrcon",description="コマンドヘルプを表示")
+async def mcrcon(interaction: discord.Interaction):
+    title = 'Usage'
+    description = '/mcrcon [OPTION]'
+    embed = discord.Embed(title=title, description=description, timestamp=datetime.datetime.now(datetime.timezone.utc), )
+    await interaction.response.send_message(
+        embed=embed,
+        ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
+    )
+
 @tree.command(name="help",description="コマンドヘルプを表示")
 async def help(interaction: discord.Interaction):
-    text = '/mcrcon [OPTION]'
-    embed = discord.Embed(title='Usage', description=text)
+    title = 'Usage'
+    description = '/mcrcon [OPTION]'
+    embed = discord.Embed(title=title, description=description, timestamp=datetime.datetime.now(datetime.timezone.utc), )
     await interaction.response.send_message(
         embed=embed,
         ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
@@ -244,8 +255,9 @@ async def help(interaction: discord.Interaction):
 
 @tree.command(name="ping", description="レイテンシを計測します")
 async def ping(ctx: discord.Interaction):
-    text = f'Pong! {round(client.latency*1000)}ms'
-    embed = discord.Embed(title='Latency', description=text)
+    title = 'Latency'
+    description = f'Pong! {round(client.latency*1000)}ms'
+    embed = discord.Embed(title=title, description=description, timestamp=datetime.datetime.now(datetime.timezone.utc), )
     await ctx.response.send_message(
         embed=embed,
         ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
@@ -253,8 +265,9 @@ async def ping(ctx: discord.Interaction):
 
 @tree.command(name="list", description="/mcrcon list")
 async def mcrcon_list(ctx: discord.Interaction):
-    text = '/list'
-    embed = discord.Embed(title='[mcrcon] Result', description=text)
+    title = '[mcrcon] Result: /list'
+    description = ''
+    embed = discord.Embed(title=title, description=description, timestamp=datetime.datetime.now(datetime.timezone.utc), )
     await ctx.response.send_message(
         embed=embed,
         ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
