@@ -283,6 +283,7 @@ async def ping(ctx: discord.Interaction):
 async def mcrcon_list(ctx: discord.Interaction):
     try:
         result = 'There are 0 of a max of 10 players online:'
+        result = result.replace(':', ':\n')
         title = '[mcrcon] Result: /list'
         description = ''
         description += '```\n'
