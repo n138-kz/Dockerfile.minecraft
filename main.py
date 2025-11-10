@@ -185,7 +185,24 @@ async def on_message(message):
         return
     if message.startwith('/mcrcon'):
         logger.info('Call /mcrcon')
-        embed = discord.embed()
+
+        title='Comming soon | mcrcon'
+        descr=''
+        url='https://github.com/n138-kz/mcrcon_discord_n138'
+
+        embed = discord.embed(
+            title=title, description=descr, color=color, url=url,
+            timestamp=timeu, 
+        )
+        embed.add_field(
+            inline=False,
+            name='help♪',
+            value='[github/@n138-kz/mcrcon_discord_n138](https://github.com/n138-kz/mcrcon_discord_n138)\n',
+        )
+        logger.debug(
+            await message.reply(embed=embed)
+        )
+
         return
 
 # botを起動
