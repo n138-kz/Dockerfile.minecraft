@@ -4,5 +4,6 @@
     },
     "emmet.variables": {
         "lang": "ja"
-    }
+    },
+    "files.defaultLanguage": "ja"
 }
