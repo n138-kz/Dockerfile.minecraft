@@ -235,6 +235,15 @@ async def ping(ctx: discord.Interaction):
         ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
     )
 
+@tree.command(name="list", description="/mcrcon list")
+async def mcrcon_list(ctx: discord.Interaction):
+    text = '/list'
+    embed = discord.Embed(title='[mcrcon] Result', description=text)
+    await ctx.response.send_message(
+        embed=embed,
+        ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
+    )
+
 # botを起動
 def main():
     logger.info('Connecting to Discord API')
