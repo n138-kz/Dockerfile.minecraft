@@ -235,7 +235,7 @@ async def on_message(message):
 
 @tree.command(name="mcrcon",description="コマンドヘルプを表示")
 async def mcrcon(interaction: discord.Interaction):
-    help(interaction)
+    await help(interaction)
 
 @tree.command(name="help",description="コマンドヘルプを表示")
 async def help(interaction: discord.Interaction):
