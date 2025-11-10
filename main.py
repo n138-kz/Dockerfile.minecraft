@@ -221,6 +221,12 @@ async def help(interaction: discord.Interaction):
         ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
     )
 
+@tree.command(name="ping", description="レイテンシを計測します")
+async def ping(ctx: discord.Interaction):
+    text = f'Pong! {round(self.bot.latency*1000)}ms'
+    embed = discord.Embed(title='Latency', description=text)
+    await ctx.response.send_message(embed=embed)
+
 # botを起動
 def main():
     logger.info('Connecting to Discord API')
