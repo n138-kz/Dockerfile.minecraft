@@ -183,6 +183,10 @@ async def on_message(message):
     if message.channel.type != discord.ChannelType.text:
         logger.warning('Channel type is not text channel')
         return
+    if message.startwith('/mcrcon'):
+        logger.info('Call /mcrcon')
+        embed = discord.embed()
+        return
 
 # botを起動
 def main():
