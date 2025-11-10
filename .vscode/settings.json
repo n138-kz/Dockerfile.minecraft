@@ -5,5 +5,6 @@
     "emmet.variables": {
         "lang": "ja"
     },
-    "files.defaultLanguage": "ja"
+    "files.defaultLanguage": "ja",
+    "files.hotExit": "off"
 }
