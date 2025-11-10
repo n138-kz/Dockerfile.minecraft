@@ -68,6 +68,15 @@ intents.typing = True
 client = discord.Client(intents=intents)
 tree = discord.app_commands.CommandTree(client)
 
+template = {
+    "color": {
+        'success': 0x008000,
+        'failure': 0xFF0000,
+        'caution': 0xFFFF00,
+        'none': 0x000000,
+    }
+}
+
 @client.event
 async def on_ready():
     logger.info('Connect OK id:{0}'.format(client.user.id))
@@ -189,11 +198,7 @@ async def on_message(message):
     timeu=datetime.datetime.now(datetime.timezone.utc)
     title=None
     descr=None
-    color=0x000000
-    color_custom={
-        'success': 0x00FF00,
-        'failure': 0xFF0000,
-    }
+    color=template['color']['none']
     url=None
     text=None
 
@@ -240,7 +245,7 @@ async def mcrcon(interaction: discord.Interaction):
     except Exception as e:
         title = 'Error'
         description = ''.join(traceback.format_exc())
-        color = 0xff0000
+        color = template['color']['failure']
         embed = discord.Embed(
             title=title,
             description=description,
@@ -257,7 +262,7 @@ async def mcrcon_help(ctx: discord.Interaction):
     try:
         title = 'Usage'
         description = ''
-        color = 0x000000
+        color = template['color']['none']
         embed = discord.Embed(
             title=title,
             description=description,
@@ -271,7 +276,7 @@ async def mcrcon_help(ctx: discord.Interaction):
     except Exception as e:
         title = 'Error'
         description = ''.join(traceback.format_exc())
-        color = 0xff0000
+        color = template['color']['failure']
         embed = discord.Embed(
             title=title,
             description=description,
@@ -288,7 +293,7 @@ async def ping(ctx: discord.Interaction):
     try:
         title = 'Latency'
         description = f'Pong! {round(client.latency*1000)}ms'
-        color = 0xffff00
+        color = template['color']['caution']
         embed = discord.Embed(
             title=title,
             description=description,
@@ -302,7 +307,7 @@ async def ping(ctx: discord.Interaction):
     except Exception as e:
         title = 'Error'
         description = ''.join(traceback.format_exc())
-        color = 0xff0000
+        color = template['color']['failure']
         embed = discord.Embed(
             title=title,
             description=description,
@@ -323,7 +328,7 @@ async def mcrcon_list(ctx: discord.Interaction):
         description += '/list'
         description += '\n'
         description += '```\n'
-        color = 0x00ff00
+        color = template['color']['success']
         embed = discord.Embed(
             title=title,
             description=description,
@@ -337,7 +342,7 @@ async def mcrcon_list(ctx: discord.Interaction):
     except Exception as e:
         title = 'Error'
         description = ''.join(traceback.format_exc())
-        color = 0xff0000
+        color = template['color']['failure']
         embed = discord.Embed(
             title=title,
             description=description,
