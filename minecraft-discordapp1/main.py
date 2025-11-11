@@ -234,6 +234,7 @@ async def mcrcon_help(ctx: discord.Interaction):
         title = 'Usage'
         description = ''
         color = template['color']['none']
+        logger.info(description)
     except Exception as e:
         title = 'Error'
         description = ''.join(traceback.format_exc())
@@ -257,6 +258,7 @@ async def ping(ctx: discord.Interaction):
         title = 'Latency'
         description = f'Pong! {round(client.latency*1000)}ms'
         color = template['color']['caution']
+        logger.info(description)
     except Exception as e:
         title = 'Error'
         description = ''.join(traceback.format_exc())
