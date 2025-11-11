@@ -55,6 +55,7 @@ import math
 from dotenv import load_dotenv
 from mcrcon import MCRcon
 
+logger.info(f'Pwd: {os.getcwd()}')
 
 load_dotenv()
 TOKEN_DISCORD=os.getenv('TOKEN_DISCORD', '')
