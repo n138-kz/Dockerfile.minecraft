@@ -231,6 +231,22 @@ async def on_message(message):
 @tree.command(name="help",description="コマンドヘルプを表示")
 async def mcrcon_help(ctx: discord.Interaction):
     try:
+        logger.debug('Call from name:{}({}) command:{} on guild:{}({}) channel:{}({})'.format(
+            ctx.user.name,
+            ctx.user.id,
+            ctx.command.name,
+            ctx.guild.name,
+            ctx.guild.id,
+            ctx.channel.name,
+            ctx.channel.id,
+        ))
+        logger.info('Call from name:{} command:{} on guild:{} channel:{}'.format(
+            ctx.user.name,
+            ctx.command.name,
+            ctx.guild.name,
+            ctx.channel.name,
+        ))
+
         title = 'Usage'
         description = ''
         color = template['color']['none']
@@ -255,6 +271,22 @@ async def mcrcon_help(ctx: discord.Interaction):
 @tree.command(name="ping", description="レイテンシを計測します")
 async def ping(ctx: discord.Interaction):
     try:
+        logger.debug('Call from name:{}({}) command:{} on guild:{}({}) channel:{}({})'.format(
+            ctx.user.name,
+            ctx.user.id,
+            ctx.command.name,
+            ctx.guild.name,
+            ctx.guild.id,
+            ctx.channel.name,
+            ctx.channel.id,
+        ))
+        logger.info('Call from name:{} command:{} on guild:{} channel:{}'.format(
+            ctx.user.name,
+            ctx.command.name,
+            ctx.guild.name,
+            ctx.channel.name,
+        ))
+
         title = 'Latency'
         description = f'Pong! {round(client.latency*1000)}ms'
         color = template['color']['caution']
