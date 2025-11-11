@@ -249,6 +249,12 @@ async def mcrcon_help(ctx: discord.Interaction):
 
         title = 'Usage'
         description = ''
+        description += '/help\n'
+        description += 'コマンドヘルプを表示\n'
+        description += '/ping\n'
+        description += 'レイテンシを計測\n'
+        description += '/list\n'
+        description += '現在サーバーに接続しているプレイヤーのリストを表示\n'
         color = template['color']['none']
         logger.info(description)
     except Exception as e:
