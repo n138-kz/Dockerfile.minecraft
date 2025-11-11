@@ -133,7 +133,8 @@ services:
 
   minecraft-discordapp1:
     build:
-      context: ./minecraft-discordapp1
+      context: .
+      dockerfile: ./minecraft-discordapp1/Dockerfile
     restart: always
     volumes:
       - type: bind
