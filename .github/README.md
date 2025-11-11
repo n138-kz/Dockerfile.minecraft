@@ -84,7 +84,7 @@
 |:-|:-|
 | minecraft-core | [almalinux](https://hub.docker.com/_/almalinux)[:8](https://hub.docker.com/_/almalinux/tags?name=8) |
 | minecraft-rcon | [ubuntu](https://hub.docker.com/_/ubuntu)[:latest](https://hub.docker.com/_/ubuntu/tags?name=latest) |
-| minecraft-discordapp1 | [python](https://hub.docker.com/_/python)[:3.14](https://hub.docker.com/_/python/tags?name=latest) |
+| minecraft-discordapp1 | [python](https://hub.docker.com/_/python)[:3.14](https://hub.docker.com/_/python/tags?name=3.14) |
 
 ### OS EoL
 
