@@ -228,8 +228,8 @@ async def on_message(message):
         logger.warning('Channel type is not text channel')
         return
 
-@tree.command(name="help",description="コマンドヘルプを表示")
-async def mcrcon_help(ctx: discord.Interaction):
+@tree.command(name="bothelp",description="コマンドヘルプを表示")
+async def help(ctx: discord.Interaction):
     try:
         logger.debug('Call from name:{}({}) command:{} on guild:{}({}) channel:{}({})'.format(
             ctx.user.name,
@@ -249,7 +249,7 @@ async def mcrcon_help(ctx: discord.Interaction):
 
         title = 'Usage'
         description = ''
-        description += '/help\n'
+        description += '/bothelp\n'
         description += 'コマンドヘルプを表示\n'
         description += '/ping\n'
         description += 'レイテンシを計測\n'
