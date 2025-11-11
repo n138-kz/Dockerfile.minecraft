@@ -93,6 +93,9 @@ jobs:
       - name: "Pull the image: alpine"
         run: docker pull alpine
 
+      - name: Create test .env
+        run: touch .env
+
       - name: Print the Compose config
         run: docker compose config
 
