@@ -268,7 +268,7 @@ async def mcrcon_help(ctx: discord.Interaction):
         ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
     )
 
-@tree.command(name="ping", description="レイテンシを計測します")
+@tree.command(name="ping", description="レイテンシを計測")
 async def ping(ctx: discord.Interaction):
     try:
         logger.debug('Call from name:{}({}) command:{} on guild:{}({}) channel:{}({})'.format(
