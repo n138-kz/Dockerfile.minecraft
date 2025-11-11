@@ -49,6 +49,7 @@
 - [![](https://www.google.com/s2/favicons?size=64&domain=https://github.com)Tiiffi/mcrcon](https://github.com/Tiiffi/mcrcon.git)
 - [![](https://www.google.com/s2/favicons?size=64&domain=https://qiita.com/)MinecraftのサーバにRCONで接続する | Qiita](https://qiita.com/h_tyokinuhata/items/85d855f88d5d33c21949)
 - [![](https://www.google.com/s2/favicons?size=64&domain=https://qiita.com/)【Git】2つのGitリポジトリを履歴を保持して統合したい | Qiita](https://qiita.com/no_kawai/items/5efe8e47e54ebccd0bf8)
+- [![](https://www.google.com/s2/favicons?size=64&domain=https://pypi.org/)mcrcon](https://pypi.org/project/mcrcon/)
 
 <details>
 
