@@ -71,6 +71,7 @@ CREDENTIAL_MCRCON={
     'pass': os.getenv('PASSWORD_MCRCON', 'minecraft'),
 }
 
+
 intents = discord.Intents.default()
 intents.message_content = True
 intents.reactions = True
@@ -295,12 +296,19 @@ async def mcrcon_list(ctx: discord.Interaction):
         result = None
 
         try:
+            CREDENTIAL_MCRCON['port']=int(CREDENTIAL_MCRCON['port'])
             with MCRcon(
                 CREDENTIAL_MCRCON['addr'],
                 CREDENTIAL_MCRCON['pass'],
                 CREDENTIAL_MCRCON['port']
             ) as mcr:
                 result = mcr.command('list')
+        except ValueError as e:
+            title = 'Error'
+            result = 'ValueError'
+            color = template['color']['failure']
+            logger.warning(e)
+            logger.error(result)
         except Exception as e:
             title = 'Error'
             result = ''.join(traceback.format_exc())
