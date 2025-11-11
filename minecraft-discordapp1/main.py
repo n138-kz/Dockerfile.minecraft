@@ -358,7 +358,7 @@ async def mcrcon_help(ctx: discord.Interaction):
             color = template['color']['failure']
             logger.warning(e)
             logger.error(result)
-        result = result.replace(':', ':\n')
+        result = result.replace('/', '\n/')
         result = '\n'.join([line.strip() for line in result.splitlines()])
 
         title = f'[mcrcon] Result: /{ctx.command.name}'
