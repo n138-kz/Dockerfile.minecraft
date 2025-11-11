@@ -359,7 +359,7 @@ async def mcrcon_list(ctx: discord.Interaction):
         result = result.replace(':', ':\n')
         result = '\n'.join([line.strip() for line in result.splitlines()])
 
-        title = '[mcrcon] Result: /list'
+        title = f'[mcrcon] Result: /{ctx.command.name}'
         description = ''
         description += '```\n'
         description += result
