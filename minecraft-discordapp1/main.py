@@ -113,19 +113,19 @@ async def on_ready():
         await tree.sync()
     except discord.HTTPException as e:
         logger.warning(e)
-        logger.warning(traceback.print_exc())
+        logger.error(traceback.format_exc())
     except discord.app_commands.CommandSyncFailure as e:
         logger.warning(e)
-        logger.warning(traceback.print_exc())
+        logger.error(traceback.format_exc())
     except discord.Forbidden as e:
         logger.warning(e)
-        logger.warning(traceback.print_exc())
+        logger.error(traceback.format_exc())
     except discord.MissingApplicationID as e:
         logger.warning(e)
-        logger.warning(traceback.print_exc())
+        logger.error(traceback.format_exc())
     except discord.app_commands.TranslationError as e:
         logger.warning(e)
-        logger.warning(traceback.print_exc())
+        logger.error(traceback.format_exc())
     logger.info('Synced slash commands.')
 
     # レイテンシ測定
@@ -237,6 +237,8 @@ async def mcrcon_help(ctx: discord.Interaction):
         title = 'Error'
         description = ''.join(traceback.format_exc())
         color = template['color']['failure']
+        logger.warning(e)
+        logger.error(description)
     embed = discord.Embed(
         title=title,
         description=description,
@@ -258,6 +260,8 @@ async def ping(ctx: discord.Interaction):
         title = 'Error'
         description = ''.join(traceback.format_exc())
         color = template['color']['failure']
+        logger.warning(e)
+        logger.error(description)
     embed = discord.Embed(
         title=title,
         description=description,
@@ -297,10 +301,12 @@ async def mcrcon_list(ctx: discord.Interaction):
                 CREDENTIAL_MCRCON['port']
             ) as mcr:
                 result = mcr.command('list')
-        except Exception:
+        except Exception as e:
             title = 'Error'
             result = ''.join(traceback.format_exc())
             color = template['color']['failure']
+            logger.warning(e)
+            logger.error(result)
 
         result = result.replace(':', ':\n')
 
@@ -315,6 +321,9 @@ async def mcrcon_list(ctx: discord.Interaction):
         title = 'Error'
         description = ''.join(traceback.format_exc())
         color = template['color']['failure']
+        logger.warning(e)
+        logger.error(description)
+
     embed = discord.Embed(
         title=title,
         description=description,
