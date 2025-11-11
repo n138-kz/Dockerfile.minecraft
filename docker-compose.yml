@@ -142,7 +142,7 @@ services:
         target: /media/
         read_only: true
       - type: bind
-        source: ./log/
+        source: ./logs/
         target: /log/custom/
         read_only: false
 
