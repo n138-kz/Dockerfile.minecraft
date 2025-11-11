@@ -58,6 +58,12 @@ jobs:
       - uses: actions/checkout@v4
       - run: docker pull alpine
 
+  Pull_the_image_python314:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker pull python:3.14
+
   Git_clone_Tiiffi-mcrcon:
     runs-on: ubuntu-latest
     steps:
@@ -70,6 +76,7 @@ jobs:
       - Pull_the_image_almalinux-8
       - Pull_the_image_ubuntu
       - Pull_the_image_alpine
+      - Pull_the_image_python314
       - Git_clone_Tiiffi-mcrcon
       - iso8601
 
@@ -93,6 +100,12 @@ jobs:
       - name: "Pull the image: alpine"
         run: docker pull alpine
 
+      - name: "Pull the image: python:3.14"
+        run: docker pull python:3.14
+
+      - name: Create test .env
+        run: touch .env
+
       - name: Print the Compose config
         run: docker compose config
 
@@ -101,6 +114,9 @@ jobs:
 
       - name: "Build the Docker container: minecraft-rcon"
         run: docker compose build --no-cache minecraft-rcon
+
+      - name: "Build the Docker container: minecraft-discordapp1"
+        run: docker compose build --no-cache minecraft-discordapp1
 
       - name: Build the Docker container
         run: docker compose build --no-cache
@@ -131,3 +147,6 @@ jobs:
 
       - name: "Log show the Docker container: minecraft-rcon"
         run: docker compose logs minecraft-rcon
+
+      - name: "Log show the Docker container: minecraft-discordapp1"
+        run: docker compose logs minecraft-discordapp1

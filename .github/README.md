@@ -41,12 +41,18 @@
 
 - [![](https://www.google.com/s2/favicons?size=64&domain=https://github.com)Dockerfile](https://github.com/n138-kz/Dockerfile) [![GitHub last commit](https://img.shields.io/github/last-commit/n138-kz/Dockerfile.minecraft)](https://github.com/n138-kz/Dockerfile)
 - [![](https://www.google.com/s2/favicons?size=64&domain=https://github.com)Dockerfile.minecraft](https://github.com/n138-kz/Dockerfile.minecraft) [![GitHub last commit](https://img.shields.io/github/last-commit/n138-kz/Dockerfile.minecraft)](https://github.com/n138-kz/Dockerfile.minecraft)
+- [![](https://www.google.com/s2/favicons?size=64&domain=https://github.com)mcrcon_discord_n138](https://github.com/n138-kz/mcrcon_discord_n138)
 - [![](https://www.google.com/s2/favicons?size=64&domain=https://qiita.com/)《滅びの呪文》Docker Composeで作ったコンテナ、イメージ、ボリューム、ネットワークを一括完全消去する便利コマンド](https://qiita.com/suin/items/19d65e191b96a0079417)
 - [![](https://www.google.com/s2/favicons?size=64&domain=https://qiita.com/)GitHubでQiitaの:::noteみたいな強調をする](https://qiita.com/lobmto/items/d02532134782f34c0e2fs)
 - [![](https://www.google.com/s2/favicons?size=64&domain=https://minecraft.net/)Java 版 Minecraft サーバー](https://www.minecraft.net/ja-jp/download/server)
 - [![](https://www.google.com/s2/favicons?size=64&domain=https://fabricmc.net/)Fabric Minecraft Server](https://fabricmc.net/use/server/)
 - [![](https://www.google.com/s2/favicons?size=64&domain=https://github.com)Tiiffi/mcrcon](https://github.com/Tiiffi/mcrcon.git)
 - [![](https://www.google.com/s2/favicons?size=64&domain=https://qiita.com/)MinecraftのサーバにRCONで接続する | Qiita](https://qiita.com/h_tyokinuhata/items/85d855f88d5d33c21949)
+- [![](https://www.google.com/s2/favicons?size=64&domain=https://qiita.com/)【Git】2つのGitリポジトリを履歴を保持して統合したい | Qiita](https://qiita.com/no_kawai/items/5efe8e47e54ebccd0bf8)
+- [![](https://www.google.com/s2/favicons?size=64&domain=https://pypi.org/)mcrcon](https://pypi.org/project/mcrcon/)
+- [![](https://www.google.com/s2/favicons?size=64&domain=https://qiita.com/)【discord.py】アプリケーションコマンドを実装する](https://qiita.com/t3tra/items/05b7b7389d6f1b9de11a)
+- [![](https://www.google.com/s2/favicons?size=64&domain=https://discordbot.jp/)Ping値を測定する【discord.py】](https://discordbot.jp/blog/16/)
+- [![](https://www.google.com/s2/favicons?size=64&domain=https://qiita.com/)mcrconを利用してpythonからminecraftサーバにコマンドを出力する](https://qiita.com/mutchan1k/items/0084af949a9f1dd44e6b)
 
 <details>
 
@@ -72,15 +78,24 @@
 コンテナ型仮想環境で、Java版マインクラフトサーバーを構築します。  
 使用するコンテナイメージは Docker 社が運営する公開レジストリの Docker Hub から取得します。  
 
+### Container image
+
 | Service | Image |
 |:-|:-|
 | minecraft-core | [almalinux](https://hub.docker.com/_/almalinux)[:8](https://hub.docker.com/_/almalinux/tags?name=8) |
 | minecraft-rcon | [ubuntu](https://hub.docker.com/_/ubuntu)[:latest](https://hub.docker.com/_/ubuntu/tags?name=latest) |
+| minecraft-discordapp1 | [python](https://hub.docker.com/_/python)[:3.14](https://hub.docker.com/_/python/tags?name=3.14) |
+
+### OS EoL
+
+#### Almalinux
 
 | OS Version | Date at Released | アクティブサポート終了日 | メンテナンスサポート終了日 | 最新バージョン |
 | --- | --- | --- | --- | --- |
 | AlmaLinux 8 | 2021年3月30日 | 2024年5月31日 | 2029年5月31日 | 9.5<br>2024年11月18日 |
 | AlmaLinux 9 | 2022年5月26日 | 2027年5月31日 | 2032年5月31日 | 8.10<br>2024年5月28日 |
+
+#### Ubuntu
 
 | Version | Released | End of Standard<br>Support | End of Ubuntu<br>Pro Support | End of Legacy<br>Support |
 |--------|:------:|:------:|:------:|:------:|
@@ -88,6 +103,20 @@
 | Ubuntu 25.04 (Plucky Puffin) | Apr 2025 | Jan 2026 | | |
 | Ubuntu 24.04 LTS (Noble Numbat) | Apr 2024 | Apr 2029 | Apr 2034 | Apr 2036 |
 | Ubuntu 22.04 LTS (Jammy Jellyfish) | Apr 2022 | Apr 2027 | Apr 2032 | Apr 2034 | 
+
+### Python support
+
+Quoted from: [python.org](https://www.python.org/downloads/)
+
+| Python version | Maintenance status | First released | End of support | Release schedule |
+|:----:|:------:|:------:|:------:|:------:|
+| 3.15 | [pre-release](https://www.python.org/download/pre-releases/) | 2026-10-07 (planned) | 2031-10 | [PEP 790](https://peps.python.org/pep-0790/) |
+| 3.14 | bugfix | 2025-10-07 | 2030-10 | [PEP 745](https://peps.python.org/pep-0745/) |
+| 3.13 | bugfix | 2024-10-07 | 2029-10 | [PEP 719](https://peps.python.org/pep-0719/) |
+| 3.12 | security | 2023-10-02 | 2028-10 | [PEP 693](https://peps.python.org/pep-0693/) |
+| 3.11 | security | 2022-10-24 | 2027-10 | [PEP 664](https://peps.python.org/pep-0664/) |
+| 3.10 | security | 2021-10-04 | 2026-10 | [PEP 619](https://peps.python.org/pep-0619/) |
+| 3.9 | end of life, last release was [3.9.25](https://www.python.org/downloads/release/python-3925/) | 2020-10-05 | 2025-10-31 | [PEP 596](https://peps.python.org/pep-0596/) |
 
 ## コンテナ作成
 1. 環境変数ファイル（ファイル名： `.env` ） を作成・編集する。（詳細は公式ドキュメントを参照）

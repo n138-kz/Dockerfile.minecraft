@@ -131,5 +131,20 @@ services:
         max-size: "1024k"
         max-file: "10"
 
+  minecraft-discordapp1:
+    build:
+      context: .
+      dockerfile: ./minecraft-discordapp1/Dockerfile
+    restart: always
+    volumes:
+      - type: bind
+        source: ./minecraft-discordapp1/
+        target: /media/
+        read_only: true
+      - type: bind
+        source: ./logs/
+        target: /log/custom/
+        read_only: false
+
 volumes:
   minecraft-core:

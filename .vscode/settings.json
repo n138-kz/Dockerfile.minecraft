@@ -1,0 +1,10 @@
+{
+    "github.copilot.enable": {
+        "*": false
+    },
+    "emmet.variables": {
+        "lang": "ja"
+    },
+    "files.defaultLanguage": "ja",
+    "files.hotExit": "off"
+}
