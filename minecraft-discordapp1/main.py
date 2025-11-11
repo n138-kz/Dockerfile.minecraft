@@ -317,7 +317,7 @@ async def mcrcon_list(ctx: discord.Interaction):
             logger.error(result)
 
         result = result.replace(':', ':\n')
-        result = [line.strip() for line in result.splitlines()]
+        result = '\n'.join([line.strip() for line in result.splitlines()])
 
         title = '[mcrcon] Result: /list'
         description = ''
