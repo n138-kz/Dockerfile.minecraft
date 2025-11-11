@@ -296,7 +296,7 @@ async def mcrcon_list(ctx: discord.Interaction):
                 CREDENTIAL_MCRCON['port']
             ) as mcr:
                 result = mcr.command('list')
-        except Exception as e:
+        except Exception:
             title = 'Error'
             result = ''.join(traceback.format_exc())
             color = template['color']['failure']
