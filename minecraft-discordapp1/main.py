@@ -359,7 +359,7 @@ async def mcrcon_help(ctx: discord.Interaction):
             logger.warning(e)
             logger.error(result)
         result = result.replace('/', '\n/')
-        result = '\n'.join([line.strip() for line in result.splitlines()].sort())
+        result = '\n'.join([line.strip() for line in result.splitlines().sort()])
 
         title = f'[mcrcon] Result: /{ctx.command.name}'
         description = ''
