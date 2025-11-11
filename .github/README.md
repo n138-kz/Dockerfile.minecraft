@@ -109,7 +109,7 @@
 Quoted from: [python.org](https://www.python.org/downloads/)
 
 | Python version | Maintenance status | First released | End of support | Release schedule |
-|--------|:------:|:------:|:------:|:------:|
+|:----:|:------:|:------:|:------:|:------:|
 | 3.15 | [pre-release](https://www.python.org/download/pre-releases/) | 2026-10-07 (planned) | 2031-10 | [PEP 790](https://peps.python.org/pep-0790/) |
 | 3.14 | bugfix | 2025-10-07 | 2030-10 | [PEP 745](https://peps.python.org/pep-0745/) |
 | 3.13 | bugfix | 2024-10-07 | 2029-10 | [PEP 719](https://peps.python.org/pep-0719/) |
