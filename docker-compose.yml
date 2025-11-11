@@ -131,5 +131,19 @@ services:
         max-size: "1024k"
         max-file: "10"
 
+  minecraft-discordapp1:
+    build:
+      context: ./minecraft-discordapp1
+    restart: always
+    volumes:
+      - type: bind
+        source: ./
+        target: /media/
+        read_only: true
+      - type: bind
+        source: ./log/
+        target: /log/custom/
+        read_only: false
+
 volumes:
   minecraft-core:
