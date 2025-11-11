@@ -62,6 +62,7 @@ TOKEN_DISCORD=os.getenv('TOKEN_DISCORD', '')
 if len(TOKEN_DISCORD) > 0:
     logger.info('Load & set the token DISCORD')
 else:
+    logger.error('Require the token.discord')
     raise ValueError('Require the token.discord')
 
 CREDENTIAL_MCRCON={
