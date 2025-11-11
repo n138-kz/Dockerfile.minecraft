@@ -63,9 +63,9 @@ else:
     raise ValueError('Require the token.discord')
 
 CREDENTIAL_MCRCON={
-    'addr': os.getenv('ADDRESS_MCRCON'),
-    'port': os.getenv('PORTNUM_MCRCON'),
-    'pass': os.getenv('PASSWORD_MCRCON'),
+    'addr': os.getenv('ADDRESS_MCRCON', 'localhost'),
+    'port': os.getenv('PORTNUM_MCRCON', 25575),
+    'pass': os.getenv('PASSWORD_MCRCON', 'minecraft'),
 }
 
 intents = discord.Intents.default()
