@@ -326,6 +326,7 @@ async def mcrcon_list(ctx: discord.Interaction):
         description += '\n'
         description += '```\n'
         color = template['color']['success']
+        logger.info(result)
     except Exception as e:
         title = 'Error'
         description = ''.join(traceback.format_exc())
