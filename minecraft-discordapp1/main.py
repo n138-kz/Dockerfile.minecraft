@@ -303,6 +303,7 @@ async def mcrcon_list(ctx: discord.Interaction):
                 CREDENTIAL_MCRCON['port']
             ) as mcr:
                 result = mcr.command('list')
+            logger.info(result)
         except ValueError as e:
             title = 'Error'
             result = 'ValueError'
@@ -315,7 +316,6 @@ async def mcrcon_list(ctx: discord.Interaction):
             color = template['color']['failure']
             logger.warning(e)
             logger.error(result)
-
         result = result.replace(':', ':\n')
         result = '\n'.join([line.strip() for line in result.splitlines()])
 
@@ -326,7 +326,6 @@ async def mcrcon_list(ctx: discord.Interaction):
         description += '\n'
         description += '```\n'
         color = template['color']['success']
-        logger.info(result)
     except Exception as e:
         title = 'Error'
         description = ''.join(traceback.format_exc())
