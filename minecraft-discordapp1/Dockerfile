@@ -1,5 +1,5 @@
 FROM python:3.14
-WORKDIR /tmp
+WORKDIR /media
 
 COPY .env /media/
 COPY minecraft-discordapp1/requirements.txt /media/
