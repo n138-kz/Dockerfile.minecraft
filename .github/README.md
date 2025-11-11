@@ -50,6 +50,9 @@
 - [![](https://www.google.com/s2/favicons?size=64&domain=https://qiita.com/)MinecraftのサーバにRCONで接続する | Qiita](https://qiita.com/h_tyokinuhata/items/85d855f88d5d33c21949)
 - [![](https://www.google.com/s2/favicons?size=64&domain=https://qiita.com/)【Git】2つのGitリポジトリを履歴を保持して統合したい | Qiita](https://qiita.com/no_kawai/items/5efe8e47e54ebccd0bf8)
 - [![](https://www.google.com/s2/favicons?size=64&domain=https://pypi.org/)mcrcon](https://pypi.org/project/mcrcon/)
+- [![](https://www.google.com/s2/favicons?size=64&domain=https://qiita.com/)【discord.py】アプリケーションコマンドを実装する](https://qiita.com/t3tra/items/05b7b7389d6f1b9de11a)
+- [![](https://www.google.com/s2/favicons?size=64&domain=https://discordbot.jp/)Ping値を測定する【discord.py】](https://discordbot.jp/blog/16/)
+- [![](https://www.google.com/s2/favicons?size=64&domain=https://qiita.com/)mcrconを利用してpythonからminecraftサーバにコマンドを出力する](https://qiita.com/mutchan1k/items/0084af949a9f1dd44e6b)
 
 <details>
 
