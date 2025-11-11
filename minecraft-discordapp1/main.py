@@ -53,6 +53,7 @@ import json
 import datetime
 import math
 from dotenv import load_dotenv
+from MCRcon import mcrcon
 
 load_dotenv()
 TOKEN_DISCORD=os.getenv('TOKEN_DISCORD', '')
@@ -60,6 +61,12 @@ if len(TOKEN_DISCORD) > 0:
     logger.info('Load & set the token DISCORD')
 else:
     raise ValueError('Require the token.discord')
+
+CREDENTIAL_MCRCON={
+    'addr': os.getenv('ADDRESS_MCRCON'),
+    'port': os.getenv('PORTNUM_MCRCON'),
+    'pass': os.getenv('PASSWORD_MCRCON'),
+}
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -278,7 +285,20 @@ async def mcrcon_list(ctx: discord.Interaction):
             ctx.channel.name,
         ))
 
-        result = 'There are 0 of a max of 10 players online:'
+        result = None
+
+        try:
+            with MCRcon(
+                CREDENTIAL_MCRCON['addr'],
+                CREDENTIAL_MCRCON['pass'],
+                CREDENTIAL_MCRCON['port']
+            ) as mcr:
+                result = mcr.command('list')
+        except Exception as e:
+            title = 'Error'
+            result = ''.join(traceback.format_exc())
+            color = template['color']['failure']
+
         result = result.replace(':', ':\n')
 
         title = '[mcrcon] Result: /list'
