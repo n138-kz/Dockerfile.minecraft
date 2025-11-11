@@ -74,15 +74,24 @@
 コンテナ型仮想環境で、Java版マインクラフトサーバーを構築します。  
 使用するコンテナイメージは Docker 社が運営する公開レジストリの Docker Hub から取得します。  
 
+### Container image
+
 | Service | Image |
 |:-|:-|
 | minecraft-core | [almalinux](https://hub.docker.com/_/almalinux)[:8](https://hub.docker.com/_/almalinux/tags?name=8) |
 | minecraft-rcon | [ubuntu](https://hub.docker.com/_/ubuntu)[:latest](https://hub.docker.com/_/ubuntu/tags?name=latest) |
+| minecraft-discordapp1 | [python](https://hub.docker.com/_/python)[:3.14](https://hub.docker.com/_/python/tags?name=latest) |
+
+### OS EoL
+
+#### Almalinux
 
 | OS Version | Date at Released | アクティブサポート終了日 | メンテナンスサポート終了日 | 最新バージョン |
 | --- | --- | --- | --- | --- |
 | AlmaLinux 8 | 2021年3月30日 | 2024年5月31日 | 2029年5月31日 | 9.5<br>2024年11月18日 |
 | AlmaLinux 9 | 2022年5月26日 | 2027年5月31日 | 2032年5月31日 | 8.10<br>2024年5月28日 |
+
+#### Ubuntu
 
 | Version | Released | End of Standard<br>Support | End of Ubuntu<br>Pro Support | End of Legacy<br>Support |
 |--------|:------:|:------:|:------:|:------:|
