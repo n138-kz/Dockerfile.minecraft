@@ -138,7 +138,7 @@ services:
     restart: always
     volumes:
       - type: bind
-        source: ./
+        source: ./minecraft-discordapp1/
         target: /media/
         read_only: true
       - type: bind
