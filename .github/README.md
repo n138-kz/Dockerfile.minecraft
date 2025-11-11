@@ -104,6 +104,20 @@
 | Ubuntu 24.04 LTS (Noble Numbat) | Apr 2024 | Apr 2029 | Apr 2034 | Apr 2036 |
 | Ubuntu 22.04 LTS (Jammy Jellyfish) | Apr 2022 | Apr 2027 | Apr 2032 | Apr 2034 | 
 
+### Python support
+
+Quoted from: [python.org](https://www.python.org/downloads/)
+
+| Python version | Maintenance status | First released | End of support | Release schedule |
+|--------|:------:|:------:|:------:|:------:|
+| 3.15 | [pre-release](https://www.python.org/download/pre-releases/) | 2026-10-07 (planned) | 2031-10 | [PEP 790](https://peps.python.org/pep-0790/) |
+| 3.14 | bugfix | 2025-10-07 | 2030-10 | [PEP 745](https://peps.python.org/pep-0745/) |
+| 3.13 | bugfix | 2024-10-07 | 2029-10 | [PEP 719](https://peps.python.org/pep-0719/) |
+| 3.12 | security | 2023-10-02 | 2028-10 | [PEP 693](https://peps.python.org/pep-0693/) |
+| 3.11 | security | 2022-10-24 | 2027-10 | [PEP 664](https://peps.python.org/pep-0664/) |
+| 3.10 | security | 2021-10-04 | 2026-10 | [PEP 619](https://peps.python.org/pep-0619/) |
+| 3.9 | end of life, last release was [3.9.25](https://www.python.org/downloads/release/python-3925/) | 2020-10-05 | 2025-10-31 | [PEP 596](https://peps.python.org/pep-0596/) |
+
 ## コンテナ作成
 1. 環境変数ファイル（ファイル名： `.env` ） を作成・編集する。（詳細は公式ドキュメントを参照）
 
