@@ -53,7 +53,7 @@ import json
 import datetime
 import math
 from dotenv import load_dotenv
-from MCRcon import mcrcon
+from mcrcon import MCRcon
 
 load_dotenv()
 TOKEN_DISCORD=os.getenv('TOKEN_DISCORD', '')
