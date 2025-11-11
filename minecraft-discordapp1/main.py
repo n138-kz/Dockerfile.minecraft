@@ -55,16 +55,9 @@ import math
 from dotenv import load_dotenv
 from mcrcon import MCRcon
 
-with open('.env', mode='r') as fp:
-    print(fp)
 
 load_dotenv()
 TOKEN_DISCORD=os.getenv('TOKEN_DISCORD', '')
-logger.info('{}: "{}" <-- len: {}'.format(
-'TOKEN_DISCORD',
-TOKEN_DISCORD,
-len(TOKEN_DISCORD)
-))
 if len(TOKEN_DISCORD) > 0:
     logger.info('Load & set the token DISCORD')
 else:
