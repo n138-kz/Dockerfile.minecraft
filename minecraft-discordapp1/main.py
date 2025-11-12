@@ -526,6 +526,82 @@ async def mcrcon_banlist(ctx: discord.Interaction):
         ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
     )
 
+@tree.command(name="datapack", description="/datapack")
+async def mcrcon_banlist(ctx: discord.Interaction, args1: str):
+    args1='list'
+    try:
+        logger.debug('Call from name:{}({}) command:{} {} on guild:{}({}) channel:{}({})'.format(
+            ctx.user.name,
+            ctx.user.id,
+            ctx.command.name,
+            args1,
+            ctx.guild.name,
+            ctx.guild.id,
+            ctx.channel.name,
+            ctx.channel.id,
+        ))
+        logger.info('Call from name:{} command:{} {} on guild:{} channel:{}'.format(
+            ctx.user.name,
+            ctx.command.name,
+            args1,
+            ctx.guild.name,
+            ctx.channel.name,
+        ))
+
+        result = None
+
+        try:
+            CREDENTIAL_MCRCON['port']=int(CREDENTIAL_MCRCON['port'])
+            with MCRcon(
+                CREDENTIAL_MCRCON['addr'],
+                CREDENTIAL_MCRCON['pass'],
+                CREDENTIAL_MCRCON['port']
+            ) as mcr:
+                result = mcr.command(' '.join([
+                    ctx.command.name,
+                    args1
+                ]))
+            logger.info(result)
+        except ValueError as e:
+            title = 'Error'
+            result = 'ValueError'
+            color = template['color']['failure']
+            logger.warning(e)
+            logger.error(result)
+        except Exception as e:
+            title = 'Error'
+            result = ''.join(traceback.format_exc())
+            color = template['color']['failure']
+            logger.warning(e)
+            logger.error(result)
+        result = result.replace(':', ':\n')
+        result = '\n'.join([line.strip() for line in result.splitlines()])
+
+        title = f'[mcrcon] Result: /{ctx.command.name}'
+        description = ''
+        description += '```\n'
+        description += result
+        description += '\n'
+        description += '```\n'
+        color = template['color']['success']
+    except Exception as e:
+        title = 'Error'
+        description = ''.join(traceback.format_exc())
+        color = template['color']['failure']
+        logger.warning(e)
+        logger.error(description)
+
+    embed = discord.Embed(
+        title=title,
+        description=description,
+        timestamp=datetime.datetime.now(datetime.timezone.utc),
+        color=color
+    )
+    await ctx.response.send_message(
+        embed=embed,
+        ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
+    )
+
 # botを起動
 def main():
     logger.info('Connecting to Discord API')
