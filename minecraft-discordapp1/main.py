@@ -249,13 +249,13 @@ async def help(ctx: discord.Interaction):
 
         title = 'Usage'
         description = ''
-        description += '/bothelp\n'
+        description += '`/bothelp`\n'
         description += 'コマンドのヘルプを表示\n'
-        description += '/ping\n'
+        description += '`/ping`\n'
         description += 'レイテンシを計測\n'
-        description += '/help\n'
+        description += '`/help`\n'
         description += 'コマンドのヘルプを表示\n'
-        description += '/list\n'
+        description += '`/list`\n'
         description += '現在サーバーに接続しているプレイヤーのリストを表示\n'
         color = template['color']['none']
         logger.info(description)
