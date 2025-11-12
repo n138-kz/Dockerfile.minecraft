@@ -253,6 +253,7 @@ async def help(ctx: discord.Interaction):
         description += 'コマンドのヘルプを表示\n'
         description += '`/ping`\n'
         description += 'レイテンシを計測\n'
+        description += '---\n'
         description += '`/help`\n'
         description += 'コマンドのヘルプを表示\n'
         description += '`/list`\n'
