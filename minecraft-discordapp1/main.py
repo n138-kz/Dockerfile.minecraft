@@ -587,6 +587,7 @@ async def mcrcon_datapack(ctx: discord.Interaction):
             logger.warning(e)
             logger.error(result)
         result = result.replace(':', ':\n')
+        result = result.replace(',', ',\n')
         result = '\n'.join([line.strip() for line in result.splitlines()])
 
         title = '[mcrcon] Result: /{}'.format(' '.join([
