@@ -249,14 +249,28 @@ async def help(ctx: discord.Interaction):
 
         title = 'Usage'
         description = ''
-        description += '/bothelp\n'
+        description += '`/bothelp`\n'
         description += 'コマンドのヘルプを表示\n'
-        description += '/ping\n'
+        description += 'ephemeral: True\n'
+        description += '`/ping`\n'
         description += 'レイテンシを計測\n'
-        description += '/help\n'
+        description += 'ephemeral: True\n'
+        description += '---\n'
+        description += '`/banlist`\n'
+        description += 'サーバーのブラックリストを表示\n'
+        description += 'ephemeral: True\n'
+        description += '`/datapack`\n'
+        description += '存在するデータパック、または有効化されているデータパックの一覧を表示\n'
+        description += 'ephemeral: True\n'
+        description += '`/help`\n'
         description += 'コマンドのヘルプを表示\n'
-        description += '/list\n'
+        description += 'ephemeral: True\n'
+        description += '`/list`\n'
         description += '現在サーバーに接続しているプレイヤーのリストを表示\n'
+        description += 'ephemeral: True\n'
+        description += '`/say`\n'
+        description += 'サーバー上のすべてのプレイヤーにメッセージを送信\n'
+        description += 'ephemeral: True\n'
         color = template['color']['none']
         logger.info(description)
     except Exception as e:
@@ -587,6 +601,7 @@ async def mcrcon_datapack(ctx: discord.Interaction):
             logger.warning(e)
             logger.error(result)
         result = result.replace(':', ':\n')
+        result = result.replace(',', ',\n')
         result = '\n'.join([line.strip() for line in result.splitlines()])
 
         title = '[mcrcon] Result: /{}'.format(' '.join([
