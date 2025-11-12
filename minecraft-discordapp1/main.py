@@ -257,6 +257,12 @@ async def help(ctx: discord.Interaction):
         description += 'コマンドのヘルプを表示\n'
         description += '`/list`\n'
         description += '現在サーバーに接続しているプレイヤーのリストを表示\n'
+        description += '`/banlist`\n'
+        description += 'サーバーのブラックリストを表示\n'
+        description += '`/datapack`\n'
+        description += '存在するデータパック、または有効化されているデータパックの一覧を表示\n'
+        description += '`/say`\n'
+        description += 'サーバー上のすべてのプレイヤーにメッセージを送信\n'
         color = template['color']['none']
         logger.info(description)
     except Exception as e:
