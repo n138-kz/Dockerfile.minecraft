@@ -344,7 +344,9 @@ async def mcrcon_help(ctx: discord.Interaction):
                 CREDENTIAL_MCRCON['pass'],
                 CREDENTIAL_MCRCON['port']
             ) as mcr:
-                result = mcr.command(ctx.command.name)
+                result = mcr.command('{}'.format(' '.join([
+                    ctx.command.name,
+                ])))
             logger.info(result)
         except ValueError as e:
             title = 'Error'
@@ -361,7 +363,9 @@ async def mcrcon_help(ctx: discord.Interaction):
         result = result.replace('/', '\n/')
         result = '\n'.join(sorted([line.strip() for line in result.splitlines()]))
 
-        title = f'[mcrcon] Result: /{ctx.command.name}'
+        title = '[mcrcon] Result: /{}'.format(' '.join([
+            ctx.command.name,
+        ]))
         description = ''
         description += '```\n'
         description += result
@@ -414,7 +418,9 @@ async def mcrcon_list(ctx: discord.Interaction):
                 CREDENTIAL_MCRCON['pass'],
                 CREDENTIAL_MCRCON['port']
             ) as mcr:
-                result = mcr.command(ctx.command.name)
+                result = mcr.command('{}'.format(' '.join([
+                    ctx.command.name,
+                ])))
             logger.info(result)
         except ValueError as e:
             title = 'Error'
@@ -431,7 +437,9 @@ async def mcrcon_list(ctx: discord.Interaction):
         result = result.replace(':', ':\n')
         result = '\n'.join([line.strip() for line in result.splitlines()])
 
-        title = f'[mcrcon] Result: /{ctx.command.name}'
+        title = '[mcrcon] Result: /{}'.format(' '.join([
+            ctx.command.name,
+        ]))
         description = ''
         description += '```\n'
         description += result
@@ -456,7 +464,7 @@ async def mcrcon_list(ctx: discord.Interaction):
         ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
     )
 
-@tree.command(name="banlist", description="/banlist")
+@tree.command(name="banlist", description="サーバーのブラックリストを表示")
 async def mcrcon_banlist(ctx: discord.Interaction):
     try:
         logger.debug('Call from name:{}({}) command:{} on guild:{}({}) channel:{}({})'.format(
@@ -484,7 +492,9 @@ async def mcrcon_banlist(ctx: discord.Interaction):
                 CREDENTIAL_MCRCON['pass'],
                 CREDENTIAL_MCRCON['port']
             ) as mcr:
-                result = mcr.command(ctx.command.name)
+                result = mcr.command('{}'.format(' '.join([
+                    ctx.command.name,
+                ])))
             logger.info(result)
         except ValueError as e:
             title = 'Error'
@@ -501,7 +511,9 @@ async def mcrcon_banlist(ctx: discord.Interaction):
         result = result.replace(':', ':\n')
         result = '\n'.join([line.strip() for line in result.splitlines()])
 
-        title = f'[mcrcon] Result: /{ctx.command.name}'
+        title = '[mcrcon] Result: /{}'.format(' '.join([
+            ctx.command.name,
+        ]))
         description = ''
         description += '```\n'
         description += result
@@ -526,8 +538,8 @@ async def mcrcon_banlist(ctx: discord.Interaction):
         ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
     )
 
-@tree.command(name="datapack", description="/datapack")
-async def mcrcon_banlist(ctx: discord.Interaction, args1: str):
+@tree.command(name="datapack", description="存在するデータパック、または有効化されているデータパックの一覧を表示")
+async def mcrcon_datapack(ctx: discord.Interaction):
     args1='list'
     try:
         logger.debug('Call from name:{}({}) command:{} {} on guild:{}({}) channel:{}({})'.format(
@@ -557,10 +569,10 @@ async def mcrcon_banlist(ctx: discord.Interaction, args1: str):
                 CREDENTIAL_MCRCON['pass'],
                 CREDENTIAL_MCRCON['port']
             ) as mcr:
-                result = mcr.command(' '.join([
+                result = mcr.command('{}'.format(' '.join([
                     ctx.command.name,
-                    args1
-                ]))
+                    args1,
+                ])))
             logger.info(result)
         except ValueError as e:
             title = 'Error'
@@ -577,7 +589,10 @@ async def mcrcon_banlist(ctx: discord.Interaction, args1: str):
         result = result.replace(':', ':\n')
         result = '\n'.join([line.strip() for line in result.splitlines()])
 
-        title = f'[mcrcon] Result: /{ctx.command.name}'
+        title = '[mcrcon] Result: /{}'.format(' '.join([
+            ctx.command.name,
+            args1,
+        ]))
         description = ''
         description += '```\n'
         description += result
