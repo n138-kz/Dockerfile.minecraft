@@ -344,7 +344,7 @@ async def mcrcon_help(ctx: discord.Interaction):
                 CREDENTIAL_MCRCON['pass'],
                 CREDENTIAL_MCRCON['port']
             ) as mcr:
-                result = mcr.command('help')
+                result = mcr.command(ctx.command.name)
             logger.info(result)
         except ValueError as e:
             title = 'Error'
@@ -414,7 +414,7 @@ async def mcrcon_list(ctx: discord.Interaction):
                 CREDENTIAL_MCRCON['pass'],
                 CREDENTIAL_MCRCON['port']
             ) as mcr:
-                result = mcr.command('list')
+                result = mcr.command(ctx.command.name)
             logger.info(result)
         except ValueError as e:
             title = 'Error'
