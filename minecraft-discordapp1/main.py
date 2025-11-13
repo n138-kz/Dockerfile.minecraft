@@ -393,6 +393,10 @@ async def discord_config(ctx: discord.Interaction, args1: str = None, args2: str
         ))
 
         result = None
+        try:
+            discord_ephemeral = configuration['discord-apps-config.json'][str(ctx.user.id)][str(ctx.guild.id)][str(ctx.channel.id)]['userPreferences']['ephemeral']
+        except KeyError:
+            discord_ephemeral = True
 
         try: 
             result = configuration['discord-apps-config.json'][str(ctx.user.id)][str(ctx.guild.id)][str(ctx.channel.id)]['userPreferences']
@@ -427,7 +431,7 @@ async def discord_config(ctx: discord.Interaction, args1: str = None, args2: str
 
             # 4. userPreferences階層の作成/上書き（ここでは常に新しい設定で上書きする）
             channel_config['userPreferences'] = {
-                'ephemeral': True,
+                'ephemeral': discord_ephemeral,
             }
 
             result = channel_config['userPreferences']
@@ -476,7 +480,7 @@ async def discord_config(ctx: discord.Interaction, args1: str = None, args2: str
     await ctx.response.send_message(
         embed=embed,
         view=discord.ui.View(timeout=30),
-        ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
+        ephemeral=discord_ephemeral#ephemeral=True→「これらはあなただけに表示されています」
     )
 
 @tree.command(name="help", description="コマンドのヘルプを表示")
