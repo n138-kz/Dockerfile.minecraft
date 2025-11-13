@@ -117,6 +117,17 @@ if os.path.exists(FILES_CONFIG['discord-apps-config.json']):
             logger.info('Loaded')
         except json.JSONDecodeError as e:
             logger.error(e)
+else:
+    logger.warning('File Not Exists')
+    logger.info('Try a creating')
+    configuration |= {'discord-apps-config.json': template['discord-apps-config.json']}
+    with open(FILES_CONFIG['discord-apps-config.json'], mode='w') as f:
+        try:
+            json.dump(template['discord-apps-config.json'], fp=f)
+            logger.info('Created')
+        except Exception as e:
+            logger.error(e)
+
 @client.event
 async def on_ready():
     logger.info('Connect OK ID:{} NAME:{}'.format(client.user.id, client.user.name))
