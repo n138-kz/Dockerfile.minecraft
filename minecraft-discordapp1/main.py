@@ -372,7 +372,8 @@ async def ping(ctx: discord.Interaction):
 
 @tree.command(name="discord_config", description="Discordに関連する設定を表示・変更")
 @discord.app_commands.describe(args1="設定項目名")
-async def discord_config(ctx: discord.Interaction, args1: str = None):
+@discord.app_commands.describe(args2="設定値")
+async def discord_config(ctx: discord.Interaction, args1: str = None, args2: str = None):
     try:
         logger.debug('Call from name:{}({}) command:{} on guild:{}({}) channel:{}({})'.format(
             ctx.user.name,
