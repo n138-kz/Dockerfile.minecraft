@@ -115,21 +115,19 @@ if os.path.exists(FILES_CONFIG['discord-apps-config.json']):
     with open(FILES_CONFIG['discord-apps-config.json'], mode='r') as f:
         try:
             configuration |= {'discord-apps-config.json': json.load(f)}
+
             logger.info('Loaded')
             logger.debug(configuration.get('discord-apps-config.json'))
         except json.JSONDecodeError as e:
-            logger.error(e)
+            logger.error(f'File Not Valid. Creating file from template. {e}')
+
+            configuration |= {'discord-apps-config.json': {}}
+            file_put_contents(FILES_CONFIG['discord-apps-config.json'], json.dumps({}))
 else:
     logger.warning('File Not Exists. Creating file from template.')
 
     configuration |= {'discord-apps-config.json': {}}
-    with open(FILES_CONFIG['discord-apps-config.json'], mode='w') as f:
-        try:
-            json.dump(template['discord-apps-config.json'], fp=f)
-            logger.info('Created file from template.')
-            logger.debug(configuration.get('discord-apps-config.json'))
-        except Exception as e:
-            logger.error(f'File write error: {e}')
+    file_put_contents(FILES_CONFIG['discord-apps-config.json'], json.dumps({}))
 
 @client.event
 async def on_ready():
