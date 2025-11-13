@@ -49,9 +49,7 @@ logger.info('Init')
 import os,sys
 import traceback
 import discord
-import json
 import datetime
-import math
 from dotenv import load_dotenv
 from mcrcon import MCRcon
 
@@ -361,15 +359,15 @@ async def mcrcon_help(ctx: discord.Interaction):
                 result = mcr.command('{}'.format(' '.join([
                     ctx.command.name,
                 ])))
+            title = '[mcrcon] Result: /{}'.format(' '.join([
+                ctx.command.name,
+            ]))
+            color = template['color']['success']
             logger.info(result)
-        except ValueError as e:
-            title = 'Error'
-            result = 'ValueError'
-            color = template['color']['failure']
-            logger.warning(e)
-            logger.error(result)
         except Exception as e:
-            title = 'Error'
+            title = '[mcrcon] Error Result: /{}'.format(' '.join([
+                ctx.command.name,
+            ]))
             result = ''.join(traceback.format_exc())
             color = template['color']['failure']
             logger.warning(e)
@@ -377,15 +375,11 @@ async def mcrcon_help(ctx: discord.Interaction):
         result = result.replace('/', '\n/')
         result = '\n'.join(sorted([line.strip() for line in result.splitlines()]))
 
-        title = '[mcrcon] Result: /{}'.format(' '.join([
-            ctx.command.name,
-        ]))
         description = ''
         description += '```\n'
         description += result
         description += '\n'
         description += '```\n'
-        color = template['color']['success']
     except Exception as e:
         title = 'Error'
         description = ''.join(traceback.format_exc())
@@ -435,15 +429,15 @@ async def mcrcon_list(ctx: discord.Interaction):
                 result = mcr.command('{}'.format(' '.join([
                     ctx.command.name,
                 ])))
+            title = '[mcrcon] Result: /{}'.format(' '.join([
+                ctx.command.name,
+            ]))
+            color = template['color']['success']
             logger.info(result)
-        except ValueError as e:
-            title = 'Error'
-            result = 'ValueError'
-            color = template['color']['failure']
-            logger.warning(e)
-            logger.error(result)
         except Exception as e:
-            title = 'Error'
+            title = '[mcrcon] Error Result: /{}'.format(' '.join([
+                ctx.command.name,
+            ]))
             result = ''.join(traceback.format_exc())
             color = template['color']['failure']
             logger.warning(e)
@@ -451,15 +445,11 @@ async def mcrcon_list(ctx: discord.Interaction):
         result = result.replace(':', ':\n')
         result = '\n'.join([line.strip() for line in result.splitlines()])
 
-        title = '[mcrcon] Result: /{}'.format(' '.join([
-            ctx.command.name,
-        ]))
         description = ''
         description += '```\n'
         description += result
         description += '\n'
         description += '```\n'
-        color = template['color']['success']
     except Exception as e:
         title = 'Error'
         description = ''.join(traceback.format_exc())
@@ -509,15 +499,15 @@ async def mcrcon_banlist(ctx: discord.Interaction):
                 result = mcr.command('{}'.format(' '.join([
                     ctx.command.name,
                 ])))
+            title = '[mcrcon] Result: /{}'.format(' '.join([
+                ctx.command.name,
+            ]))
+            color = template['color']['success']
             logger.info(result)
-        except ValueError as e:
-            title = 'Error'
-            result = 'ValueError'
-            color = template['color']['failure']
-            logger.warning(e)
-            logger.error(result)
         except Exception as e:
-            title = 'Error'
+            title = '[mcrcon] Error Result: /{}'.format(' '.join([
+                ctx.command.name,
+            ]))
             result = ''.join(traceback.format_exc())
             color = template['color']['failure']
             logger.warning(e)
@@ -525,15 +515,11 @@ async def mcrcon_banlist(ctx: discord.Interaction):
         result = result.replace(':', ':\n')
         result = '\n'.join([line.strip() for line in result.splitlines()])
 
-        title = '[mcrcon] Result: /{}'.format(' '.join([
-            ctx.command.name,
-        ]))
         description = ''
         description += '```\n'
         description += result
         description += '\n'
         description += '```\n'
-        color = template['color']['success']
     except Exception as e:
         title = 'Error'
         description = ''.join(traceback.format_exc())
@@ -587,15 +573,17 @@ async def mcrcon_datapack(ctx: discord.Interaction):
                     ctx.command.name,
                     args1,
                 ])))
+            title = '[mcrcon] Result: /{}'.format(' '.join([
+                ctx.command.name,
+                args1,
+            ]))
+            color = template['color']['success']
             logger.info(result)
-        except ValueError as e:
-            title = 'Error'
-            result = 'ValueError'
-            color = template['color']['failure']
-            logger.warning(e)
-            logger.error(result)
         except Exception as e:
-            title = 'Error'
+            title = '[mcrcon] Error Result: /{}'.format(' '.join([
+                ctx.command.name,
+                args1,
+            ]))
             result = ''.join(traceback.format_exc())
             color = template['color']['failure']
             logger.warning(e)
@@ -604,16 +592,11 @@ async def mcrcon_datapack(ctx: discord.Interaction):
         result = result.replace(',', ',\n')
         result = '\n'.join([line.strip() for line in result.splitlines()])
 
-        title = '[mcrcon] Result: /{}'.format(' '.join([
-            ctx.command.name,
-            args1,
-        ]))
         description = ''
         description += '```\n'
         description += result
         description += '\n'
         description += '```\n'
-        color = template['color']['success']
     except Exception as e:
         title = 'Error'
         description = ''.join(traceback.format_exc())
@@ -668,15 +651,17 @@ async def mcrcon_msg(ctx: discord.Interaction, message: str = ''):
                     ctx.command.name,
                     args1,
                 ])))
+            title = '[mcrcon] Result: /{}'.format(' '.join([
+                ctx.command.name,
+                args1,
+            ]))
+            color = template['color']['success']
             logger.info(result)
-        except ValueError as e:
-            title = 'Error'
-            result = 'ValueError'
-            color = template['color']['failure']
-            logger.warning(e)
-            logger.error(result)
         except Exception as e:
-            title = 'Error'
+            title = '[mcrcon] Error Result: /{}'.format(' '.join([
+                ctx.command.name,
+                args1,
+            ]))
             result = ''.join(traceback.format_exc())
             color = template['color']['failure']
             logger.warning(e)
@@ -684,16 +669,11 @@ async def mcrcon_msg(ctx: discord.Interaction, message: str = ''):
         result = result.replace(':', ':\n')
         result = '\n'.join([line.strip() for line in result.splitlines()])
 
-        title = '[mcrcon] Result: /{}'.format(' '.join([
-            ctx.command.name,
-            args1,
-        ]))
         description = ''
         description += '```\n'
         description += result
         description += '\n'
         description += '```\n'
-        color = template['color']['success']
     except Exception as e:
         title = 'Error'
         description = ''.join(traceback.format_exc())
