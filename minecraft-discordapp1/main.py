@@ -437,7 +437,10 @@ async def discord_config(ctx: discord.Interaction, args1: str = None, args2: str
 
         title = 'Discord config'
         description = ''
-        description = json.dumps(result)
+        description += '```json\n'
+        description += json.dumps(result)
+        description += '\n'
+        description += '```\n'
         color = template['color']['success']
         logger.info(description)
     except Exception as e:
