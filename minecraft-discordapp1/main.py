@@ -288,6 +288,11 @@ async def help(ctx: discord.Interaction):
             ctx.channel.name,
         ))
 
+        try:
+            discord_ephemeral = configuration['discord-apps-config.json'][str(ctx.user.id)][str(ctx.guild.id)][str(ctx.channel.id)]['userPreferences']['ephemeral']
+        except KeyError:
+            discord_ephemeral = True
+
         title = 'Usage'
         description = ''
         description += '`/bothelp`\n'
@@ -328,7 +333,7 @@ async def help(ctx: discord.Interaction):
     )
     await ctx.response.send_message(
         embed=embed,
-        ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
+        ephemeral=discord_ephemeral#ephemeral=True→「これらはあなただけに表示されています」
     )
 
 @tree.command(name="ping", description="レイテンシを計測")
@@ -350,6 +355,11 @@ async def ping(ctx: discord.Interaction):
             ctx.channel.name,
         ))
 
+        try:
+            discord_ephemeral = configuration['discord-apps-config.json'][str(ctx.user.id)][str(ctx.guild.id)][str(ctx.channel.id)]['userPreferences']['ephemeral']
+        except KeyError:
+            discord_ephemeral = True
+
         title = 'Latency'
         description = f'Pong! {round(client.latency*1000)}ms'
         color = template['color']['caution']
@@ -368,7 +378,7 @@ async def ping(ctx: discord.Interaction):
     )
     await ctx.response.send_message(
         embed=embed,
-        ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
+        ephemeral=discord_ephemeral#ephemeral=True→「これらはあなただけに表示されています」
     )
 
 @tree.command(name="discord_config", description="Discordに関連する設定を表示・変更")
@@ -503,6 +513,10 @@ async def mcrcon_help(ctx: discord.Interaction):
         ))
 
         result = None
+        try:
+            discord_ephemeral = configuration['discord-apps-config.json'][str(ctx.user.id)][str(ctx.guild.id)][str(ctx.channel.id)]['userPreferences']['ephemeral']
+        except KeyError:
+            discord_ephemeral = True
 
         try:
             CREDENTIAL_MCRCON['port']=int(CREDENTIAL_MCRCON['port'])
@@ -550,7 +564,7 @@ async def mcrcon_help(ctx: discord.Interaction):
     )
     await ctx.response.send_message(
         embed=embed,
-        ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
+        ephemeral=discord_ephemeral#ephemeral=True→「これらはあなただけに表示されています」
     )
 
 @tree.command(name="list", description="現在サーバーに接続しているプレイヤーのリストを表示")
@@ -573,6 +587,10 @@ async def mcrcon_list(ctx: discord.Interaction):
         ))
 
         result = None
+        try:
+            discord_ephemeral = configuration['discord-apps-config.json'][str(ctx.user.id)][str(ctx.guild.id)][str(ctx.channel.id)]['userPreferences']['ephemeral']
+        except KeyError:
+            discord_ephemeral = True
 
         try:
             CREDENTIAL_MCRCON['port']=int(CREDENTIAL_MCRCON['port'])
@@ -620,7 +638,7 @@ async def mcrcon_list(ctx: discord.Interaction):
     )
     await ctx.response.send_message(
         embed=embed,
-        ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
+        ephemeral=discord_ephemeral#ephemeral=True→「これらはあなただけに表示されています」
     )
 
 @tree.command(name="banlist", description="サーバーのブラックリストを表示")
@@ -643,6 +661,10 @@ async def mcrcon_banlist(ctx: discord.Interaction):
         ))
 
         result = None
+        try:
+            discord_ephemeral = configuration['discord-apps-config.json'][str(ctx.user.id)][str(ctx.guild.id)][str(ctx.channel.id)]['userPreferences']['ephemeral']
+        except KeyError:
+            discord_ephemeral = True
 
         try:
             CREDENTIAL_MCRCON['port']=int(CREDENTIAL_MCRCON['port'])
@@ -690,7 +712,7 @@ async def mcrcon_banlist(ctx: discord.Interaction):
     )
     await ctx.response.send_message(
         embed=embed,
-        ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
+        ephemeral=discord_ephemeral#ephemeral=True→「これらはあなただけに表示されています」
     )
 
 @tree.command(name="datapack", description="存在するデータパック、または有効化されているデータパックの一覧を表示")
@@ -716,6 +738,10 @@ async def mcrcon_datapack(ctx: discord.Interaction):
         ))
 
         result = None
+        try:
+            discord_ephemeral = configuration['discord-apps-config.json'][str(ctx.user.id)][str(ctx.guild.id)][str(ctx.channel.id)]['userPreferences']['ephemeral']
+        except KeyError:
+            discord_ephemeral = True
 
         try:
             CREDENTIAL_MCRCON['port']=int(CREDENTIAL_MCRCON['port'])
@@ -767,7 +793,7 @@ async def mcrcon_datapack(ctx: discord.Interaction):
     )
     await ctx.response.send_message(
         embed=embed,
-        ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
+        ephemeral=discord_ephemeral#ephemeral=True→「これらはあなただけに表示されています」
     )
 
 @tree.command(name="say", description="サーバー上のすべてのプレイヤーにメッセージを送信")
@@ -794,6 +820,10 @@ async def mcrcon_msg(ctx: discord.Interaction, message: str = ''):
         ))
 
         result = None
+        try:
+            discord_ephemeral = configuration['discord-apps-config.json'][str(ctx.user.id)][str(ctx.guild.id)][str(ctx.channel.id)]['userPreferences']['ephemeral']
+        except KeyError:
+            discord_ephemeral = True
 
         try:
             CREDENTIAL_MCRCON['port']=int(CREDENTIAL_MCRCON['port'])
@@ -844,7 +874,7 @@ async def mcrcon_msg(ctx: discord.Interaction, message: str = ''):
     )
     await ctx.response.send_message(
         embed=embed,
-        ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
+        ephemeral=discord_ephemeral#ephemeral=True→「これらはあなただけに表示されています」
     )
 
 # botを起動
