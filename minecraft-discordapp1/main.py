@@ -51,6 +51,7 @@ import traceback
 import discord
 import datetime
 import json
+import fasteners
 from dotenv import load_dotenv
 from mcrcon import MCRcon
 
@@ -58,8 +59,10 @@ def file_put_contents(filepath: str = None, writedata: str = None):
     if os.path.exists(filepath):
         if not os.path.isfile(filepath):
             raise FileExistsError
-        with open(filepath, mode='w') as f:
-            f.write(writedata)
+        with fasteners.InterProcessLock(filepath):
+            logger.debug(f'Locked by {os.getpid()}')
+            with open(filepath, mode='w') as f:
+                f.write(writedata)
         return True
     else:
         return False
