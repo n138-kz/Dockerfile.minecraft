@@ -411,6 +411,13 @@ async def discord_config(ctx: discord.Interaction, args1: str = None, args2: str
 
         try: 
             configuration['discord-apps-config.json'][str(ctx.user.id)][str(ctx.guild.id)][str(ctx.channel.id)]['userPreferences']
+            logger.info('Load configuration.get({}).get({}).get({}).get({}).get({})'.format(
+                'discord-apps-config.json',
+                str(ctx.user.id),
+                str(ctx.guild.id),
+                str(ctx.channel.id),
+                'userPreferences',
+            ))
         except KeyError:
             configuration['discord-apps-config.json'][str(ctx.user.id)] = {
                 'name': ctx.user.name,
