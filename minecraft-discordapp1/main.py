@@ -101,20 +101,6 @@ template = {
         'caution': 0xFFFF00,
         'none': 0x000000,
     },
-    "discord-apps-config.json": {
-        "{discord-user-id}": {
-            "name": "{discord-user-name}",
-            "{discord-guild-id}":{
-                "name": "{discord-guild-name}",
-                "{discord-channel-id}":{
-                    "name": "{discord-channel-name}",
-                    "userPreferences": {
-                        "ephemeral": True
-                    }
-                }
-            }
-        }
-    }
 }
 
 configuration = {}
