@@ -491,6 +491,7 @@ async def discord_config(ctx: discord.Interaction, args1: str = None, args2: str
     )
     await ctx.response.send_message(
         embed=embed,
+        view=discord.ui.View(timeout=30),
         ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
     )
 
