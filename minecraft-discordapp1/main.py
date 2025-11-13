@@ -438,7 +438,7 @@ async def discord_config(ctx: discord.Interaction, args1: str = None, args2: str
         title = 'Discord config'
         description = ''
         description += '```json\n'
-        description += json.dumps(result, indent=2)
+        description += json.dumps(result, indent=2, ensure_ascii=False)
         description += '\n'
         description += '```\n'
         color = template['color']['success']
