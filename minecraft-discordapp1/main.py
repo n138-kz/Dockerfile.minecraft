@@ -128,6 +128,7 @@ if os.path.exists(FILES_CONFIG['discord-apps-config.json']):
         try:
             configuration |= {'discord-apps-config.json': json.load(f)}
             logger.info('Loaded')
+            logger.debug(configuration.get('discord-apps-config.json'))
         except json.JSONDecodeError as e:
             logger.error(e)
 else:
@@ -138,6 +139,7 @@ else:
         try:
             json.dump(template['discord-apps-config.json'], fp=f)
             logger.info('Created file from template.')
+            logger.debug(configuration.get('discord-apps-config.json'))
         except Exception as e:
             logger.error(f'File write error: {e}')
 
