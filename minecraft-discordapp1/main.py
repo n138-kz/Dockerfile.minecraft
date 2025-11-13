@@ -109,7 +109,9 @@ template = {
                 "name": "{discord-guild-name}",
                 "{discord-channel-id}":{
                     "name": "{discord-channel-name}",
-                    "ephemeral": True
+                    "userPreferences": {
+                        "ephemeral": True
+                    }
                 }
             }
         }
@@ -408,7 +410,7 @@ async def discord_config(ctx: discord.Interaction, args1: str = None, args2: str
         ))
 
         try: 
-            configuration['discord-apps-config.json'][str(ctx.user.id)][str(ctx.guild.id)][str(ctx.channel.id)]
+            configuration['discord-apps-config.json'][str(ctx.user.id)][str(ctx.guild.id)][str(ctx.channel.id)]['userPreferences']
         except KeyError:
             configuration['discord-apps-config.json'][str(ctx.user.id)] = {
                 'name': ctx.user.name,
