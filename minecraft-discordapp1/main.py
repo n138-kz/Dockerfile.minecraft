@@ -69,6 +69,9 @@ CREDENTIAL_MCRCON={
     'pass': os.getenv('PASSWORD_MCRCON', 'minecraft'),
 }
 
+FILES_CONFIG={
+    'discord-apps-config.json': os.getenv('FILES_CONFIG_DISCORD_APPS_CONFIG', 'discord-apps-config.json'),
+}
 
 intents = discord.Intents.default()
 intents.message_content = True
