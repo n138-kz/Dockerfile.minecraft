@@ -361,6 +361,7 @@ async def mcrcon_help(ctx: discord.Interaction):
                 result = mcr.command('{}'.format(' '.join([
                     ctx.command.name,
                 ])))
+            color = template['color']['success']
             logger.info(result)
         except ValueError as e:
             title = 'Error'
@@ -385,7 +386,6 @@ async def mcrcon_help(ctx: discord.Interaction):
         description += result
         description += '\n'
         description += '```\n'
-        color = template['color']['success']
     except Exception as e:
         title = 'Error'
         description = ''.join(traceback.format_exc())
@@ -435,6 +435,7 @@ async def mcrcon_list(ctx: discord.Interaction):
                 result = mcr.command('{}'.format(' '.join([
                     ctx.command.name,
                 ])))
+            color = template['color']['success']
             logger.info(result)
         except ValueError as e:
             title = 'Error'
@@ -459,7 +460,6 @@ async def mcrcon_list(ctx: discord.Interaction):
         description += result
         description += '\n'
         description += '```\n'
-        color = template['color']['success']
     except Exception as e:
         title = 'Error'
         description = ''.join(traceback.format_exc())
@@ -509,6 +509,7 @@ async def mcrcon_banlist(ctx: discord.Interaction):
                 result = mcr.command('{}'.format(' '.join([
                     ctx.command.name,
                 ])))
+            color = template['color']['success']
             logger.info(result)
         except ValueError as e:
             title = 'Error'
@@ -533,7 +534,6 @@ async def mcrcon_banlist(ctx: discord.Interaction):
         description += result
         description += '\n'
         description += '```\n'
-        color = template['color']['success']
     except Exception as e:
         title = 'Error'
         description = ''.join(traceback.format_exc())
@@ -587,6 +587,7 @@ async def mcrcon_datapack(ctx: discord.Interaction):
                     ctx.command.name,
                     args1,
                 ])))
+            color = template['color']['success']
             logger.info(result)
         except ValueError as e:
             title = 'Error'
@@ -613,7 +614,6 @@ async def mcrcon_datapack(ctx: discord.Interaction):
         description += result
         description += '\n'
         description += '```\n'
-        color = template['color']['success']
     except Exception as e:
         title = 'Error'
         description = ''.join(traceback.format_exc())
@@ -668,6 +668,7 @@ async def mcrcon_msg(ctx: discord.Interaction, message: str = ''):
                     ctx.command.name,
                     args1,
                 ])))
+            color = template['color']['success']
             logger.info(result)
         except ValueError as e:
             title = 'Error'
@@ -693,7 +694,6 @@ async def mcrcon_msg(ctx: discord.Interaction, message: str = ''):
         description += result
         description += '\n'
         description += '```\n'
-        color = template['color']['success']
     except Exception as e:
         title = 'Error'
         description = ''.join(traceback.format_exc())
