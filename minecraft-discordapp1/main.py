@@ -405,9 +405,9 @@ async def discord_config(ctx: discord.Interaction, args1: str = None, args2: str
         ))
 
         try: 
-            result = configuration['discord-apps-config.json'][str(ctx.user.id)][str(ctx.guild.id)][str(ctx.channel.id)]
+            configuration['discord-apps-config.json'][str(ctx.user.id)][str(ctx.guild.id)][str(ctx.channel.id)]
         except KeyError:
-            result = configuration['discord-apps-config.json'][str(ctx.user.id)] = {
+            configuration['discord-apps-config.json'][str(ctx.user.id)] = {
                 'name': ctx.user.name,
                 str(ctx.guild.id): {
                     'name': ctx.guild.name,
