@@ -427,7 +427,9 @@ async def discord_config(ctx: discord.Interaction, args1: str = None, args2: str
                     'name': ctx.guild.name,
                     str(ctx.channel.id): {
                         'name': ctx.channel.name,
-                        'ephemeral': True,
+                        'userPreferences': {
+                            'ephemeral': True,
+                        }
                     }
                 }
             }
