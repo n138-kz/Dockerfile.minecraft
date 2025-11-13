@@ -391,8 +391,24 @@ async def discord_config(ctx: discord.Interaction, args1: str = None, args2: str
             ctx.channel.name,
         ))
 
+        try: 
+            result = configuration['discord-apps-config.json'][str(ctx.user.id)][str(ctx.guild.id)][str(ctx.channel.id)]
+        except KeyError:
+            configuration['discord-apps-config.json'][str(ctx.user.id)] = {
+                'name': ctx.user.name,
+                str(ctx.guild.id): {
+                    'name': ctx.guild.name,
+                    str(ctx.channel.id): {
+                        'name': ctx.channel.name,
+                        'ephemeral': True,
+                    }
+                }
+            }
+            result = configuration['discord-apps-config.json'][str(ctx.user.id)][str(ctx.guild.id)][str(ctx.channel.id)]
+
         title = 'Discord config'
         description = ''
+        description = json.dumps(result)
         color = template['color']['success']
         logger.info(description)
     except Exception as e:
