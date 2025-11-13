@@ -420,7 +420,7 @@ async def discord_config(ctx: discord.Interaction, args1: str = None, args2: str
             file_put_contents(FILES_CONFIG['discord-apps-config.json'], json.dumps(configuration['discord-apps-config.json'], indent=2))
 
         if args1 is None and args2 is None:
-            pass
+            result = configuration['discord-apps-config.json'][str(ctx.user.id)][str(ctx.guild.id)][str(ctx.channel.id)]
         elif args1 is not None and args2 is None:
             try:
                 result = configuration['discord-apps-config.json'][str(ctx.user.id)][str(ctx.guild.id)][str(ctx.channel.id)][args1]
