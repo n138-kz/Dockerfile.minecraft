@@ -366,14 +366,6 @@ async def mcrcon_help(ctx: discord.Interaction):
             ]))
             color = template['color']['success']
             logger.info(result)
-        except ValueError as e:
-            title = '[mcrcon] Error Result: /{}'.format(' '.join([
-                ctx.command.name,
-            ]))
-            result = 'ValueError'
-            color = template['color']['failure']
-            logger.warning(e)
-            logger.error(result)
         except Exception as e:
             title = '[mcrcon] Error Result: /{}'.format(' '.join([
                 ctx.command.name,
@@ -444,14 +436,6 @@ async def mcrcon_list(ctx: discord.Interaction):
             ]))
             color = template['color']['success']
             logger.info(result)
-        except ValueError as e:
-            title = '[mcrcon] Error Result: /{}'.format(' '.join([
-                ctx.command.name,
-            ]))
-            result = 'ValueError'
-            color = template['color']['failure']
-            logger.warning(e)
-            logger.error(result)
         except Exception as e:
             title = '[mcrcon] Error Result: /{}'.format(' '.join([
                 ctx.command.name,
@@ -522,14 +506,6 @@ async def mcrcon_banlist(ctx: discord.Interaction):
             ]))
             color = template['color']['success']
             logger.info(result)
-        except ValueError as e:
-            title = '[mcrcon] Error Result: /{}'.format(' '.join([
-                ctx.command.name,
-            ]))
-            result = 'ValueError'
-            color = template['color']['failure']
-            logger.warning(e)
-            logger.error(result)
         except Exception as e:
             title = '[mcrcon] Error Result: /{}'.format(' '.join([
                 ctx.command.name,
@@ -605,15 +581,6 @@ async def mcrcon_datapack(ctx: discord.Interaction):
             ]))
             color = template['color']['success']
             logger.info(result)
-        except ValueError as e:
-            title = '[mcrcon] Error Result: /{}'.format(' '.join([
-                ctx.command.name,
-                args1,
-            ]))
-            result = 'ValueError'
-            color = template['color']['failure']
-            logger.warning(e)
-            logger.error(result)
         except Exception as e:
             title = '[mcrcon] Error Result: /{}'.format(' '.join([
                 ctx.command.name,
@@ -692,15 +659,6 @@ async def mcrcon_msg(ctx: discord.Interaction, message: str = ''):
             ]))
             color = template['color']['success']
             logger.info(result)
-        except ValueError as e:
-            title = '[mcrcon] Error Result: /{}'.format(' '.join([
-                ctx.command.name,
-                args1,
-            ]))
-            result = 'ValueError'
-            color = template['color']['failure']
-            logger.warning(e)
-            logger.error(result)
         except Exception as e:
             title = '[mcrcon] Error Result: /{}'.format(' '.join([
                 ctx.command.name,
