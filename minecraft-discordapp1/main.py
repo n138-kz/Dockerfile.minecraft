@@ -370,6 +370,47 @@ async def ping(ctx: discord.Interaction):
         ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
     )
 
+@tree.command(name="discord_config", description="Discordに関連する設定を表示・変更")
+@discord.app_commands.describe(args1="設定項目名")
+async def discord_config(ctx: discord.Interaction, args1: str = None):
+    try:
+        logger.debug('Call from name:{}({}) command:{} on guild:{}({}) channel:{}({})'.format(
+            ctx.user.name,
+            ctx.user.id,
+            ctx.command.name,
+            ctx.guild.name,
+            ctx.guild.id,
+            ctx.channel.name,
+            ctx.channel.id,
+        ))
+        logger.info('Call from name:{} command:{} on guild:{} channel:{}'.format(
+            ctx.user.name,
+            ctx.command.name,
+            ctx.guild.name,
+            ctx.channel.name,
+        ))
+
+        title = 'Discord config'
+        description = ''
+        color = template['color']['success']
+        logger.info(description)
+    except Exception as e:
+        title = 'Error'
+        description = ''.join(traceback.format_exc())
+        color = template['color']['failure']
+        logger.warning(e)
+        logger.error(description)
+    embed = discord.Embed(
+        title=title,
+        description=description,
+        timestamp=datetime.datetime.now(datetime.timezone.utc),
+        color=color
+    )
+    await ctx.response.send_message(
+        embed=embed,
+        ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
+    )
+
 @tree.command(name="help", description="コマンドのヘルプを表示")
 async def mcrcon_help(ctx: discord.Interaction):
     try:
