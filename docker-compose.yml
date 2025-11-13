@@ -145,6 +145,10 @@ services:
         source: ./logs/
         target: /log/custom/
         read_only: false
+      - type: bind
+        source: ./conf.d/
+        target: /etc/custom/
+        read_only: false
 
 volumes:
   minecraft-core:
