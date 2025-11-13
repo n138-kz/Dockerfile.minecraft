@@ -50,6 +50,7 @@ import os,sys
 import traceback
 import discord
 import datetime
+import json
 from dotenv import load_dotenv
 from mcrcon import MCRcon
 
@@ -106,6 +107,13 @@ configuration = {}
 logger.info('Loading config files: {}'.format(
     FILES_CONFIG['discord-apps-config.json'],
 ))
+if os.path.exists(FILES_CONFIG['discord-apps-config.json']):
+    with open(FILES_CONFIG['discord-apps-config.json'], mode='r') as f:
+        try:
+            configuration |= {'discord-apps-config.json': json.load(f)}
+            logger.info('Loaded')
+        except json.JSONDecodeError as e:
+            logger.error(e)
 @client.event
 async def on_ready():
     logger.info('Connect OK ID:{} NAME:{}'.format(client.user.id, client.user.name))
