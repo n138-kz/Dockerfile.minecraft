@@ -436,18 +436,18 @@ async def discord_config(ctx: discord.Interaction, args1: str = None, args2: str
             file_put_contents(FILES_CONFIG['discord-apps-config.json'], json.dumps(configuration['discord-apps-config.json'], indent=2))
 
         if args1 is None and args2 is None:
-            result = configuration['discord-apps-config.json'][str(ctx.user.id)][str(ctx.guild.id)][str(ctx.channel.id)]
+            result = configuration['discord-apps-config.json'][str(ctx.user.id)][str(ctx.guild.id)][str(ctx.channel.id)]['userPreferences']
         elif args1 is not None and args2 is None:
             try:
-                result = configuration['discord-apps-config.json'][str(ctx.user.id)][str(ctx.guild.id)][str(ctx.channel.id)][args1]
+                result = configuration['discord-apps-config.json'][str(ctx.user.id)][str(ctx.guild.id)][str(ctx.channel.id)]['userPreferences'][args1]
             except KeyError:
-                result = configuration['discord-apps-config.json'][str(ctx.user.id)][str(ctx.guild.id)][str(ctx.channel.id)][args1] = None
+                result = configuration['discord-apps-config.json'][str(ctx.user.id)][str(ctx.guild.id)][str(ctx.channel.id)]['userPreferences'][args1] = None
                 logger.warning(f'KeyError: {traceback.print_stack(limit=1)}')
                 file_put_contents(FILES_CONFIG['discord-apps-config.json'], json.dumps(configuration['discord-apps-config.json'], indent=2))
         elif args1 is not None and args2 is not None:
             try:
-                configuration['discord-apps-config.json'][str(ctx.user.id)][str(ctx.guild.id)][str(ctx.channel.id)][args1] = args2
-                result = configuration['discord-apps-config.json'][str(ctx.user.id)][str(ctx.guild.id)][str(ctx.channel.id)][args1]
+                configuration['discord-apps-config.json'][str(ctx.user.id)][str(ctx.guild.id)][str(ctx.channel.id)]['userPreferences'][args1] = args2
+                result = configuration['discord-apps-config.json'][str(ctx.user.id)][str(ctx.guild.id)][str(ctx.channel.id)]['userPreferences'][args1]
                 file_put_contents(FILES_CONFIG['discord-apps-config.json'], json.dumps(configuration['discord-apps-config.json'], indent=2))
             except KeyError as e:
                 logger.warning(e)
