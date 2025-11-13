@@ -420,14 +420,16 @@ async def discord_config(ctx: discord.Interaction, args1: str = None, args2: str
                 'userPreferences',
             ))
         except KeyError:
-            configuration['discord-apps-config.json'][str(ctx.user.id)] = {
-                'name': ctx.user.name,
-                str(ctx.guild.id): {
-                    'name': ctx.guild.name,
-                    str(ctx.channel.id): {
-                        'name': ctx.channel.name,
-                        'userPreferences': {
-                            'ephemeral': True,
+            configuration['discord-apps-config.json'] |= {
+                str(ctx.user.id): {
+                    'name': ctx.user.name,
+                    str(ctx.guild.id): {
+                        'name': ctx.guild.name,
+                        str(ctx.channel.id): {
+                            'name': ctx.channel.name,
+                            'userPreferences': {
+                                'ephemeral': True,
+                            }
                         }
                     }
                 }
