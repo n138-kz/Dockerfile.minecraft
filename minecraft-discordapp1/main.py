@@ -118,15 +118,15 @@ if os.path.exists(FILES_CONFIG['discord-apps-config.json']):
         except json.JSONDecodeError as e:
             logger.error(e)
 else:
-    logger.warning('File Not Exists')
-    logger.info('Try a creating')
-    configuration |= {'discord-apps-config.json': template['discord-apps-config.json']}
+    logger.warning('File Not Exists. Creating empty file.')
+
+    configuration |= {'discord-apps-config.json': {}}
     with open(FILES_CONFIG['discord-apps-config.json'], mode='w') as f:
         try:
-            json.dump(template['discord-apps-config.json'], fp=f)
-            logger.info('Created')
+            json.dump({}, fp=f)
+            logger.info('Created empty file.')
         except Exception as e:
-            logger.error(e)
+            logger.error(f'File write error: {e}')
 
 @client.event
 async def on_ready():
