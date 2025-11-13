@@ -101,6 +101,8 @@ template = {
     }
 }
 
+configuration = {}
+
 @client.event
 async def on_ready():
     logger.info('Connect OK ID:{} NAME:{}'.format(client.user.id, client.user.name))
