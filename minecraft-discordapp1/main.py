@@ -50,8 +50,22 @@ import os,sys
 import traceback
 import discord
 import datetime
+import json
+import fasteners
 from dotenv import load_dotenv
 from mcrcon import MCRcon
+
+def file_put_contents(filepath: str = None, writedata: str = None):
+    if os.path.exists(filepath):
+        if not os.path.isfile(filepath):
+            raise FileExistsError
+        with fasteners.InterProcessLock(filepath):
+            logger.debug(f'Locked by {os.getpid()}')
+            with open(filepath, mode='w') as f:
+                f.write(writedata)
+        return True
+    else:
+        return False
 
 logger.info(f'Pwd: {os.getcwd()}')
 
@@ -69,6 +83,9 @@ CREDENTIAL_MCRCON={
     'pass': os.getenv('PASSWORD_MCRCON', 'minecraft'),
 }
 
+FILES_CONFIG={
+    'discord-apps-config.json': os.getenv('FILES_CONFIG_DISCORD_APPS_CONFIG', 'discord-apps-config.json'),
+}
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -83,8 +100,34 @@ template = {
         'failure': 0xFF0000,
         'caution': 0xFFFF00,
         'none': 0x000000,
-    }
+    },
 }
+
+configuration = {}
+
+logger.info('Loading config files: {}'.format(
+    FILES_CONFIG['discord-apps-config.json'],
+))
+if os.path.exists(FILES_CONFIG['discord-apps-config.json']):
+    if not os.path.isfile(FILES_CONFIG['discord-apps-config.json']):
+        logger.error('Not File Exists')
+        raise FileExistsError
+    with open(FILES_CONFIG['discord-apps-config.json'], mode='r') as f:
+        try:
+            configuration |= {'discord-apps-config.json': json.load(f)}
+
+            logger.info('Loaded')
+            logger.debug(configuration.get('discord-apps-config.json'))
+        except json.JSONDecodeError as e:
+            logger.error(f'File Not Valid. Creating file from template. {e}')
+
+            configuration |= {'discord-apps-config.json': {}}
+            file_put_contents(FILES_CONFIG['discord-apps-config.json'], json.dumps({}))
+else:
+    logger.warning('File Not Exists. Creating file from template.')
+
+    configuration |= {'discord-apps-config.json': {}}
+    file_put_contents(FILES_CONFIG['discord-apps-config.json'], json.dumps({}))
 
 @client.event
 async def on_ready():
@@ -245,6 +288,11 @@ async def help(ctx: discord.Interaction):
             ctx.channel.name,
         ))
 
+        try:
+            discord_ephemeral = configuration['discord-apps-config.json'][str(ctx.user.id)][str(ctx.guild.id)][str(ctx.channel.id)]['userPreferences']['ephemeral']
+        except KeyError:
+            discord_ephemeral = True
+
         title = 'Usage'
         description = ''
         description += '`/bothelp`\n'
@@ -285,7 +333,7 @@ async def help(ctx: discord.Interaction):
     )
     await ctx.response.send_message(
         embed=embed,
-        ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
+        ephemeral=discord_ephemeral#ephemeral=True→「これらはあなただけに表示されています」
     )
 
 @tree.command(name="ping", description="レイテンシを計測")
@@ -307,6 +355,11 @@ async def ping(ctx: discord.Interaction):
             ctx.channel.name,
         ))
 
+        try:
+            discord_ephemeral = configuration['discord-apps-config.json'][str(ctx.user.id)][str(ctx.guild.id)][str(ctx.channel.id)]['userPreferences']['ephemeral']
+        except KeyError:
+            discord_ephemeral = True
+
         title = 'Latency'
         description = f'Pong! {round(client.latency*1000)}ms'
         color = template['color']['caution']
@@ -325,7 +378,119 @@ async def ping(ctx: discord.Interaction):
     )
     await ctx.response.send_message(
         embed=embed,
-        ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
+        ephemeral=discord_ephemeral#ephemeral=True→「これらはあなただけに表示されています」
+    )
+
+@tree.command(name="discord_config", description="Discordに関連する設定を表示・変更")
+@discord.app_commands.describe(args1="設定項目名")
+@discord.app_commands.describe(args2="設定値")
+async def discord_config(ctx: discord.Interaction, args1: str = None, args2: str = None):
+    try:
+        logger.debug('Call from name:{}({}) command:{} on guild:{}({}) channel:{}({})'.format(
+            ctx.user.name,
+            ctx.user.id,
+            ctx.command.name,
+            ctx.guild.name,
+            ctx.guild.id,
+            ctx.channel.name,
+            ctx.channel.id,
+        ))
+        logger.info('Call from name:{} command:{} on guild:{} channel:{}'.format(
+            ctx.user.name,
+            ctx.command.name,
+            ctx.guild.name,
+            ctx.channel.name,
+        ))
+
+        result = None
+        try:
+            discord_ephemeral = configuration['discord-apps-config.json'][str(ctx.user.id)][str(ctx.guild.id)][str(ctx.channel.id)]['userPreferences']['ephemeral']
+        except KeyError:
+            discord_ephemeral = True
+
+        try: 
+            result = configuration['discord-apps-config.json'][str(ctx.user.id)][str(ctx.guild.id)][str(ctx.channel.id)]['userPreferences']
+            logger.info('Load configuration.get({}).get({}).get({}).get({}).get({})'.format(
+                'discord-apps-config.json',
+                str(ctx.user.id),
+                str(ctx.guild.id),
+                str(ctx.channel.id),
+                'userPreferences',
+            ))
+        except KeyError:
+            # 1. ユーザー階層の確認と作成
+            if str(ctx.user.id) not in configuration['discord-apps-config.json']:
+                configuration['discord-apps-config.json'][str(ctx.user.id)] = {
+                    'name': ctx.user.name # ユーザー名も追加
+                }
+            user_config = configuration['discord-apps-config.json'][str(ctx.user.id)]
+
+            # 2. ギルド階層の確認と作成
+            if str(ctx.guild.id) not in user_config:
+                user_config[str(ctx.guild.id)] = {
+                    'name': ctx.guild.name # ギルド名も追加
+                }
+            guild_config = user_config[str(ctx.guild.id)]
+
+            # 3. チャンネル階層の確認と作成
+            if str(ctx.channel.id) not in guild_config:
+                guild_config[str(ctx.channel.id)] = {
+                    'name': ctx.channel.name # チャンネル名も追加
+                }
+            channel_config = guild_config[str(ctx.channel.id)]
+
+            # 4. userPreferences階層の作成/上書き（ここでは常に新しい設定で上書きする）
+            channel_config['userPreferences'] = {
+                'ephemeral': discord_ephemeral,
+            }
+
+            result = channel_config['userPreferences']
+            
+            logger.warning(f'KeyError: {traceback.print_stack(limit=1)}')
+            file_put_contents(FILES_CONFIG['discord-apps-config.json'], json.dumps(configuration['discord-apps-config.json'], indent=2))
+
+        if args1 is None and args2 is None:
+            result = configuration['discord-apps-config.json'][str(ctx.user.id)][str(ctx.guild.id)][str(ctx.channel.id)]['userPreferences']
+        elif args1 is not None and args2 is None:
+            try:
+                result = configuration['discord-apps-config.json'][str(ctx.user.id)][str(ctx.guild.id)][str(ctx.channel.id)]['userPreferences'][args1]
+            except KeyError:
+                result = configuration['discord-apps-config.json'][str(ctx.user.id)][str(ctx.guild.id)][str(ctx.channel.id)]['userPreferences'][args1] = None
+                logger.warning(f'KeyError: {traceback.print_stack(limit=1)}')
+                file_put_contents(FILES_CONFIG['discord-apps-config.json'], json.dumps(configuration['discord-apps-config.json'], indent=2))
+        elif args1 is not None and args2 is not None:
+            try:
+                configuration['discord-apps-config.json'][str(ctx.user.id)][str(ctx.guild.id)][str(ctx.channel.id)]['userPreferences'][args1] = args2
+                result = configuration['discord-apps-config.json'][str(ctx.user.id)][str(ctx.guild.id)][str(ctx.channel.id)]['userPreferences'][args1]
+                file_put_contents(FILES_CONFIG['discord-apps-config.json'], json.dumps(configuration['discord-apps-config.json'], indent=2))
+            except KeyError as e:
+                logger.warning(e)
+                logger.warning(f'KeyError: {traceback.print_stack(limit=1)}')
+
+        title = 'Discord config'
+        description = ''
+        description += '```json\n'
+        description += json.dumps(result, indent=2, ensure_ascii=False)
+        description += '\n'
+        description += '```\n'
+        color = template['color']['success']
+        logger.info(description)
+    except Exception as e:
+        title = 'Error'
+        description = ''.join(traceback.format_exc())
+        color = template['color']['failure']
+        logger.warning(e)
+        logger.error(description)
+    embed = discord.Embed(
+        title=title,
+        description=description,
+        timestamp=datetime.datetime.now(datetime.timezone.utc),
+        color=color
+    )
+    await ctx.response.send_message(
+        embed=embed,
+        view=discord.ui.View(timeout=30),
+        ephemeral=discord_ephemeral#ephemeral=True→「これらはあなただけに表示されています」
     )
 
 @tree.command(name="help", description="コマンドのヘルプを表示")
@@ -348,6 +513,10 @@ async def mcrcon_help(ctx: discord.Interaction):
         ))
 
         result = None
+        try:
+            discord_ephemeral = configuration['discord-apps-config.json'][str(ctx.user.id)][str(ctx.guild.id)][str(ctx.channel.id)]['userPreferences']['ephemeral']
+        except KeyError:
+            discord_ephemeral = True
 
         try:
             CREDENTIAL_MCRCON['port']=int(CREDENTIAL_MCRCON['port'])
@@ -395,7 +564,7 @@ async def mcrcon_help(ctx: discord.Interaction):
     )
     await ctx.response.send_message(
         embed=embed,
-        ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
+        ephemeral=discord_ephemeral#ephemeral=True→「これらはあなただけに表示されています」
     )
 
 @tree.command(name="list", description="現在サーバーに接続しているプレイヤーのリストを表示")
@@ -418,6 +587,10 @@ async def mcrcon_list(ctx: discord.Interaction):
         ))
 
         result = None
+        try:
+            discord_ephemeral = configuration['discord-apps-config.json'][str(ctx.user.id)][str(ctx.guild.id)][str(ctx.channel.id)]['userPreferences']['ephemeral']
+        except KeyError:
+            discord_ephemeral = True
 
         try:
             CREDENTIAL_MCRCON['port']=int(CREDENTIAL_MCRCON['port'])
@@ -465,7 +638,7 @@ async def mcrcon_list(ctx: discord.Interaction):
     )
     await ctx.response.send_message(
         embed=embed,
-        ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
+        ephemeral=discord_ephemeral#ephemeral=True→「これらはあなただけに表示されています」
     )
 
 @tree.command(name="banlist", description="サーバーのブラックリストを表示")
@@ -488,6 +661,10 @@ async def mcrcon_banlist(ctx: discord.Interaction):
         ))
 
         result = None
+        try:
+            discord_ephemeral = configuration['discord-apps-config.json'][str(ctx.user.id)][str(ctx.guild.id)][str(ctx.channel.id)]['userPreferences']['ephemeral']
+        except KeyError:
+            discord_ephemeral = True
 
         try:
             CREDENTIAL_MCRCON['port']=int(CREDENTIAL_MCRCON['port'])
@@ -535,7 +712,7 @@ async def mcrcon_banlist(ctx: discord.Interaction):
     )
     await ctx.response.send_message(
         embed=embed,
-        ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
+        ephemeral=discord_ephemeral#ephemeral=True→「これらはあなただけに表示されています」
     )
 
 @tree.command(name="datapack", description="存在するデータパック、または有効化されているデータパックの一覧を表示")
@@ -561,6 +738,10 @@ async def mcrcon_datapack(ctx: discord.Interaction):
         ))
 
         result = None
+        try:
+            discord_ephemeral = configuration['discord-apps-config.json'][str(ctx.user.id)][str(ctx.guild.id)][str(ctx.channel.id)]['userPreferences']['ephemeral']
+        except KeyError:
+            discord_ephemeral = True
 
         try:
             CREDENTIAL_MCRCON['port']=int(CREDENTIAL_MCRCON['port'])
@@ -612,7 +793,7 @@ async def mcrcon_datapack(ctx: discord.Interaction):
     )
     await ctx.response.send_message(
         embed=embed,
-        ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
+        ephemeral=discord_ephemeral#ephemeral=True→「これらはあなただけに表示されています」
     )
 
 @tree.command(name="say", description="サーバー上のすべてのプレイヤーにメッセージを送信")
@@ -639,6 +820,10 @@ async def mcrcon_msg(ctx: discord.Interaction, message: str = ''):
         ))
 
         result = None
+        try:
+            discord_ephemeral = configuration['discord-apps-config.json'][str(ctx.user.id)][str(ctx.guild.id)][str(ctx.channel.id)]['userPreferences']['ephemeral']
+        except KeyError:
+            discord_ephemeral = True
 
         try:
             CREDENTIAL_MCRCON['port']=int(CREDENTIAL_MCRCON['port'])
@@ -689,7 +874,7 @@ async def mcrcon_msg(ctx: discord.Interaction, message: str = ''):
     )
     await ctx.response.send_message(
         embed=embed,
-        ephemeral=True#ephemeral=True→「これらはあなただけに表示されています」
+        ephemeral=discord_ephemeral#ephemeral=True→「これらはあなただけに表示されています」
     )
 
 # botを起動
