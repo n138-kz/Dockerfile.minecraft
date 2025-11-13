@@ -49,9 +49,7 @@ logger.info('Init')
 import os,sys
 import traceback
 import discord
-import json
 import datetime
-import math
 from dotenv import load_dotenv
 from mcrcon import MCRcon
 
