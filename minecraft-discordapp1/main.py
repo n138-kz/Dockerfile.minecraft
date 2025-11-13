@@ -108,6 +108,9 @@ logger.info('Loading config files: {}'.format(
     FILES_CONFIG['discord-apps-config.json'],
 ))
 if os.path.exists(FILES_CONFIG['discord-apps-config.json']):
+    if not os.path.isfile(FILES_CONFIG['discord-apps-config.json']):
+        logger.error('Not File Exists')
+        raise FileExistsError
     with open(FILES_CONFIG['discord-apps-config.json'], mode='r') as f:
         try:
             configuration |= {'discord-apps-config.json': json.load(f)}
