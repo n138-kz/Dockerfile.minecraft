@@ -54,6 +54,16 @@ import json
 from dotenv import load_dotenv
 from mcrcon import MCRcon
 
+def file_put_contents(filepath: str = None, writedata: str = None):
+    if os.path.exists(filepath):
+        if not os.path.isfile(filepath):
+            raise FileExistsError
+        with open(filepath, mode='w') as f:
+            f.write(writedata)
+        return True
+    else:
+        return False
+
 logger.info(f'Pwd: {os.getcwd()}')
 
 load_dotenv()
@@ -404,6 +414,7 @@ async def discord_config(ctx: discord.Interaction, args1: str = None, args2: str
                     }
                 }
             }
+            file_put_contents(FILES_CONFIG['discord-apps-config.json'], json.dumps(configuration['discord-apps-config.json'], indent=2))
 
         title = 'Discord config'
         description = ''
