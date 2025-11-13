@@ -103,6 +103,9 @@ template = {
 
 configuration = {}
 
+logger.info('Loading config files: {}'.format(
+    FILES_CONFIG['discord-apps-config.json'],
+))
 @client.event
 async def on_ready():
     logger.info('Connect OK ID:{} NAME:{}'.format(client.user.id, client.user.name))
