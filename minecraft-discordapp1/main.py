@@ -412,7 +412,7 @@ async def discord_config(ctx: discord.Interaction, args1: str = None, args2: str
         result = None
 
         try: 
-            configuration['discord-apps-config.json'][str(ctx.user.id)][str(ctx.guild.id)][str(ctx.channel.id)]['userPreferences']
+            result = configuration['discord-apps-config.json'][str(ctx.user.id)][str(ctx.guild.id)][str(ctx.channel.id)]['userPreferences']
             logger.info('Load configuration.get({}).get({}).get({}).get({}).get({})'.format(
                 'discord-apps-config.json',
                 str(ctx.user.id),
