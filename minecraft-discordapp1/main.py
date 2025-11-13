@@ -429,7 +429,7 @@ async def discord_config(ctx: discord.Interaction, args1: str = None, args2: str
                     }
                 }
             }
-            logger.warning(f'KeyError: {inspect.currentframe().f_back.f_lineno}')
+            logger.warning(f'KeyError: {inspect.currentframe().f_back}')
             file_put_contents(FILES_CONFIG['discord-apps-config.json'], json.dumps(configuration['discord-apps-config.json'], indent=2))
 
         if args1 is None and args2 is None:
@@ -439,7 +439,7 @@ async def discord_config(ctx: discord.Interaction, args1: str = None, args2: str
                 result = configuration['discord-apps-config.json'][str(ctx.user.id)][str(ctx.guild.id)][str(ctx.channel.id)][args1]
             except KeyError:
                 result = configuration['discord-apps-config.json'][str(ctx.user.id)][str(ctx.guild.id)][str(ctx.channel.id)][args1] = None
-                logger.warning(f'KeyError: {inspect.currentframe().f_back.f_lineno}')
+                logger.warning(f'KeyError: {inspect.currentframe().f_back}')
                 file_put_contents(FILES_CONFIG['discord-apps-config.json'], json.dumps(configuration['discord-apps-config.json'], indent=2))
         elif args1 is not None and args2 is not None:
             try:
@@ -448,7 +448,7 @@ async def discord_config(ctx: discord.Interaction, args1: str = None, args2: str
                 file_put_contents(FILES_CONFIG['discord-apps-config.json'], json.dumps(configuration['discord-apps-config.json'], indent=2))
             except KeyError as e:
                 logger.warning(e)
-                logger.warning(f'KeyError: {inspect.currentframe().f_back.f_lineno}')
+                logger.warning(f'KeyError: {inspect.currentframe().f_back}')
 
         title = 'Discord config'
         description = ''
