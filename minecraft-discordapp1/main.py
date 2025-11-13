@@ -420,20 +420,34 @@ async def discord_config(ctx: discord.Interaction, args1: str = None, args2: str
                 'userPreferences',
             ))
         except KeyError:
-            configuration['discord-apps-config.json'] |= {
-                str(ctx.user.id): {
-                    'name': ctx.user.name,
-                    str(ctx.guild.id): {
-                        'name': ctx.guild.name,
-                        str(ctx.channel.id): {
-                            'name': ctx.channel.name,
-                            'userPreferences': {
-                                'ephemeral': True,
-                            }
-                        }
-                    }
+            # 1. ユーザー階層の確認と作成
+            if str(ctx.user.id) not in configuration['discord-apps-config.json']:
+                configuration['discord-apps-config.json'][str(ctx.user.id)] = {
+                    'name': ctx.user.name # ユーザー名も追加
                 }
+            user_config = configuration['discord-apps-config.json'][str(ctx.user.id)]
+
+            # 2. ギルド階層の確認と作成
+            if str(ctx.guild.id) not in user_config:
+                user_config[str(ctx.guild.id)] = {
+                    'name': ctx.guild.name # ギルド名も追加
+                }
+            guild_config = user_config[str(ctx.guild.id)]
+
+            # 3. チャンネル階層の確認と作成
+            if str(ctx.channel.id) not in guild_config:
+                guild_config[str(ctx.channel.id)] = {
+                    'name': ctx.channel.name # チャンネル名も追加
+                }
+            channel_config = guild_config[str(ctx.channel.id)]
+
+            # 4. userPreferences階層の作成/上書き（ここでは常に新しい設定で上書きする）
+            channel_config['userPreferences'] = {
+                'ephemeral': True,
             }
+
+            result = channel_config['userPreferences']
+            
             logger.warning(f'KeyError: {traceback.print_stack(limit=1)}')
             file_put_contents(FILES_CONFIG['discord-apps-config.json'], json.dumps(configuration['discord-apps-config.json'], indent=2))
 
