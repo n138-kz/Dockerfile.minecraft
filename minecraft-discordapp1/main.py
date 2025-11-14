@@ -189,6 +189,10 @@ async def on_resumed():
     logger.info('resumed')
 
 @client.event
+async def on_timeout(self):
+    logger.info(f'timeouted: {self}')
+
+@client.event
 async def on_error(event, args, kwargs):
     logger.error('on_error: {}'.format(
         event,
