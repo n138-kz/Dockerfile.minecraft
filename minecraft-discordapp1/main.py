@@ -333,6 +333,7 @@ async def help(ctx: discord.Interaction):
     )
     await ctx.response.send_message(
         embed=embed,
+        view=discord.ui.View(timeout=30),
         ephemeral=discord_ephemeral#ephemeral=True→「これらはあなただけに表示されています」
     )
 
@@ -378,6 +379,7 @@ async def ping(ctx: discord.Interaction):
     )
     await ctx.response.send_message(
         embed=embed,
+        view=discord.ui.View(timeout=30),
         ephemeral=discord_ephemeral#ephemeral=True→「これらはあなただけに表示されています」
     )
 
@@ -564,6 +566,7 @@ async def mcrcon_help(ctx: discord.Interaction):
     )
     await ctx.response.send_message(
         embed=embed,
+        view=discord.ui.View(timeout=30),
         ephemeral=discord_ephemeral#ephemeral=True→「これらはあなただけに表示されています」
     )
 
@@ -638,6 +641,7 @@ async def mcrcon_list(ctx: discord.Interaction):
     )
     await ctx.response.send_message(
         embed=embed,
+        view=discord.ui.View(timeout=30),
         ephemeral=discord_ephemeral#ephemeral=True→「これらはあなただけに表示されています」
     )
 
@@ -712,6 +716,7 @@ async def mcrcon_banlist(ctx: discord.Interaction):
     )
     await ctx.response.send_message(
         embed=embed,
+        view=discord.ui.View(timeout=30),
         ephemeral=discord_ephemeral#ephemeral=True→「これらはあなただけに表示されています」
     )
 
@@ -793,6 +798,7 @@ async def mcrcon_datapack(ctx: discord.Interaction):
     )
     await ctx.response.send_message(
         embed=embed,
+        view=discord.ui.View(timeout=30),
         ephemeral=discord_ephemeral#ephemeral=True→「これらはあなただけに表示されています」
     )
 
@@ -874,6 +880,7 @@ async def mcrcon_msg(ctx: discord.Interaction, message: str = ''):
     )
     await ctx.response.send_message(
         embed=embed,
+        view=discord.ui.View(timeout=30),
         ephemeral=discord_ephemeral#ephemeral=True→「これらはあなただけに表示されています」
     )
 
