@@ -679,10 +679,10 @@ async def mcrcon_list(ctx: discord.Interaction, args1: str = None, args2: str = 
                         lines = f.readlines()
                         lines = [line.strip() for line in lines]
                         lines = [line for line in lines if ('joined the game' in line) or ('left the game' in line)]
-                        result += '>>>'
+                        result += '>>>\n'
                         for line in lines:
                             result += line + '\n'
-                        result += '<<<'
+                        result += '<<<\n'
                 else:
                     # args2 が登録されていない文字の場合
                     logger.warning(f'unknown sub command: /{ctx.command.name} args1:{args1} args2:{args2}')
