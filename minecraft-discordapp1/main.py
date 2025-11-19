@@ -685,8 +685,8 @@ async def mcrcon_list(ctx: discord.Interaction, args1: str = None, args2: str = 
                         result += f'{len(lines)} match.\n'
                         result += '>>>\n'
                         for line in lines:
-                            line = line.split(maxsplit=2)
-                            line = f'{line[0]}: {line[2]}'
+                            line = line.split(maxsplit=3)
+                            line = f'{line[0]}: {line[3]}'
                             result += line + '\n'
                         result += '<<<\n'
                     logger.info(result)
