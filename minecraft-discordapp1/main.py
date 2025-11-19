@@ -635,6 +635,7 @@ async def mcrcon_list(ctx: discord.Interaction, args1: str = None, args2: str = 
             result = ''
             result += 'incomplete the command\n'
             result += f'/{ctx.command.name} args1:help args2:help\n'
+            logger.warning(result)
         else:
             args1 = '' if args1 is None else args1
             args2 = '' if args2 is None else args2
@@ -657,6 +658,7 @@ async def mcrcon_list(ctx: discord.Interaction, args1: str = None, args2: str = 
                 result += '\n'
                 result += f'/{ctx.command.name} args1:log args2:help\n'
                 result += 'Print the logfile.\n'
+                logger.info(result)
             elif args1 == 'log':
                 if False:
                     pass
@@ -671,6 +673,7 @@ async def mcrcon_list(ctx: discord.Interaction, args1: str = None, args2: str = 
                     result += 'Print the login history.\n'
                     result += '\n'
                     color = template['color']['success']
+                    logger.info(result)
                 elif args2 == 'login':
                     logger.info(f'sub command: /{ctx.command.name} args1:{args1} args2:{args2}')
                     color = template['color']['success']
@@ -684,17 +687,20 @@ async def mcrcon_list(ctx: discord.Interaction, args1: str = None, args2: str = 
                         for line in lines:
                             result += line + '\n'
                         result += '<<<\n'
+                    logger.info(result)
                 else:
                     # args2 が登録されていない文字の場合
                     logger.warning(f'unknown sub command: /{ctx.command.name} args1:{args1} args2:{args2}')
                     color = template['color']['caution']
                     result += 'Usage(Help command)\n'
                     result += f'/{ctx.command.name} args1:help\n'
+                    logger.warning(result)
             else:
                 # args1 が登録されていない文字の場合
                 result += 'Usage(Help command)\n'
                 color = template['color']['caution']
                 result += f'/{ctx.command.name} args1:help\n'
+                logger.warning(result)
 
         description = ''
         description += '```\n'
