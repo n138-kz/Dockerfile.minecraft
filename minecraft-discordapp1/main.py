@@ -103,6 +103,10 @@ template = {
     },
 }
 
+title = ''
+description = ''
+color = template.get('color').get('none')
+
 configuration = {}
 
 logger.info('Loading config files: {}'.format(
@@ -627,6 +631,7 @@ async def mcrcon_list(ctx: discord.Interaction, args1: str = None, args2: str = 
         elif ((args1 is not None) and (args2 is None)) or ((args1 is None) and (args2 is not None)):
             # args1, args2 どちらか None
             title = 'Error'
+            color = template['color']['failure']
             result = ''
             result += 'incomplete the command\n'
             result += f'/{ctx.command.name} args1:help\n'
@@ -638,12 +643,14 @@ async def mcrcon_list(ctx: discord.Interaction, args1: str = None, args2: str = 
                 args1,
                 args2,
             ]))
+            color = template['color']['none']
             result = ''
 
             if False:
                 pass
             elif args1 == 'help':
                 logger.info(f'sub command: /{ctx.command.name} args1:{args1} args2:{args2}')
+                color = template['color']['success']
                 result += 'Usage(Help command)\n'
                 result += f'/{ctx.command.name} args1:help\n'
                 result += 'Print the this help.\n'
@@ -654,6 +661,7 @@ async def mcrcon_list(ctx: discord.Interaction, args1: str = None, args2: str = 
                     pass
                 elif args2 == 'help':
                     logger.info(f'sub command: /{ctx.command.name} args1:{args1} args2:{args2}')
+                    color = template['color']['success']
                     result += 'Usage(Help command)\n'
                     result += f'/{ctx.command.name} args1:{args1} args2:help\n'
                     result += 'Print the this help.\n'
@@ -661,8 +669,10 @@ async def mcrcon_list(ctx: discord.Interaction, args1: str = None, args2: str = 
                     result += f'/{ctx.command.name} args1:{args1} args2:login\n'
                     result += 'Print the login history.\n'
                     result += '\n'
+                    color = template['color']['success']
                 elif args2 == 'login':
                     logger.info(f'sub command: /{ctx.command.name} args1:{args1} args2:{args2}')
+                    color = template['color']['success']
                     path = '/log/custom/latest.log'
                     with open(path) as f:
                         lines = f.readlines()
@@ -673,11 +683,13 @@ async def mcrcon_list(ctx: discord.Interaction, args1: str = None, args2: str = 
                 else:
                     # args2 が登録されていない文字の場合
                     logger.warning(f'unknown sub command: /{ctx.command.name} args1:{args1} args2:{args2}')
+                    color = template['color']['caution']
                     result += 'Usage(Help command)\n'
                     result += f'/{ctx.command.name} args1:help\n'
             else:
                 # args1 が登録されていない文字の場合
                 result += 'Usage(Help command)\n'
+                color = template['color']['caution']
                 result += f'/{ctx.command.name} args1:help\n'
 
         description = ''
