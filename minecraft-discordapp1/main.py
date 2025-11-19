@@ -682,13 +682,15 @@ async def mcrcon_list(ctx: discord.Interaction, args1: str = None, args2: str = 
                         lines = f.readlines()
                         lines = [line.strip() for line in lines]
                         lines = [line for line in lines if ('joined the game' in line) or ('left the game' in line)]
-                        result += f'{len(lines)} match.\n'
-                        result += '>>>\n'
-                        for line in lines:
-                            line = line.split(maxsplit=3)
-                            line = f'{line[0]}: {line[3]}'
-                            result += line + '\n'
-                        result += '<<<\n'
+                        if len(lines) > 0:
+                            result += '>>>\n'
+                            for line in lines:
+                                line = line.split(maxsplit=3)
+                                line = f'{line[0]}: {line[3]}'
+                                result += line + '\n'
+                            result += '<<<\n'
+                        else:
+                            result += 'No match in latest log file.\n'
                     logger.info(result)
                 else:
                     # args2 が登録されていない文字の場合
