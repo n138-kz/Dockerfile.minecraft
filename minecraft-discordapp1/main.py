@@ -466,6 +466,9 @@ async def discord_config(ctx: discord.Interaction, args1: str = None, args2: str
             except KeyError as e:
                 logger.warning(e)
                 logger.error(f'KeyError: {traceback.print_stack(limit=1)}')
+            except Exception as e:
+                logger.warning(e)
+                logger.error(traceback.print_stack(limit=1))
 
         title = 'Discord config'
         description = ''
