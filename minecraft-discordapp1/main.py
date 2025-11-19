@@ -626,6 +626,48 @@ async def mcrcon_list(ctx: discord.Interaction, args1: str = None, args2: str = 
             result = ''
             result += 'incomplete the command\n'
             result += f'/{ctx.command.name} args1:{args1} args2:help\n'
+        else:
+            result = ''
+
+            if False:
+                pass
+            elif args1 == 'help':
+                logger.info(f'sub command: /{ctx.command.name} args1:{args1} args2:{args2}')
+                result += 'Usage(Help command)\n'
+                result += f'/{ctx.command.name} args1:help\n'
+                result += 'Print the this help.\n'
+                result += f'/{ctx.command.name} args1:log\n'
+                result += 'Print the logfile.\n'
+            elif args1 == 'log':
+                if False:
+                    pass
+                elif args2 == 'help':
+                    logger.info(f'sub command: /{ctx.command.name} args1:{args1} args2:{args2}')
+                    result += 'Usage(Help command)\n'
+                    result += f'/{ctx.command.name} args1:{args1} args2:help\n'
+                    result += 'Print the this help.\n'
+                    result += '\n'
+                    result += f'/{ctx.command.name} args1:{args1} args2:login\n'
+                    result += 'Print the login history.\n'
+                    result += '\n'
+                elif args2 == 'login':
+                    logger.info(f'sub command: /{ctx.command.name} args1:{args1} args2:{args2}')
+                    path = '/log/custom/latest.log'
+                    with open(path) as f:
+                        lines = f.readlines()
+                        lines = [line.strip() for line in lines]
+                        lines = [line for line in lines if ('joined the game' in line) or ('left the game' in line)]
+                        for line in lines:
+                            result += line + '\n'
+                else:
+                    # args2 が登録されていない文字の場合
+                    logger.warning(f'unknown sub command: /{ctx.command.name} args1:{args1} args2:{args2}')
+                    result += 'Usage(Help command)\n'
+                    result += f'/{ctx.command.name} args1:help\n'
+            else:
+                # args1 が登録されていない文字の場合
+                result += 'Usage(Help command)\n'
+                result += f'/{ctx.command.name} args1:help\n'
 
         description = ''
         description += '```\n'
