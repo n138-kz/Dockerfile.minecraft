@@ -592,6 +592,10 @@ async def mcrcon_list(ctx: discord.Interaction, args1: str = None, args2: str = 
         except KeyError:
             discord_ephemeral = True
 
+        logger.debug('args1: {}({}), args2: {}({})'.format(
+            args1, type(args1),
+            args2, type(args2),
+        ))
         if args1 is None and args2 is None:
             try:
                 CREDENTIAL_MCRCON['port']=int(CREDENTIAL_MCRCON['port'])
