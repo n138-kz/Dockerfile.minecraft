@@ -625,6 +625,8 @@ async def mcrcon_list(ctx: discord.Interaction, args1: str = None, args2: str = 
             result = result.replace(':', ':\n')
             result = '\n'.join([line.strip() for line in result.splitlines()])
         elif ((args1 is not None) and (args2 is None)) or ((args1 is None) and (args2 is not None)):
+            # args1, args2 どちらか None
+            title = 'Error'
             result = ''
             result += 'incomplete the command\n'
             result += f'/{ctx.command.name} args1:help\n'
