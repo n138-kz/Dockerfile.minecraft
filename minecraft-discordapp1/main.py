@@ -460,6 +460,16 @@ async def discord_config(ctx: discord.Interaction, args1: str = None, args2: str
                 file_put_contents(FILES_CONFIG['discord-apps-config.json'], json.dumps(configuration['discord-apps-config.json'], indent=2))
         elif args1 is not None and args2 is not None:
             try:
+                if False:
+                    pass
+                elif args2.lower() == 'true':
+                    args2 = True
+                elif args2.lower() == 'false':
+                    args2 = False
+                else:
+                    logger.error(f'args2 cannot be interpreted: {args2}')
+                    raise ValueError(f'args2 cannot be interpreted: {args2}')
+
                 configuration['discord-apps-config.json'][str(ctx.user.id)][str(ctx.guild.id)][str(ctx.channel.id)]['userPreferences'][args1] = args2
                 result = configuration['discord-apps-config.json'][str(ctx.user.id)][str(ctx.guild.id)][str(ctx.channel.id)]['userPreferences'][args1]
                 file_put_contents(FILES_CONFIG['discord-apps-config.json'], json.dumps(configuration['discord-apps-config.json'], indent=2))
