@@ -679,6 +679,7 @@ async def mcrcon_list(ctx: discord.Interaction, args1: str = None, args2: str = 
                         lines = f.readlines()
                         lines = [line.strip() for line in lines]
                         lines = [line for line in lines if ('joined the game' in line) or ('left the game' in line)]
+                        result += f'{len(lines)} match.\n'
                         result += '>>>\n'
                         for line in lines:
                             result += line + '\n'
