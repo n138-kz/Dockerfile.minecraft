@@ -1,4 +1,13 @@
 #!/bin/bash
+countdown() {
+        # https://zenn.dev/soma3134/articles/68e36621f6a43e#%5C033%5B0k%5Cr
+        local seconds=$1
+        while [ $seconds -gt 0 ]; do
+                echo -ne "Waiting: ${seconds}s\033[0K\r"
+                sleep 1
+                ((seconds--))
+        done
+}
 while :;do
 	echo "> cd minecraft-server; cp /var/minecraft /tmp/; tar cavf game_$(date +%s)_$(date +%Y%m%d_%H%M%S).tar"
 	cd ~/minecraft-server && \
