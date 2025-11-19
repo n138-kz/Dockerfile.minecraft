@@ -634,7 +634,7 @@ async def mcrcon_list(ctx: discord.Interaction, args1: str = None, args2: str = 
             color = template['color']['failure']
             result = ''
             result += 'incomplete the command\n'
-            result += f'/{ctx.command.name} args1:help\n'
+            result += f'/{ctx.command.name} args1:help args2:help\n'
         else:
             args1 = '' if args1 is None else args1
             args2 = '' if args2 is None else args2
@@ -652,9 +652,10 @@ async def mcrcon_list(ctx: discord.Interaction, args1: str = None, args2: str = 
                 logger.info(f'sub command: /{ctx.command.name} args1:{args1} args2:{args2}')
                 color = template['color']['success']
                 result += 'Usage(Help command)\n'
-                result += f'/{ctx.command.name} args1:help\n'
+                result += f'/{ctx.command.name} args1:help args2:help\n'
                 result += 'Print the this help.\n'
-                result += f'/{ctx.command.name} args1:log\n'
+                result += '\n'
+                result += f'/{ctx.command.name} args1:log args2:help\n'
                 result += 'Print the logfile.\n'
             elif args1 == 'log':
                 if False:
