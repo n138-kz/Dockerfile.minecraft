@@ -465,7 +465,7 @@ async def discord_config(ctx: discord.Interaction, args1: str = None, args2: str
                 file_put_contents(FILES_CONFIG['discord-apps-config.json'], json.dumps(configuration['discord-apps-config.json'], indent=2))
             except KeyError as e:
                 logger.warning(e)
-                logger.warning(f'KeyError: {traceback.print_stack(limit=1)}')
+                logger.error(f'KeyError: {traceback.print_stack(limit=1)}')
 
         title = 'Discord config'
         description = ''
