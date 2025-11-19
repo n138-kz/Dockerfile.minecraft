@@ -676,23 +676,23 @@ async def mcrcon_list(ctx: discord.Interaction, args1: str = None, args2: str = 
         description += result
         description += '\n'
         description += '```\n'
+
+        embed = discord.Embed(
+            title=title,
+            description=description,
+            timestamp=datetime.datetime.now(datetime.timezone.utc),
+            color=color
+        )
+        await ctx.response.send_message(
+            embed=embed,
+            ephemeral=discord_ephemeral#ephemeral=True→「これらはあなただけに表示されています」
+        )
     except Exception as e:
         title = 'Error'
         description = ''.join(traceback.format_exc())
         color = template['color']['failure']
         logger.warning(e)
         logger.error(description)
-
-    embed = discord.Embed(
-        title=title,
-        description=description,
-        timestamp=datetime.datetime.now(datetime.timezone.utc),
-        color=color
-    )
-    await ctx.response.send_message(
-        embed=embed,
-        ephemeral=discord_ephemeral#ephemeral=True→「これらはあなただけに表示されています」
-    )
 
 @tree.command(name="banlist", description="サーバーのブラックリストを表示")
 async def mcrcon_banlist(ctx: discord.Interaction):
