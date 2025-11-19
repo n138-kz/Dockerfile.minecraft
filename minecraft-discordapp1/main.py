@@ -728,6 +728,7 @@ async def mcrcon_list(ctx: discord.Interaction, args1: str = None, args2: str = 
         description += result
         description += '\n'
         description += '```\n'
+        description = description.strip()
 
         embed = discord.Embed(
             title=title,
@@ -739,7 +740,6 @@ async def mcrcon_list(ctx: discord.Interaction, args1: str = None, args2: str = 
             embed=embed,
             ephemeral=discord_ephemeral#ephemeral=True→「これらはあなただけに表示されています」
         )
-        description = description.strip()
     except Exception as e:
         title = 'Error'
         description = ''.join(traceback.format_exc())
