@@ -592,31 +592,32 @@ async def mcrcon_list(ctx: discord.Interaction, args1: str = None, args2: str = 
         except KeyError:
             discord_ephemeral = True
 
-        try:
-            CREDENTIAL_MCRCON['port']=int(CREDENTIAL_MCRCON['port'])
-            with MCRcon(
-                CREDENTIAL_MCRCON['addr'],
-                CREDENTIAL_MCRCON['pass'],
-                CREDENTIAL_MCRCON['port']
-            ) as mcr:
-                result = mcr.command('{}'.format(' '.join([
+        if args1 is None and args2 is None:
+            try:
+                CREDENTIAL_MCRCON['port']=int(CREDENTIAL_MCRCON['port'])
+                with MCRcon(
+                    CREDENTIAL_MCRCON['addr'],
+                    CREDENTIAL_MCRCON['pass'],
+                    CREDENTIAL_MCRCON['port']
+                ) as mcr:
+                    result = mcr.command('{}'.format(' '.join([
+                        ctx.command.name,
+                    ])))
+                title = '[mcrcon] Result: /{}'.format(' '.join([
                     ctx.command.name,
-                ])))
-            title = '[mcrcon] Result: /{}'.format(' '.join([
-                ctx.command.name,
-            ]))
-            color = template['color']['success']
-            logger.info(result)
-        except Exception as e:
-            title = '[mcrcon] Error Result: /{}'.format(' '.join([
-                ctx.command.name,
-            ]))
-            result = ''.join(traceback.format_exc())
-            color = template['color']['failure']
-            logger.warning(e)
-            logger.error(result)
-        result = result.replace(':', ':\n')
-        result = '\n'.join([line.strip() for line in result.splitlines()])
+                ]))
+                color = template['color']['success']
+                logger.info(result)
+            except Exception as e:
+                title = '[mcrcon] Error Result: /{}'.format(' '.join([
+                    ctx.command.name,
+                ]))
+                result = ''.join(traceback.format_exc())
+                color = template['color']['failure']
+                logger.warning(e)
+                logger.error(result)
+            result = result.replace(':', ':\n')
+            result = '\n'.join([line.strip() for line in result.splitlines()])
 
         description = ''
         description += '```\n'
