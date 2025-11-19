@@ -103,6 +103,10 @@ template = {
     },
 }
 
+title = ''
+description = ''
+color = template.get('color').get('none')
+
 configuration = {}
 
 logger.info('Loading config files: {}'.format(
@@ -297,26 +301,29 @@ async def help(ctx: discord.Interaction):
         description = ''
         description += '`/bothelp`\n'
         description += 'コマンドのヘルプを表示\n'
-        description += 'ephemeral: True\n'
+        description += '\n'
+        description += '`/discord_config`\n'
+        description += 'Discord連携設定の表示・変更\n'
+        description += '\n'
         description += '`/ping`\n'
         description += 'レイテンシを計測\n'
-        description += 'ephemeral: True\n'
+        description += '\n'
         description += '---\n'
         description += '`/banlist`\n'
         description += 'サーバーのブラックリストを表示\n'
-        description += 'ephemeral: True\n'
+        description += '\n'
         description += '`/datapack`\n'
         description += '存在するデータパック、または有効化されているデータパックの一覧を表示\n'
-        description += 'ephemeral: True\n'
+        description += '\n'
         description += '`/help`\n'
         description += 'コマンドのヘルプを表示\n'
-        description += 'ephemeral: True\n'
+        description += '\n'
         description += '`/list`\n'
         description += '現在サーバーに接続しているプレイヤーのリストを表示\n'
-        description += 'ephemeral: True\n'
+        description += '\n'
         description += '`/say`\n'
         description += 'サーバー上のすべてのプレイヤーにメッセージを送信\n'
-        description += 'ephemeral: True\n'
+        description += '\n'
         description = description.strip()
         color = template['color']['none']
         logger.info(description)
@@ -464,9 +471,9 @@ async def discord_config(ctx: discord.Interaction, args1: str = None, args2: str
             try:
                 if False:
                     pass
-                elif args2.lower() == 'true':
+                elif args2.lower() == 'true'  or args2.lower() == 'on'  or args2.lower() == 'enable'  or args2.lower() == '1':
                     args2 = True
-                elif args2.lower() == 'false':
+                elif args2.lower() == 'false' or args2.lower() == 'off' or args2.lower() == 'disable' or args2.lower() == '0':
                     args2 = False
                 else:
                     logger.error(f'args2 cannot be interpreted: {args2}')
@@ -585,7 +592,9 @@ async def mcrcon_help(ctx: discord.Interaction):
     )
 
 @tree.command(name="list", description="現在サーバーに接続しているプレイヤーのリストを表示")
-async def mcrcon_list(ctx: discord.Interaction):
+@discord.app_commands.describe(args1=">")
+@discord.app_commands.describe(args2=">")
+async def mcrcon_list(ctx: discord.Interaction, args1: str = None, args2: str = None):
     try:
         logger.debug('Call from name:{}({}) command:{} on guild:{}({}) channel:{}({})'.format(
             ctx.user.name,
@@ -609,31 +618,113 @@ async def mcrcon_list(ctx: discord.Interaction):
         except KeyError:
             discord_ephemeral = True
 
-        try:
-            CREDENTIAL_MCRCON['port']=int(CREDENTIAL_MCRCON['port'])
-            with MCRcon(
-                CREDENTIAL_MCRCON['addr'],
-                CREDENTIAL_MCRCON['pass'],
-                CREDENTIAL_MCRCON['port']
-            ) as mcr:
-                result = mcr.command('{}'.format(' '.join([
+        logger.debug('args1: {}({}), args2: {}({})'.format(
+            args1, type(args1),
+            args2, type(args2),
+        ))
+        if args1 is None and args2 is None:
+            try:
+                CREDENTIAL_MCRCON['port']=int(CREDENTIAL_MCRCON['port'])
+                with MCRcon(
+                    CREDENTIAL_MCRCON['addr'],
+                    CREDENTIAL_MCRCON['pass'],
+                    CREDENTIAL_MCRCON['port']
+                ) as mcr:
+                    result = mcr.command('{}'.format(' '.join([
+                        ctx.command.name,
+                    ])))
+                title = '[mcrcon] Result: /{}'.format(' '.join([
                     ctx.command.name,
-                ])))
-            title = '[mcrcon] Result: /{}'.format(' '.join([
-                ctx.command.name,
-            ]))
-            color = template['color']['success']
-            logger.info(result)
-        except Exception as e:
-            title = '[mcrcon] Error Result: /{}'.format(' '.join([
-                ctx.command.name,
-            ]))
-            result = ''.join(traceback.format_exc())
+                ]))
+                color = template['color']['success']
+                logger.info(result)
+            except Exception as e:
+                title = '[mcrcon] Error Result: /{}'.format(' '.join([
+                    ctx.command.name,
+                ]))
+                result = ''.join(traceback.format_exc())
+                color = template['color']['failure']
+                logger.warning(e)
+                logger.error(result)
+            result = result.replace(':', ':\n')
+            result = '\n'.join([line.strip() for line in result.splitlines()])
+        elif ((args1 is not None) and (args2 is None)) or ((args1 is None) and (args2 is not None)):
+            # args1, args2 どちらか None
+            title = 'Error'
             color = template['color']['failure']
-            logger.warning(e)
-            logger.error(result)
-        result = result.replace(':', ':\n')
-        result = '\n'.join([line.strip() for line in result.splitlines()])
+            result = ''
+            result += 'incomplete the command\n'
+            result += f'/{ctx.command.name} args1:help args2:help\n'
+            logger.warning(result)
+        else:
+            args1 = '' if args1 is None else args1
+            args2 = '' if args2 is None else args2
+            title = 'Result: /{} args1:{} args2:{}'.format(
+                ctx.command.name,
+                args1,
+                args2,
+            )
+            color = template['color']['none']
+            result = ''
+
+            if False:
+                pass
+            elif args1 == 'help':
+                logger.info(f'sub command: /{ctx.command.name} args1:{args1} args2:{args2}')
+                color = template['color']['success']
+                result += 'Usage(Help command)\n'
+                result += f'/{ctx.command.name} args1:help args2:help\n'
+                result += 'Print the this help.\n'
+                result += '\n'
+                result += f'/{ctx.command.name} args1:log args2:help\n'
+                result += 'Print the logfile.\n'
+                logger.info(result)
+            elif args1 == 'log':
+                if False:
+                    pass
+                elif args2 == 'help':
+                    logger.info(f'sub command: /{ctx.command.name} args1:{args1} args2:{args2}')
+                    color = template['color']['success']
+                    result += 'Usage(Help command)\n'
+                    result += f'/{ctx.command.name} args1:{args1} args2:help\n'
+                    result += 'Print the this help.\n'
+                    result += '\n'
+                    result += f'/{ctx.command.name} args1:{args1} args2:login\n'
+                    result += 'Print the join/left history.\n'
+                    result += '\n'
+                    color = template['color']['success']
+                    logger.info(result)
+                elif args2 == 'login':
+                    logger.info(f'sub command: /{ctx.command.name} args1:{args1} args2:{args2}')
+                    color = template['color']['success']
+                    path = '/log/custom/latest.log'
+                    with open(path) as f:
+                        lines = f.readlines()
+                        lines = [line.strip() for line in lines]
+                        lines = [line for line in lines if ('joined the game' in line) or ('left the game' in line)]
+                        if len(lines) > 0:
+                            result += '>>>\n'
+                            for line in lines:
+                                line = line.split(maxsplit=3)
+                                line = f'{line[0]}: {line[3]}'
+                                result += line + '\n'
+                            result += '<<<\n'
+                        else:
+                            result += 'No match in latest log file.\n'
+                    logger.info(result)
+                else:
+                    # args2 が登録されていない文字の場合
+                    logger.warning(f'unknown sub command: /{ctx.command.name} args1:{args1} args2:{args2}')
+                    color = template['color']['caution']
+                    result += 'Usage(Help command)\n'
+                    result += f'/{ctx.command.name} args1:help\n'
+                    logger.warning(result)
+            else:
+                # args1 が登録されていない文字の場合
+                result += 'Usage(Help command)\n'
+                color = template['color']['caution']
+                result += f'/{ctx.command.name} args1:help\n'
+                logger.warning(result)
 
         description = ''
         description += '```\n'
