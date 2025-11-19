@@ -471,17 +471,9 @@ async def discord_config(ctx: discord.Interaction, args1: str = None, args2: str
             try:
                 if False:
                     pass
-                elif args2.lower() == 'true':
+                elif args2.lower() == 'true'  or args2.lower() == 'on'  or args2.lower() == 'enable'  or args2.lower() == '1':
                     args2 = True
-                elif args2.lower() == 'on':
-                    args2 = True
-                elif args2.lower() == '1':
-                    args2 = True
-                elif args2.lower() == 'false':
-                    args2 = False
-                elif args2.lower() == 'off':
-                    args2 = False
-                elif args2.lower() == '0':
+                elif args2.lower() == 'false' or args2.lower() == 'off' or args2.lower() == 'disable' or args2.lower() == '0':
                     args2 = False
                 else:
                     logger.error(f'args2 cannot be interpreted: {args2}')
