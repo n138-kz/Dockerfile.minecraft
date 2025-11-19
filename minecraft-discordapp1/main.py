@@ -687,7 +687,7 @@ async def mcrcon_list(ctx: discord.Interaction, args1: str = None, args2: str = 
                     result += 'Print the this help.\n'
                     result += '\n'
                     result += f'/{ctx.command.name} args1:{args1} args2:login\n'
-                    result += 'Print the login history.\n'
+                    result += 'Print the join/left history.\n'
                     result += '\n'
                     color = template['color']['success']
                     logger.info(result)
