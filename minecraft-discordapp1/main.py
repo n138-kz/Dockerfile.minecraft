@@ -638,11 +638,11 @@ async def mcrcon_list(ctx: discord.Interaction, args1: str = None, args2: str = 
         else:
             args1 = '' if args1 is None else args1
             args2 = '' if args2 is None else args2
-            title = 'Result: /{} args1:{} args2:{}'.format(' '.join([
+            title = 'Result: /{} args1:{} args2:{}'.format(
                 ctx.command.name,
                 args1,
                 args2,
-            ]))
+            )
             color = template['color']['none']
             result = ''
 
