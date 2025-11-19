@@ -317,6 +317,7 @@ async def help(ctx: discord.Interaction):
         description += '`/say`\n'
         description += 'サーバー上のすべてのプレイヤーにメッセージを送信\n'
         description += 'ephemeral: True\n'
+        description = description.strip()
         color = template['color']['none']
         logger.info(description)
     except Exception as e:
@@ -362,6 +363,7 @@ async def ping(ctx: discord.Interaction):
 
         title = 'Latency'
         description = f'Pong! {round(client.latency*1000)}ms'
+        description = description.strip()
         color = template['color']['caution']
         logger.info(description)
     except Exception as e:
@@ -563,6 +565,7 @@ async def mcrcon_help(ctx: discord.Interaction):
         description += result
         description += '\n'
         description += '```\n'
+        description = description.strip()
     except Exception as e:
         title = 'Error'
         description = ''.join(traceback.format_exc())
@@ -637,6 +640,7 @@ async def mcrcon_list(ctx: discord.Interaction):
         description += result
         description += '\n'
         description += '```\n'
+        description = description.strip()
     except Exception as e:
         title = 'Error'
         description = ''.join(traceback.format_exc())
@@ -711,6 +715,7 @@ async def mcrcon_banlist(ctx: discord.Interaction):
         description += result
         description += '\n'
         description += '```\n'
+        description = description.strip()
     except Exception as e:
         title = 'Error'
         description = ''.join(traceback.format_exc())
@@ -792,6 +797,7 @@ async def mcrcon_datapack(ctx: discord.Interaction):
         description += result
         description += '\n'
         description += '```\n'
+        description = description.strip()
     except Exception as e:
         title = 'Error'
         description = ''.join(traceback.format_exc())
@@ -873,6 +879,7 @@ async def mcrcon_msg(ctx: discord.Interaction, message: str = ''):
         description += result
         description += '\n'
         description += '```\n'
+        description = description.strip()
     except Exception as e:
         title = 'Error'
         description = ''.join(traceback.format_exc())
