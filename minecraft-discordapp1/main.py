@@ -522,10 +522,10 @@ async def discord_config(ctx: discord.Interaction, args1: str = None, args2: str
                 configuration['discord-apps-config.json'][str(ctx.user.id)][str(ctx.guild.id)][str(ctx.channel.id)]['userPreferences'][args1] = args2
                 result = configuration['discord-apps-config.json'][str(ctx.user.id)][str(ctx.guild.id)][str(ctx.channel.id)]['userPreferences'][args1]
                 file_put_contents(FILES_CONFIG['discord-apps-config.json'], json.dumps(configuration['discord-apps-config.json'], indent=2))
-            except KeyError as e:
-                logger.warning(e)
-                logger.error(f'KeyError: {traceback.print_stack(limit=1)}')
             except Exception as e:
+                # - KeyError
+                # - ValueError
+                result = {'error': f'{e}'}
                 logger.warning(e)
                 logger.error(traceback.print_stack(limit=1))
 
