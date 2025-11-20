@@ -83,6 +83,7 @@ class MyView(discord.ui.View):
             # メッセージが既に削除されていた場合は無視
             pass
         except Exception as e:
+            logger.debug(self)
             logger.error(f'Error on {__name__}: {e}')
 
 logger.info(f'Pwd: {os.getcwd()}')
