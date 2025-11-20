@@ -288,7 +288,7 @@ async def help(ctx: discord.Interaction):
             ctx.channel.name,
         ))
 
-        try:
+        try::
             discord_ephemeral = configuration['discord-apps-config.json'][str(ctx.user.id)][str(ctx.guild.id)][str(ctx.channel.id)]['userPreferences']['ephemeral']
         except KeyError:
             discord_ephemeral = True
