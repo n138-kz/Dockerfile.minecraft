@@ -509,23 +509,26 @@ async def discord_config(ctx: discord.Interaction, args1: str = None, args2: str
                 file_put_contents(FILES_CONFIG['discord-apps-config.json'], json.dumps(configuration['discord-apps-config.json'], indent=2))
         elif args1 is not None and args2 is not None:
             try:
-                if False:
+                if args1 == '':
                     pass
-                elif args2.lower() == 'true'  or args2.lower() == 'on'  or args2.lower() == 'enable'  or args2.lower() == '1':
-                    args2 = True
-                elif args2.lower() == 'false' or args2.lower() == 'off' or args2.lower() == 'disable' or args2.lower() == '0':
-                    args2 = False
-                else:
-                    logger.error(f'args2 cannot be interpreted: {args2}')
-                    raise ValueError(f'args2 cannot be interpreted: {args2}')
+                elif args1 == 'ephemeral':
+                    if False:
+                        pass
+                    elif args2.lower() == 'true'  or args2.lower() == 'on'  or args2.lower() == 'enable'  or args2.lower() == '1':
+                        args2 = True
+                    elif args2.lower() == 'false' or args2.lower() == 'off' or args2.lower() == 'disable' or args2.lower() == '0':
+                        args2 = False
+                    else:
+                        logger.error(f'args2 cannot be interpreted: {args1}/{args2}')
+                        raise ValueError(f'args2 cannot be interpreted: {args1}/{args2}')
 
                 configuration['discord-apps-config.json'][str(ctx.user.id)][str(ctx.guild.id)][str(ctx.channel.id)]['userPreferences'][args1] = args2
                 result = configuration['discord-apps-config.json'][str(ctx.user.id)][str(ctx.guild.id)][str(ctx.channel.id)]['userPreferences'][args1]
                 file_put_contents(FILES_CONFIG['discord-apps-config.json'], json.dumps(configuration['discord-apps-config.json'], indent=2))
-            except KeyError as e:
-                logger.warning(e)
-                logger.error(f'KeyError: {traceback.print_stack(limit=1)}')
             except Exception as e:
+                # - KeyError
+                # - ValueError
+                result = {'error': f'{e}'}
                 logger.warning(e)
                 logger.error(traceback.print_stack(limit=1))
 
