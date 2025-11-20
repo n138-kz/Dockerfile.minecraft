@@ -67,6 +67,28 @@ def file_put_contents(filepath: str = None, writedata: str = None):
     else:
         return False
 
+class MyView(discord.ui.View):
+    def __init__(self, message: discord.Message, timeout: float=30.0):
+        # 30秒でタイムアウトするように設定
+        super().__init__(timeout=timeout)
+
+        # messageをインスタンス変数として保存
+        self.message = message
+
+    # タイムアウト時に呼び出される処理（この中に「消す」処理を書く）
+    async def on_timeout(self):
+        # このビューを削除するために、元のメッセージを編集する
+        # self.message には View がアタッチされたメッセージが自動で入ります
+        try:
+            # メッセージからビューを削除（または self.disable_all_items() で全て無効化）
+            await self.message.delete()
+        except discord.NotFound:
+            # メッセージが既に削除されていた場合は無視
+            pass
+        except Exception as e:
+            logger.debug(self)
+            logger.error(f'Error on {__name__}: {e}')
+
 logger.info(f'Pwd: {os.getcwd()}')
 
 load_dotenv()
@@ -331,11 +353,14 @@ async def help(ctx: discord.Interaction):
         timestamp=datetime.datetime.now(datetime.timezone.utc),
         color=color
     )
+    view = MyView(message=None)
     await ctx.response.send_message(
         embed=embed,
-        view=discord.ui.View(timeout=30),
+        view=view,
         ephemeral=discord_ephemeral#ephemeral=True→「これらはあなただけに表示されています」
     )
+    original_message = await ctx.original_response()
+    view.message = original_message
 
 @tree.command(name="ping", description="レイテンシを計測")
 async def ping(ctx: discord.Interaction):
@@ -377,11 +402,14 @@ async def ping(ctx: discord.Interaction):
         timestamp=datetime.datetime.now(datetime.timezone.utc),
         color=color
     )
+    view = MyView(message=None)
     await ctx.response.send_message(
         embed=embed,
-        view=discord.ui.View(timeout=30),
+        view=view,
         ephemeral=discord_ephemeral#ephemeral=True→「これらはあなただけに表示されています」
     )
+    original_message = await ctx.original_response()
+    view.message = original_message
 
 @tree.command(name="discord_config", description="Discordに関連する設定を表示・変更")
 @discord.app_commands.describe(args1="設定項目名")
@@ -489,11 +517,14 @@ async def discord_config(ctx: discord.Interaction, args1: str = None, args2: str
         timestamp=datetime.datetime.now(datetime.timezone.utc),
         color=color
     )
+    view = MyView(message=None)
     await ctx.response.send_message(
         embed=embed,
-        view=discord.ui.View(timeout=30),
+        view=view,
         ephemeral=discord_ephemeral#ephemeral=True→「これらはあなただけに表示されています」
     )
+    original_message = await ctx.original_response()
+    view.message = original_message
 
 @tree.command(name="help", description="コマンドのヘルプを表示")
 async def mcrcon_help(ctx: discord.Interaction):
@@ -564,11 +595,14 @@ async def mcrcon_help(ctx: discord.Interaction):
         timestamp=datetime.datetime.now(datetime.timezone.utc),
         color=color
     )
+    view = MyView(message=None)
     await ctx.response.send_message(
         embed=embed,
-        view=discord.ui.View(timeout=30),
+        view=view,
         ephemeral=discord_ephemeral#ephemeral=True→「これらはあなただけに表示されています」
     )
+    original_message = await ctx.original_response()
+    view.message = original_message
 
 @tree.command(name="list", description="現在サーバーに接続しているプレイヤーのリストを表示")
 async def mcrcon_list(ctx: discord.Interaction):
@@ -639,11 +673,14 @@ async def mcrcon_list(ctx: discord.Interaction):
         timestamp=datetime.datetime.now(datetime.timezone.utc),
         color=color
     )
+    view = MyView(message=None)
     await ctx.response.send_message(
         embed=embed,
-        view=discord.ui.View(timeout=30),
+        view=view,
         ephemeral=discord_ephemeral#ephemeral=True→「これらはあなただけに表示されています」
     )
+    original_message = await ctx.original_response()
+    view.message = original_message
 
 @tree.command(name="banlist", description="サーバーのブラックリストを表示")
 async def mcrcon_banlist(ctx: discord.Interaction):
@@ -714,11 +751,14 @@ async def mcrcon_banlist(ctx: discord.Interaction):
         timestamp=datetime.datetime.now(datetime.timezone.utc),
         color=color
     )
+    view = MyView(message=None)
     await ctx.response.send_message(
         embed=embed,
-        view=discord.ui.View(timeout=30),
+        view=view,
         ephemeral=discord_ephemeral#ephemeral=True→「これらはあなただけに表示されています」
     )
+    original_message = await ctx.original_response()
+    view.message = original_message
 
 @tree.command(name="datapack", description="存在するデータパック、または有効化されているデータパックの一覧を表示")
 async def mcrcon_datapack(ctx: discord.Interaction):
@@ -796,11 +836,14 @@ async def mcrcon_datapack(ctx: discord.Interaction):
         timestamp=datetime.datetime.now(datetime.timezone.utc),
         color=color
     )
+    view = MyView(message=None)
     await ctx.response.send_message(
         embed=embed,
-        view=discord.ui.View(timeout=30),
+        view=view,
         ephemeral=discord_ephemeral#ephemeral=True→「これらはあなただけに表示されています」
     )
+    original_message = await ctx.original_response()
+    view.message = original_message
 
 @tree.command(name="say", description="サーバー上のすべてのプレイヤーにメッセージを送信")
 @discord.app_commands.describe(message="送信するメッセージの内容")
@@ -878,11 +921,14 @@ async def mcrcon_msg(ctx: discord.Interaction, message: str = ''):
         timestamp=datetime.datetime.now(datetime.timezone.utc),
         color=color
     )
+    view = MyView(message=None)
     await ctx.response.send_message(
         embed=embed,
-        view=discord.ui.View(timeout=30),
+        view=view,
         ephemeral=discord_ephemeral#ephemeral=True→「これらはあなただけに表示されています」
     )
+    original_message = await ctx.original_response()
+    view.message = original_message
 
 # botを起動
 def main():
