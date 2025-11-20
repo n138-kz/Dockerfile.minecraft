@@ -629,8 +629,10 @@ async def mcrcon_help(ctx: discord.Interaction):
     view.message = original_message
 
 @tree.command(name="list", description="現在サーバーに接続しているプレイヤーのリストを表示")
-@discord.app_commands.describe(args1=">")
-@discord.app_commands.describe(args2=">")
+@discord.app_commands.describe(
+    args1="SUB COMMAND",
+    args2="SUB COMMAND",
+)
 async def mcrcon_list(ctx: discord.Interaction, args1: str = None, args2: str = None):
     try:
         logger.debug('Call from name:{}({}) command:{} on guild:{}({}) channel:{}({})'.format(
