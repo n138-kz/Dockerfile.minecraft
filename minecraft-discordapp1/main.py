@@ -67,6 +67,24 @@ def file_put_contents(filepath: str = None, writedata: str = None):
     else:
         return False
 
+class MyView(discord.ui.View):
+    def __init__(self, timeout:float=30.0):
+        # 30秒でタイムアウトするように設定
+        super().__init__(timeout=timeout)
+
+    # タイムアウト時に呼び出される処理（この中に「消す」処理を書く）
+    async def on_timeout(self):
+        # このビューを削除するために、元のメッセージを編集する
+        # self.message には View がアタッチされたメッセージが自動で入ります
+        try:
+            # メッセージからビューを削除（または self.disable_all_items() で全て無効化）
+            await self.message.delete()
+        except discord.NotFound:
+            # メッセージが既に削除されていた場合は無視
+            pass
+        except Exception as e:
+            logger.error(f'Error on {__name__}: {e}')
+
 logger.info(f'Pwd: {os.getcwd()}')
 
 load_dotenv()
