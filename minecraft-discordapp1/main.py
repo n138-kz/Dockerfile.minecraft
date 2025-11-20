@@ -633,6 +633,14 @@ async def mcrcon_help(ctx: discord.Interaction):
     args1="SUB COMMAND",
     args2="SUB COMMAND",
 )
+@discord.app_commands.choices(args1=[
+    discord.app_commands.Choice(name='help', value='help'),
+    discord.app_commands.Choice(name='log', value='log'),
+])
+@discord.app_commands.choices(args2=[
+    discord.app_commands.Choice(name='help', value='help'),
+    discord.app_commands.Choice(name='login', value='login'),
+])
 async def mcrcon_list(ctx: discord.Interaction, args1: str = None, args2: str = None):
     try:
         logger.debug('Call from name:{}({}) command:{} on guild:{}({}) channel:{}({})'.format(
