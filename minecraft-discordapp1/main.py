@@ -421,8 +421,18 @@ async def ping(ctx: discord.Interaction):
     view.message = original_message
 
 @tree.command(name="discord_config", description="Discordに関連する設定を表示・変更")
-@discord.app_commands.describe(args1="設定項目名")
-@discord.app_commands.describe(args2="設定値")
+@discord.app_commands.describe(
+    args1="設定項目名",
+    args2="設定値",
+)
+@discord.app_commands.choices(args1=[
+    discord.app_commands.Choice(name='ephemeral', value='ephemeral'),
+])
+@discord.app_commands.choices(args2=[
+    discord.app_commands.Choice(name='true', value='true'),
+    discord.app_commands.Choice(name='false', value='false'),
+])
+
 async def discord_config(ctx: discord.Interaction, args1: str = None, args2: str = None):
     try:
         logger.debug('Call from name:{}({}) command:{} on guild:{}({}) channel:{}({})'.format(
@@ -629,8 +639,18 @@ async def mcrcon_help(ctx: discord.Interaction):
     view.message = original_message
 
 @tree.command(name="list", description="現在サーバーに接続しているプレイヤーのリストを表示")
-@discord.app_commands.describe(args1=">")
-@discord.app_commands.describe(args2=">")
+@discord.app_commands.describe(
+    args1="SUB COMMAND",
+    args2="SUB COMMAND",
+)
+@discord.app_commands.choices(args1=[
+    discord.app_commands.Choice(name='help', value='help'),
+    discord.app_commands.Choice(name='log', value='log'),
+])
+@discord.app_commands.choices(args2=[
+    discord.app_commands.Choice(name='help', value='help'),
+    discord.app_commands.Choice(name='login', value='login'),
+])
 async def mcrcon_list(ctx: discord.Interaction, args1: str = None, args2: str = None):
     try:
         logger.debug('Call from name:{}({}) command:{} on guild:{}({}) channel:{}({})'.format(
