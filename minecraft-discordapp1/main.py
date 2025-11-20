@@ -289,7 +289,7 @@ async def on_message(message):
     # テキストチャンネルのみ処理
     if message.channel.type != discord.ChannelType.text:
         logger.warning('Channel type is not text channel')
-        return
+        return 
 
 @tree.command(name="bothelp",description="コマンドヘルプを表示")
 async def help(ctx: discord.Interaction):
