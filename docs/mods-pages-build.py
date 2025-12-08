@@ -29,6 +29,5 @@ for line in payload['datapack']:
         line['name'],
         line['description'],
     )
-result+='\n'
 result+=''
 print(result)
