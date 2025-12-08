@@ -52,6 +52,7 @@ jobs:
     build-pages:
         needs: 
             - env-version
+            - env-fname
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
