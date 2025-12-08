@@ -102,6 +102,11 @@ jobs:
             - run: tree
 
             - name: Build the page
-              run: test -f mods-pages-build.py && python mods-pages-build.py
+              run: test -f mods-pages-build.py && python mods-pages-build.py > preview-${{ env.fname }}
               working-directory: docs
 
+            - name: Upload markdown file
+              uses: actions/upload-artifact@v4
+              with:
+                name: ${{ env.fname }}
+                path: ./docs/preview-${{ env.fname }}
