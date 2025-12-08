@@ -102,7 +102,7 @@ jobs:
             - run: tree
 
             - name: Build the page
-              run: test -f mods-pages-build.py && python mods-pages-build.py > preview-${{ env.fname }}
+              run: if [ -f mods-pages-build.py ];then python mods-pages-build.py > preview-${{ env.fname }}; fi
               working-directory: docs
 
             - name: Upload markdown file
