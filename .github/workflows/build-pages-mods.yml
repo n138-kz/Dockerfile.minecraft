@@ -154,6 +154,9 @@ jobs:
 
             - run: tree
 
+            - run: git add ./
+              working-directory: docs
+
             - uses: peter-evans/create-pull-request@v5
               with:
                 commit-message: Update file
