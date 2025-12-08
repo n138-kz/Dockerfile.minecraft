@@ -38,6 +38,7 @@ jobs:
 
             - run: ls -l
             - run: tree
+
             - name: Build the page
               run: python mods-pages-build.py
               working-directory: docs
