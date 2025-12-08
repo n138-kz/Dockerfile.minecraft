@@ -31,7 +31,10 @@ jobs:
               with:
                 ref: main
                 
-            - run: echo 'version=${{ env.version }}${{ inputs.version }}' >> $GITHUB_ENV
+            - run: echo 'version=${{ env.version }}' >> $GITHUB_ENV
+
+            - if: ${{ inputs.version != '' }}
+              run: echo 'version=${{ inputs.version }}' >> $GITHUB_ENV
 
             - id: version
               run: echo ${{ env.version }}${{ inputs.version }}
