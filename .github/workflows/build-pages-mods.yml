@@ -71,8 +71,8 @@ jobs:
                 
             - uses: actions/setup-node@v3
 
-            - run: echo '::notice title=Head Branch Name::${{ github.head_ref }}'
-            - run: echo '::notice title=Base Branch Name::${{ github.base_ref }}'
+            - run: echo '::notice title=[${{ github.job }}] Head Branch Name::${{ github.head_ref }}'
+            - run: echo '::notice title=[${{ github.job }}] Base Branch Name::${{ github.base_ref }}'
 
             - run: git pull
 
