@@ -1,3 +1,4 @@
+import os, sys
 import json
 
 datafile='mods-pages-build.json'
