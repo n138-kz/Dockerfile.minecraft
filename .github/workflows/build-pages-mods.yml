@@ -37,7 +37,7 @@ jobs:
               run: echo 'version=${{ inputs.version }}' >> $GITHUB_ENV
 
             - id: version
-              run: echo ${{ env.version }}${{ inputs.version }}
+              run: echo ${{ env.version }}
 
             - run: echo '::notice title=[${{ github.job }}] Version::${{ env.version }}'
 
