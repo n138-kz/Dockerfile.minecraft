@@ -116,3 +116,32 @@ jobs:
               with:
                 name: ${{ env.fname }}
                 path: ./docs/preview-${{ env.fname }}
+
+    open-pr:
+        runs-on: ubuntu-latest
+        needs: 
+            - env-version
+            - env-fname
+            - build-pages
+        env:
+            fname: ${{ needs.env-fname.outputs.fname }}
+            version: ${{ needs.env-version.outputs.version }}
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                ref: ${{ github.head_ref }}
+                
+            - uses: actions/setup-node@v3
+
+            - run: git pull
+
+            - uses: download-artifact@v3
+              with:
+                name: ${{ env.fname }}
+                path: ./docs/${{ env.fname }}
+
+            - uses: peter-evans/create-pull-request@v5
+              with:
+                commit-message: Update file
+                delete-branch: true
+                title: Update file
