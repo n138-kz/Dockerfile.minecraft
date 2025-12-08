@@ -31,3 +31,6 @@ jobs:
             - name: Install dependencies pip
               run: python -m pip install --upgrade pip
 
+            - name: Install dependencies requirements.txt
+              run: for i in $(find -name 'requirements.txt'); do pip install -r $(dirname ${i})/requirements.txt; done
+
