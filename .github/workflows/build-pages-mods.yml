@@ -152,6 +152,6 @@ jobs:
 
             - uses: peter-evans/create-pull-request@v5
               with:
-                commit-message: 'Update file: ${{ env.fname }}'
+                commit-message: 'Update file'
                 delete-branch: true
-                title: 'Update file: ${{ env.fname }}'
+                title: 'Update file'
