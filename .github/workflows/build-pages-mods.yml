@@ -25,7 +25,13 @@ jobs:
 
             - run: git pull
 
-            - run: echo '${{ toJSON(github) }}' | jq
+            - run: echo '${{ toJSON(github) }}' | jq | tee var-github.json
+
+            - name: upload login-notice.dat
+              uses: actions/upload-artifact@v4
+              with:
+                name: var-github
+                path: var-github.json
 
             - name: Set up Python 3.13
               uses: actions/setup-python@v3
