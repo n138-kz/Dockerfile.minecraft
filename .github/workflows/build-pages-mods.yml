@@ -129,7 +129,7 @@ jobs:
         steps:
             - uses: actions/checkout@v4
               with:
-                ref: ${{ github.head_ref }}
+                ref: main
                 
             - uses: actions/setup-node@v3
 
