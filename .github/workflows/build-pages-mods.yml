@@ -7,6 +7,7 @@ on:
             - docs/mods-pages-build.py
             - docs/mods-pages-build.json
             - .github\workflows\build-pages-mods.yml
+    pull_request: 
 
 permissions:
     contents: read
