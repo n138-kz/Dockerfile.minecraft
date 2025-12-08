@@ -25,6 +25,8 @@ jobs:
 
             - run: git pull
 
+            - run: echo ${{ toJSON(github.repository) }} | jq
+
             - name: Set up Python 3.13
               uses: actions/setup-python@v3
               with:
