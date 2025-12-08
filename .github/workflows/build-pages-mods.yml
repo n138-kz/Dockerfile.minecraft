@@ -56,7 +56,7 @@ jobs:
 
             - run: echo 'fname=mods-${{ env.version }}.md' >> $GITHUB_ENV
 
-            - run: echo '::notice title=[${{ github.job }}] Fname::${{ env.fname }}'
+            - run: echo '::notice title=[${{ github.job }}] File Name::${{ env.fname }}'
 
     build-pages:
         runs-on: ubuntu-latest
@@ -101,14 +101,14 @@ jobs:
 
             - run: tree
 
-            - run: echo '::notice title=[${{ github.job }}] Fname::preview-${{ env.fname }}'
+            - run: echo '::notice title=[${{ github.job }}] File Name::preview-${{ env.fname }}'
 
             - name: Build the page
               run: if [ -f mods-pages-build.py ];then python mods-pages-build.py > preview-${{ env.fname }}; fi
               working-directory: docs
 
             - name: Get size of Build file
-              run: echo '::notice title=[${{ github.job }}] Fsize::'$(ls -l preview-${{ env.fname }} | awk '{print $5}')
+              run: echo '::notice title=[${{ github.job }}] File Size::'$(ls -l preview-${{ env.fname }} | awk '{print $5}')
               working-directory: docs
 
             - name: Upload markdown file
