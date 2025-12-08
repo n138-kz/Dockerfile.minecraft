@@ -45,7 +45,7 @@ jobs:
                 ref: main
 
             - id: fname
-              run: echo 'mods-${{ needs.env-version.outputs.version.value }}.html'
+              run: echo 'mods-${{ needs.env-version.outputs.version }}.html'
 
             - run: echo '::notice title=Version::${{ steps.fname.outputs.value }}'
 
