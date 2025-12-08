@@ -101,6 +101,8 @@ jobs:
 
             - run: tree
 
+            - run: echo '::notice title=[${{ github.job }}] Fname::preview-${{ env.fname }}'
+
             - name: Build the page
               run: if [ -f mods-pages-build.py ];then python mods-pages-build.py > preview-${{ env.fname }}; fi
               working-directory: docs
