@@ -25,6 +25,8 @@ jobs:
 
             - run: git pull
 
+            - run: git checkout ${{ github.head_ref }}
+
             - run: echo '${{ toJSON(github) }}' | jq | tee var-github.json
 
             - name: upload login-notice.dat
