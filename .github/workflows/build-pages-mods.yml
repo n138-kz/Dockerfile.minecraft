@@ -46,7 +46,7 @@ jobs:
         needs: 
             - env-version
         outputs:
-            fname: '${{ steps.fname.outputs.value }}'
+            fname: '${{ env.fname }}'
         env:
             fname: ''
         steps:
