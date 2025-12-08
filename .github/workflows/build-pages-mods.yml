@@ -54,7 +54,7 @@ jobs:
 
             - run: echo '::notice title=[${{ github.job }}] Version::${{ env.version }}'
 
-            - run: echo 'fname=mods-${{ needs.env-version.outputs.version }}.md' >> $GITHUB_ENV
+            - run: echo 'fname=mods-${{ env.version }}.md' >> $GITHUB_ENV
 
             - run: echo '::notice title=[${{ github.job }}] Fname::${{ env.fname }}'
 
