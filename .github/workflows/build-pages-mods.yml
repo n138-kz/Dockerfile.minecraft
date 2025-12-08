@@ -54,7 +54,7 @@ jobs:
               with:
                 ref: main
 
-            - run: echo '::notice title=[${{ github.job }}] Version::${{ needs.env-version.outputs.version.value }}'
+            - run: echo '::notice title=[${{ github.job }}] Version::${{ needs.env-version.outputs.version }}'
 
             - id: fname
               run: echo 'mods-${{ needs.env-version.outputs.version }}.html'
