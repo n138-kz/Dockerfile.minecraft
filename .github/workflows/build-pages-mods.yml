@@ -56,6 +56,8 @@ jobs:
 
             - run: echo 'fname=mods-${{ needs.env-version.outputs.version }}.html' >> $GITHUB_ENV
 
+            - run: echo '::notice title=[${{ github.job }}] Fname::${{ env.fname }}'
+
     build-pages:
         needs: 
             - env-version
