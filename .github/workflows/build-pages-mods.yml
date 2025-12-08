@@ -139,6 +139,7 @@ jobs:
             - run: echo '::notice title=[${{ github.job }}] Version::${{ env.version }}'
 
             - run: git pull
+            - run: tree
 
             - uses: actions/download-artifact@v4
               with:
