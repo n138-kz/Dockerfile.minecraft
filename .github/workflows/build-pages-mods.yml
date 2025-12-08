@@ -24,17 +24,17 @@ jobs:
         runs-on: ubuntu-latest
         outputs:
             version: ${{ steps.version.outputs.value }}
+        env: 
+            version: '1.21.10'
         steps:
             - uses: actions/checkout@v4
               with:
                 ref: main
                 
+            - run: echo '::set-output name=version::${{ env.version }}${{ inputs.version }}'
+
             - id: version
-              run: |
-                echo '::set-output name=version::${{ env.version }}${{ inputs.version }}'
-                echo ${{ env.version }}${{ inputs.version }}
-              env: 
-                version: '1.21.10'
+              run: echo ${{ env.version }}${{ inputs.version }}
 
             - run: echo '::notice title=Version::${{ steps.version.outputs.value }}'
 
