@@ -145,6 +145,8 @@ jobs:
                 name: ${{ env.fname }}
                 path: ./docs/
 
+            - run: git status
+
             - uses: peter-evans/create-pull-request@v5
               with:
                 commit-message: Update file
