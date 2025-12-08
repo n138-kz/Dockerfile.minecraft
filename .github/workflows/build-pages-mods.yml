@@ -1,0 +1,30 @@
+name: 'Create the github pages: mods.html'
+
+on:
+    workflow_dispatch:
+    push:
+        paths:
+            - docs/mods-pages-build.py
+            - docs/mods-pages-build.json
+
+permissions:
+    contents: read
+    pull-requests: write
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                ref: main
+                
+            - uses: actions/setup-node@v3
+
+            - run: git pull
+
+            - name: Set up Python 3.13
+              uses: actions/setup-python@v3
+              with:
+                python-version: "3.13"
+
