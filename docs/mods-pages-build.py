@@ -5,7 +5,6 @@ datafile='mods-pages-build.json'
 with open(datafile, mode='r') as f:
     payload=json.load(f)
 
-print(payload['mods'])
 result=''
 result+=''
 result+='# applied mods / datapacks\n'
