@@ -20,6 +20,6 @@
 | <img src="https://media.forgecdn.net/avatars/thumbnails/1081/393/64/64/638621132937140582.png" style="height: 3em;" /> | [GeckoLib](https://www.curseforge.com/minecraft/mc-mods/geckolib)<br> | A 3D animation library for entities, blocks, items, armor, and more! |
 
 ## datapacks
-| Type | Name | Descr |
-| :---: | --- | --- |
-| datapack | all-oh-all.evo | つるはし、斧、シャベル、クワ、はさみでの一括破壊を出来るようにするデータパック |
+| Name | Descr |
+| --- | --- |
+| all-oh-all.evo | つるはし、斧、シャベル、クワ、はさみでの一括破壊を出来るようにするデータパック |
