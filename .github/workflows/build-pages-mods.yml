@@ -150,6 +150,8 @@ jobs:
 
             - run: tree
 
+            - run: echo '::notice title=[${{ github.job }}] PR Title::Update file ${{ env.fname }}'
+
             - uses: peter-evans/create-pull-request@v5
               with:
                 commit-message: 'Update file'
