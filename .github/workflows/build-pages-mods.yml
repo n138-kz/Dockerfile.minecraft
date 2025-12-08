@@ -6,6 +6,7 @@ on:
         paths:
             - docs/mods-pages-build.py
             - docs/mods-pages-build.json
+            - .github\workflows\build-pages-mods.yml
 
 permissions:
     contents: read
