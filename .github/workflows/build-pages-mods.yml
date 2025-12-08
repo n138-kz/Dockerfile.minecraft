@@ -36,9 +36,6 @@ jobs:
             - if: ${{ inputs.version != '' }}
               run: echo 'version=${{ inputs.version }}' >> $GITHUB_ENV
 
-            - id: version
-              run: echo ${{ env.version }}
-
             - run: echo '::notice title=[${{ github.job }}] Version::${{ env.version }}'
 
     env-fname:
