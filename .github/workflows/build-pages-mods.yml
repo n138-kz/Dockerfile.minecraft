@@ -154,4 +154,4 @@ jobs:
               with:
                 commit-message: 'Update file'
                 delete-branch: true
-                title: 'Update file'
+                title: 'Update file: ${{ env.fname }}'
