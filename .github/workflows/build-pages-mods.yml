@@ -150,7 +150,8 @@ jobs:
 
             - run: tree
 
-            - uses: peter-evans/create-pull-request@v5
+            - if: ${{ github.head_ref != 'main' }}
+              uses: peter-evans/create-pull-request@v5
               with:
                 commit-message: 'Update file: ${{ env.fname }}'
                 delete-branch: true
