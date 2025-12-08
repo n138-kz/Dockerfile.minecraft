@@ -30,8 +30,11 @@ jobs:
                 ref: main
                 
             - id: version
-              if: ${{ inputs.version == '' }}
-              run: echo '1.21.10'
+              run: |
+                echo '::set-output name=version::${{ env.version }}${{ inputs.version }}'
+                echo ${{ env.version }}${{ inputs.version }}
+              env: 
+                version: '1.21.10'
 
             - run: echo '::notice title=Version::${{ steps.version.outputs.value }}'
 
