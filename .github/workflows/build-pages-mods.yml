@@ -151,6 +151,9 @@ jobs:
 
             - run: tree
 
+            - run: mv preview-${{ env.fname }} ${{ env.fname }}
+              working-directory: docs
+
             - uses: peter-evans/create-pull-request@v5
               with:
                 commit-message: Update file
