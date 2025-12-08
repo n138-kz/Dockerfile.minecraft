@@ -1,0 +1,80 @@
+{
+    "mods": [
+        {
+            "icon": "https://fabricmc.net/assets/logo.png",
+            "name": "[fabric-api](https://www.curseforge.com/minecraft/mc-mods/fabric-api)",
+            "description": "Fabric Core API Library<br>MODを動かす為の前提MOD"
+        },
+        {
+            "icon": "https://media.forgecdn.net/avatars/thumbnails/1039/223/64/64/638564744744297085.png",
+            "name": "[ForgeConfigAPIPort](https://www.curseforge.com/minecraft/mc-mods/forge-config-api-port-fabric)",
+            "description": "以下のMODを動かす為の前提MOD<br>- [`PuzzlesLib`](https://www.curseforge.com/minecraft/mc-mods/puzzles-lib)"
+        },
+        {
+            "icon": "https://media.forgecdn.net/avatars/thumbnails/776/232/64/64/638118144989284933.png",
+            "name": "[PuzzlesLib](https://www.curseforge.com/minecraft/mc-mods/puzzles-lib)",
+            "description": "以下のMODを動かす為の前提MOD<br>- [`LeavesBeGone`](https://www.curseforge.com/minecraft/mc-mods/leaves-be-gone)"
+        },
+        {
+            "icon": "https://media.forgecdn.net/avatars/thumbnails/284/773/64/64/637298471098686391.png",
+            "name": "[Sodium](https://www.curseforge.com/minecraft/mc-mods/sodium)",
+            "description": "軽量化Mod<br>- [Modrinth](https://modrinth.com/mod/sodium?version=1.21.8&loader=fabric)<br>参考<br>- https://goli-carft.com/minecraft-sodium-installation/"
+        },
+        {
+            "icon": "https://media.forgecdn.net/avatars/thumbnails/1163/963/64/64/638733598889810840.jpg",
+            "name": "[Mod Menu](https://www.curseforge.com/minecraft/mc-mods/modmenu)",
+            "description": "大量のModを導入している場合に、それらを管理しやすくするためのMod<br>[Modrinth](https://modrinth.com/mod/modmenu)"
+        },
+        {
+            "icon": "https://media.forgecdn.net/avatars/thumbnails/902/670/64/64/638351135116076682.png",
+            "name": "[Server Country Flags](https://www.curseforge.com/minecraft/mc-mods/server-country-flags)",
+            "description": "サーバーリストに、各サーバーが所在する国の国旗を表示するMOD"
+        },
+        {
+            "icon": "https://media.forgecdn.net/avatars/thumbnails/282/467/64/64/637289313020452406.png",
+            "name": "[Cloth Config API](https://www.curseforge.com/minecraft/mc-mods/cloth-config)",
+            "description": "[`Server Country Flags`](https://www.curseforge.com/minecraft/mc-mods/server-country-flags) の設定画面を表示するMOD<br>別途以下MODが必要<br>-[`Mod Menu`](https://modrinth.com/mod/modmenu) "
+        },
+        {
+            "icon": "https://media.forgecdn.net/avatars/thumbnails/858/41/64/64/638263100611823642.png",
+            "name": "[LeavesBeGone](https://www.curseforge.com/minecraft/mc-mods/leaves-be-gone)",
+            "description": "木材（原木）を伐採した後、残った葉が非常に速く消えるようにする（腐敗する）Mod"
+        },
+        {
+            "icon": "https://media.forgecdn.net/avatars/thumbnails/391/367/64/64/637584172062782791.png",
+            "name": "[Simple Voice Chat](https://www.curseforge.com/minecraft/mc-mods/simple-voice-chat)",
+            "description": "近づくと喋れるボイスチャット<br>※要ポート開放（port forwarding）：24454/UDP<br>参考<br>- https://janbocloud.com/minecraft-mod_simple-voice-chat/<br>- https://www.quicca-plus.com/svnavi/simple-voice-chat-fabric-bedrock-setup-202507/"
+        },
+        {
+            "icon": "https://fabricmc.net/assets/logo.png",
+            "name": "[Replay Mod](https://www.replaymod.com/download/)",
+            "description": "ゲームのプレイを記録し、再生、共有する事が出来るMOD<br>参考<br>- https://goli-carft.com/minecraft-replay-mod-installation/"
+        },
+        {
+            "icon": "https://media.forgecdn.net/avatars/thumbnails/1002/450/64/64/638522657871453967.png",
+            "name": "[Iris Shaders](https://www.curseforge.com/minecraft/mc-mods/irisshaders)",
+            "description": "シェーダー(影MOD)の機能を追加するMOD<br>参考<br>- https://goli-carft.com/minecraft-iris-shaders-installation/"
+        },
+        {
+            "icon": "https://media.forgecdn.net/avatars/thumbnails/1129/408/64/64/638687799770919257.png",
+            "name": "[LambDynamicLights](https://www.curseforge.com/minecraft/mc-mods/lambdynamiclights)",
+            "description": "手持ちの松明や、落ちているアイテム等を光らせることが出来るMOD<br>参考<br>- https://goli-carft.com/minecraft-lambdynamiclights-installation/"
+        },
+        {
+            "icon": "https://media.forgecdn.net/avatars/thumbnails/9/144/64/64/635421614078544069.png",
+            "name": "[JourneyMap](https://www.curseforge.com/minecraft/mc-mods/journeymap)",
+            "description": "Real-time mapping in game or in a web browser as you explore."
+        },
+        {
+            "icon": "https://media.forgecdn.net/avatars/thumbnails/1081/393/64/64/638621132937140582.png",
+            "name": "[GeckoLib](https://www.curseforge.com/minecraft/mc-mods/geckolib)",
+            "description": "A 3D animation library for entities, blocks, items, armor, and more!"
+        }
+    ],
+    "datapack": [
+        {
+            "name": "[all-oh-all.evo_v1.15](https://github.com/hatimitsu888/all-oh-all.evo)",
+            "description": "つるはし、斧、シャベル、クワ、はさみでの一括破壊を出来るようにするデータパック"
+        }
+    ]
+}
