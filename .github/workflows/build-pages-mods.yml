@@ -46,15 +46,15 @@ jobs:
             fname: '${{ env.fname }}'
         env:
             fname: ''
+            version: ${{ needs.env-version.outputs.version }}
         steps:
             - uses: actions/checkout@v4
               with:
                 ref: main
 
-            - run: echo '::notice title=[${{ github.job }}] Version::${{ needs.env-version.outputs.version }}'
+            - run: echo '::notice title=[${{ github.job }}] Version::${{ env.version }}'
 
-            - id: fname
-              run: echo 'mods-${{ needs.env-version.outputs.version }}.html'
+            - run: echo 'fname=mods-${{ needs.env-version.outputs.version }}.html' >> $GITHUB_ENV
 
     build-pages:
         needs: 
