@@ -128,8 +128,6 @@ jobs:
             version: ${{ needs.env-version.outputs.version }}
         steps:
             - uses: actions/checkout@v4
-              with:
-                ref: main
                 
             - uses: actions/setup-node@v3
 
