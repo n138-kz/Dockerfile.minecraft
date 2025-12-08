@@ -40,6 +40,6 @@ jobs:
             - run: tree
 
             - name: Build the page
-              run: python mods-pages-build.py
+              run: test -f mods-pages-build.py && python mods-pages-build.py
               working-directory: docs
 
