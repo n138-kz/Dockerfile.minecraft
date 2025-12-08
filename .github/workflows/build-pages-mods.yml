@@ -2,6 +2,12 @@ name: 'Create the github pages: mods.html'
 
 on:
     workflow_dispatch:
+        inputs:
+            version:
+                default: 1.21.10
+                required: true
+                type: string
+                description: Minecraft version
     push:
         paths:
             - docs/mods-pages-build.py
