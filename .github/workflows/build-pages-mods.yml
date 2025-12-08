@@ -20,7 +20,22 @@ permissions:
     pull-requests: write
 
 jobs:
+    env-version:
+        runs-on: ubuntu-latest
+        outputs:
+            version: ${{ steps.version.outputs.value }}
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                ref: main
+                
+            - id: version
+              if: ${{ inputs.version == '' }}
+              run: echo '1.21.10'
+
     build-pages:
+        needs: 
+            - env-version
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
