@@ -35,6 +35,20 @@ jobs:
 
             - run: echo '::notice title=Version::${{ steps.version.outputs.value }}'
 
+    env-fname:
+        needs: 
+            - env-version
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                ref: main
+
+            - id: fname
+              run: echo 'mods-${{ needs.env-version.outputs.version.value }}.html'
+
+            - run: echo '::notice title=Version::${{ steps.fname.outputs.value }}'
+
     build-pages:
         needs: 
             - env-version
