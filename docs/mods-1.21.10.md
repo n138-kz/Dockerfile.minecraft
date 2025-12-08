@@ -22,5 +22,4 @@
 ## datapacks
 | Type | Name | Descr |
 | :---: | --- | --- |
-| datapack | | 記載予定 |
-
+| datapack | all-oh-all.evo | つるはし、斧、シャベル、クワ、はさみでの一括破壊を出来るようにするデータパック |
