@@ -3,7 +3,7 @@
 ## mods
 
 | Icon | Name | Descr |
-| :---: | --- | --- |
+| --- | --- | --- |
 | <img src="https://fabricmc.net/assets/logo.png" style="height: 3em;" /> | [fabric-api](https://www.curseforge.com/minecraft/mc-mods/fabric-api) | Fabric Core API Library<br>MODを動かす為の前提MOD |
 | <img src="https://media.forgecdn.net/avatars/thumbnails/1039/223/64/64/638564744744297085.png" style="height: 3em;" /> | [ForgeConfigAPIPort](https://www.curseforge.com/minecraft/mc-mods/forge-config-api-port-fabric) | [![](https://img.shields.io/badge/Compatible-00aa00?style=for-the-badge&logoColor=white)](/)<br>以下のMODを動かす為の前提MOD<br>- [`PuzzlesLib`](https://www.curseforge.com/minecraft/mc-mods/puzzles-lib) |
 | <img src="https://media.forgecdn.net/avatars/thumbnails/776/232/64/64/638118144989284933.png" style="height: 3em;" /> | [PuzzlesLib](https://www.curseforge.com/minecraft/mc-mods/puzzles-lib) | [![](https://img.shields.io/badge/Compatible-00aa00?style=for-the-badge&logoColor=white)](/)<br>以下のMODを動かす為の前提MOD<br>- [`LeavesBeGone`](https://www.curseforge.com/minecraft/mc-mods/leaves-be-gone) |
