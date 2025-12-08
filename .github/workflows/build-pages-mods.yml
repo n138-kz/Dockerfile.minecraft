@@ -33,6 +33,8 @@ jobs:
               if: ${{ inputs.version == '' }}
               run: echo '1.21.10'
 
+            - run: echo '::notice title=Version::${{ steps.version.outputs.value }}'
+
     build-pages:
         needs: 
             - env-version
