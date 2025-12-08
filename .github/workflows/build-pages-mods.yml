@@ -31,12 +31,12 @@ jobs:
               with:
                 ref: main
                 
-            - run: echo '::set-output name=version::${{ env.version }}${{ inputs.version }}'
+            - run: echo 'version=${{ env.version }}${{ inputs.version }}' >> $GITHUB_ENV
 
             - id: version
               run: echo ${{ env.version }}${{ inputs.version }}
 
-            - run: echo '::notice title=[env-version] Version::${{ steps.version.outputs.value }}'
+            - run: echo '::notice title=[env-version] Version::${{ env.version }}'
 
     env-fname:
         needs: 
