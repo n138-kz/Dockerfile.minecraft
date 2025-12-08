@@ -106,7 +106,7 @@ jobs:
               working-directory: docs
 
             - name: Get size of Build file
-              run: echo '::notice title=[${{ github.job }}] Fsize::$(ls -l preview-${{ env.fname }} | awk "{print $5}")'
+              run: echo '::notice title=[${{ github.job }}] Fsize::'$(ls -l preview-${{ env.fname }} | awk '{print $5}')
               working-directory: docs
 
             - name: Upload markdown file
