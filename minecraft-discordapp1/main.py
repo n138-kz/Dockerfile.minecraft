@@ -770,7 +770,7 @@ async def mcrcon_list(ctx: discord.Interaction, args1: str = None, args2: str = 
                                 result += line + '\n'
                             result += '<<<\n'
                         else:
-                            result += 'No match in latest log file.\n'
+                            result += 'No entry were found\n'
                     logger.info(result)
                 else:
                     # args2 が登録されていない文字の場合
