@@ -168,7 +168,7 @@ services:
       options:
         max-size: "1024k"
         max-file: "10"
-    command: [ 'sh -c "cp -r /var/minecraft /tmp/ && cd /tmp/minecraft && tar cavf /mnt/host/mods/game_$(date +%s)_$(date +%Y%m%d_%H%M%S).tar --exclude .fabric --exclude libraries --exclude versions ./" && for i in ~/minecraft-server/mods/*.tar' ]
+    command: [ 'sh -c "cp -r /var/minecraft /tmp/ && cd /tmp/minecraft && tar cavf /mnt/host/mods/game_$(date +%s)_$(date +%Y%m%d_%H%M%S).tar --exclude .fabric --exclude libraries --exclude versions ./" && for i in ~/minecraft-server/mods/*.tar; do xz "${i}"; done' ]
 
 volumes:
   minecraft-core:
