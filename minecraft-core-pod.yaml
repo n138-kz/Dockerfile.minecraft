@@ -1,0 +1,59 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -f docker-compose.yml
+    kompose.version: 1.38.0 (a8f5d1cbd)
+  labels:
+    io.kompose.service: minecraft-core
+  name: minecraft-core
+spec:
+  containers:
+    - env:
+        - name: LANG
+          value: C
+        - name: LANGUAGE
+          value: C
+        - name: LC_ALL
+          value: C
+        - name: PGID
+          value: "1000"
+        - name: PUID
+          value: "1000"
+        - name: TZ
+          value: Asia/Tokyo
+      image: minecraft-core
+      name: minecraft-core
+      ports:
+        - containerPort: 25565
+          protocol: TCP
+        - containerPort: 19132
+          protocol: UDP
+        - containerPort: 8123
+          protocol: TCP
+        - containerPort: 24454
+          protocol: UDP
+      tty: true
+      volumeMounts:
+        - mountPath: /var/minecraft
+          name: minecraft-core
+        - mountPath: /mnt/host
+          name: minecraft-core-cm1
+        - mountPath: /run
+          name: minecraft-core-tmpfs0
+        - mountPath: /tmp
+          name: minecraft-core-tmpfs1
+  restartPolicy: OnFailure
+  volumes:
+    - name: minecraft-core
+      persistentVolumeClaim:
+        claimName: minecraft-core
+    - configMap:
+        name: minecraft-core-cm1
+      name: minecraft-core-cm1
+    - emptyDir:
+        medium: Memory
+      name: minecraft-core-tmpfs0
+    - emptyDir:
+        medium: Memory
+      name: minecraft-core-tmpfs1

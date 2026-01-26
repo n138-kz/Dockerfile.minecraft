@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -f docker-compose.yml
+    kompose.version: 1.38.0 (a8f5d1cbd)
+  labels:
+    io.kompose.service: minecraft-discordapp1
+  name: minecraft-discordapp1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: minecraft-discordapp1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -f docker-compose.yml
+        kompose.version: 1.38.0 (a8f5d1cbd)
+      labels:
+        io.kompose.service: minecraft-discordapp1
+    spec:
+      containers:
+        - image: minecraft-discordapp1
+          name: minecraft-discordapp1
+          volumeMounts:
+            - mountPath: /media
+              name: minecraft-discordapp1-cm0
+              readOnly: true
+            - mountPath: /log/custom
+              name: minecraft-discordapp1-claim1
+            - mountPath: /etc/custom
+              name: minecraft-discordapp1-claim2
+      restartPolicy: Always
+      volumes:
+        - configMap:
+            name: minecraft-discordapp1-cm0
+          name: minecraft-discordapp1-cm0
+        - name: minecraft-discordapp1-claim1
+          persistentVolumeClaim:
+            claimName: minecraft-discordapp1-claim1
+        - name: minecraft-discordapp1-claim2
+          persistentVolumeClaim:
+            claimName: minecraft-discordapp1-claim2

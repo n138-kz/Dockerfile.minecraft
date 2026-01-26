@@ -1,0 +1,257 @@
+apiVersion: v1
+data:
+  .env: |
+    minecraft_server_jar_url="https://piston-data.mojang.com/v1/objects/45810d238246d90e811d896f87b14695b7fb6839/server.jar"
+    minecraft_server_version="1.21.3"
+  .env.txt: |
+    minecraft_mod_dynmap_port=8123
+    minecraft_server_config_rcon_password=minecraft
+    minecraft_server_config_servericon=https://n138-kz.github.io/Dockerfile.minecraft/assets/sample-server-icon.png
+    minecraft_server_jar_url=https://piston-data.mojang.com/v1/objects/6bce4ef400e4efaa63a13d5e6f6b500be969ef81/server.jar
+    minecraft_server_port=25565
+    minecraft_server_version=1.21.10
+    minecraft_mod_voicechat_port=24454
+    minecraft_server_config_difficulty=hard
+    minecraft_server_config_force_gamemode=true
+    minecraft_server_config_view_distance=16
+    discord_webhook_url=https://discord.com/api/webhooks/xxxxx/yyyyy-zzzzz
+  .gitignore: |
+    # Temporary files
+    *.tmp
+    *.lock
+
+    # Backup files
+    *.bak*
+
+    # Log files
+    *.log
+
+    # Secret files
+    *.env
+    *.venv
+    env/
+    venv/
+    *.db
+    *.sqlite
+    *.sqlite3
+    world*
+    logs/
+    mods/
+    /conf.d
+  LICENSE: |
+    MIT License
+
+    Copyright (c) 2024 Yuu Komiya (n138)
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE.
+  backup_minecraft.sh: |+
+    #!/bin/bash
+    countdown() {
+            # https://zenn.dev/soma3134/articles/68e36621f6a43e#%5C033%5B0k%5Cr
+            local seconds=$1
+            while [ $seconds -gt 0 ]; do
+                    echo -ne "Waiting: ${seconds}s\033[0K\r"
+                    sleep 1
+                    ((seconds--))
+            done
+    }
+    while :;do
+    	echo "> cd minecraft-server; cp /var/minecraft /tmp/; tar cavf game_$(date +%s)_$(date +%Y%m%d_%H%M%S).tar"
+    	cd ~/minecraft-server && \
+    	docker compose exec -it minecraft-rcon mcrcon list save-all && \
+    	docker run --rm -it \
+    		-v minecraft-server_minecraft-core:/var/minecraft:ro \
+    		-v ~/minecraft-server:/mnt/host \
+    		-w /var/minecraft alpine sh \
+    		-c "cp -r /var/minecraft /tmp/ && cd /tmp/minecraft && tar cavf /mnt/host/mods/game_$(date +%s)_$(date +%Y%m%d_%H%M%S).tar --exclude .fabric --exclude libraries --exclude versions ./" && \
+    	for i in ~/minecraft-server/mods/*.tar
+    	do
+    		echo "> xz ${i}"
+    		xz "${i}"
+    	done
+    	echo "> mv *xz ~/Downloads/"
+    	mv ~/minecraft-server/mods/*xz ~/Downloads/
+
+    	echo "> mv ~/Downloads/*xz ~/gdrive"
+    	mountpoint -q ~/gdrive && mv ~/Downloads/*xz ~/gdrive/Chrome\ から保存/
+
+    	echo "> wait 3hour"
+    	countdown 10800 #3hours
+    done
+
+  docker-compose.yml: |
+    services:
+      minecraft-rcon:
+        environment:
+          PUID: 1000
+          PGID: 1000
+          TZ: Asia/Tokyo
+          LANG: "C"
+          LANGUAGE: "C"
+          LC_ALL: "C"
+        restart: on-failure
+        depends_on:
+          minecraft-core:
+            condition: service_started
+            restart: true
+            required: true
+        healthcheck:
+          test: ["CMD", "mcrcon", "list"]
+          interval: 1m
+          timeout: 10s
+          retries: 3
+          start_period: 30s
+        build:
+          context: build_container_rcon/
+          args:
+            - minecraft_server_config_rcon_host=${minecraft_server_config_rcon_host:-minecraft-core}
+            - minecraft_server_config_rcon_port=${minecraft_server_config_rcon_port:-25575}
+            - minecraft_server_config_rcon_password=${minecraft_server_config_rcon_password:-25575password@1}
+        tty: true
+        tmpfs:
+          - /run
+          - /tmp
+        logging:
+          driver: json-file
+          options:
+            max-size: "1024k"
+            max-file: "10"
+
+      minecraft-core:
+        environment:
+          PUID: 1000
+          PGID: 1000
+          TZ: Asia/Tokyo
+          LANG: "C"
+          LANGUAGE: "C"
+          LC_ALL: "C"
+        build:
+          context: build_container_core/
+          args:
+            - minecraft_server_jar_url=${minecraft_server_jar_url:-https://piston-data.mojang.com/v1/objects/6bce4ef400e4efaa63a13d5e6f6b500be969ef81/server.jar}
+            - minecraft_server_version=${minecraft_server_version:-1.21.8}
+            - minecraft_server_config_servericon=${minecraft_server_config_servericon:-https://n138-kz.github.io/Dockerfile.minecraft/assets/sample-server-icon.png}
+            - minecraft_server_config_difficulty=${minecraft_server_config_difficulty:-normal}
+            - minecraft_server_config_enable_command_block=${minecraft_server_config_enable_command_block:-false}
+            - minecraft_server_config_enable_jmx_monitoring=${minecraft_server_config_enable_jmx_monitoring:-false}
+            - minecraft_server_config_enable_query=${minecraft_server_config_enable_query:-false}
+            - minecraft_server_config_enable_rcon=${minecraft_server_config_enable_rcon:-true}
+            - minecraft_server_config_enable_status=${minecraft_server_config_enable_status:-true}
+            - minecraft_server_config_enforce_secure_profile=${minecraft_server_config_enforce_secure_profile:-true}
+            - minecraft_server_config_enforce_whitelist=${minecraft_server_config_enforce_whitelist:-false}
+            - minecraft_server_config_entity_broadcast_range_percentage=${minecraft_server_config_entity_broadcast_range_percentage:-100}
+            - minecraft_server_config_force_gamemode=${minecraft_server_config_force_gamemode:-true}
+            - minecraft_server_config_function_permission_level=${minecraft_server_config_function_permission_level:-2}
+            - minecraft_server_config_gamemode=${minecraft_server_config_gamemode:-survival}
+            - minecraft_server_config_generate_structures=${minecraft_server_config_generate_structures:-true}
+            - minecraft_server_config_generator_settings=${minecraft_server_config_generator_settings:-{}}
+            - minecraft_server_config_hardcore=${minecraft_server_config_hardcore:-false}
+            - minecraft_server_config_hide_online_players=${minecraft_server_config_hide_online_players:-false}
+            - minecraft_server_config_initial_disabled_packs=${minecraft_server_config_initial_disabled_packs:-}
+            - minecraft_server_config_initial_enabled_packs=${minecraft_server_config_initial_enabled_packs:-vanilla}
+            - minecraft_server_config_level_name=${minecraft_server_config_level_name:-world}
+            - minecraft_server_config_level_seed=${minecraft_server_config_level_seed:-}
+            - minecraft_server_config_level_type=${minecraft_server_config_level_type:-minecraft\:normal}
+            - minecraft_server_config_log_ips=${minecraft_server_config_log_ips:-true}
+            - minecraft_server_config_max_chained_neighbor_updates=${minecraft_server_config_max_chained_neighbor_updates:-1000000}
+            - minecraft_server_config_max_players=${minecraft_server_config_max_players:-10}
+            - minecraft_server_config_max_tick_time=${minecraft_server_config_max_tick_time:-60000}
+            - minecraft_server_config_max_world_size=${minecraft_server_config_max_world_size:-29999984}
+            - minecraft_server_config_motd=${minecraft_server_config_motd:-Private server}
+            - minecraft_server_config_network_compression_threshold=${minecraft_server_config_network_compression_threshold:-256}
+            - minecraft_server_config_online_mode=${minecraft_server_config_online_mode:-true}
+            - minecraft_server_config_op_permission_level=${minecraft_server_config_op_permission_level:-4}
+            - minecraft_server_config_pause_when_empty_seconds=${minecraft_server_config_pause_when_empty_seconds:-60}
+            - minecraft_server_config_player_idle_timeout=${minecraft_server_config_player_idle_timeout:-0}
+            - minecraft_server_config_prevent_proxy_connections=${minecraft_server_config_prevent_proxy_connections:-false}
+            - minecraft_server_config_pvp=${minecraft_server_config_pvp:-true}
+            - minecraft_server_config_query_port=${minecraft_server_config_query_port:-25565}
+            - minecraft_server_config_rate_limit=${minecraft_server_config_rate_limit:-0}
+            - minecraft_server_config_rcon_password=${minecraft_server_config_rcon_password:-25575password@1}
+            - minecraft_server_config_rcon_port=${minecraft_server_config_rcon_port:-25575}
+            - minecraft_server_config_region_file_compression=${minecraft_server_config_region_file_compression:-deflate}
+            - minecraft_server_config_require_resource_pack=${minecraft_server_config_require_resource_pack:-false}
+            - minecraft_server_config_resource_pack=${minecraft_server_config_resource_pack:-}
+            - minecraft_server_config_resource_pack_id=${minecraft_server_config_resource_pack_id:-}
+            - minecraft_server_config_resource_pack_prompt=${minecraft_server_config_resource_pack_prompt:-}
+            - minecraft_server_config_resource_pack_sha1=${minecraft_server_config_resource_pack_sha1:-}
+            - minecraft_server_config_server_ip=${minecraft_server_config_server_ip:-}
+            - minecraft_server_config_server_port=${minecraft_server_config_server_port:-25565}
+            - minecraft_server_config_simulation_distance=${minecraft_server_config_simulation_distance:-10}
+            - minecraft_server_config_spawn_monsters=${minecraft_server_config_spawn_monsters:-true}
+            - minecraft_server_config_spawn_protection=${minecraft_server_config_spawn_protection:-16}
+            - minecraft_server_config_sync_chunk_writes=${minecraft_server_config_sync_chunk_writes:-true}
+            - minecraft_server_config_text_filtering_config=${minecraft_server_config_text_filtering_config:-}
+            - minecraft_server_config_text_filtering_version=${minecraft_server_config_text_filtering_version:-0}
+            - minecraft_server_config_use_native_transport=${minecraft_server_config_use_native_transport:-true}
+            - minecraft_server_config_view_distance=${minecraft_server_config_view_distance:-10}
+            - minecraft_server_config_white_list=${minecraft_server_config_white_list:-false}
+        restart: on-failure
+        ports:
+          # 25565/TCP: Minecraft Java Edition
+          - ${minecraft_server_port:-25560-65530}:25565
+          # 19132/UDP: Minecraft Bedrock Edition
+          - ${minecraft_beserver_port:-25560-65530}:19132/UDP
+          # 8123/TCP: Minecraft Dynmap
+          - ${minecraft_mod_dynmap_port:-25560-65530}:8123
+          # 24454/UDP: Minecraft voicechat
+          - ${minecraft_mod_voicechat_port:-25560-65530}:24454/UDP
+        tty: true
+        tmpfs:
+          - /run
+          - /tmp
+        volumes:
+          - type: volume
+            source: minecraft-core
+            target: /var/minecraft
+          - type: bind
+            source: ./
+            target: /mnt/host
+        logging:
+          driver: json-file
+          options:
+            max-size: "1024k"
+            max-file: "10"
+
+      minecraft-discordapp1:
+        build:
+          context: .
+          dockerfile: ./minecraft-discordapp1/Dockerfile
+        restart: always
+        volumes:
+          - type: bind
+            source: ./minecraft-discordapp1/
+            target: /media/
+            read_only: true
+          - type: bind
+            source: ./logs/
+            target: /log/custom/
+            read_only: false
+          - type: bind
+            source: ./conf.d/
+            target: /etc/custom/
+            read_only: false
+
+    volumes:
+      minecraft-core:
+kind: ConfigMap
+metadata:
+  labels:
+    io.kompose.service: minecraft-core
+  name: minecraft-core-cm1

@@ -1,0 +1,49 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -f docker-compose.yml
+    kompose.version: 1.38.0 (a8f5d1cbd)
+  labels:
+    io.kompose.service: minecraft-rcon
+  name: minecraft-rcon
+spec:
+  containers:
+    - env:
+        - name: LANG
+          value: C
+        - name: LANGUAGE
+          value: C
+        - name: LC_ALL
+          value: C
+        - name: PGID
+          value: "1000"
+        - name: PUID
+          value: "1000"
+        - name: TZ
+          value: Asia/Tokyo
+      image: minecraft-rcon
+      livenessProbe:
+        exec:
+          command:
+            - mcrcon
+            - list
+        failureThreshold: 3
+        initialDelaySeconds: 30
+        periodSeconds: 60
+        timeoutSeconds: 10
+      name: minecraft-rcon
+      tty: true
+      volumeMounts:
+        - mountPath: /run
+          name: minecraft-rcon-tmpfs0
+        - mountPath: /tmp
+          name: minecraft-rcon-tmpfs1
+  restartPolicy: OnFailure
+  volumes:
+    - emptyDir:
+        medium: Memory
+      name: minecraft-rcon-tmpfs0
+    - emptyDir:
+        medium: Memory
+      name: minecraft-rcon-tmpfs1
