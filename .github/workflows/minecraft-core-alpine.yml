@@ -1,0 +1,27 @@
+name: Docker Container Build
+
+on:
+  workflow_dispatch:
+  push:
+    paths: 
+      - '**/Dockerfile'
+      - '**/*.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v5
+
+    - name: Create test .env
+      run: touch .env
+
+    - name: Build the Image
+      working-directory: ./build_container_core_alpine
+      run: docker --debug buildx build . --no-cache --tag dev --secret id=PLAIN_RCON_PASSWORD,env=PLAIN_RCON_PASSWORD --build-arg PLAIN_RCON_PORT=25575
+      env:
+        PLAIN_RCON_PASSWORD: minecraft
