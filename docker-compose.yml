@@ -36,13 +36,6 @@ services:
         max-file: "10"
 
   minecraft-core:
-    environment:
-      PUID: 1000
-      PGID: 1000
-      TZ: Asia/Tokyo
-      LANG: "C"
-      LANGUAGE: "C"
-      LC_ALL: "C"
     build:
       context: build_container_core/
       args:
@@ -105,6 +98,13 @@ services:
         - minecraft_server_config_view_distance=${minecraft_server_config_view_distance:-10}
         - minecraft_server_config_white_list=${minecraft_server_config_white_list:-false}
     restart: on-failure
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: Asia/Tokyo
+      LANG: "C"
+      LANGUAGE: "C"
+      LC_ALL: "C"
     ports:
       # 25565/TCP: Minecraft Java Edition
       - ${minecraft_server_port:-25560-65530}:25565
