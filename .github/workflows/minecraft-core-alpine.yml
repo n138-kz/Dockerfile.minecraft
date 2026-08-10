@@ -21,4 +21,5 @@ jobs:
       run: touch .env
 
     - name: Build the Image
+      working-directory: ./build_container_core_alpine
       run: docker build . --no-cache --tag dev
