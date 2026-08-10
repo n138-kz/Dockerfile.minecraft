@@ -136,6 +136,11 @@ services:
       context: .
       dockerfile: ./minecraft-discordapp1/Dockerfile
     restart: always
+    depends_on:
+      minecraft-core:
+        condition: service_started
+        restart: true
+        required: true
     volumes:
       - type: bind
         source: ./minecraft-discordapp1/
