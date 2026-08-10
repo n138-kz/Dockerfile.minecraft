@@ -6,6 +6,7 @@ services:
         - minecraft_server_config_rcon_host=${minecraft_server_config_rcon_host:-minecraft-core}
         - minecraft_server_config_rcon_port=${minecraft_server_config_rcon_port:-25575}
         - minecraft_server_config_rcon_password=${minecraft_server_config_rcon_password:-25575password@1}
+    restart: on-failure
     environment:
       PUID: 1000
       PGID: 1000
@@ -13,7 +14,6 @@ services:
       LANG: "C"
       LANGUAGE: "C"
       LC_ALL: "C"
-    restart: on-failure
     depends_on:
       minecraft-core:
         condition: service_started
