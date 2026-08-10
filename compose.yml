@@ -1,5 +1,17 @@
 services:
   minecraft-rcon:
+    build:
+      context: build_container_rcon/
+      args:
+        - minecraft_server_config_rcon_host=${minecraft_server_config_rcon_host:-minecraft-core}
+        - minecraft_server_config_rcon_port=${minecraft_server_config_rcon_port:-25575}
+        - minecraft_server_config_rcon_password=${minecraft_server_config_rcon_password:-25575password@1}
+    restart: on-failure
+    depends_on:
+      minecraft-core:
+        condition: service_started
+        restart: true
+        required: true
     environment:
       PUID: 1000
       PGID: 1000
@@ -7,24 +19,12 @@ services:
       LANG: "C"
       LANGUAGE: "C"
       LC_ALL: "C"
-    restart: on-failure
-    depends_on:
-      minecraft-core:
-        condition: service_started
-        restart: true
-        required: true
     healthcheck:
       test: ["CMD", "mcrcon", "list"]
       interval: 1m
       timeout: 10s
       retries: 3
       start_period: 30s
-    build:
-      context: build_container_rcon/
-      args:
-        - minecraft_server_config_rcon_host=${minecraft_server_config_rcon_host:-minecraft-core}
-        - minecraft_server_config_rcon_port=${minecraft_server_config_rcon_port:-25575}
-        - minecraft_server_config_rcon_password=${minecraft_server_config_rcon_password:-25575password@1}
     tty: true
     tmpfs:
       - /run
@@ -36,13 +36,6 @@ services:
         max-file: "10"
 
   minecraft-core:
-    environment:
-      PUID: 1000
-      PGID: 1000
-      TZ: Asia/Tokyo
-      LANG: "C"
-      LANGUAGE: "C"
-      LC_ALL: "C"
     build:
       context: build_container_core/
       args:
@@ -105,6 +98,13 @@ services:
         - minecraft_server_config_view_distance=${minecraft_server_config_view_distance:-10}
         - minecraft_server_config_white_list=${minecraft_server_config_white_list:-false}
     restart: on-failure
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: Asia/Tokyo
+      LANG: "C"
+      LANGUAGE: "C"
+      LC_ALL: "C"
     ports:
       # 25565/TCP: Minecraft Java Edition
       - ${minecraft_server_port:-25560-65530}:25565
@@ -136,6 +136,11 @@ services:
       context: .
       dockerfile: ./minecraft-discordapp1/Dockerfile
     restart: always
+    depends_on:
+      minecraft-core:
+        condition: service_started
+        restart: true
+        required: true
     volumes:
       - type: bind
         source: ./minecraft-discordapp1/
