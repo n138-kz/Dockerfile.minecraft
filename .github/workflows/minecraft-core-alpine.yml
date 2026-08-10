@@ -5,7 +5,7 @@ on:
   push:
     paths: 
       - '**/Dockerfile'
-      - '**/compose.yml'
+      - '**/*.yml'
 
 permissions:
   contents: read
