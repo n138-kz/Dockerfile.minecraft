@@ -137,6 +137,8 @@ services:
       context: .
       dockerfile: ./minecraft-discordapp1/Dockerfile
     restart: unless-stopped
+    profiles:
+      - discord
     depends_on:
       minecraft-core:
         condition: service_started
