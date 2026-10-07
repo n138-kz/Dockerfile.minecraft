@@ -6,7 +6,7 @@ services:
         - minecraft_server_config_rcon_host=${minecraft_server_config_rcon_host:-minecraft-core}
         - minecraft_server_config_rcon_port=${minecraft_server_config_rcon_port:-25575}
         - minecraft_server_config_rcon_password=${minecraft_server_config_rcon_password:-25575password@1}
-    restart: on-failure
+    restart: unless-stopped
     depends_on:
       minecraft-core:
         condition: service_started
@@ -19,6 +19,9 @@ services:
       LANG: "C"
       LANGUAGE: "C"
       LC_ALL: "C"
+      MCRCON_HOST: ${minecraft_server_config_rcon_host:-minecraft-core}
+      MCRCON_PORT: ${minecraft_server_config_rcon_port:-25575}
+      MCRCON_PASS: ${minecraft_server_config_rcon_password:-25575password@1}
     healthcheck:
       test: ["CMD", "mcrcon", "list"]
       interval: 1m
@@ -33,7 +36,7 @@ services:
       driver: json-file
       options:
         max-size: "1024k"
-        max-file: "10"
+        max-file: "3"
 
   minecraft-core:
     build:
@@ -97,7 +100,7 @@ services:
         - minecraft_server_config_use_native_transport=${minecraft_server_config_use_native_transport:-true}
         - minecraft_server_config_view_distance=${minecraft_server_config_view_distance:-10}
         - minecraft_server_config_white_list=${minecraft_server_config_white_list:-false}
-    restart: on-failure
+    restart: unless-stopped
     environment:
       PUID: 1000
       PGID: 1000
@@ -107,13 +110,11 @@ services:
       LC_ALL: "C"
     ports:
       # 25565/TCP: Minecraft Java Edition
-      - ${minecraft_server_port:-25560-65530}:25565
+      - ${minecraft_server_port:-25500-25599}:25565
       # 19132/UDP: Minecraft Bedrock Edition
-      - ${minecraft_beserver_port:-25560-65530}:19132/UDP
-      # 8123/TCP: Minecraft Dynmap
-      - ${minecraft_mod_dynmap_port:-25560-65530}:8123
+      - ${minecraft_beserver_port:-19100-19199}:19132/UDP
       # 24454/UDP: Minecraft voicechat
-      - ${minecraft_mod_voicechat_port:-25560-65530}:24454/UDP
+      - ${minecraft_mod_voicechat_port:-25400-25499}:24454/UDP
     tty: true
     tmpfs:
       - /run
@@ -129,13 +130,15 @@ services:
       driver: json-file
       options:
         max-size: "1024k"
-        max-file: "10"
+        max-file: "3"
 
   minecraft-discordapp1:
     build:
       context: .
       dockerfile: ./minecraft-discordapp1/Dockerfile
-    restart: always
+    restart: unless-stopped
+    profiles:
+      - discord
     depends_on:
       minecraft-core:
         condition: service_started
@@ -154,6 +157,11 @@ services:
         source: ./conf.d/
         target: /etc/custom/
         read_only: false
+    logging:
+      driver: json-file
+      options:
+        max-size: "1024k"
+        max-file: "3"
 
 volumes:
   minecraft-core:
