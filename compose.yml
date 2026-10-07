@@ -36,7 +36,7 @@ services:
       driver: json-file
       options:
         max-size: "1024k"
-        max-file: "10"
+        max-file: "3"
 
   minecraft-core:
     build:
@@ -132,7 +132,7 @@ services:
       driver: json-file
       options:
         max-size: "1024k"
-        max-file: "10"
+        max-file: "3"
 
   minecraft-discordapp1:
     build:
