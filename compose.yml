@@ -19,6 +19,9 @@ services:
       LANG: "C"
       LANGUAGE: "C"
       LC_ALL: "C"
+      MCRCON_HOST: ${minecraft_server_config_rcon_host:-minecraft-core}
+      MCRCON_PORT: ${minecraft_server_config_rcon_port:-25575}
+      MCRCON_PASS: ${minecraft_server_config_rcon_password:-25575password@1}
     healthcheck:
       test: ["CMD", "mcrcon", "list"]
       interval: 1m
