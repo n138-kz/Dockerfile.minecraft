@@ -6,7 +6,7 @@ services:
         - minecraft_server_config_rcon_host=${minecraft_server_config_rcon_host:-minecraft-core}
         - minecraft_server_config_rcon_port=${minecraft_server_config_rcon_port:-25575}
         - minecraft_server_config_rcon_password=${minecraft_server_config_rcon_password:-25575password@1}
-    restart: on-failure
+    restart: unless-stopped
     depends_on:
       minecraft-core:
         condition: service_started
@@ -97,7 +97,7 @@ services:
         - minecraft_server_config_use_native_transport=${minecraft_server_config_use_native_transport:-true}
         - minecraft_server_config_view_distance=${minecraft_server_config_view_distance:-10}
         - minecraft_server_config_white_list=${minecraft_server_config_white_list:-false}
-    restart: on-failure
+    restart: unless-stopped
     environment:
       PUID: 1000
       PGID: 1000
@@ -135,7 +135,7 @@ services:
     build:
       context: .
       dockerfile: ./minecraft-discordapp1/Dockerfile
-    restart: always
+    restart: unless-stopped
     depends_on:
       minecraft-core:
         condition: service_started
