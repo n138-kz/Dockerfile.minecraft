@@ -131,10 +131,10 @@ jobs:
         run: docker compose logs
 
       - name: "server.properties"
-        run: docker compose exec -it minecraft-core cat server.properties
+        run: docker compose exec -it core cat server.properties
 
       - name: "mcrcon -t list"
-        run: docker compose exec -it minecraft-rcon mcrcon list
+        run: docker compose exec -it rcon mcrcon list
 
       - name: "ls show the Docker containers"
         run: docker compose ls
