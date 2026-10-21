@@ -110,13 +110,13 @@ jobs:
         run: docker compose config
 
       - name: "Build the Docker container: minecraft-core"
-        run: docker compose build --no-cache minecraft-core
+        run: docker compose build --no-cache core
 
       - name: "Build the Docker container: minecraft-rcon"
-        run: docker compose build --no-cache minecraft-rcon
+        run: docker compose build --no-cache rcon
 
       - name: "Build the Docker container: minecraft-discordapp1"
-        run: docker compose build --no-cache minecraft-discordapp1
+        run: docker compose build --no-cache discordapp1
 
       - name: Build the Docker container
         run: docker compose build --no-cache
@@ -143,10 +143,10 @@ jobs:
         run: docker compose ps
 
       - name: "Log show the Docker container: minecraft-core"
-        run: docker compose logs minecraft-core
+        run: docker compose logs core
 
       - name: "Log show the Docker container: minecraft-rcon"
-        run: docker compose logs minecraft-rcon
+        run: docker compose logs rcon
 
       - name: "Log show the Docker container: minecraft-discordapp1"
-        run: docker compose logs minecraft-discordapp1
+        run: docker compose logs discordapp1
