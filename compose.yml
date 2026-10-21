@@ -1,5 +1,6 @@
+name: minecraft
 services:
-  minecraft-rcon:
+  rcon:
     build:
       context: build_container_rcon/
       args:
@@ -35,7 +36,7 @@ services:
         max-size: "1024k"
         max-file: "10"
 
-  minecraft-core:
+  core:
     build:
       context: build_container_core/
       args:
@@ -131,7 +132,7 @@ services:
         max-size: "1024k"
         max-file: "10"
 
-  minecraft-discordapp1:
+  discordapp1:
     build:
       context: .
       dockerfile: ./minecraft-discordapp1/Dockerfile
