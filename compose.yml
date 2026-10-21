@@ -4,12 +4,12 @@ services:
     build:
       context: build_container_rcon/
       args:
-        - minecraft_server_config_rcon_host=${minecraft_server_config_rcon_host:-minecraft-core}
+        - minecraft_server_config_rcon_host=${minecraft_server_config_rcon_host:-core}
         - minecraft_server_config_rcon_port=${minecraft_server_config_rcon_port:-25575}
         - minecraft_server_config_rcon_password=${minecraft_server_config_rcon_password:-25575password@1}
     restart: on-failure
     depends_on:
-      minecraft-core:
+      core:
         condition: service_started
         restart: true
         required: true
@@ -121,7 +121,7 @@ services:
       - /tmp
     volumes:
       - type: volume
-        source: minecraft-core
+        source: core
         target: /var/minecraft
       - type: bind
         source: ./
@@ -138,7 +138,7 @@ services:
       dockerfile: ./minecraft-discordapp1/Dockerfile
     restart: always
     depends_on:
-      minecraft-core:
+      core:
         condition: service_started
         restart: true
         required: true
@@ -159,4 +159,4 @@ services:
       - discord
 
 volumes:
-  minecraft-core:
+  core:
