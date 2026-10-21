@@ -155,6 +155,8 @@ services:
         source: ./conf.d/
         target: /etc/custom/
         read_only: false
+    profiles:
+      - discord
 
 volumes:
   minecraft-core:
