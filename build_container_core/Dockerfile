@@ -1,4 +1,4 @@
-FROM almalinux:8
+FROM almalinux:9
 USER root:root
 
 ARG minecraft_server_jar_url
@@ -61,16 +61,8 @@ ARG minecraft_server_config_view_distance
 ARG minecraft_server_config_white_list
 
 RUN set -x && \
-    dnf update -y --security
-
-RUN set -x && \
-    dnf install -y curl
-
-RUN set -x && \
-    dnf install -y wget
-
-RUN set -x && \
-    dnf install -y java-21-openjdk-headless
+    dnf update -y --security \
+    && dnf install -y --allowerasing curl wget java-25-openjdk-headless
 
 RUN set -x && \
     echo '#!/bin/bash' > /usr/local/bin/ll && \
